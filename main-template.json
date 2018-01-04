@@ -267,7 +267,7 @@
         "namespaceName": "[concat(parameters('namespaceNamePrefix'),uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
         "deploymentApiVersion": "2016-02-01",
-        "baseUrl": ""
+        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/staging/"
     },
     "resources": [
         {
