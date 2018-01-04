@@ -209,7 +209,7 @@
         "nodeServer":{
             "location": "[resourceGroup().location]",
             "nodeServerName":"[parameters('nodeServerName')]",
-            "NodeServerPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/AssetMonitoring.zip',variables('SasToken'))]",
+            "NodeServerPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSMessagingServer.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
