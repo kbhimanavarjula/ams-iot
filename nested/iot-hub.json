@@ -12,7 +12,7 @@
             "apiVersion": "2016-02-03",
             "location": "[parameters('iotHub').location]",
             "type": "Microsoft.Devices/IotHubs",
-            "name": "[parameters('iotHub').iotHubName]",
+            "name": "[parameters('iotHub').iotHubHostName]",
             "properties": {
                 "eventHubEndpoints": {
                     "events": {
@@ -40,9 +40,9 @@
             "apiVersion": "2016-02-03",
             "type": "Microsoft.Devices/iotHubs/eventhubEndpoints/ConsumerGroups",
             "dependsOn": [
-                "[concat('Microsoft.Devices/iothubs/', parameters('iotHub').iotHubName)]"
+                "[concat('Microsoft.Devices/iothubs/', parameters('iotHub').iotHubHostName)]"
             ],
-            "name": "[concat(parameters('iotHub').iotHubName, '/events/',parameters('iotHub').d2cConsumerGroupName,copyIndex(1))]",
+            "name": "[concat(parameters('iotHub').iotHubHostName, '/events/',parameters('iotHub').d2cConsumerGroupName,copyIndex(1))]",
             "copy": {
                 "name": "consumergroupcopy",
                 "mode": "Serial",

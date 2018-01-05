@@ -153,7 +153,7 @@
         "hostingPlan": {
             "location": "[resourceGroup().location]",
             "hostingPlanName": "AppServPlan",
-            "skuName": "[parameters('webSkuName')]",
+            "webSkuName": "[parameters('webSkuName')]",
             "skuCapacity": "[parameters('skuCapacity')]"
         },
         "webApp": {
@@ -192,6 +192,7 @@
         },
         "sqlServer": {
             "location": "[resourceGroup().location]",
+            "sqlserverName": "[variables('sqlserverName')]",
             "databaseConnString": "[concat('Server=tcp:',variables('sqlserverName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;')]",
             "sqlServerAddress": "[concat('tcp:',variables('sqlserverName'),'.database.windows.net')]",
             "sqldatabasename": "[parameters('sqldatabasename')]",
