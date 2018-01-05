@@ -188,7 +188,8 @@
             "ADEndpoint": "https://login.windows.net/",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
-            "AlertJobConsumerGroupPrefix": "congrp_"
+            "AlertJobConsumerGroupPrefix": "congrp_",
+            "alertJobTable": "Alerts"
         },
         "restServer": {
             "location": "[parameters('location')]",
