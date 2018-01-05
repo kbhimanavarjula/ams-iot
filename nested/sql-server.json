@@ -53,7 +53,7 @@
                             },
                             "properties": {
                                 "storageKeyType": "[parameters('sqlServer').storageKeyType]",
-                                "storageKey": "[parameters('sqlServer').DeployStorageAccountKey]",
+                                "storageKey": "[parameters('sqlServer').storageKey]",
                                 "storageUri": "[parameters('sqlServer').bacpacUri]",
                                 "administratorLogin": "[parameters('sqlServer').sqlAdministratorLogin]",
                                 "administratorLoginPassword": "[parameters('sqlServer').sqlAdministratorLoginPassword]",

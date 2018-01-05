@@ -201,6 +201,7 @@
             "sqlAdministratorLogin": "[parameters('sqlAdministratorLogin')]",
             "sqlAdministratorLoginPassword": "[parameters('sqlAdministratorLoginPassword')]",
             "storageKeyType": "SharedAccessKey",
+            "storageKey": "?",
             "bacpacUri": "https://projectiot.blob.core.windows.net/ams-iot/AssetMonitoring.bacpac",
             "DeployStorageAccountKey": "[variables('DeployStorageAccountKey')]"
         },
