@@ -149,7 +149,8 @@
             "DocDBGroupGpsCollection": "GroupGpsData",
             "DocDBSensorCollection": "SensorData",
             "DocDBOfferThroughput": "2500",
-            "documentDBEndpoint":"[concat('Microsoft.DocumentDb/databaseAccounts/', variables('DocDBAccountName'))]"
+            "documentDBEndpoint":"[concat('Microsoft.DocumentDb/databaseAccounts/', variables('DocDBAccountName'))]",
+            "documentDBAuthKey":"[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
         },
         "hostingPlan": {
             "location": "[resourceGroup().location]",
