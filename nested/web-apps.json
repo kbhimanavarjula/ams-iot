@@ -136,7 +136,7 @@
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
                         "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]",
-                        "[concat('Microsoft.Devices/iothubs/', parameters('iotHub').iotHubHostName)]"
+                        "[concat('Microsoft.Devices/iothubs/', parameters('iotHub').iotHubName)]"
                     ],
                     "tags": {
                         "displayName": "RESTServerMSDeploy"
@@ -187,7 +187,7 @@
                         "displayName": "restAppSettings"
                     },
                     "properties": {
-                        "iotHub:ConnectionString": "[concat('HostName=',parameters('iotHub').iotHubHostName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(resourceId('Microsoft.Devices/IotHubs/Iothubkeys', parameters('iotHub').iotHubHostName, parameters('iotHub').iotHubKeyName), '2016-02-03').primaryKey)]",
+                        "iotHub:ConnectionString": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(resourceId('Microsoft.Devices/IotHubs/Iothubkeys', parameters('iotHub').iotHubName, parameters('iotHub').iotHubKeyName), '2016-02-03').primaryKey)]",
                         "iotHub:HostName": "[parameters('iotHub').iotHubHostName]",
                         "eventHub:Name": "[parameters('eventHub').eventHubName]",
                         "eventHub:NameSpace": "[parameters('eventHub').namespaceName]",
@@ -327,9 +327,9 @@
                         "sql:Database": "[parameters('sqlServer').sqldatabasename]",
                         "sql:User": "[parameters('sqlServer').sqlAdministratorLogin]",
                         "sql:Password": "[parameters('sqlServer').sqlAdministratorLoginPassword]",
-                        "iotHub:ConnectionString": "[concat('HostName=',parameters('iotHub').iotHubHostName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubHostName,';SharedAccessKey=',listKeys(resourceId('Microsoft.Devices/IotHubs/Iothubkeys', parameters('iotHub').iotHubHostName, parameters('iotHub').iotHubKeyName), '2016-02-03').primaryKey)]",
+                        "iotHub:ConnectionString": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubName,';SharedAccessKey=',listKeys(resourceId('Microsoft.Devices/IotHubs/Iothubkeys', parameters('iotHub').iotHubName, parameters('iotHub').iotHubKeyName), '2016-02-03').primaryKey)]",
                         "iotHub:HostName": "[parameters('iotHub').iotHubHostName]",
-                        "iotHub:SharedAccessPolicyKey": "[listKeys(resourceId('Microsoft.Devices/IotHubs/Iothubkeys', parameters('iotHub').iotHubHostName, parameters('iotHub').iotHubKeyName), '2016-02-03').primaryKey]",
+                        "iotHub:SharedAccessPolicyKey": "[listKeys(resourceId('Microsoft.Devices/IotHubs/Iothubkeys', parameters('iotHub').iotHubName, parameters('iotHub').iotHubKeyName), '2016-02-03').primaryKey]",
                         "iotHub:SharedAccessPolicyName": "[ parameters('iotHub').iotHubKeyName]",
                         "b2c:AadInstance": "[parameters('B2CVariables').b2cAadInstance]",
                         "b2c:Tenant": "[parameters('B2CVariables').b2cTenant]",
@@ -518,7 +518,7 @@
                     "type": "Custom"
                   },
                   "ConnectionString": {
-                    "value": "[concat('HostName=',parameters('iotHub').iotHubHostName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(resourceId('Microsoft.Devices/IotHubs/Iothubkeys', parameters('iotHub').iotHubHostName, parameters('iotHub').iotHubKeyName), '2016-02-03').primaryKey)]",
+                    "value": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(resourceId('Microsoft.Devices/IotHubs/Iothubkeys', parameters('iotHub').iotHubName, parameters('iotHub').iotHubKeyName), '2016-02-03').primaryKey)]",
                     "type": "Custom"
                   },
                   "ConsumerGroup": {

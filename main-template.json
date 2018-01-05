@@ -218,6 +218,7 @@
             "skuName": "[parameters('skuName')]",
             "capacityUnits": "[parameters('capacityUnits')]",
             "iotHubKeyName": "iothubowner",
+            "iotHubName": "[variables('iotHubName')]",
             "iotHubHostName": "[concat(variables('iotHubName'),'.azure-devices.net')]",
             "d2cConsumerGroupName": "congrp_"
         },
