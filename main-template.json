@@ -245,7 +245,7 @@
         "iotHubName": "[concat(parameters('iotHubName1'),uniqueString(resourceGroup().id))]",
         "iotHubKeyName": "iothubowner",
         "DeployStorageAccountName": "projectiot",
-        "DeployStorageAccountKey": "",
+        "DeployStorageAccountKey": "68qPHnikzAitr3fjvPAyem7Tc0y2pf+BVob4F+opoX20PhV0yJGQc/guxxhCV/Uscp0gE1EHn+GCGfwOiaF9tg==",
         "SasToken": "?",
         "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
