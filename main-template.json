@@ -175,7 +175,7 @@
         "webApp": {
             "location": "[parameters('location')]",
             "webSiteName": "[parameters('webSiteName')]",
-            "WebAppPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/WebPortal.zip',variables('SasToken'))]",
+            "WebAppPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/publish.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
         },
