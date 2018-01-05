@@ -217,9 +217,10 @@
             "skuCapacity": "[parameters('skuCapacity')]",
             "skuName": "[parameters('skuName')]",
             "capacityUnits": "[parameters('capacityUnits')]",
-            "iotHubKeyName": "iothubowner",
+            "iotHubKeyName": "[variables('iotHubKeyName')]",
             "iotHubName": "[variables('iotHubName')]",
             "iotHubHostName": "[concat(variables('iotHubName'),'.azure-devices.net')]",
+            "iotHubID":"[resourceId('Microsoft.Devices/IotHubs/Iothubkeys', variables('iotHubName'), variables('iotHubKeyName'))]",
             "d2cConsumerGroupName": "congrp_"
         },
         "B2CVariables": {
@@ -239,6 +240,7 @@
         "BlobconnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('DeployStorageAccountName'),';AccountKey=',variables('DeployStorageAccountKey'))]",
         "PowerGridEntities": "[concat('metadata=res://*/Entities.PowergridModel.csdl|res://*/Entities.PowergridModel.ssdl|res://*/Entities.PowergridModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=',variables('sqlserverName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';multipleactiveresultsets=True;application name=EntityFramework\"')]",
         "iotHubName": "[concat(parameters('iotHubName1'),uniqueString(resourceGroup().id))]",
+        "iotHubKeyName": "iothubowner",
         "DeployStorageAccountName": "projectiot",
         "DeployStorageAccountKey": "",
         "SasToken": "?",
