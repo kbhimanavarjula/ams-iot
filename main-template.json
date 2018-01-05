@@ -29,25 +29,6 @@
                 "description": "Number of desired IoT Hub units. Restricted to 1 unit for F1. Can be set up to maximum number allowed for subscription."
             }
         },
-        "namespaceNamePrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the EventHub namespace"
-            }
-        },
-        "eventHubName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Event Hub"
-            }
-        },
-        "databaseAccountNamePrefix": {
-            "type": "string",
-            "maxLength": 17,
-            "metadata": {
-                "description": "Prefix for DocumentDB database account name which should be unique."
-            }
-        },
         "sqlAdministratorLogin": {
             "type": "string",
             "metadata": {
@@ -92,13 +73,6 @@
             "minValue": 1,
             "metadata": {
                 "description": "Describes plan's instance count"
-            }
-        },
-        "hostingPlanName": {
-            "type": "string",
-            "defaultValue": "AppServPlan",
-            "metadata": {
-                "description": "Describes Hosting plan's name"
             }
         },
         "webSiteName": {
@@ -169,7 +143,7 @@
         },
         "documentDB": {
             "location": "[resourceGroup().location]",
-            "DocDBAccountName": "[concat(toLower(parameters('databaseAccountNamePrefix')),uniqueString('resourceGroup().id'))]",
+            "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),uniqueString('resourceGroup().id'))]",
             "offerType": "Standard",
             "DocDBName": "AssetTrackingDB",
             "DocDBGroupGpsCollection": "GroupGpsData",
@@ -178,7 +152,7 @@
         },
         "hostingPlan": {
             "location": "[resourceGroup().location]",
-            "hostingPlanName": "[parameters('hostingPlanName')]",
+            "hostingPlanName": "AppServPlan",
             "skuName": "[parameters('webSkuName')]",
             "skuCapacity": "[parameters('skuCapacity')]"
         },
@@ -230,12 +204,12 @@
         "eventHub": {
             "location": "[resourceGroup().location]",
             "namespaceName": "[variables('namespaceName')]",
-            "eventHubName": "[parameters('eventHubName')]",
+            "eventHubName": "[variables('eventHubName')]",
             "defaultSASKeyName": "[variables('defaultSASKeyName')]",
             "eventhubNamepaceResourceID": "[resourceId('Microsoft.EventHub/namespaces/authorizationRules', variables('namespaceName'), variables('defaultSASKeyName'))]",
             "primaryKey": "[variables('primaryKey')]",
             "secondaryKey": "[variables('secondaryKey')]",
-            "eventhubConnectionString": "[concat('Endpoint=sb://', variables('namespaceName'), '.servicebus.windows.net/;SharedAccessKeyName=EventHubOwner;SharedAccessKey=', variables('primaryKey'), ';EntityPath=', parameters('eventHubName'))]"
+            "eventhubConnectionString": "[concat('Endpoint=sb://', variables('namespaceName'), '.servicebus.windows.net/;SharedAccessKeyName=EventHubOwner;SharedAccessKey=', variables('primaryKey'), ';EntityPath=', variables('eventHubName'))]"
         },
         "iotHub": {
             "location": "[resourceGroup().location]",
@@ -255,6 +229,9 @@
             "b2cSignUpSignInPolicyId": "[parameters('b2cSignUpSignInPolicyId')]",
             "b2cNativeRedirectURL": "[parameters('b2cNativeRedirectURL')]"
         },
+        "databaseAccountNamePrefix":"docdb",
+        "eventHubName": "[concat('eventhub',variables('suffix'))]",
+        "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
         "primaryKey": "[concat(uniqueString(variables('namespaceName'), resourceGroup().Id, 'primaryKey'),'3VZcT2e5NfVeSFvTuiYUiWtXhxnJ2s=')]",
         "secondaryKey": "[concat(uniqueString(variables('namespaceName'), resourceGroup().Id, 'secondaryKey'),'F9NRSV78nYomDlFjsz21X9aVKPL4Eo=')]",
         "BlobconnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('DeployStorageAccountName'),';AccountKey=',variables('DeployStorageAccountKey'))]",
@@ -264,7 +241,7 @@
         "DeployStorageAccountKey": "",
         "SasToken": "?",
         "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
-        "namespaceName": "[concat(parameters('namespaceNamePrefix'),uniqueString(resourceGroup().id))]",
+        "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
         "deploymentApiVersion": "2016-02-01",
         "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/staging/"
