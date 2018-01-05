@@ -380,15 +380,15 @@
     "outputs": {
         "sqlSvrFqdn": {
             "type": "string",
-            "value": "[reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName]"
+            "value": "[reference('SqlServer').outputs.sqlSvrFqdn.value]"
         },
         "WebSiteUri": {
             "type": "string",
-            "value": "[reference(concat('Microsoft.Web/sites/', parameters('webSiteName'))).hostnames[0]]"
+            "value": "[reference('WebApps').outputs.WebSiteUri.value]"
         },
         "RESTSiteUri": {
             "type": "string",
-            "value": "[reference(concat('Microsoft.Web/sites/', parameters('apiServerName'))).hostnames[0]]"
+            "value": "[reference('WebApps').outputs.RESTSiteUri.value]"
         }
     }
 }

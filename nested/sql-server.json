@@ -77,5 +77,11 @@
                 }
             ]
         }
-    ]
+    ],
+    "outputs": {
+        "sqlSvrFqdn": {
+            "type": "string",
+            "value": "[reference(concat('Microsoft.Sql/servers/', parameters('sqlServer').sqlserverName)).fullyQualifiedDomainName]"
+        }
+    }
 }

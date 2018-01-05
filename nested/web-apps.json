@@ -541,5 +541,15 @@
               }
             ]
           }
-    ]
+    ],
+    "outputs": {
+        "WebSiteUri": {
+            "type": "string",
+            "value": "[reference(concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)).hostnames[0]]"
+        },
+        "RESTSiteUri": {
+            "type": "string",
+            "value": "[reference(concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)).hostnames[0]]"
+        }
+    }
 }
