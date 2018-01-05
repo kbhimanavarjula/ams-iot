@@ -143,12 +143,13 @@
         },
         "documentDB": {
             "location": "[resourceGroup().location]",
-            "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),uniqueString('resourceGroup().id'))]",
+            "DocDBAccountName": "[variables('DocDBAccountName')]",
             "offerType": "Standard",
             "DocDBName": "AssetTrackingDB",
             "DocDBGroupGpsCollection": "GroupGpsData",
             "DocDBSensorCollection": "SensorData",
-            "DocDBOfferThroughput": "2500"
+            "DocDBOfferThroughput": "2500",
+            "documentDBEndpoint":"[concat('Microsoft.DocumentDb/databaseAccounts/', variables('DocDBAccountName'))]"
         },
         "hostingPlan": {
             "location": "[resourceGroup().location]",
@@ -232,6 +233,7 @@
             "b2cSignUpSignInPolicyId": "[parameters('b2cSignUpSignInPolicyId')]",
             "b2cNativeRedirectURL": "[parameters('b2cNativeRedirectURL')]"
         },
+        "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),uniqueString('resourceGroup().id'))]",
         "databaseAccountNamePrefix":"docdb",
         "eventHubName": "[concat('eventhub',variables('suffix'))]",
         "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
