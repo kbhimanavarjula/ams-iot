@@ -175,7 +175,7 @@
         "webApp": {
             "location": "[parameters('location')]",
             "webSiteName": "[parameters('webSiteName')]",
-            "WebAppPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/AssetMonitoring.zip',variables('SasToken'))]",
+            "WebAppPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSWebApp.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
         },
@@ -188,7 +188,6 @@
             "ADEndpoint": "https://login.windows.net/",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
-            "AlertJobConsumerGroupPrefix": "congrp_",
             "alertJobTable": "Alerts"
         },
         "restServer": {
