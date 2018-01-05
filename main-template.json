@@ -2,6 +2,21 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "location":{
+            "type": "string",
+            "defaultValue": "eastus",
+            "allowedValues": [
+                "eastus",
+                "northeurope",
+                "southcentralus",
+                "southeastasia",
+                "westeurope",
+                "westus2"
+            ],
+            "metadata": {
+                "description": "Location where all the resources deploy"
+            }
+        },
         "iotHubName1": {
             "type": "string",
             "minLength": 3,
@@ -137,12 +152,12 @@
     },
     "variables": {
         "webJobStorage": {
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "webjobStorageName": "[concat('myperstr', uniqueString(resourceGroup().id))]",
             "webjobStorageType": "[parameters('webjobStorageType')]"
         },
         "documentDB": {
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "DocDBAccountName": "[variables('DocDBAccountName')]",
             "offerType": "Standard",
             "DocDBName": "AssetTrackingDB",
@@ -152,21 +167,21 @@
             "documentDBAuthKey":"[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
         },
         "hostingPlan": {
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "hostingPlanName": "AppServPlan",
             "webSkuName": "[parameters('webSkuName')]",
             "skuCapacity": "[parameters('skuCapacity')]"
         },
         "webApp": {
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "webSiteName": "[parameters('webSiteName')]",
             "WebAppPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/AssetMonitoring.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
         },
         "analyticsServer": {
-            "location": "[resourceGroup().location]",
-            "analyticsServerName": "[parameters('analyticsServerName')]",
+            "location": "[parameters('location')]",
+            "analyticsServerName": "[concat(parameters('analyticsServerName'),variables('suffix'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "AnalyticsServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AssetMonitoringAnalytics.zip',variables('SasToken'))]",
             "PowerGridEntities": "[variables('PowerGridEntities')]",
@@ -176,23 +191,23 @@
             "AlertJobConsumerGroupPrefix": "congrp_"
         },
         "restServer": {
-            "location": "[resourceGroup().location]",
-            "apiServerName": "[parameters('apiServerName')]",
+            "location": "[parameters('location')]",
+            "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
             "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AssetMonitoring.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "nodeServer":{
-            "location": "[resourceGroup().location]",
-            "nodeServerName":"[parameters('nodeServerName')]",
+            "location": "[parameters('location')]",
+            "nodeServerName":"[concat(parameters('nodeServerName'),variables('suffix'))]",
             "NodeServerPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSMessagingServer.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "appInsightResourceName": "[concat('AppInsights', uniquestring(resourceGroup().id))]"
         },
         "sqlServer": {
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "sqlserverName": "[variables('sqlserverName')]",
             "databaseConnString": "[concat('Server=tcp:',variables('sqlserverName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;')]",
             "sqlServerAddress": "[concat('tcp:',variables('sqlserverName'),'.database.windows.net')]",
@@ -205,7 +220,7 @@
             "DeployStorageAccountKey": "[variables('DeployStorageAccountKey')]"
         },
         "eventHub": {
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "namespaceName": "[variables('namespaceName')]",
             "eventHubName": "[variables('eventHubName')]",
             "defaultSASKeyName": "[variables('defaultSASKeyName')]",
@@ -215,7 +230,7 @@
             "eventhubConnectionString": "[concat('Endpoint=sb://', variables('namespaceName'), '.servicebus.windows.net/;SharedAccessKeyName=EventHubOwner;SharedAccessKey=', variables('primaryKey'), ';EntityPath=', variables('eventHubName'))]"
         },
         "iotHub": {
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "skuCapacity": "[parameters('skuCapacity')]",
             "skuName": "[parameters('skuName')]",
             "capacityUnits": "[parameters('capacityUnits')]",

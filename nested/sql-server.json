@@ -68,7 +68,7 @@
                     "dependsOn": [
                         "[parameters('sqlServer').sqlserverName]"
                     ],
-                    "location": "[resourceGroup().location]",
+                    "location": "[parameters('sqlServer').location]",
                     "name": "AllowAllWindowsAzureIps",
                     "properties": {
                         "endIpAddress": "0.0.0.0",
