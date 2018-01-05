@@ -234,7 +234,7 @@
             "b2cSignUpSignInPolicyId": "[parameters('b2cSignUpSignInPolicyId')]",
             "b2cNativeRedirectURL": "[parameters('b2cNativeRedirectURL')]"
         },
-        "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),uniqueString('resourceGroup().id'))]",
+        "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix":"docdb",
         "eventHubName": "[concat('eventhub',variables('suffix'))]",
         "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
