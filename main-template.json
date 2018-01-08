@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location":{
+        "location": {
             "type": "string",
             "defaultValue": "eastus",
             "allowedValues": [
@@ -164,7 +164,7 @@
             "DocDBGroupGpsCollection": "GroupGpsData",
             "DocDBSensorCollection": "SensorData",
             "DocDBOfferThroughput": "2500",
-            "documentDBAuthKey":"[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
+            "documentDBAuthKey": "[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
         },
         "hostingPlan": {
             "location": "[parameters('location')]",
@@ -175,7 +175,7 @@
         "webApp": {
             "location": "[parameters('location')]",
             "webSiteName": "[parameters('webSiteName')]",
-            "WebAppPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/publish.zip',variables('SasToken'))]",
+            "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/publish.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
         },
@@ -196,10 +196,10 @@
             "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AssetMonitoring.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
-        "nodeServer":{
+        "nodeServer": {
             "location": "[parameters('location')]",
-            "nodeServerName":"[concat(parameters('nodeServerName'),variables('suffix'))]",
-            "NodeServerPackageURI":"[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSMessagingServer.zip',variables('SasToken'))]",
+            "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
+            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSMessagingServer.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
@@ -237,7 +237,7 @@
             "iotHubKeyName": "[variables('iotHubKeyName')]",
             "iotHubName": "[variables('iotHubName')]",
             "iotHubHostName": "[concat(variables('iotHubName'),'.azure-devices.net')]",
-            "iotHubID":"[resourceId('Microsoft.Devices/IotHubs/Iothubkeys', variables('iotHubName'), variables('iotHubKeyName'))]",
+            "iotHubID": "[resourceId('Microsoft.Devices/IotHubs/Iothubkeys', variables('iotHubName'), variables('iotHubKeyName'))]",
             "d2cConsumerGroupName": "congrp_"
         },
         "B2CVariables": {
@@ -251,7 +251,7 @@
             "AlertJobConsumerGroupPrefix": "congrp_"
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
-        "databaseAccountNamePrefix":"docdb",
+        "databaseAccountNamePrefix": "docdb",
         "eventHubName": "[concat('eventhub',variables('suffix'))]",
         "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
         "primaryKey": "[concat(uniqueString(variables('namespaceName'), resourceGroup().Id, 'primaryKey'),'3VZcT2e5NfVeSFvTuiYUiWtXhxnJ2s=')]",
@@ -351,7 +351,6 @@
                 "IotHub",
                 "EventHub",
                 "SqlServer"
-
             ],
             "properties": {
                 "mode": "Incremental",
@@ -393,10 +392,10 @@
                     "documentDB": {
                         "value": "[variables('documentDB')]"
                     },
-                    "nodeServer":{
+                    "nodeServer": {
                         "value": "[variables('nodeServer')]"
                     },
-                    "documentDBEndpoint":{
+                    "documentDBEndpoint": {
                         "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
