@@ -175,7 +175,7 @@
         "webApp": {
             "location": "[parameters('location')]",
             "webSiteName": "[parameters('webSiteName')]",
-            "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/publish.zip',variables('SasToken'))]",
+            "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSWebAppServer.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
         },
@@ -183,7 +183,7 @@
             "location": "[parameters('location')]",
             "analyticsServerName": "[concat(parameters('analyticsServerName'),variables('suffix'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
-            "AnalyticsServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AssetMonitoringAnalytics.zip',variables('SasToken'))]",
+            "AnalyticsServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSAnayticsServer.zip',variables('SasToken'))]",
             "PowerGridEntities": "[variables('PowerGridEntities')]",
             "ADEndpoint": "https://login.windows.net/",
             "WindowsManagementUri": "https://management.core.windows.net/",
@@ -193,13 +193,13 @@
         "restServer": {
             "location": "[parameters('location')]",
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
-            "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AssetMonitoring.zip',variables('SasToken'))]",
+            "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSRestServer.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "nodeServer": {
             "location": "[parameters('location')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
-            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSMessagingServer.zip',variables('SasToken'))]",
+            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSNodeServer.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
