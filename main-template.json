@@ -138,6 +138,12 @@
                 "description": "Describes the B2C Sign In policy"
             }
         },
+        "b2cProfileEditPolicyId":{
+            "type": "string",
+            "metadata": {
+                "description": "Describes the B2C Profile Edit policy"
+            }
+        },
         "b2cNativeRedirectURL": {
             "type": "string",
             "metadata": {
@@ -254,6 +260,7 @@
             "b2cClientId": "[parameters('b2cClientId')]",
             "b2cSignInPolicyId":"[parameters('b2cSignInPolicyId')]",
             "b2cSignUpSignInPolicyId": "[parameters('b2cSignUpSignInPolicyId')]",
+            "b2cProfileEditPolicyId":"[parameters('b2cProfileEditPolicyId')]",
             "b2cNativeRedirectURL": "[parameters('b2cNativeRedirectURL')]",
             "AlertJobConsumerGroupPrefix": "congrp_"
         },
