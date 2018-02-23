@@ -114,6 +114,18 @@
                 "description": "Describes Analytics API Server name which should be unique"
             }
         },
+        "AdSubscriptionId":{
+            "type": "string",
+            "metadata": {
+                "description": "Subscription ID of your Azure AD tenant"
+            }
+        },
+        "AdTenantId": {
+            "type": "string",
+            "metadata": {
+              "description": "Tenant ID of Azure AD"
+            }
+          },
         "b2cTenant": {
             "type": "string",
             "metadata": {
@@ -175,7 +187,7 @@
         "webApp": {
             "location": "[parameters('location')]",
             "webSiteName": "[parameters('webSiteName')]",
-            "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSWebAppServer.zip',variables('SasToken'))]",
+            "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/webapp.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
         },
@@ -186,6 +198,8 @@
             "AnalyticsServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSAnayticsServer.zip',variables('SasToken'))]",
             "PowerGridEntities": "[variables('PowerGridEntities')]",
             "ADEndpoint": "https://login.windows.net/",
+            "AdSubscriptionId": "[parameters('AdSubscriptionId')]",
+            "AdTenantId": "[parameters('AdTenantId')]",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
             "alertJobTable": "Alerts"
@@ -193,13 +207,13 @@
         "restServer": {
             "location": "[parameters('location')]",
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
-            "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSRestServer.zip',variables('SasToken'))]",
+            "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSRESTApi.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "nodeServer": {
             "location": "[parameters('location')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
-            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSNodeServer.zip',variables('SasToken'))]",
+            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/nodeserver.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
