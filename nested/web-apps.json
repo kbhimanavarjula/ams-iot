@@ -319,6 +319,8 @@
                         "displayName": "analyticsAppSettings"
                     },
                     "properties": {
+                        "ad:SubscriptionId": "[parameters('analyticsServer').AdSubscriptionId]",
+                        "ad:TenantId": "[parameters('analyticsServer').AdTenantId]",
                         "ad:Endpoint": "[parameters('analyticsServer').ADEndpoint]",
                         "sa:WindowsManagementUri": "[parameters('analyticsServer').WindowsManagementUri]",
                         "sa:ReportJobName": "[parameters('analyticsServer').ReportJobName]",
