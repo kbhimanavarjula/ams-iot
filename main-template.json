@@ -108,12 +108,6 @@
                 "description": "Describes API Server name which should be unique"
             }
         },
-        "analyticsServerName": {
-            "type": "string",
-            "metadata": {
-                "description": "Describes Analytics API Server name which should be unique"
-            }
-        },
         "AdSubscriptionId":{
             "type": "string",
             "metadata": {
@@ -190,19 +184,6 @@
             "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/webapp.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
-        },
-        "analyticsServer": {
-            "location": "[parameters('location')]",
-            "analyticsServerName": "[concat(parameters('analyticsServerName'),variables('suffix'))]",
-            "BlobconnectionString": "[variables('BlobconnectionString')]",
-            "AnalyticsServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSAnayticsServer.zip',variables('SasToken'))]",
-            "PowerGridEntities": "[variables('PowerGridEntities')]",
-            "ADEndpoint": "https://login.windows.net/",
-            "AdSubscriptionId": "[parameters('AdSubscriptionId')]",
-            "AdTenantId": "[parameters('AdTenantId')]",
-            "WindowsManagementUri": "https://management.core.windows.net/",
-            "ReportJobName": "TestJob",
-            "alertJobTable": "Alerts"
         },
         "restServer": {
             "location": "[parameters('location')]",
@@ -281,7 +262,7 @@
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
         "deploymentApiVersion": "2016-02-01",
-        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/staging/"
+        "baseUrl": "https://raw.githubusercontent.com/ooha-m/test-base/master/iot-ams/"
     },
     "resources": [
         {
@@ -399,9 +380,6 @@
                     },
                     "B2CVariables": {
                         "value": "[variables('B2CVariables')]"
-                    },
-                    "analyticsServer": {
-                        "value": "[variables('analyticsServer')]"
                     },
                     "documentDB": {
                         "value": "[variables('documentDB')]"
