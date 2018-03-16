@@ -262,7 +262,7 @@
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
         "deploymentApiVersion": "2016-02-01",
-        "baseUrl": "https://raw.githubusercontent.com/ooha-m/test-base/master/iot-ams/"
+        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/staging/"
     },
     "resources": [
         {
