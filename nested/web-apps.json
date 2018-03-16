@@ -29,9 +29,6 @@
         "B2CVariables": {
             "type": "object"
         },
-        "analyticsServer": {
-            "type": "object"
-        },
         "documentDB": {
             "type": "object"
         },
@@ -201,12 +198,10 @@
                         "b2c:SignUpInPolicyId": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
                         "b2c:MobileTokenUrl": "[parameters('B2CVariables').MobileTokenURL]",
                         "b2c:MobileInstanceUrl": "[parameters('B2CVariables').MobileInstanceUrl]",
-                        "GroupAlertJobApiUrl": "[concat('http://',parameters('analyticsServer').analyticsServerName,'.azurewebsites.net/Api/GroupAlert/')]",
                         "blobStorage:ConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webjobStorage').webjobStorageName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value,';EndpointSuffix=core.windows.net')]",
                         "b2c:MobileRedirectUrl": "[parameters('B2CVariables').b2cNativeRedirectURL]",
                         "documentDB:Endpoint": "[parameters('documentDBEndpoint')]",
                         "documentDB:AuthKey": "[listKeys(parameters('documentDB').documentDBAuthKey, '2015-04-08').primaryMasterKey]",
-                        "InitializeDocumentDBUrl": "[concat('http://',parameters('analyticsServer').analyticsServerName,'.azurewebsites.net/Api/InitializeDocumentDB')]",
                         "documentDB:OfferThroughput": "[parameters('documentDB').DocDBOfferThroughput]",
                         "simulator:DbServer": "[parameters('sqlServer').sqlServerAddress]",
                         "simulator:DbName": "[parameters('sqlServer').sqldatabasename]",
@@ -217,140 +212,7 @@
                 }
             ]
         },
-        {
-            "apiVersion": "2016-03-01",
-            "name": "[parameters('analyticsServer').analyticsServerName]",
-            "type": "Microsoft.Web/sites",
-            "location": "[parameters('analyticsServer').location]",
-            "dependsOn": [
-                "[parameters('hostingPlan').hostingPlanName]",
-                "[parameters('appInsights').appInsightResourceName]"
-            ],
-            "tags": {
-                "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanName))]": "empty",
-                "displayName": "AnalyticsServer"
-            },
-            "properties": {
-                "name": "[parameters('analyticsServer').analyticsServerName]",
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanName)]"
-            },
-            "resources": [
-                {
-                    "apiVersion": "2015-08-01",
-                    "name": "web",
-                    "type": "config",
-                    "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('analyticsServer').analyticsServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('analyticsServer').analyticsServerName, '/extensions/MSDeploy')]"
-                    ],
-                    "tags": {
-                        "displayName": "AnalyticsServerConfig"
-                    },
-                    "properties": {
-                        "phpVersion": "5.6",
-                        "netFrameworkVersion": "v4.6",
-                        "use32BitWorkerProcess": false,
-                        "webSocketsEnabled": true,
-                        "alwaysOn": true,
-                        "remoteDebuggingEnabled": true,
-                        "remoteDebuggingVersion": "VS2015",
-                        "cors": {
-                            "allowedOrigins": [
-                                "[concat('https://',  parameters('webApp').webSiteName, '.azurewebsites.net')]"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "MSDeploy",
-                    "type": "extensions",
-                    "location": "[parameters('analyticsServer').location]",
-                    "apiVersion": "2015-08-01",
-                    "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('analyticsServer').analyticsServerName)]",
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
-                    ],
-                    "tags": {
-                        "displayName": "AnalyticsServerMSDeploy"
-                    },
-                    "properties": {
-                        "packageUri": "[parameters('analyticsServer').AnalyticsServerPackageURI]"
-                    }
-                },
-                {
-                    "name": "connectionstrings",
-                    "type": "config",
-                    "apiVersion": "2015-08-01",
-                    "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('analyticsServer').analyticsServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('analyticsServer').analyticsServerName, '/extensions/MSDeploy')]"
-                    ],
-                    "tags": {
-                        "displayName": "AnalyticsServerConnectionStrings"
-                    },
-                    "properties": {
-                        "BlobConnection": {
-                            "value": "[parameters('analyticsServer').BlobconnectionString]",
-                            "type": "Custom"
-                        },
-                        "PowerGridEntities": {
-                            "value": "[parameters('analyticsServer').PowerGridEntities]",
-                            "type": "Custom"
-                        },
-                        "AzureWebJobsDashboard": {
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
-                            "type": "Custom"
-                        },
-                        "AzureWebJobsStorage": {
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
-                            "type": "Custom"
-                        }
-                    }
-                },
-                {
-                    "name": "appsettings",
-                    "type": "config",
-                    "apiVersion": "2015-08-01",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Web/sites', parameters('analyticsServer').analyticsServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('analyticsServer').analyticsServerName, '/extensions/MSDeploy')]"
-                    ],
-                    "tags": {
-                        "displayName": "analyticsAppSettings"
-                    },
-                    "properties": {
-                        "ad:SubscriptionId": "[parameters('analyticsServer').AdSubscriptionId]",
-                        "ad:TenantId": "[parameters('analyticsServer').AdTenantId]",
-                        "ad:Endpoint": "[parameters('analyticsServer').ADEndpoint]",
-                        "sa:WindowsManagementUri": "[parameters('analyticsServer').WindowsManagementUri]",
-                        "sa:ReportJobName": "[parameters('analyticsServer').ReportJobName]",
-                        "sa:JobResourceGroup": "[parameters('analyticsServer').location]",
-                        "sa:JobLocation": "[parameters('analyticsServer').location]",
-                        "sa:AlertJobTable": "[parameters('analyticsServer').alertJobTable]",
-                        "sql:Server": "[concat(parameters('sqlServer').sqlserverName,'.database.windows.net')]",
-                        "sql:Database": "[parameters('sqlServer').sqldatabasename]",
-                        "sql:User": "[parameters('sqlServer').sqlAdministratorLogin]",
-                        "sql:Password": "[parameters('sqlServer').sqlAdministratorLoginPassword]",
-                        "iotHub:ConnectionString": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubName,';SharedAccessKey=',listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey)]",
-                        "iotHub:HostName": "[parameters('iotHub').iotHubHostName]",
-                        "iotHub:SharedAccessPolicyKey": "[listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey]",
-                        "iotHub:SharedAccessPolicyName": "[ parameters('iotHub').iotHubKeyName]",
-                        "b2c:AadInstance": "[parameters('B2CVariables').b2cAadInstance]",
-                        "b2c:Tenant": "[parameters('B2CVariables').b2cTenant]",
-                        "b2c:ClientId": "[parameters('B2CVariables').b2cClientId]",
-                        "b2c:SignUpInPolicyId": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
-                        "sa:AlertJobConsumerGroupPrefix": "[parameters('B2CVariables').AlertJobConsumerGroupPrefix]",
-                        "sa:AlertJobConsumerGroupCount": "19",
-                        "documentDB:Endpoint": "[parameters('documentDBEndpoint')]",
-                        "documentDB:AuthKey": "[listKeys(parameters('documentDB').documentDBAuthKey, '2015-04-08').primaryMasterKey]",
-                        "documentDB:AccountId": "[parameters('documentDB').DocDBAccountName]",
-                        "documentDB:OfferThroughput": "[parameters('documentDB').DocDBOfferThroughput]",
-                        "InstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsights').appInsightResourceName), '2014-04-01').InstrumentationKey]",
-                        "BlobStorageConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]"
-                    }
-                }
-            ]
-        },
+       
         {
             "apiVersion": "2016-03-01",
             "name": "[parameters('webApp').webSiteName]",
@@ -438,7 +300,6 @@
                 "properties": {
                   "restServer": "[concat('https://', parameters('restServer').apiServerName,'.azurewebsites.net/')]",
                   "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerName,'.azurewebsites.net/')]",
-                  "restServerAnalytics": "[concat('https://', parameters('analyticsServer').analyticsServerName,'.azurewebsites.net/')]",
                   "b2cApplicationId": "[parameters('B2CVariables').b2cClientId]",
                   "tenantName": "[parameters('B2CVariables').b2cTenant]",
                   "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
