@@ -395,26 +395,11 @@
                         "displayName": "nodeAppSettings"
                     },
                     "properties": {
-                        "ConnectionString": {
-                            "value": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey)]",
-                            "type": "Custom"
-                        },
-                        "ConsumerGroup": {
-                            "value": "[concat(parameters('iotHub').d2cConsumerGroupName, '1')]",
-                            "type": "Custom"
-                        },
-                        "EventHubConnectionString": {
-                            "value": "[parameters('eventHub').eventhubConnectionString]",
-                            "type": "Custom"
-                        },
-                        "EventHubPath": {
-                            "value": "[parameters('eventHub').eventHubName]",
-                            "type": "Custom"
-                        },
-                        "InstrumentationKey": {
-                            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsights').appInsightResourceName), '2014-04-01').InstrumentationKey]",
-                            "type": "Custom"
-                        }
+                        "ConnectionString": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey)]",
+                        "ConsumerGroup": "[concat(parameters('iotHub').d2cConsumerGroupName, '1')]",
+                        "EventHubConnectionString": "[parameters('eventHub').eventhubConnectionString]",
+                        "EventHubPath":"[parameters('eventHub').eventHubName]",
+                        "InstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsights').appInsightResourceName), '2014-04-01').InstrumentationKey]"
                     }
                 }
                 
