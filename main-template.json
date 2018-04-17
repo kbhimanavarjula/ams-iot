@@ -337,8 +337,7 @@
                 }
             }
         },
-        {
-            "type": "Microsoft.Resources/deployments",
+        {            "type": "Microsoft.Resources/deployments",
             "name": "WebApps",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
