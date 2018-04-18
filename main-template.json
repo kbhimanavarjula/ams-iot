@@ -194,7 +194,7 @@
         "nodeServer": {
             "location": "[parameters('location')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
-            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/nodeserver.zip',variables('SasToken'))]",
+            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/NodeServer.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
@@ -337,7 +337,8 @@
                 }
             }
         },
-        {            "type": "Microsoft.Resources/deployments",
+        {
+            "type": "Microsoft.Resources/deployments",
             "name": "WebApps",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
