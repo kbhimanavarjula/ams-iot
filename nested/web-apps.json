@@ -396,6 +396,7 @@
                     "displayName": "nodeAppSettings"
                 },
                 "properties": {
+                    "WEBSITE_NODE_DEFAULT_VERSION":"6.9.1",
                     "CUSTOMCONNSTRConnectionString": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey)]",
                     "CUSTOMCONNSTRConsumerGroup": "[concat(parameters('iotHub').d2cConsumerGroupName, '1')]",
                     "CUSTOMCONNSTREventHubConnectionString": "[parameters('eventHub').eventhubConnectionString]",
