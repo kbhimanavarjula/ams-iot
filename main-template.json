@@ -209,7 +209,7 @@
             "AdSubscriptionId": "[parameters('AdSubscriptionId')]",
             "AdTenantId": "[parameters('AdTenantId')]",
             "AdClientId": "[parameters('AdClientId')]",
-            "AdClientSecret": "[parameters('AdSecretKey')]",
+            "AdSecretKey": "[parameters('AdSecretKey')]",
             "JobResourceGroup": "[resourceGroup().name]"
         },
         "nodeServer": {
