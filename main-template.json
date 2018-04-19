@@ -144,6 +144,18 @@
                 "description": "Describes the B2C redirect URL for the Native Client"
             }
         },
+        "AdClientId": {
+            "type": "string",
+            "metadata": {
+              "description": "Client ID of Azure AD application"
+            }
+          },
+          "AdSecretKey": {
+            "type": "string",
+            "metadata": {
+              "description": "Secret Key of Azure AD application"
+            }
+          },
         "webjobStorageType": {
             "type": "string",
             "defaultValue": "Standard_LRS",
@@ -188,13 +200,22 @@
         "restServer": {
             "location": "[parameters('location')]",
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
-            "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSRESTApi.zip',variables('SasToken'))]",
-            "BlobconnectionString": "[variables('BlobconnectionString')]"
+            "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip',variables('SasToken'))]",
+            "BlobconnectionString": "[variables('BlobconnectionString')]",
+            "WindowsManagementUri": "https://management.core.windows.net/",
+            "ReportJobName": "TestJob",
+            "alertJobTable": "Alerts",
+            "ADEndpoint": "https://login.windows.net/",
+            "AdSubscriptionId": "[parameters('AdSubscriptionId')]",
+            "AdTenantId": "[parameters('AdTenantId')]",
+            "AdClientId": "[parameters('AdClientId')]",
+            "AdClientSecret": "[parameters('AdSecretKey')]",
+            "JobResourceGroup": "[resourceGroup().name]"
         },
         "nodeServer": {
             "location": "[parameters('location')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
-            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/NodeServer.zip',variables('SasToken'))]",
+            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/nodeserver419.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
@@ -211,7 +232,7 @@
             "sqlAdministratorLoginPassword": "[parameters('sqlAdministratorLoginPassword')]",
             "storageKeyType": "SharedAccessKey",
             "storageKey": "?",
-            "bacpacUri": "https://projectiot.blob.core.windows.net/ams-iot/assetmonitoring.bacpac",
+            "bacpacUri": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AssetMonitoring.bacpac",
             "DeployStorageAccountKey": "[variables('DeployStorageAccountKey')]"
         },
         "eventHub": {
@@ -222,7 +243,7 @@
             "eventhubNamepaceResourceID": "[resourceId('Microsoft.EventHub/namespaces/authorizationRules', variables('namespaceName'), variables('defaultSASKeyName'))]",
             "primaryKey": "[variables('primaryKey')]",
             "secondaryKey": "[variables('secondaryKey')]",
-            "eventhubConnectionString": "[concat('Endpoint=sb://', variables('namespaceName'), '.servicebus.windows.net/;SharedAccessKeyName=EventHubOwner;SharedAccessKey=', variables('primaryKey'), ';EntityPath=', variables('eventHubName'))]"
+            "eventhubConnectionString": "[concat('Endpoint=sb://', variables('namespaceName'), '.servicebus.windows.net/;SharedAccessKeyName=EventHubOwner;SharedAccessKey=', variables('primaryKey'))]"
         },
         "iotHub": {
             "location": "[parameters('location')]",
