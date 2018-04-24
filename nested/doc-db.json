@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "documentDB": {
+            "type": "object"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2015-04-08",
+            "kind": "GlobalDocumentDB",
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "name": "[parameters('documentDB').DocDBAccountName]",
+            "location": "[parameters('documentDB').location]",
+            "properties": {
+                "name": "[parameters('documentDB').DocDBAccountName]",
+                "databaseAccountOfferType": "[parameters('documentDB').offerType]",
+                "locations": [
+                    {
+                        "locationName": "[parameters('documentDB').location]",
+                        "failoverPriority": 0,
+                        "id": "[concat(parameters('documentDB').DocDBAccountName, '-', parameters('documentDB').location)]"
+                    }
+                ]
+            },
+            "tags": {
+                "defaultExperience": "DocumentDB"
+            }
+        }
+    ],
+    "outputs": {
+        "documentDBEndpoint":{
+            "type": "string",
+            "value": "[reference(concat('Microsoft.DocumentDb/databaseAccounts/', parameters('documentDB').DocDBAccountName)).documentEndpoint]"
+        }
+    }
+}

@@ -1,0 +1,87 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlServer": {
+            "type": "object"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "name": "[parameters('sqlServer').sqlserverName]",
+            "type": "Microsoft.Sql/servers",
+            "location": "[parameters('sqlServer').location]",
+            "tags": {
+                "displayName": "SqlServer"
+            },
+            "apiVersion": "2014-04-01",
+            "properties": {
+                "administratorLogin": "[parameters('sqlServer').sqlAdministratorLogin]",
+                "administratorLoginPassword": "[parameters('sqlServer').sqlAdministratorLoginPassword]",
+                "version": "12.0"
+            },
+            "resources": [
+                {
+                    "name": "[parameters('sqlServer').sqldatabasename]",
+                    "type": "databases",
+                    "location": "[parameters('sqlServer').location]",
+                    "tags": {
+                        "displayName": "Database"
+                    },
+                    "apiVersion": "2015-01-01",
+                    "dependsOn": [
+                        "[parameters('sqlServer').sqlserverName]"
+                    ],
+                    "properties": {
+                        "edition": "Standard",
+                        "collation": "SQL_Latin1_General_CP1_CI_AS",
+                        "maxSizeBytes": "268435456000",
+                        "requestedServiceObjectiveName": "S2"
+                    },
+                    "resources": [
+                        {
+                            "name": "myImport",
+                            "type": "extensions",
+                            "apiVersion": "2014-04-01-preview",
+                            "dependsOn": [
+                                "[parameters('sqlServer').sqlserverName]",
+                                "[parameters('sqlServer').sqldatabasename]"
+                            ],
+                            "tags": {
+                                "displayName": "myImport"
+                            },
+                            "properties": {
+                                "storageKeyType": "[parameters('sqlServer').storageKeyType]",
+                                "storageKey": "[parameters('sqlServer').storageKey]",
+                                "storageUri": "[parameters('sqlServer').bacpacUri]",
+                                "administratorLogin": "[parameters('sqlServer').sqlAdministratorLogin]",
+                                "administratorLoginPassword": "[parameters('sqlServer').sqlAdministratorLoginPassword]",
+                                "operationMode": "Import"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "firewallrules",
+                    "apiVersion": "2014-04-01",
+                    "dependsOn": [
+                        "[parameters('sqlServer').sqlserverName]"
+                    ],
+                    "location": "[parameters('sqlServer').location]",
+                    "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "endIpAddress": "0.0.0.0",
+                        "startIpAddress": "0.0.0.0"
+                    }
+                }
+            ]
+        }
+    ],
+    "outputs": {
+        "sqlSvrFqdn": {
+            "type": "string",
+            "value": "[reference(concat('Microsoft.Sql/servers/', parameters('sqlServer').sqlserverName)).fullyQualifiedDomainName]"
+        }
+    }
+}
