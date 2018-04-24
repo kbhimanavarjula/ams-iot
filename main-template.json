@@ -477,7 +477,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/apphr-components.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/app-hrcomponents.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
