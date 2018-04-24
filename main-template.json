@@ -138,12 +138,6 @@
                 "description": "Describes the client Id registered with B2C Directory"
             }
         },
-        "b2cClientIdHr":{
-            "type": "string",
-            "metadata": {
-                "description": "Describes the client Id registered with B2C Directory"
-            }
-        },
         "b2cSignUpSignInPolicyId": {
             "type": "string",
             "metadata": {
@@ -151,12 +145,6 @@
             }
         },
         "b2cNativeRedirectURL": {
-            "type": "string",
-            "metadata": {
-                "description": "Describes the B2C redirect URL for the Native Client"
-            }
-        },
-        "b2cNativeRedirectURLHr": {
             "type": "string",
             "metadata": {
                 "description": "Describes the B2C redirect URL for the Native Client"
@@ -223,7 +211,7 @@
             "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/webapp.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
-            "websiteFullAddressHr": "[concat('https://',parameters('webSiteNameHr'),'.azurewebsites.net/')]"
+            "websiteFullAddressHr": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
         },
         "restServer": {
             "location": "[parameters('location')]",
@@ -296,10 +284,8 @@
             "MobileInstanceUrl": "https://login.microsoftonline.com/{0}/oauth2/v2.0/authorize?p={1}&amp;client_id={2}&amp;response_type=code&amp;redirect_uri={3}&amp;response_mode=query&amp;scope=openid&amp;state=arbitrary_data_you_can_receive_in_the_response",
             "b2cTenant": "[parameters('b2cTenant')]",
             "b2cClientId": "[parameters('b2cClientId')]",
-            "b2cClientIdHr": "[parameters('b2cClientIdHr')]",
             "b2cSignUpSignInPolicyId": "[parameters('b2cSignUpSignInPolicyId')]",
             "b2cNativeRedirectURL": "[parameters('b2cNativeRedirectURL')]",
-            "b2cNativeRedirectURLHr": "[parameters('b2cNativeRedirectURLHr')]",
             "AlertJobConsumerGroupPrefix": "congrp_"
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
