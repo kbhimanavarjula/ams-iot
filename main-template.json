@@ -17,6 +17,20 @@
                 "description": "Location where all the resources deploy"
             }
         },
+        "locationHr": {
+            "type": "string",
+            "allowedValues": [
+                "eastus",
+                "northeurope",
+                "southcentralus",
+                "southeastasia",
+                "westeurope",
+                "westus2"
+            ],
+            "metadata": {
+                "description": "Location where Recovery webapp deploy"
+            }
+        },
         "iotHubName1": {
             "type": "string",
             "minLength": 3,
@@ -177,7 +191,7 @@
     "variables": {
         "webJobStorage": {
             "location": "[parameters('location')]",
-            "locationHr": "[parameters('location')]",
+            "locationHr": "[parameters('locationHr')]",
             "webjobStorageName": "[concat('myperstr', uniqueString(resourceGroup().id))]",
             "webjobStorageNameHr": "[concat('hrwstrg', uniqueString(resourceGroup().id))]",
             "webjobStorageType": "[parameters('webjobStorageType')]",
@@ -195,7 +209,7 @@
         },
         "hostingPlan": {
             "location": "[parameters('location')]",
-            "locationHr": "[parameters('location')]",
+            "locationHr": "[parameters('locationHr')]",
             "hostingPlanName": "AppServPlan",
             "hostingPlanNameHr": "AppServPlanHr",
             "webSkuName": "[parameters('webSkuName')]",
@@ -205,7 +219,7 @@
         },
         "webApp": {
             "location": "[parameters('location')]",
-            "locationHr": "[parameters('location')]",
+            "locationHr": "[parameters('locationHr')]",
             "webSiteName": "[parameters('webSiteName')]",
             "webSiteNameHr": "[concat(parameters('webSiteNameHr'))]",
             "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/webapp.zip',variables('SasToken'))]",
@@ -215,7 +229,7 @@
         },
         "restServer": {
             "location": "[parameters('location')]",
-            "locationHr": "[parameters('location')]",
+            "locationHr": "[parameters('locationHr')]",
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
             "apiServerNameHr": "[concat('Recovery',parameters('apiServerName'),variables('suffix'))]",
             "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip',variables('SasToken'))]",
@@ -232,7 +246,7 @@
         },
         "nodeServer": {
             "location": "[parameters('location')]",
-            "locationHr": "[parameters('location')]",
+            "locationHr": "[parameters('locationhr')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
             "nodeServerNameHr": "[concat('Recover',parameters('nodeServerName'),variables('suffix'))]",
             "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/nodeserver419.zip',variables('SasToken'))]",
