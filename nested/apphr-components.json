@@ -42,7 +42,7 @@
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('webJobStorage').webjobStorageName]",
+            "name": "[parameters('webJobStorage').webjobStorageNameHr]",
             "type": "Microsoft.Storage/storageAccounts",
             "location": "[parameters('webJobStorage').locationHr]",
             "apiVersion": "2016-01-01",
