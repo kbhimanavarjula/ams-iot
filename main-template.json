@@ -536,11 +536,11 @@
         },
         "WebSiteUriHr": {
             "type": "string",
-            "value": "[reference('RecoveryWebApps').outputs.WebSiteUri.value]"
+            "value": "[reference('RecoveryWebApps').outputs.WebSiteUriHr.value]"
         },
         "RESTSiteUriHr": {
             "type": "string",
-            "value": "[reference('RecoveryWebApps').outputs.RESTSiteUri.value]"
+            "value": "[reference('RecoveryWebApps').outputs.RESTSiteUriHr.value]"
         }
     }
 }
