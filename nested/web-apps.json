@@ -136,7 +136,7 @@
                     "location": "[parameters('restServer').location]",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('restServer'),'/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName,'/config/web')]",
                         "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
                     ],
                     "tags": {
