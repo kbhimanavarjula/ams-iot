@@ -198,6 +198,25 @@
                 "Standard_RAGRS",
                 "Premium_LRS"
             ]
+        },
+        "trafficRoutingMethod": {
+            "type": "string",
+            "defaultValue": "Priority",
+            "allowedValues": [
+            "Performance",
+            "Weighted",
+            "Geographic",
+            "Priority"
+            ],
+            "metadata": {
+                "description": "specify the traffic routing method for traffic manager"
+            }
+        },
+        "trafficManagerName":{
+            "type": "string",
+            "metadata": {
+              "description": "Name of traffic manager"
+            }
         }
     },
     "variables": {
@@ -315,6 +334,11 @@
             "b2cNativeRedirectURL": "[parameters('b2cNativeRedirectURL')]",
             "b2cNativeRedirectURLHr": "[parameters('b2cNativeRedirectURLHr')]",
             "AlertJobConsumerGroupPrefix": "congrp_"
+        },
+        "trafficManagerSettings":{
+        "trafficManagerApiVersion":"2017-05-01",
+        "trafficRoutingMethod":"[parameters('trafficRoutingMethod')]",
+        "trafficManagerName": "[concat(parameters('trafficManagerName'),'TM', variables('suffix'))]"
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
@@ -460,6 +484,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "trafficManagerSettings":{
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }
@@ -516,6 +543,33 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "trafficManagerSettings":{
+                        "value": "[variables('trafficManagerSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "TrafficManager",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "WebApps",
+                "RecoveryWebApps"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/trafficmanager.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
                     }
                 }
             }
