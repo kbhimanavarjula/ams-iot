@@ -37,6 +37,9 @@
         },
         "documentDBEndpoint":{
             "type": "string"
+        },
+        "trafficManagerSettings":{
+            "type":"string"
         }
     },
     "variables": {},
@@ -320,7 +323,7 @@
                   "displayName": "websiteAppSettings"
                 },
                 "properties": {
-                  "restServer": "[concat('https://', parameters('restServer').apiServerName,'.azurewebsites.net/')]",
+                  "restServer":"[concat('http://', parameters('trafficManagerSettings').trafficManagerName,'.trafficmanager.net/')]",
                   "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerName,'.azurewebsites.net/')]",
                   "b2cApplicationId": "[parameters('B2CVariables').b2cClientId]",
                   "tenantName": "[parameters('B2CVariables').b2cTenant]",
