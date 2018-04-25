@@ -39,7 +39,7 @@
             "type": "string"
         },
         "trafficManagerSettings":{
-            "type":"string"
+            "type":"object"
         }
     },
     "variables": {},
