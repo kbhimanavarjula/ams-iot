@@ -136,6 +136,7 @@
                     "location": "[parameters('restServer').location]",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName,'/config/web')]",
                         "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
                     ],
@@ -151,6 +152,7 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName, '/extensions/MSDeploy')]"
                     ],
                     "tags": {
@@ -180,6 +182,7 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName,'/config/connectionstrings')]"
                     ],
                     "tags": {
@@ -279,6 +282,7 @@
                 "location": "[parameters('nodeServer').location]",
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
+                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]",
                   "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName,'/config/web')]",
                   "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
                 ],
@@ -294,6 +298,7 @@
                 "type": "config",
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
+                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]",
                   "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/extensions/MSDeploy')]"
                 ],
                 "tags": {
@@ -373,6 +378,7 @@
                 "location":"[parameters('webApp').location]",
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]"  ,
                   "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName,'/config/web')]",
                   "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
                 ],
@@ -388,6 +394,7 @@
                 "type": "config",
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]"  ,
                   "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/extensions/MSDeploy')]"
                 ],
                 "tags": {
@@ -405,6 +412,7 @@
                 "type": "config",
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]"  ,
                   "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/config/connectionstrings')]"
                 ],
                 "tags": {
