@@ -136,6 +136,7 @@
                     "location": "[parameters('restServer').locationHr]",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr)]",
                         "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameHr)]",
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr,'/config/web')]"
                     ],
@@ -151,6 +152,7 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr)]",
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr, '/extensions/MSDeploy')]"
                     ],
                     "tags": {
@@ -180,6 +182,7 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr)]",
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr,'/config/connectionstrings')]"
                     ],
                     "tags": {
@@ -280,6 +283,7 @@
                 "location": "[parameters('nodeServer').locationHr]",
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
+                    "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr)]",
                   "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr,'/config/web')]",
                   "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameHr)]"
                 ],
@@ -377,6 +381,7 @@
                 "location":"[parameters('webApp').locationHr]",
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
+                    "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr)]",
                   "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr,'/config/web')]",
                   "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameHr)]"
                 ],
@@ -410,6 +415,7 @@
                 "type": "config",
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
+                    "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr)]",
                   "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr, '/config/connectionstrings')]"
                 ],
                 "tags": {
