@@ -125,7 +125,7 @@
                     "name": "[concat(parameters('sqlServer').recoveryServerName,'/','allowall')]",
                     "apiVersion": "[parameters('sqlServer').sqlDBApiVersion]",
                     "dependsOn": [
-                        "[parameters('sqlServer').sqlserverName]",
+                        "[concat('Microsoft.Sql/servers/', parameters('sqlServer').sqlserverName)]",
                         "[concat('Microsoft.Sql/servers/', parameters('sqlServer').recoveryServerName)]"
                     ],
                     "properties": {
