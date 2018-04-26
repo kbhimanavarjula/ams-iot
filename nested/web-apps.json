@@ -361,9 +361,9 @@
                     "type": "providers/diagnosticSettings",
                     "apiVersion": "2015-07-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').webSiteName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').webSiteName, '/extensions/MSDeploy')]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').webSiteName, '/config/appSettings')]"
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/extensions/MSDeploy')]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/config/appSettings')]"
                     ],
                     "properties": {
                         "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsSettings').omsWorkspaceName)]",
@@ -479,9 +479,9 @@
                     "type": "providers/diagnosticSettings",
                     "apiVersion": "2015-07-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').nodeServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').nodeServerName, '/extensions/MSDeploy')]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').nodeServerName, '/config/appSettings')]"
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/extensions/MSDeploy')]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/config/appSettings')]"
                     ],
                     "properties": {
                         "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsSettings').omsWorkspaceName)]",
