@@ -562,8 +562,8 @@
                     "trafficManagerSettings": {
                         "value": "[variables('trafficManagerSettings')]"
                     },
-                    "restServer": {
-                        "value": "[variables('restServer')]"
+                    "webApp": {
+                        "value": "[variables('webApp')]"
                     }
                 }
             }
