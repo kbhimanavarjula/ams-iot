@@ -23,6 +23,35 @@
             },
             "resources": [
                 {
+                    "apiVersion": "[parameters('sqlServer').sqlServerApiVersion]",
+                    "type": "failoverGroups",
+                    "name": "[parameters('sqlServer').sqlFailoverGroupName]",
+                    "properties": {
+                        "serverName": "[parameters('sqlServer').sqlserverName]",
+                        "partnerServers": [
+                            {
+                                "id": "[resourceId('Microsoft.Sql/servers/', parameters('sqlServer').recoveryServerName)]"
+                            }
+                        ],
+                        "readWriteEndpoint": {
+                            "failoverPolicy": "Automatic",
+                            "failoverWithDataLossGracePeriodMinutes": 60
+                        },
+                        "readOnlyEndpoint": {
+                            "failoverPolicy": "Disabled"
+                        },
+                        "databases": [
+                            "[resourceId('Microsoft.Sql/servers/databases', parameters('sqlServer').sqlserverName, parameters('sqlServer').sqldatabasename)]"
+                        ]
+                    },
+                    "dependsOn": [
+                        "[parameters('sqlServer').sqlserverName]",
+                        "[resourceId('Microsoft.Sql/servers', parameters('sqlServer').recoveryServerName)]",
+                        "[resourceId('Microsoft.Sql/servers/databases', parameters('sqlServer').sqlserverName, parameters('sqlServer').sqldatabasename)]"
+                    ]
+                },
+       
+                {
                     "name": "[parameters('sqlServer').sqldatabasename]",
                     "type": "databases",
                     "location": "[parameters('sqlServer').location]",
@@ -63,6 +92,21 @@
                     ]
                 },
                 {
+                    "type": "Microsoft.Sql/servers",
+                    "kind": "v12.0",
+                    "name": "[parameters('sqlServer').recoveryServerName]",
+                    "apiVersion": "[parameters('sqlServer').sqlDBApiVersion]",
+                    "location": "[parameters('sqlServer').locationDr]",
+                    "properties": {
+                        "administratorLogin": "[parameters('sqlServer').recoverySqlAuthenticationLogin]",
+                        "administratorLoginPassword": "[parameters('sqlServer').recoverySqlAuthenticationPassword]",
+                        "version": "12.0"
+                    },
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('sqlServer').sqlserverName)]"
+                    ]
+                },
+                {
                     "type": "firewallrules",
                     "apiVersion": "2014-04-01",
                     "dependsOn": [
@@ -70,6 +114,19 @@
                     ],
                     "location": "[parameters('sqlServer').location]",
                     "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "endIpAddress": "0.0.0.0",
+                        "startIpAddress": "0.0.0.0"
+                    }
+                },
+                {
+                    "type": "Microsoft.Sql/servers/firewallRules",
+                    "location": "[parameters('sqlServer').locationDr]",
+                    "name": "[concat(parameters('sqlServer').recoveryServerName,'/','allowall')]",
+                    "apiVersion": "[parameters('apiVersions').sqlDBApiVersion]",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('sqlServer').recoveryServerName)]"
+                    ],
                     "properties": {
                         "endIpAddress": "0.0.0.0",
                         "startIpAddress": "0.0.0.0"
