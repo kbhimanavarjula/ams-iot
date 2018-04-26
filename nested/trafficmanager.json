@@ -5,7 +5,7 @@
         "trafficManagerSettings": {
             "type": "object"
         },
-        "webApp": {
+        "nodeServer": {
             "type": "object"
         }
     },
@@ -29,25 +29,25 @@
                 },
                 "endpoints": [
                     {
-                        "name":  "[parameters('webApp').webSiteName]",
+                        "name":  "[parameters('nodeServer').nodeServerName]",
                         "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
                         "properties": {
                             "endpointStatus": "Enabled",
-                            "targetResourceId": "[resourceId('Microsoft.Web/sites', parameters('webApp').webSiteName)]",
+                            "targetResourceId": "[resourceId('Microsoft.Web/sites', parameters('nodeServer').nodeServerName)]",
                             "weight": 1,
                             "priority": 1,
-                            "endpointLocation": "[parameters('webApp').location]"
+                            "endpointLocation": "[parameters('nodeServer').location]"
                         }
                     },
                     {
-                        "name": "[parameters('webApp').webSiteNameHr]",
+                        "name":  "[parameters('nodeServer').nodeServerNameHr]",
                         "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
                         "properties": {
                             "endpointStatus": "Enabled",
-                            "targetResourceId": "[resourceId('Microsoft.Web/sites', parameters('webApp').webSiteNameHr)]",
+                            "targetResourceId": "[resourceId('Microsoft.Web/sites',parameters('nodeServer').nodeServerNameHr)]",
                             "weight": 1,
                             "priority": 2,
-                            "endpointLocation": "[parameters('webApp').locationHr]"
+                            "endpointLocation": "[parameters('nodeServer').locationHr]"
                         }
                     }
                 ]
