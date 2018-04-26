@@ -128,18 +128,30 @@
                 "description": "Describes API Server name which should be unique"
             }
         },
-        "AdSubscriptionId":{
+        "webjobStorageType": {
             "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_ZRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Premium_LRS"
+            ]
+        },
+        "trafficRoutingMethod": {
+            "type": "string",
+            "defaultValue": "Priority",
+            "allowedValues": [
+            "Performance",
+            "Weighted",
+            "Geographic",
+            "Priority"
+            ],
             "metadata": {
-                "description": "Subscription ID of your Azure AD tenant"
+                "description": "specify the traffic routing method for traffic manager"
             }
         },
-        "AdTenantId": {
-            "type": "string",
-            "metadata": {
-              "description": "Tenant ID of Azure AD"
-            }
-          },
         "b2cTenant": {
             "type": "string",
             "metadata": {
@@ -176,6 +188,18 @@
                 "description": "Describes the B2C redirect URL for the Native Client"
             }
         },
+        "AdSubscriptionId":{
+            "type": "string",
+            "metadata": {
+                "description": "Subscription ID of your Azure AD tenant"
+            }
+        },
+        "AdTenantId": {
+            "type": "string",
+            "metadata": {
+              "description": "Tenant ID of Azure AD"
+            }
+          },
         "AdClientId": {
             "type": "string",
             "metadata": {
@@ -187,31 +211,7 @@
             "metadata": {
               "description": "Secret Key of Azure AD application"
             }
-          },
-        "webjobStorageType": {
-            "type": "string",
-            "defaultValue": "Standard_LRS",
-            "allowedValues": [
-                "Standard_LRS",
-                "Standard_ZRS",
-                "Standard_GRS",
-                "Standard_RAGRS",
-                "Premium_LRS"
-            ]
-        },
-        "trafficRoutingMethod": {
-            "type": "string",
-            "defaultValue": "Priority",
-            "allowedValues": [
-            "Performance",
-            "Weighted",
-            "Geographic",
-            "Priority"
-            ],
-            "metadata": {
-                "description": "specify the traffic routing method for traffic manager"
-            }
-        }
+          }
     },
     "variables": {
         "webJobStorage": {
