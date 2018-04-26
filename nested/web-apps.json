@@ -193,7 +193,7 @@
                         "iotHub:HostName": "[parameters('iotHub').iotHubHostName]",
                         "iotHub:SharedAccessPolicyKey": "[listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey]",
                         "iotHub:SharedAccessPolicyName": "[ parameters('iotHub').iotHubKeyName]",
-                        "sql:Server": "[concat(parameters('sqlServer').sqlserverName,'.database.windows.net')]",
+                        "sql:Server": "[concat(parameters('sqlServer').sqlFailoverGroupName,'.database.windows.net')]",
                         "sql:Database": "[parameters('sqlServer').sqldatabasename]",
                         "sql:User": "[parameters('sqlServer').sqlAdministratorLogin]",
                         "sql:Password": "[parameters('sqlServer').sqlAdministratorLoginPassword]",
