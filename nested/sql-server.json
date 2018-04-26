@@ -4,6 +4,9 @@
     "parameters": {
         "sqlServer": {
             "type": "object"
+        },
+        "omsSettings": {
+            "type": "object"
         }
     },
     "variables": {},
@@ -50,7 +53,6 @@
                         "[resourceId('Microsoft.Sql/servers/databases', parameters('sqlServer').sqlserverName, parameters('sqlServer').sqldatabasename)]"
                     ]
                 },
-       
                 {
                     "name": "[parameters('sqlServer').sqldatabasename]",
                     "type": "databases",
@@ -87,6 +89,95 @@
                                 "administratorLogin": "[parameters('sqlServer').sqlAdministratorLogin]",
                                 "administratorLoginPassword": "[parameters('sqlServer').sqlAdministratorLoginPassword]",
                                 "operationMode": "Import"
+                            }
+                        },
+                        {
+                            "name": "Microsoft.Insights/service",
+                            "type": "providers/diagnosticSettings",
+                            "apiVersion": "[parameters('omsSettings').omsEnableApiVersion]",
+                            "dependsOn": [
+                                "[concat('Microsoft.Sql/servers/', parameters('sqlServer').sqlserverName)]",
+                                "[concat('Microsoft.Sql/servers/',parameters('sqlServer').sqlserverName, '/databases/', parameters('sqlServer').sqldatabasename)]"
+                            ],
+                            "properties": {
+                                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsSettings').omsWorkspaceName)]",
+                                "logs": [
+                                    {
+                                        "category": "Timeouts",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 0,
+                                            "enabled": false
+                                        }
+                                    },
+                                    {
+                                        "category": "QueryStoreRuntimeStatistics",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 0,
+                                            "enabled": false
+                                        }
+                                    },
+                                    {
+                                        "category": "QueryStoreWaitStatistics",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 0,
+                                            "enabled": false
+                                        }
+                                    },
+                                    {
+                                        "category": "Errors",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 0,
+                                            "enabled": false
+                                        }
+                                    },
+                                    {
+                                        "category": "DatabaseWaitStatistics",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 0,
+                                            "enabled": false
+                                        }
+                                    },
+                                    {
+                                        "category": "Blocks",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 0,
+                                            "enabled": false
+                                        }
+                                    },
+                                    {
+                                        "category": "SQLInsights",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 0,
+                                            "enabled": false
+                                        }
+                                    },
+                                    {
+                                        "category": "Audit",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 0,
+                                            "enabled": false
+                                        }
+                                    }
+                                ],
+                                "metrics": [
+                                    {
+                                        "timeGrain": "AllMetrics",
+                                        "category": "AllMetrics",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "enabled": false,
+                                            "days": 0
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ]
