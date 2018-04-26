@@ -82,6 +82,13 @@
                 "description": "Describes plan's pricing tier and instance size. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
             }
         },
+        "locationDr": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region"
+            }
+        },
         "skuCapacity": {
             "type": "int",
             "defaultValue": 1,
@@ -225,13 +232,20 @@
         "sqlServer": {
             "location": "[parameters('location')]",
             "sqlserverName": "[variables('sqlserverName')]",
-            "databaseConnString": "[concat('Server=tcp:',variables('sqlserverName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;')]",
-            "sqlServerAddress": "[concat('tcp:',variables('sqlserverName'),'.database.windows.net')]",
+            "databaseConnString": "[concat('Server=tcp:',variables('sqlFailoverGroupName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;')]",
+            "sqlServerAddress": "[concat('tcp:',variables('sqlFailoverGroupName'),'.database.windows.net')]",
             "sqldatabasename": "[parameters('sqldatabasename')]",
             "sqlAdministratorLogin": "[parameters('sqlAdministratorLogin')]",
+            "recoverySqlAuthenticationLogin": "[parameters('sqlAdministratorLogin')]", 
             "sqlAdministratorLoginPassword": "[parameters('sqlAdministratorLoginPassword')]",
+            "recoverySqlAuthenticationPassword": "[parameters('sqlAdministratorLoginPassword')]",
             "storageKeyType": "SharedAccessKey",
             "storageKey": "?",
+            "sqlFailoverGroupName":  "[concat('azuresqlfailover', uniqueString(resourceGroup().id))]",
+            "recoveryServerName": "[concat('recoverysqlserver', uniqueString(resourceGroup().id))]",
+            "sqlDBApiVersion": "2014-04-01-preview",
+            "locationDr": "[parameters('locationDr')]",
+            "sqlServerApiVersion": "2015-05-01-preview",
             "bacpacUri": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AssetMonitoring.bacpac",
             "DeployStorageAccountKey": "[variables('DeployStorageAccountKey')]"
         },
@@ -268,12 +282,13 @@
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
+        "sqlFailoverGroupName":  "[concat('azuresqlfailover', uniqueString(resourceGroup().id))]",
         "eventHubName": "[concat('eventhub',variables('suffix'))]",
         "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
         "primaryKey": "[concat(uniqueString(variables('namespaceName'), resourceGroup().Id, 'primaryKey'),'3VZcT2e5NfVeSFvTuiYUiWtXhxnJ2s=')]",
         "secondaryKey": "[concat(uniqueString(variables('namespaceName'), resourceGroup().Id, 'secondaryKey'),'F9NRSV78nYomDlFjsz21X9aVKPL4Eo=')]",
         "BlobconnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('DeployStorageAccountName'),';AccountKey=',variables('DeployStorageAccountKey'))]",
-        "PowerGridEntities": "[concat('metadata=res://*/Entities.PowergridModel.csdl|res://*/Entities.PowergridModel.ssdl|res://*/Entities.PowergridModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=',variables('sqlserverName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';multipleactiveresultsets=True;application name=EntityFramework\"')]",
+        "PowerGridEntities": "[concat('metadata=res://*/Entities.PowergridModel.csdl|res://*/Entities.PowergridModel.ssdl|res://*/Entities.PowergridModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=',variables('sqlFailoverGroupName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';multipleactiveresultsets=True;application name=EntityFramework\"')]",
         "iotHubName": "[concat(parameters('iotHubName1'),uniqueString(resourceGroup().id))]",
         "iotHubKeyName": "iothubowner",
         "DeployStorageAccountName": "projectiot",
