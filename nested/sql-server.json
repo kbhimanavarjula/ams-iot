@@ -123,7 +123,7 @@
                     "type": "Microsoft.Sql/servers/firewallRules",
                     "location": "[parameters('sqlServer').locationDr]",
                     "name": "[concat(parameters('sqlServer').recoveryServerName,'/','allowall')]",
-                    "apiVersion": "[parameters('apiVersions').sqlDBApiVersion]",
+                    "apiVersion": "[parameters('sqlServer').sqlDBApiVersion]",
                     "dependsOn": [
                         "[concat('Microsoft.Sql/servers/', parameters('sqlServer').recoveryServerName)]"
                     ],
