@@ -246,11 +246,11 @@
             "location": "[parameters('location')]",
             "locationHr": "[parameters('locationHr')]",
             "webSiteName": "[parameters('webSiteName')]",
-            "webSiteNameHr": "[concat('Recovery',parameters('webSiteNameHr'))]",
+            "webSiteNameHr": "[parameters('webSiteNameHr')]",
             "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/webapp.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
-            "websiteFullAddress": "[concat('http://',parameters('webSiteName'),'.trafficmanager.net/')]",
-            "websiteFullAddressHr": "[concat('http://',parameters('webSiteName'),'.trafficmanager.net/')]"
+            "websiteFullAddress": "[concat('http://',variables('trafficManagerSettings').trafficManagerName,'.trafficmanager.net/')]",
+            "websiteFullAddressHr": "[concat('http://',variables('trafficManagerSettings').trafficManagerName,'.trafficmanager.net/')]"
         },
         "restServer": {
             "location": "[parameters('location')]",
