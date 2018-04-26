@@ -125,7 +125,7 @@
                         "remoteDebuggingVersion": "VS2015",
                         "cors": {
                             "allowedOrigins": [
-                                "[concat('https://', parameters('webApp').webSiteNameHr, '.azurewebsites.net')]"
+                                "[concat('http://', parameters('trafficManagerSettings').trafficManagerName, '.trafficmanager.net')]"
                             ]
                         }
                     }
@@ -422,7 +422,7 @@
                   "displayName": "websiteAppSettingsHr"
                 },
                 "properties": {
-                  "restServer": "[concat('http://', parameters('trafficManagerSettings').trafficManagerName,'.trafficmanager.net/')]",
+                  "restServer": "[concat('https://', parameters('restServer').apiServerName,'.azurewebsites.net/')]",
                   "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerNameHr,'.azurewebsites.net/')]",
                   "b2cApplicationId": "[parameters('B2CVariables').b2cClientIdHr]", 
                   "tenantName": "[parameters('B2CVariables').b2cTenant]",
