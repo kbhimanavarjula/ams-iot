@@ -173,7 +173,63 @@
                 "Standard_RAGRS",
                 "Premium_LRS"
             ]
+        },
+        "omsWorkspaceRegion": {
+            "type": "string",
+            "defaultValue": "eastus",
+            "allowedValues": [
+                "eastus",
+                "westeurope",
+                "southeastasia",
+                "australiasoutheast"
+            ],
+            "metadata": {
+                "description": "specify the region for oms workspace, if you have selected solution type as without monitoring this is optional"
+            }
+        },
+        "omsAutomationRegion": {
+            "type": "string",
+            "defaultValue": "eastus2",
+            "allowedValues": [
+                "westeurope",
+                "southeastasia",
+                "eastus2",
+                "southcentralus",
+                "japaneast",
+                "southeastasia",
+                "southcentralus",
+                "northeurope",
+                "canadacentral",
+                "australiasoutheast",
+                "centralindia",
+                "japaneast"
+            ],
+            "metadata": {
+                "description": "specify the region for oms automation account, if you have selected solution type as without monitoring this is optional"
+            }
+        },
+        "dataRetention": {
+            "type": "int",
+            "defaultValue": 7,
+            "minValue": 7,
+            "maxValue": 730,
+            "metadata": {
+                "description": "specify the oms retention period in days, if you have selected solution type as without monitoring this is optional"
+            }
+        },
+        "omsLogAnalyticsSku": {
+            "type": "string",
+            "defaultValue": "free",
+            "allowedValues": [
+                "free",
+                "standalone",
+                "pernode"
+            ],
+            "metadata": {
+                "description": "specify the oms automation account sku type"
+            }
         }
+
     },
     "variables": {
         "webJobStorage": {
@@ -249,6 +305,17 @@
             "bacpacUri": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AssetMonitoring.bacpac",
             "DeployStorageAccountKey": "[variables('DeployStorageAccountKey')]"
         },
+        "omsSettings": {
+            "omsWorkspaceName": "[concat('omswsams', variables('suffix'))]",
+            "omsWorkspaceRegion": "[parameters('omsWorkspaceRegion')]",
+            "omsAutomationRegion": "[parameters('omsAutomationRegion')]",
+            "omsAutomationAccountName": "[concat('autoupdateams', variables('suffix'))]",
+            "dataRetention": "[parameters('dataRetention')]",
+            "omsApiVersion": "2015-03-20",
+            "omsDataApiVersion": "2015-11-01-preview",
+            "omsLogAnalyticsSku": "[parameters('omsLogAnalyticsSku')]",
+            "omsEnableApiVersion": "2015-07-01"
+        },
         "eventHub": {
             "location": "[parameters('location')]",
             "namespaceName": "[variables('namespaceName')]",
@@ -298,14 +365,16 @@
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
         "deploymentApiVersion": "2016-02-01",
-        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/Monitoring_ha/"
+        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/testing1/"
     },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDB",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [],
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -315,6 +384,27 @@
                 "parameters": {
                     "documentDB": {
                         "value": "[variables('documentDB')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "OMSWorkSpace",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'oms-workspace.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
                     }
                 }
             }
@@ -323,7 +413,9 @@
             "type": "Microsoft.Resources/deployments",
             "name": "IotHub",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [],
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -333,6 +425,9 @@
                 "parameters": {
                     "iotHub": {
                         "value": "[variables('iotHub')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
                     }
                 }
             }
@@ -341,7 +436,9 @@
             "type": "Microsoft.Resources/deployments",
             "name": "EventHub",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [],
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -351,6 +448,9 @@
                 "parameters": {
                     "eventHub": {
                         "value": "[variables('eventHub')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
                     }
                 }
             }
@@ -359,7 +459,9 @@
             "type": "Microsoft.Resources/deployments",
             "name": "SqlServer",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [],
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -369,6 +471,9 @@
                 "parameters": {
                     "sqlServer": {
                         "value": "[variables('sqlServer')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
                     }
                 }
             }
@@ -381,7 +486,8 @@
                 "DocumentDB",
                 "IotHub",
                 "EventHub",
-                "SqlServer"
+                "SqlServer",
+                "OMSWorkSpace"
             ],
             "properties": {
                 "mode": "Incremental",
@@ -425,6 +531,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
                     }
                 }
             }
