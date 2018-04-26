@@ -4,6 +4,9 @@
     "parameters": {
         "documentDB": {
             "type": "object"
+        },
+        "omsSettings": {
+            "type": "object"
         }
     },
     "variables": {},
@@ -25,6 +28,48 @@
                     }
                 ]
             },
+            "resources": [
+                {
+                    "name": "Microsoft.Insights/service",
+                    "type": "providers/diagnosticSettings",
+                    "apiVersion": "[parameters('omsSettings').omsEnableApiVersion]",
+                    "dependsOn": [
+                        "[concat('Microsoft.DocumentDb/databaseAccounts/', parameters('documentDB').DocDBAccountName)]"
+                    ],
+                    "properties": {
+                        "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsSettings').omsWorkspaceName)]",
+                        "logs": [
+                            {
+                                "category": "DataPlaneRequests",
+                                "enabled": true,
+                                "retentionPolicy": {
+                                    "days": 0,
+                                    "enabled": false
+                                }
+                            },
+                            {
+                                "category": "MongoRequests",
+                                "enabled": true,
+                                "retentionPolicy": {
+                                    "days": 0,
+                                    "enabled": false
+                                }
+                            }
+                        ],
+                        "metrics": [
+                            {
+                                "timeGrain": "AllMetrics",
+                                "category": "AllMetrics",
+                                "enabled": true,
+                                "retentionPolicy": {
+                                    "enabled": false,
+                                    "days": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],    
             "tags": {
                 "defaultExperience": "DocumentDB"
             }
