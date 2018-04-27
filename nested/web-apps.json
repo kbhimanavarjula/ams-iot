@@ -419,8 +419,8 @@
                   "displayName": "websiteAppSettings"
                 },
                 "properties": {
-                    "restServer":"[concat('https://', parameters('restServer').apiServerName,'.azurewebsites.net/')]",
-                    "nodeserver": "[concat('http://',parameters('trafficManagerSettings').trafficManagerName,'.trafficmanager.net/')]",
+                  "restServer":"[concat('https://', parameters('restServer').apiServerName,'.azurewebsites.net/')]",
+                  "nodeserver": "[concat('http://',parameters('trafficManagerSettings').trafficManagerName,'.trafficmanager.net/')]",
                   "b2cApplicationId": "[parameters('B2CVariables').b2cClientId]",
                   "tenantName": "[parameters('B2CVariables').b2cTenant]",
                   "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
