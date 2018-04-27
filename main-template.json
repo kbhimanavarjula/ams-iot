@@ -273,7 +273,7 @@
             "location": "[parameters('location')]",
             "locationHr": "[parameters('locationhr')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
-            "nodeServerNameHr": "[concat('Recover',parameters('nodeServerName'),variables('suffix'))]",
+            "nodeServerNameHr": "[concat('Recovery',parameters('nodeServerName'),variables('suffix'))]",
             "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/nodeserver419.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
