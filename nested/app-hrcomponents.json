@@ -381,7 +381,7 @@
                 "location":"[parameters('webApp').locationHr]",
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
-                    "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr)]",
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr)]",
                   "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr,'/config/web')]",
                   "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameHr)]"
                 ],
