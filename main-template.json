@@ -211,6 +211,12 @@
             "metadata": {
                 "description": "specify the traffic routing method for traffic manager"
             }
+        },
+        "trafficManagerName":{
+            "type": "string",
+            "metadata": {
+              "description": "Name of traffic manager"
+            }
         }
     },
     "variables": {
@@ -246,11 +252,11 @@
             "location": "[parameters('location')]",
             "locationHr": "[parameters('locationHr')]",
             "webSiteName": "[parameters('webSiteName')]",
-            "webSiteNameHr": "[parameters('webSiteNameHr')]",
+            "webSiteNameHr": "[concat('Recovery',parameters('webSiteNameHr'))]",
             "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/webapp.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
-            "websiteFullAddress": "[concat('http://',parameters('webSiteName'),'.trafficmanager.net/')]",
-            "websiteFullAddressHr": "[concat('http://',parameters('webSiteName'),'.trafficmanager.net/')]"
+            "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
+            "websiteFullAddressHr": "[concat('https://',parameters('webSiteNameHr'),'.azurewebsites.net/')]"
         },
         "restServer": {
             "location": "[parameters('location')]",
@@ -332,7 +338,7 @@
         "trafficManagerSettings":{
         "trafficManagerApiVersion":"2017-05-01",
         "trafficRoutingMethod":"[parameters('trafficRoutingMethod')]",
-        "trafficManagerName": "[variables('webApp').webSiteName]"
+        "trafficManagerName": "[concat(parameters('trafficManagerName'),'TM', variables('suffix'))]"
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
