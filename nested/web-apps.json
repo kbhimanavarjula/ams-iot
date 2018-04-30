@@ -37,9 +37,6 @@
         },
         "documentDBEndpoint":{
             "type": "string"
-        },
-        "trafficManagerSettings":{
-            "type":"object"
         }
     },
     "variables": {},
