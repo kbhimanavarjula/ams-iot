@@ -2,21 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "eastus",
-            "allowedValues": [
-                "eastus",
-                "northeurope",
-                "southcentralus",
-                "southeastasia",
-                "westeurope",
-                "westus2"
-            ],
-            "metadata": {
-                "description": "Location where all the resources deploy"
-            }
-        },
         "locationHr": {
             "type": "string",
             "allowedValues": [
@@ -215,7 +200,7 @@
     },
     "variables": {
         "webJobStorage": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "locationHr": "[parameters('locationHr')]",
             "webjobStorageName": "[concat('myperstr', uniqueString(resourceGroup().id))]",
             "webjobStorageNameHr": "[concat('hrwstrg', uniqueString(resourceGroup().id))]",
@@ -223,7 +208,7 @@
             "webjobStorageTypeHr": "[parameters('webjobStorageType')]"
         },
         "documentDB": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "DocDBAccountName": "[variables('DocDBAccountName')]",
             "offerType": "Standard",
             "DocDBName": "AssetTrackingDB",
@@ -233,7 +218,7 @@
             "documentDBAuthKey": "[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
         },
         "hostingPlan": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "locationHr": "[parameters('locationHr')]",
             "hostingPlanName": "AppServPlan",
             "hostingPlanNameHr": "AppServPlanHr",
@@ -243,7 +228,7 @@
             "skuCapacityHr": "[parameters('skuCapacity')]"
         },
         "webApp": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "locationHr": "[parameters('locationHr')]",
             "webSiteName": "[parameters('webSiteName')]",
             "webSiteNameHr": "[parameters('webSiteNameHr')]",
@@ -253,7 +238,7 @@
             "websiteFullAddressHr": "[concat('http://',parameters('webSiteName'),'.trafficmanager.net/')]"
         },
         "restServer": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "locationHr": "[parameters('locationHr')]",
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
             "apiServerNameHr": "[concat('Recovery',parameters('apiServerName'),variables('suffix'))]",
@@ -270,7 +255,7 @@
             "JobResourceGroup": "[resourceGroup().name]"
         },
         "nodeServer": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "locationHr": "[parameters('locationhr')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
             "nodeServerNameHr": "[concat('Recover',parameters('nodeServerName'),variables('suffix'))]",
@@ -278,13 +263,13 @@
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
-            "location": "[parameters('location')]",
-            "locationHr": "[parameters('location')]",
+            "location": "[variables('location')]",
+            "locationHr": "[variables('location')]",
             "appInsightResourceName": "[concat('AppInsights', uniquestring(resourceGroup().id))]",
             "appInsightResourceNameHr": "[concat('AppInsightsHr', uniquestring(resourceGroup().id))]"
         },
         "sqlServer": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "sqlserverName": "[variables('sqlserverName')]",
             "databaseConnString": "[concat('Server=tcp:',variables('sqlserverName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;')]",
             "sqlServerAddress": "[concat('tcp:',variables('sqlserverName'),'.database.windows.net')]",
@@ -297,7 +282,7 @@
             "DeployStorageAccountKey": "[variables('DeployStorageAccountKey')]"
         },
         "eventHub": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "namespaceName": "[variables('namespaceName')]",
             "eventHubName": "[variables('eventHubName')]",
             "defaultSASKeyName": "[variables('defaultSASKeyName')]",
@@ -307,7 +292,7 @@
             "eventhubConnectionString": "[concat('Endpoint=sb://', variables('namespaceName'), '.servicebus.windows.net/;SharedAccessKeyName=EventHubOwner;SharedAccessKey=', variables('primaryKey'))]"
         },
         "iotHub": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "skuCapacity": "[parameters('skuCapacity')]",
             "skuName": "[parameters('skuName')]",
             "capacityUnits": "[parameters('capacityUnits')]",
@@ -334,6 +319,7 @@
         "trafficRoutingMethod":"[parameters('trafficRoutingMethod')]",
         "trafficManagerName": "[variables('webApp').webSiteName]"
         },
+        "location":"[resourceGroup().location]",
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
         "eventHubName": "[concat('eventhub',variables('suffix'))]",
