@@ -294,7 +294,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeF3spLz2v9zkuynCM9wQIKIQy94Iks5a8EN0wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -312,7 +312,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeOB7D8gIalaesE5VaP7HVr9P15-Kks5a8EOCwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -330,7 +330,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeP8bkBP-6OWdGlEjIWrlw7qDPHOfks5a8EN-wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -348,7 +348,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeDUXsGNcyRqZ5VS6NvpNpry098RLks5a8EQqwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -371,7 +371,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json','?token=AYpAeOjKUdhBckh2yItdyG0Zyt1RrTODks5a8EOFwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
