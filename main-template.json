@@ -2,9 +2,9 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
+        "appInsightsLocation": {
             "type": "string",
-            "defaultValue": "eastus",
+            "defaultValue": "westus2",
             "allowedValues": [
                 "eastus",
                 "northeurope",
@@ -14,7 +14,7 @@
                 "westus2"
             ],
             "metadata": {
-                "description": "Location where all the resources deploy"
+                "description": "specify the region for application insights"
             }
         },
         "iotHubName1": {
@@ -233,12 +233,12 @@
     },
     "variables": {
         "webJobStorage": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "webjobStorageName": "[concat('myperstr', uniqueString(resourceGroup().id))]",
             "webjobStorageType": "[parameters('webjobStorageType')]"
         },
         "documentDB": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "DocDBAccountName": "[variables('DocDBAccountName')]",
             "offerType": "Standard",
             "DocDBName": "AssetTrackingDB",
@@ -248,22 +248,22 @@
             "documentDBAuthKey": "[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
         },
         "hostingPlan": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "hostingPlanName": "AppServPlan",
             "webSkuName": "[parameters('webSkuName')]",
             "skuCapacity": "[parameters('skuCapacity')]"
         },
         "webApp": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "webSiteName": "[parameters('webSiteName')]",
             "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/webapp.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
         },
         "restServer": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
-            "RESTServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip',variables('SasToken'))]",
+            "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/RestServer_appins419.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
@@ -276,17 +276,18 @@
             "JobResourceGroup": "[resourceGroup().name]"
         },
         "nodeServer": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
-            "NodeServerPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/nodeserver419.zip',variables('SasToken'))]",
+            "NodeServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/node_appins419.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
-            "location": "[parameters('location')]",
+            "location": "[parameters('appInsightsLocation')]",
+            "appInsightsApiVersion": "2014-04-01",
             "appInsightResourceName": "[concat('AppInsights', uniquestring(resourceGroup().id))]"
         },
         "sqlServer": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "sqlserverName": "[variables('sqlserverName')]",
             "databaseConnString": "[concat('Server=tcp:',variables('sqlFailoverGroupName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;')]",
             "sqlServerAddress": "[concat('tcp:',variables('sqlFailoverGroupName'),'.database.windows.net')]",
@@ -302,6 +303,7 @@
             "sqlDBApiVersion": "2014-04-01-preview",
             "locationDr": "[parameters('locationDr')]",
             "sqlServerApiVersion": "2015-05-01-preview",
+            
             "bacpacUri": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AssetMonitoring.bacpac",
             "DeployStorageAccountKey": "[variables('DeployStorageAccountKey')]"
         },
@@ -317,7 +319,7 @@
             "omsEnableApiVersion": "2015-07-01"
         },
         "eventHub": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "namespaceName": "[variables('namespaceName')]",
             "eventHubName": "[variables('eventHubName')]",
             "defaultSASKeyName": "[variables('defaultSASKeyName')]",
@@ -327,7 +329,7 @@
             "eventhubConnectionString": "[concat('Endpoint=sb://', variables('namespaceName'), '.servicebus.windows.net/;SharedAccessKeyName=EventHubOwner;SharedAccessKey=', variables('primaryKey'))]"
         },
         "iotHub": {
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "skuCapacity": "[parameters('skuCapacity')]",
             "skuName": "[parameters('skuName')]",
             "capacityUnits": "[parameters('capacityUnits')]",
@@ -361,6 +363,9 @@
         "DeployStorageAccountName": "projectiot",
         "DeployStorageAccountKey": "68qPHnikzAitr3fjvPAyem7Tc0y2pf+BVob4F+opoX20PhV0yJGQc/guxxhCV/Uscp0gE1EHn+GCGfwOiaF9tg==",
         "SasToken": "?",
+        "subId": "[subscription().subscriptionId]",        
+        "rgName": "[resourceGroup().name]",
+        "location": "[resourceGroup().location]",        
         "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
@@ -480,6 +485,26 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
+            "name": "AppInsights",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/app-insights.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
             "name": "WebApps",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
@@ -551,6 +576,11 @@
         "RESTSiteUri": {
             "type": "string",
             "value": "[reference('WebApps').outputs.RESTSiteUri.value]"
+        },
+        "appInsightsUrl": {
+            "type": "string",
+            "value": "[concat('https://analytics.applicationinsights.io/subscriptions/',variables('subId'),'/resourcegroups/',variables('rgName'),'/components/',variables('appInsights').appInsightResourceName,'#/')]"
         }
+
     }
 }
