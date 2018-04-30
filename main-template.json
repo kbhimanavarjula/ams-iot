@@ -344,7 +344,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json?token=AT3nZunsAOclJCIHNtJNKT5mW5C0pobJks5a8EPjwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -362,7 +362,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json?token=AT3nZvvg115xsQPY6qWAB7a-9fe8830Uks5a8EQ2wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -380,7 +380,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json?token=AT3nZotlD6OHUr--81v6tzX2gpKWFKdGks5a8EQMwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -398,7 +398,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json?token=AT3nZsDsfg4Ekz0YH88bgYRfzGa8P4Uzks5a8ERUwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -421,7 +421,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json?token=AT3nZodD2d9i3xUJZCYy4lhxnL0A1kkJks5a8ERvwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -477,7 +477,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/app-hrcomponents.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/app-hrcomponents.json?token=AT3nZhvTrYZ4BXOQLyLjqmSP4khp-zgEks5a8EOMwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
