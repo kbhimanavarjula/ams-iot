@@ -282,7 +282,7 @@
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
-            "location": "[parameters('appInsightsLocation')]",
+            "appInsightsLocation": "[parameters('appInsightsLocation')]",
             "appInsightsApiVersion": "2014-04-01",
             "appInsightResourceName": "[concat('AppInsights', uniquestring(resourceGroup().id))]"
         },
