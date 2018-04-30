@@ -211,12 +211,6 @@
             "metadata": {
                 "description": "specify the traffic routing method for traffic manager"
             }
-        },
-        "trafficManagerName":{
-            "type": "string",
-            "metadata": {
-              "description": "Name of traffic manager"
-            }
         }
     },
     "variables": {
@@ -252,11 +246,11 @@
             "location": "[parameters('location')]",
             "locationHr": "[parameters('locationHr')]",
             "webSiteName": "[parameters('webSiteName')]",
-            "webSiteNameHr": "[concat('Recovery',parameters('webSiteNameHr'))]",
+            "webSiteNameHr": "[parameters('webSiteNameHr')]",
             "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/webapp.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
-            "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
-            "websiteFullAddressHr": "[concat('https://',parameters('webSiteNameHr'),'.azurewebsites.net/')]"
+            "websiteFullAddress": "[concat('http://',parameters('webSiteName'),'.trafficmanager.net/')]",
+            "websiteFullAddressHr": "[concat('http://',parameters('webSiteName'),'.trafficmanager.net/')]"
         },
         "restServer": {
             "location": "[parameters('location')]",
@@ -338,7 +332,7 @@
         "trafficManagerSettings":{
         "trafficManagerApiVersion":"2017-05-01",
         "trafficRoutingMethod":"[parameters('trafficRoutingMethod')]",
-        "trafficManagerName": "[concat(parameters('trafficManagerName'),'TM', variables('suffix'))]"
+        "trafficManagerName": "[variables('webApp').webSiteName]"
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
@@ -368,7 +362,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json?token=AT3nZpdTRN5vOKAH7FSEIzwAymGE5Tqcks5a8FYmwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -386,7 +380,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json?token=AT3nZpfI6hWnsFWlsnCJx6Inm0dRrVQ_ks5a8FcHwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -404,7 +398,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json?token=AT3nZq-FRYZHxLrzjU9H2Mv6jBUucQkCks5a8FaQwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -422,7 +416,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json?token=AT3nZq8eBuFJ_Ao2JVvE0Hv7j4yziiA6ks5a8FcswA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -445,7 +439,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json?token=AT3nZth2QcbAoEIxJP4BaejbqQQF6VnIks5a8Fd_wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -504,7 +498,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/app-hrcomponents.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/app-hrcomponents.json?token=AT3nZoH9UnTpftcZ1DWz1N7dlWBqQNA1ks5a8FXowA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -561,7 +555,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/trafficmanager.json')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/trafficmanager.json?token=AT3nZhm65kx0vzhSa5uupRoPBBIdonUAks5a8FdQwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
