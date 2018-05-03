@@ -107,8 +107,7 @@
                     "name": "web",
                     "type": "config",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr, '/extensions/MSDeploy')]"
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr)]"
                     ],
                     "tags": {
                         "displayName": "RESTServerConfigHr"
@@ -135,7 +134,8 @@
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr)]",
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameHr)]"
+                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameHr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr,'/config/web')]"
                     ],
                     "tags": {
                         "displayName": "RESTServerMSDeployHr"
@@ -180,7 +180,7 @@
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr, '/extensions/MSDeploy')]"
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameHr,'/config/connectionstrings')]"
                     ],
                     "tags": {
                         "displayName": "restAppSettingsHr"
@@ -258,8 +258,7 @@
                 "name": "web",
                 "type": "config",
                 "dependsOn": [
-                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr)]",
-                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr, '/extensions/MSDeploy')]"
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr)]"
                 ],
                 "tags": {
                   "displayName": "WebAppConfigHr"
@@ -281,6 +280,7 @@
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
                   "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr)]",
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr,'/config/web')]",
                   "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameHr)]"
                 ],
                 "tags": {
@@ -314,7 +314,7 @@
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
                   "[resourceId('Microsoft.Web/sites', parameters('webApp').webSiteNameHr)]",
-                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr, '/extensions/MSDeploy')]"
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameHr, '/config/connectionstrings')]"
                 ],
                 "tags": {
                   "displayName": "websiteAppSettingsHr"
@@ -356,8 +356,7 @@
                 "name": "web",
                 "type": "config",
                 "dependsOn": [
-                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr)]",
-                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr, '/extensions/MSDeploy')]"
+                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr)]"
                 ],
                 "tags": {
                   "displayName": "NodeServerConfigHr"
@@ -379,6 +378,7 @@
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
                   "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr)]",
+                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr,'/config/web')]",,
                   "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameHr)]"
                 ],
                 "tags": {
@@ -412,6 +412,7 @@
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
                     "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr)]",
+                    "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr, '/config/connectionstrings')]",
                     "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameHr, '/extensions/MSDeploy')]"
                 ],
                 "tags": {
