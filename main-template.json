@@ -234,7 +234,7 @@
             "locationHr": "[parameters('locationHr')]",
             "webSiteName": "[parameters('webSiteName')]",
             "webSiteNameHr": "[concat(parameters('webSiteNameHr'))]",
-            "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/webapp.zip',variables('SasToken'))]",
+            "WebAppPackageURI": "[concat('https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip',variables('SasToken'))]",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
             "websiteFullAddressHr": "[concat('https://',parameters('webSiteNameHr'),'.azurewebsites.net/')]"
