@@ -107,8 +107,7 @@
                     "name": "web",
                     "type": "config",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName, '/extensions/MSDeploy')]"
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]"
                     ],
                     "tags": {
                         "displayName": "RESTServerConfig"
@@ -135,6 +134,7 @@
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName,'/config/web')]",
                         "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
                     ],
                     "tags": {
@@ -180,7 +180,7 @@
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName, '/extensions/MSDeploy')]"
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName,'/config/connectionstrings')]"
                     ],
                     "tags": {
                         "displayName": "restAppSettings"
@@ -258,8 +258,7 @@
                 "name": "web",
                 "type": "config",
                 "dependsOn": [
-                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]",
-                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/extensions/MSDeploy')]"
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]"
                 ],
                 "tags": {
                   "displayName": "WebAppConfig"
@@ -281,6 +280,7 @@
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
                   "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]",
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName,'/config/web')]",
                   "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
                 ],
                 "tags": {
@@ -314,7 +314,7 @@
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
                   "[resourceId('Microsoft.Web/sites', parameters('webApp').webSiteName)]",
-                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/extensions/MSDeploy')]"
+                  "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/config/connectionstrings')]"
                 ],
                 "tags": {
                   "displayName": "websiteAppSettings"
@@ -356,8 +356,7 @@
                 "name": "web",
                 "type": "config",
                 "dependsOn": [
-                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]",
-                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/extensions/MSDeploy')]"
+                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]"
                 ],
                 "tags": {
                   "displayName": "NodeServerConfig"
@@ -379,6 +378,7 @@
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
                   "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]",
+                  "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName,'/config/web')]",
                   "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
                 ],
                 "tags": {
@@ -412,7 +412,7 @@
                 "apiVersion": "2015-08-01",
                 "dependsOn": [
                     "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]",
-                    "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/extensions/MSDeploy')]"
+                    "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/config/connectionstrings')]"
                 ],
                 "tags": {
                     "displayName": "nodeAppSettings"
