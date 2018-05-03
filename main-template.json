@@ -263,7 +263,7 @@
         "restServer": {
             "location": "[variables('location')]",
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
-            "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/RestServer_appins419.zip",
+            "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins419.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
@@ -278,7 +278,7 @@
         "nodeServer": {
             "location": "[variables('location')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
-            "NodeServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/node_appins419.zip",
+            "NodeServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/node_appins419.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
