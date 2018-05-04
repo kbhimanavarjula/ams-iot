@@ -10,7 +10,7 @@
 	- [Creating an Azure Service Principal](#creating-an-azure-service-principal)
 - [Deploying the ARM Template](#deploying-the-arm-template)
 - [Prerequisites for Gateway-Middleware](#prerequisites-for-gateway-middleware)
-     - [Step 1 Configuring the Gateway-Middleware package](#step-1 configuring-the-gateway-middleware-package)
+     - [Step 1 Configuring the Gateway-Middleware package](#configuring-the-gateway-middleware-package)
      - [Step 2 Configuring WEBAPP](#step-2 configuring-webapp)
      - [Step 3 Adding the pre-requisites in the web app](#step-3 adding-the-pre-requisites-in-the-web-app)
 		- [Adding Gateway](#adding-gateway)
