@@ -28,20 +28,13 @@
 		- [Adding Asset to Web App using Mobile Application](#adding-asset-to-Web-app-using-mobile-application)
 
 
-
-
-
-
-
-
-
 ## Architecture
 
-![alt text](https://raw.githubusercontent.com/sysgain/ams-iot/core_components/images/Architecture_Diagram.jpg?token=AT3nZlb0JsizUqjXdO1PcEpvhJZyyafVks5a9UmOwA%3D%3D)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/1.jpg)
 
 ## Data Flow Architecture Diagram
 
-![alt text](https://raw.githubusercontent.com/sysgain/ams-iot/core_components/images/DataflowArchitectureDiagram.jpg?token=AT3nZlYe4LDYIaQk2p3xFGtgZ8nczgf8ks5a9UnUwA%3D%3D)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/2.png)
 
 ## Prerequisites for Deploying ARM Template
 
@@ -57,136 +50,132 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 1. Create a new B2C tenant in Azure Active Directory B2C. You'll be shown a page with the information on Azure Active Directory B2C. Click Create at the bottom to start configuring your new Azure Active Directory B2C tenant.
 
-![alt text](https://raw.githubusercontent.com/sysgain/ams-iot/core_components/images/1.png?token=AT3nZh7xYeK7ChLfgDAyOGibJKGw_Kj1ks5a9WAXwA%3D%3D)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/3.png)
 
 2. Choose the Organization name, Initial Domain name and Country of Region for your Tenant. 
 
-![alt text](https://raw.githubusercontent.com/sysgain/ams-iot/core_components/images/2.png?token=AT3nZjL5Bs8aemZ5zz0Mp0qdY0hTQHyyks5a9WBhwA%3D%3D)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/4.png)
 
 3. Once the B2C Tenant is created, you will see the below confirmation under the portal login user name.
 
-![alt text](https://raw.githubusercontent.com/sysgain/ams-iot/core_components/images/3.png?token=AT3nZqM1TMLN2Uop00yGy-ohVKNvYTfEks5a9WB4wA%3D%3D)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/5.png)
 
 4. Switch to your created tenant by clicking on it under sign out. Type Azure in search column and select Azure AD B2C.
 
-![alt text](https://raw.githubusercontent.com/sysgain/ams-iot/core_components/images/4.png?token=AT3nZlLzXHPbCwmaWtxxkAzHphdz9X4cks5a9WCOwA%3D%3D)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/6.png)
 
 5. You can see the created tenant overview like below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/5.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/7.png)
 
 6.	Click on Sign-up or sign-in policies. Then click on Add to add policy.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/6.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/8.png)
 
 7.	Provide the name and enter the details as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/7.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/9.png)
 
 8.	Select all the Sign-up attributes as show below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/8.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/10.png)
 
 9.	Select all the Application claims as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/9.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/11.png)
 
 10.	After filling all the required details, click on Create.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/10.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/12.png)
 
 11.	Once the deployment is complete, the below screen will appear with sign-up details.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/11.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/13.png)
 
 12.	Click on Profile editing policies, then Add.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/12.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/14.png)
 
 13. Provide a name and fill in the details as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/13.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/15.png)
 
 14. Select all the Profile attributes and click on OK.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/14.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/16.png)
 
 15. Select all the Application claims and then click on OK.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/15.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/17.png)
 
 16. After filling all the required details, click on Create.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/16.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/18.png)
 
 17. After deployment completes, the below screen will appear.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/17.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/19.png)
 
 18. Click on Password reset policies and click Add.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/18.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/20.png)
 
 19. Provide a name and fill in the details as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/19.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/21.png)
 
 20. Select all the Application claims and then click on OK.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/20.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/22.png)
 
 21. After filling the details, click on Create.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/21.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/23.png)
 
 22. Once the deployment is completed, the below screen will appear.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/22.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/24.png)
 
 23. Click on Sign-up policies and click on Add.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/23.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/25.png)
 
 24. Provide the name of policy and fill the details as shown in the below screen.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/24.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/26.png)
 
 25. Select all the Sign-up attributes as show below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/25.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/27.png)
 
 26. Select all Application Claims as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/26.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/28.png)
 
 27. Click on Create.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/27.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/29.png)
 
 28. Once the deployment is completed, the below screen will appear.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/28.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/30.png)
 
 29. Click on Sign-in policies, then Add.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/29.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/31.png)
 
 30. Provide a name and fill in the details as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/30.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/32.png)
 
 31. Select all Application claims and click ok
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/31.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/33.png)
 
 32. Once done, click on Create.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/32.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/34.png)
 
 33. After deployment completes, the below screen will appear.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/33.png)
-
-34. Click on the Applications tab and click Add to create a new application. Provide a name for the application.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/34.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/35.png)
