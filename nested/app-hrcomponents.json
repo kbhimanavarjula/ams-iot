@@ -419,7 +419,7 @@
                   "displayName": "websiteAppSettingsHr"
                 },
                 "properties": {
-                  "restServer": "[concat('https://', parameters('restServer').apiServerName,'.azurewebsites.net/')]",
+                  "restServer": "[concat('https://', parameters('restServer').apiServerNameHr,'.azurewebsites.net/')]",
                   "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerNameHr,'.azurewebsites.net/')]",
                   "b2cApplicationId": "[parameters('B2CVariables').b2cClientIdHr]", 
                   "tenantName": "[parameters('B2CVariables').b2cTenant]",
