@@ -11,7 +11,7 @@
 - [Deploying the ARM Template](#deploying-the-arm-template)
 - [Prerequisites for Gateway-Middleware](#prerequisites-for-gateway-middleware)
      - [Step 1: Run the Zadig file](#step-1:-run-the-zadig-file)
-     - [Step 2: Setup GatewayMiddleware package](#step-2;-setup-gatewaymiddleware-package)
+     - [Step 2: Setup GatewayMiddleware package](#step-2:-setup-gatewaymiddleware-package)
      - [Step 3: Configuring WEBAPP](#step-3:-configuring-webapp)
      - [Step 4: Adding the pre-requisites in the web app](#step-4:-adding-the-pre-requisites-in-the-web-app)
 		- [Adding Gateway](#adding-gateway)
