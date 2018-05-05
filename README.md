@@ -462,11 +462,11 @@ To access resources in your subscription, you must assign the application to a r
 
 6. Again, select the CSR device from the drop down as shown below and click Reinstall Driver then it will start installing the driver.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/73.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/76.png)
 
 7. After successful installation you will get the following page.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/74.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/77.png)
 
 ## Step 2: Setup GatewayMiddleware package
 
@@ -478,25 +478,25 @@ Configure the GatewayMiddleware from the below document. https://github.com/sysg
 
 2. Go to Resource groupàsearch for your resource group name àthen click on it.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/75.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/78.png)
 
 3. Now you can able to see all the resources of that resource group.
 
 4. You can differentiate the resources based on their types. For that choose **Group By Type** option as shown in below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/76.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/79.png)
 
 5. Now click on the name of the web app that you entered while deploying the template so that you can find the web app URL and copy that URL.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/77.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/80.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/78.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/81.png)
 
 6. Now paste the copied URL in a browser to open the web application of the AMS.
 
 7. Click Sign In.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/79.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/82.png)
 
 8. If you are new, use sign-up to login into the web app.(or)if your account is already existed then provide the credentials to login.
 
