@@ -10,7 +10,7 @@
 	- [Creating an Azure Service Principal](#creating-an-azure-service-principal)
 - [Deploying the ARM Template](#deploying-the-arm-template)
 - [Prerequisites for Gateway-Middleware](#prerequisites-for-gateway-middleware)
-     - [Step 1: Run the Zadig file](#run-the-zadig-file)
+     - [Step 1: Run the Zadig file](#step-1:-run-the-zadig-file)
      - [Step 2: Setup GatewayMiddleware package](#setup-gatewaymiddleware-package)
      - [Step 2: Configuring WEBAPP](#configuring-webapp)
      - [Step 3: Adding the pre-requisites in the web app](#adding-the-pre-requisites-in-the-web-app)
