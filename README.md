@@ -502,51 +502,51 @@ Configure the GatewayMiddleware from the below document. https://github.com/sysg
 
 9. The web page will take around 5 to 10 minutes to open.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/80.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/83.png)
 
 ## Step 4: Adding the pre-requisites in the web app.
 
 1. Go to inventory option in web app.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/81.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/84.png)
 
 2. The page shows the number of gateways and sensors. Here it shows total gateway and sensor counts.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/82.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/85.png)
 
 ## Adding Gateway
 
 3. Now click on +Add New to add a new gateway.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/83.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/86.png)
 
 4. We need to configure all these fields to add a gateway.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/84.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/87.png)
 
 5. Click on update so that we can able to add the new gateway.
 
 6. Once we click on update we can able to see the pop up as unit configured successfully and open the Add gateway page.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/85.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/88.png)
 
 7. Enter the gateway Name, Serial No (gateway key ID), Description and then click on submit.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/86.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/89.png)
 
 8. You can able to see the pop up of gateway added and the total gateway count.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/87.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/90.png)
 
 ## Adding Sensor
 
 9. Click +Add New to add a new sensor.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/88.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/91.png)
 
 10. Now you need to enter all the fields of sensor
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/89.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/92.png)
 
 11. You need to enter the fields as follows and click on **submit.**
 
@@ -560,12 +560,12 @@ Configure the GatewayMiddleware from the below document. https://github.com/sysg
 
 16. Give **Serial No** that shows in the BLE Scanner under **CC2650 SensorTag** without colons and alphabet should be in lower case as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/90.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/93.png)
 
 17. Choose your Sensor tag as the Sensor type as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/91.png)
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/92.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/94.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/95.png)
 
 ## Adding Asset to Web App using Mobile Application
 
@@ -575,21 +575,21 @@ Configure the GatewayMiddleware from the below document. https://github.com/sysg
 
 3. Go to deployment àfind the resource group name, there you can find the apiserveràclick on the api server and note the url of the rest server.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/93.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/96.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/94.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/97.png)
 
 4. Note the rest server URL and paste it in the mobile application and click submit
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/95.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/98.png)
 
 5. Now the mobile app page redirected to microsoft login page.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/96.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/99.png)
 
 6. Enter the credentials to login into application.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/97.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/100.png)
 
 7. Now you can able to view the application page as follows.
 
