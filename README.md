@@ -10,7 +10,8 @@
 	- [Creating an Azure Service Principal](#creating-an-azure-service-principal)
 - [Deploying the ARM Template](#deploying-the-arm-template)
 - [Prerequisites for Gateway-Middleware](#prerequisites-for-gateway-middleware)
-     - [Step 1: Configuring the Gateway-Middleware package](#configuring-the-gateway-middleware-package)
+     - [Step 1: Run the Zadig file](#run-the-zadig-file)
+     - [Step 2: Setup GatewayMiddleware package](#setup-gatewaymiddleware-package)
      - [Step 2: Configuring WEBAPP](#configuring-webapp)
      - [Step 3: Adding the pre-requisites in the web app](#adding-the-pre-requisites-in-the-web-app)
 		- [Adding Gateway](#adding-gateway)
@@ -429,15 +430,13 @@ To access resources in your subscription, you must assign the application to a r
 
 1. Visual studio 2015 with c++ dependency.
 
-2. Python with 2.7 vesrion.
-
-3. Nodejs with latest version. (present version 9.11.1)
+2. Install **GitBash.**
 
 4. Install **BLE scanner** app in your mobile to view the sensor ID.
 
-5. Install ASTRA app in your mobile. https://projectiot.blob.core.windows.net/ams-iot/AndroidMobileApplication/astra.apk
+5. Install **ASTRA** app in your mobile. https://projectiot.blob.core.windows.net/ams-iot/AndroidMobileApplication/astra.apk
 
-6. Install CSR 4.0 setup file from the below link to enable **BLE** dongle so that your will act as a Gate way. https://projectiot.blob.core.windows.net/ams-iot/CSR_4.0_Bluetooth_exe/CSR 4.0 setup.zip
+6. Install CSR 4.0 setup file from the below link to enable **BLE** dongle so that your system will act as a Gate way. https://projectiot.blob.core.windows.net/ams-iot/CSR_4.0_Bluetooth_exe/CSR 4.0 setup.zip
 
 7. Download Zadig file from the below link. https://zadig.akeo.ie/
 
@@ -990,4 +989,3 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 15. Then the status of asset can be appeared as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/184.png)
-
