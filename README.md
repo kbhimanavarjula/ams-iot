@@ -822,29 +822,29 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 8. Here you can see the data coming from the gateway to iot hub via sensor.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/146.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/147.png)
 
 ## Validating data in iot hub and Node server
 
 9. The data in iot can be appeared as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/147.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/148.png)
 
 10. You can also see the live data in node server.
 
 11. To view you need to enable the diagnostic log settings as follows in node server.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/148.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/149.png)
 
 12. Go to log stream and see the data as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/149.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/150.png)
 
 ## Step 6: validating the data in web app
 
 1. To see the live data in web app go to reportsàselect group followed by sensor value.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/150.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/151.png)
 
 2. Choose group name.
 
