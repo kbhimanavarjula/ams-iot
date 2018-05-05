@@ -470,7 +470,9 @@ To access resources in your subscription, you must assign the application to a r
 
 ## Step 2: Setup GatewayMiddleware package
 
-Configure the GatewayMiddleware from the below document. https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20the%20GatewayMiddleware%20Package.pdf
+Configure the GatewayMiddleware from the below document. 
+
+https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20the%20GatewayMiddleware%20Package.pdf
 
 ## Step 3: Configuring WEBAPP
 
