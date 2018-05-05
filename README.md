@@ -808,11 +808,10 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/142.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/143.png)
 
 6. Enter the credentials to login. Use the login credentials what we are using to sign up for web app.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/144.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/143.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/145.png)
 
