@@ -398,7 +398,7 @@ To access resources in your subscription, you must assign the application to a r
 
 1. Click on below Git hub repo url. **https://github.com/sysgain/ams-iot.git**
 
-2. Take the main-template.json raw file from testing1 branch. 
+2. Take the main-template.json raw file from core_components branch. 
 
 3. Log into Azure portal **https://portal.azure.com**
 
