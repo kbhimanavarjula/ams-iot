@@ -446,19 +446,19 @@ To access resources in your subscription, you must assign the application to a r
 
 2. Open the zadig file as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/69.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/72.png)
 
 3. Go to options and check list all devices.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/70.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/73.png)
 
 4. Select the CSR device from the drop down as shown below and click Replace Driver then it will start installing the driver.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/71.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/74.png)
 
 5. After the successful installation of driver you will get the following page.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/72.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/75.png)
 
 6. Again, select the CSR device from the drop down as shown below and click Reinstall Driver then it will start installing the driver.
 
