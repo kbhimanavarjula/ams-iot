@@ -340,25 +340,44 @@ To access resources in your subscription, you must assign the application to a r
 7. Deploy the template by providing the following parameters in custom deployment settings.
 
 •	Location 				          - Select location from the drop down.
+
 •	IoT Hub Name			        - Give user defined name.
+
 •	SKU Name 			            - Select SKU type from the drop down.
+
 •	 Capacity Units 			    – Enter Capacity units of IoT Hub.
+
 •	Web job storage type		  – Select storage account type from the drop down.
+
 •	SQL Administrator Login	  – Enter username for SQL server.
+
 •	SQL Administrator Login Password - Enter Password for SQL server.
+
 •	SQL Database Name		      – Enter database name for SQL server.
+
 •	Web SKU Name 			        – Select SKU type from the drop down.
+
 •	SKU Capacity			        – Enter the SKU capacity.
+
 •	Webapp Name 			        – Enter Website name which you entered in 2.1 section at 15th point (Eg: https://<Website Name>.azurewebsites.net/redirect.html)
 •	Node Server 			        - Give user defined name.
+
 •	Api Server 			          - Give user defined name.
+
 •	B2C Tenant 			          – Name of the B2C Tenant which you created in 2.1 section at 3rd point. (Eg: amsiot1.onmicrosoft.com)
+
 •	B2C Client id 			      – Enter B2C Client id (Application id) that you got after creating the B2C application in 2.1 section at 21st point.
+
 •	B2C Sign Up Sign In Policy Id 	– Enter Sign Up Sign In Policy name which you created 2.1 section at 8th point.
+
 •	B2C native Redirect URL 	      -  Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 2.1 section at 16th point.
+
 •	Ad Subscription Id 		    – Enter your Azure account subscription Id.
+
 •	Ad Tenant Id 			        – Enter your Azure account tenant Id.
+
 •	Ad Client Id 			        – Enter the Client Id that you got from the Azure Active Directory Application in 2.3 section at 2nd point.
+
 •	Ad Secret key 			      - Enter the Secret key that you got from the Azure Active Directory Application in 2.3 section at 4th point.
 
 
