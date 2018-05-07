@@ -16,7 +16,7 @@
      - [Step 4 Adding the pre-requisites in the web app](#step-4-adding-the-pre-requisites-in-the-web-app)
 		- [Adding Gateway](#adding-gateway)
 		- [Adding Sensor](#adding-sensor)
-		- [Adding Asset to Web App using Mobile Application](#adding-asset-to-Web-app-using-mobile-application)
+		- [Adding Asset to Web App using Mobile Application](#adding-asset-to-web-app-using-mobile-application)
 		- [Adding Assets to a Group](#adding-assets-to-a-group)
 		- [Cofiguring the PoweBi Desktop App and Publishing](#cofiguring-the-powebi-desktop-app-and-publishing)
 		- [Configuring the flow in web app](#configuring-the-flow-in-web-app)
