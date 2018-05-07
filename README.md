@@ -36,7 +36,7 @@
 
 ## Data Flow Architecture Diagram
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/2.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/2.jpg)
 
 ## Prerequisites for Deploying ARM Template
 
@@ -94,119 +94,31 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/13.png)
 
-12.	Click on Profile editing policies, then Add.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/14.png)
-
-13. Provide a name and fill in the details as shown below.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/15.png)
-
-14. Select all the Profile attributes and click on OK.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/16.png)
-
-15. Select all the Application claims and then click on OK.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/17.png)
-
-16. After filling all the required details, click on Create.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/18.png)
-
-17. After deployment completes, the below screen will appear.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/19.png)
-
-18. Click on Password reset policies and click Add.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/20.png)
-
-19. Provide a name and fill in the details as shown below.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/21.png)
-
-20. Select all the Application claims and then click on OK.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/22.png)
-
-21. After filling the details, click on Create.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/23.png)
-
-22. Once the deployment is completed, the below screen will appear.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/24.png)
-
-23. Click on Sign-up policies and click on Add.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/25.png)
-
-24. Provide the name of policy and fill the details as shown in the below screen.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/26.png)
-
-25. Select all the Sign-up attributes as show below.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/27.png)
-
-26. Select all Application Claims as shown below.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/28.png)
-
-27. Click on Create.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/29.png)
-
-28. Once the deployment is completed, the below screen will appear.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/30.png)
-
-29. Click on Sign-in policies, then Add.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/31.png)
-
-30. Provide a name and fill in the details as shown below.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/32.png)
-
-31. Select all Application claims and click ok
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/33.png)
-
-32. Once done, click on Create.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/34.png)
-
-33. After deployment completes, the below screen will appear.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/35.png)
-
-34. Click on the Applications tab and click Add to create a new application. Provide a name for the application.
+12. Click on the Applications tab and click Add to create a new application. Provide a name for the application.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36.png)
 
-35. Under the Web APP/Web API tab, click on Yes to provide a redirect URL for your application. Add an entry in the Redirect URLs section of the B2C application in the followingformat. https://<nameofthewebapp>.azurewebsites.net/redirect.html http://localhost:65159/redirect.html
+13. Under the Web APP/Web API tab, click on Yes to provide a redirect URL for your application. Add an entry in the Redirect URLs section of the B2C application in the followingformat. https://<nameofthewebapp>.azurewebsites.net/redirect.html http://localhost:65159/redirect.html
 
-36. Click Yes under the Native client to include the native client url
+14. Click Yes under the Native client to include the native client url
 
-**Eg: com.onmicrosoft.<tenant name>.<application name>://redirect/path**
+Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
-com.onmicrosoft.amsiot1.webapp://redirect/path
+com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
-37. During the web app registration with PowerBI, we will use this reply URL. **Example: https://webappiot.azurewebsites.net/redirect.html**
+15. During the web app registration with PowerBI, we will use this reply URL. **Example: https://webappiot.azurewebsites.net/redirect.html**
 
-38. After that, click on Create. This web app is used for authenticating the Asset management user login/ registration.
+16. After that, click on Create. This web app is used for authenticating the Asset management user login/ registration.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/37.png)
 
-39. When you save that application, it will generate a unique application id and be used while deploying ARM template.
+17. When you save that application, it will generate a unique application id and be used while deploying ARM template.
 
-40. Select the application you created and note down the Application ID.
+18. Select the application you created and note down the Application ID.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/38.png)
 
-41. Then click on Keys > Generate key > Save and Copy the secret key.
+19. Then click on Keys > Generate key > Save and Copy the secret key.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/39.png)
 
@@ -398,7 +310,7 @@ To access resources in your subscription, you must assign the application to a r
 
 1. Click on below Git hub repo url. **https://github.com/sysgain/ams-iot.git**
 
-2. Take the main-template.json raw file from core_components branch. 
+2. Take the main-template.json raw file from testing1 branch. 
 
 3. Log into Azure portal **https://portal.azure.com**
 
@@ -431,6 +343,8 @@ To access resources in your subscription, you must assign the application to a r
 1. Visual studio 2015 with c++ dependency.
 
 2. Install **GitBash.**
+
+https://git-scm.com/download/win
 
 4. Install **BLE scanner** app in your mobile to view the sensor ID.
 
@@ -470,7 +384,7 @@ To access resources in your subscription, you must assign the application to a r
 
 ## Step 2: Setup GatewayMiddleware package
 
-Configure the GatewayMiddleware from the below document. 
+Configure the GatewayMiddleware from the below document.
 
 https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20the%20GatewayMiddleware%20Package.pdf
 
