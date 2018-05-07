@@ -98,7 +98,11 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36.png)
 
-13. Under the Web APP/Web API tab, click on Yes to provide a redirect URL for your application. Add an entry in the Redirect URLs section of the B2C application in the followingformat. https://<nameofthewebapp>.azurewebsites.net/redirect.html http://localhost:65159/redirect.html
+13. Under the Web APP/Web API tab, click on Yes to provide a redirect URL for your application. Add an entry in the Redirect URLs section of the B2C application in the followingformat.
+
+https://<nameofthewebapp>.azurewebsites.net/redirect.html
+
+http://localhost:65159/redirect.html
 
 14. Click Yes under the Native client to include the native client url
 
@@ -348,9 +352,13 @@ https://git-scm.com/download/win
 
 4. Install **BLE scanner** app in your mobile to view the sensor ID.
 
-5. Install **ASTRA** app in your mobile. https://projectiot.blob.core.windows.net/ams-iot/AndroidMobileApplication/astra.apk
+5. Install **ASTRA** app in your mobile.
 
-6. Install CSR 4.0 setup file from the below link to enable **BLE** dongle so that your system will act as a Gate way. https://projectiot.blob.core.windows.net/ams-iot/CSR_4.0_Bluetooth_exe/CSR 4.0 setup.zip
+ https://projectiot.blob.core.windows.net/ams-iot/AndroidMobileApplication/astra.apk
+
+6. Install CSR 4.0 setup file from the below link to enable **BLE** dongle so that your system will act as a Gate way. 
+
+https://projectiot.blob.core.windows.net/ams-iot/CSR_4.0_Bluetooth_exe/CSR 4.0 setup.zip
 
 7. Download Zadig file from the below link. https://zadig.akeo.ie/
 
@@ -384,7 +392,7 @@ https://git-scm.com/download/win
 
 ## Step 2: Setup GatewayMiddleware package
 
-Configure the GatewayMiddleware from the below document.
+Configure the Gateway from the below document.
 
 https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20the%20GatewayMiddleware%20Package.pdf
 
@@ -416,7 +424,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 8. If you are new, use sign-up to login into the web app.(or)if your account is already existed then provide the credentials to login.
 
-9. The web page will take around 5 to 10 minutes to open.
+9. The web page will take few minutes to open(refresh the page).
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/84.png)
 
@@ -710,11 +718,11 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/140.png)
 
-2. Paste it in the Asset Monitoring Configuration page and add / at the end as shown below.
+2. Paste it in the gateway window(Asset Monitoring Configuration page) and add / at the end as shown below.
 
 3. Click submit.
 
-**Note:** If the Asset Monitoring Configuration page is closed, run electron . command in gitbash then you will get the Asset Monitoring Configuration page.
+**Note:** If the gateway window(Asset Monitoring Configuration) page is closed, run electron . command in gitbash then you will get the gateway window(Asset Monitoring Configuration page).
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/141.png)
 
@@ -837,11 +845,11 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ## Step 8: Configuring the Indoor map in web app
 
-1. Go to configurationàselect indoor map Configuration
+1. Go to configuration,select indoor map Configuration
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/176.png)
 
-2. Choose the map from the given file (image).and click add.
+2. Upload your indoor map and click **Add.**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/177.png)
 
@@ -899,7 +907,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 14. Now scan the barcode of the asset as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/188.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/106.png)
 
 15. Then the status of asset can be appeared as follows.
 
