@@ -222,7 +222,7 @@ After that click on **Save**
 
 To complete this topic, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription.
 
-Obtain the following Azure credentials for Cloudera Director:
+Note down the following ID's once you create the application in Azure Active Directory. You need to enter these details while depolying the ARM template.
 
 o Subscription ID - **You can get the subscription ID in the Azure**
 
@@ -360,7 +360,9 @@ https://git-scm.com/download/win
 
 https://projectiot.blob.core.windows.net/ams-iot/CSR_4.0_Bluetooth_exe/CSR 4.0 setup.zip
 
-7. Download Zadig file from the below link. https://zadig.akeo.ie/
+7. Download Zadig file from the below link.
+
+https://zadig.akeo.ie/
 
 ## Step 1: Run the Zadig file
 
@@ -489,6 +491,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 17. Choose your Sensor tag as the Sensor type as shown below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/95.png)
+
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/96.png)
 
 ## Adding Asset to Web App using Mobile Application
@@ -523,9 +526,11 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/103.png)
 
-9. Before adding asset to the webportal generate **qrcode** for your sensor and barcode for asset by using the following url’s. 
-       **Qrcode** -> https://www.barcodesinc.com/generator/qr 
-	   **Barcode** -> https://www.barcodesinc.com/generator/index.php
+9. Before adding asset to the webportal generate **qrcode** for your sensor and barcode for asset by using the following url’s.
+
+    **Qrcode** -> https://www.barcodesinc.com/generator/qr 
+
+	  **Barcode** -> https://www.barcodesinc.com/generator/index.php
 
 10. you need to add the sensor by using the **qrcode**. While generating the Qrcode, you need to enter your **Sensor ID** in text box and click **Create QR code**.
 
@@ -602,21 +607,25 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 28. To configure the powerbi urls and credentials first we need to configure the powerbi desktop as follows.
 
-29. Download the PowerBI template from the below link. https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport .pbit
+29. Download the PowerBI template from the below link.
+
+https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport .pbit
 
 30. Run the downloaded powerbi template and enter all the input parameters.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/120.png)
 
-31. Here the field require sql server name,
+31. Here the fields require,
 
-Sql database,
+    **sql server name**
 
-Document DB url,
+    **Sql database**
 
-Document DB Name,
+    **Document DB url**
 
-Document DB Collection Name.
+    **Document DB Name**
+
+    **Document DB Collection Name**
 
 32. All these values are taken from the azure portal.
 
@@ -628,7 +637,7 @@ Document DB Collection Name.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/122.png)
 
-35. Note the above two values.
+35. Note down the above two values.
 
 36. Go to document db and note down the values of Collection name and data base name.
 
@@ -652,7 +661,7 @@ Document DB Collection Name.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/127.png)
 
-42. Enter the sqldb name and password and click connect.
+42. Enter the sql user name and password and click connect.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/128.png)
 
@@ -666,7 +675,7 @@ Document DB Collection Name.
 
 45. Once entire data has been fetched the page can be appeared as follows.
 
-46. Here you can click on publish button to publish the powerbi desktop url.fpr that click on **publish.**
+46. Here you can click on publish button to publish the powerbi desktop url. Click **publish.**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/131.png)
 
@@ -674,11 +683,11 @@ Document DB Collection Name.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/132.png)
 
-48. You can save the powerbi desktop into your local machine.for that choose the file location to save.
+48. You can save the powerbi desktop into your local machine. For that, choose the file location to save.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/133.png)
 
-49. After saving the content it will ask for the destination.here the default is workspace and click select.
+49. After saving the content it will ask for the destination.Here, the default is workspace and click select.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/134.png)
 
@@ -765,7 +774,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ## Step 6: validating the data in web app
 
-1. To see the live data in web app go to reportsàselect group followed by sensor value.
+1. To see the live data in web app go to reports -> select group followed by sensor value.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/151.png)
 
@@ -877,11 +886,11 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ## Indoor alert notification	
 
-7. Now Go to dashboard àclick on the flip icon as shown in the below screen shot.
+7. Now Go to dashboard -> click on the flip icon as shown in the below screen shot.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/183.png)
 
-8. Click on the flip symbol so that you can able to see the gateway,sensor and the range in between them.
+8. Once you click the flip symbol, you can able to see the gateway,sensor and the range in between them.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/184.png)
 
@@ -893,7 +902,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 10. If any rule get bleached you found the alert as like above screen shot.
 
-11. Go to Alerts àselect the groupàAssetàcapability and click **apply**
+11. Go to Alerts,select the group -> Asset -> capability and click **apply**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/186.png)
 
