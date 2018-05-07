@@ -104,7 +104,7 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 14. Under the Web APP/Web API tab, click on Yes to provide a redirect URL for your application. Add an entry in the Redirect URLs section of the B2C application in the followingformat.
 
-https://<nameofthewebapp>.azurewebsites.net/redirect.html
+https://<**Website Name**>.azurewebsites.net/redirect.html
 
 http://localhost:65159/redirect.html
 
@@ -233,7 +233,9 @@ o Tenant ID
 
 o Client ID
 
-o Client Secret 1. Log in to your Azure Account through the Azure portal.
+o Client Secret 
+
+1. Go to Azure portal..
 
 2. Select **Azure Active Directory**.
 
@@ -315,11 +317,13 @@ To access resources in your subscription, you must assign the application to a r
 
 ## Deploying the ARM Template
 
-1. Click on below Git hub repo url. **https://github.com/sysgain/ams-iot.git**
+1. Click below Git hub repo url.
+
+**https://github.com/sysgain/ams-iot.git**
 
 2. Take the main-template.json raw file from testing1 branch. 
 
-3. Log into Azure portal **https://portal.azure.com**
+3. Go to Azure portal.
 
 4. Navigate to **Create a resource (+)**, search for Template deployment.
 
@@ -334,6 +338,29 @@ To access resources in your subscription, you must assign the application to a r
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/65.png)
 
 7. Deploy the template by providing the following parameters in custom deployment settings.
+
+•	Location 				          - Select location from the drop down.
+•	IoT Hub Name			        - Give user defined name.
+•	SKU Name 			            - Select SKU type from the drop down.
+•	 Capacity Units 			    – Enter Capacity units of IoT Hub.
+•	Web job storage type		  – Select storage account type from the drop down.
+•	SQL Administrator Login	  – Enter username for SQL server.
+•	SQL Administrator Login Password - Enter Password for SQL server.
+•	SQL Database Name		      – Enter database name for SQL server.
+•	Web SKU Name 			        – Select SKU type from the drop down.
+•	SKU Capacity			        – Enter the SKU capacity.
+•	Webapp Name 			        – Enter Website name which you entered in 2.1 section at 15th point (Eg: https://<Website Name>.azurewebsites.net/redirect.html)
+•	Node Server 			        - Give user defined name.
+•	Api Server 			          - Give user defined name.
+•	B2C Tenant 			          – Name of the B2C Tenant which you created in 2.1 section at 3rd point. (Eg: amsiot1.onmicrosoft.com)
+•	B2C Client id 			      – Enter B2C Client id (Application id) that you got after creating the B2C application in 2.1 section at 21st point.
+•	B2C Sign Up Sign In Policy Id 	– Enter Sign Up Sign In Policy name which you created 2.1 section at 8th point.
+•	B2C native Redirect URL 	      -  Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 2.1 section at 16th point.
+•	Ad Subscription Id 		    – Enter your Azure account subscription Id.
+•	Ad Tenant Id 			        – Enter your Azure account tenant Id.
+•	Ad Client Id 			        – Enter the Client Id that you got from the Azure Active Directory Application in 2.3 section at 2nd point.
+•	Ad Secret key 			      - Enter the Secret key that you got from the Azure Active Directory Application in 2.3 section at 4th point.
+
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/66.png)
 
