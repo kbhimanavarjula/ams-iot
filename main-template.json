@@ -17,7 +17,7 @@
                 "description": "Location where all the resources deploy"
             }
         },
-        "iotHubName1": {
+        "iotHubName": {
             "type": "string",
             "minLength": 3,
             "metadata": {
@@ -44,7 +44,7 @@
                 "description": "Number of desired IoT Hub units. Restricted to 1 unit for F1. Can be set up to maximum number allowed for subscription."
             }
         },
-         "webjobStorageType": {
+        "webjobStorageType": {
             "type": "string",
             "defaultValue": "Standard_LRS",
             "allowedValues": [
@@ -143,7 +143,7 @@
                 "description": "Describes the B2C redirect URL for the Native Client"
             }
         },
-         "AdSubscriptionId":{
+        "AdSubscriptionId": {
             "type": "string",
             "metadata": {
                 "description": "Subscription ID of your Azure AD tenant"
@@ -152,21 +152,21 @@
         "AdTenantId": {
             "type": "string",
             "metadata": {
-              "description": "Tenant ID of Azure AD"
+                "description": "Tenant ID of Azure AD"
             }
         },
         "AdClientId": {
             "type": "string",
             "metadata": {
-              "description": "Client ID of Azure AD application"
+                "description": "Client ID of Azure AD application"
             }
-          },
-          "AdSecretKey": {
+        },
+        "AdSecretKey": {
             "type": "string",
             "metadata": {
-              "description": "Secret Key of Azure AD application"
+                "description": "Secret Key of Azure AD application"
             }
-         } 
+        }
     },
     "variables": {
         "webJobStorage": {
@@ -274,7 +274,7 @@
         "secondaryKey": "[concat(uniqueString(variables('namespaceName'), resourceGroup().Id, 'secondaryKey'),'F9NRSV78nYomDlFjsz21X9aVKPL4Eo=')]",
         "BlobconnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('DeployStorageAccountName'),';AccountKey=',variables('DeployStorageAccountKey'))]",
         "PowerGridEntities": "[concat('metadata=res://*/Entities.PowergridModel.csdl|res://*/Entities.PowergridModel.ssdl|res://*/Entities.PowergridModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=',variables('sqlserverName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';multipleactiveresultsets=True;application name=EntityFramework\"')]",
-        "iotHubName": "[concat(parameters('iotHubName1'),uniqueString(resourceGroup().id))]",
+        "iotHubName": "[concat(parameters('iotHubName'),uniqueString(resourceGroup().id))]",
         "iotHubKeyName": "iothubowner",
         "DeployStorageAccountName": "projectiot",
         "DeployStorageAccountKey": "68qPHnikzAitr3fjvPAyem7Tc0y2pf+BVob4F+opoX20PhV0yJGQc/guxxhCV/Uscp0gE1EHn+GCGfwOiaF9tg==",
