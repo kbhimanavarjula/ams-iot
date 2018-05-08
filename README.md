@@ -80,51 +80,60 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/9.png)
 
-8.	Select all the Sign-up attributes as show below.
+9.	Select all the Sign-up attributes as show below.
 
-9.	Note down the policy name that you are creating now, this will be used while deploying the template.
+10.	Note down the policy name that you are creating now, this will be used while deploying the template.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/10.png)
 
-10.	Select all the Application claims as shown below.
+11.	Select all the Application claims as shown below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/11.png)
 
-11.	After filling all the required details, click on Create.
+12.	After filling all the required details, click on Create.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/12.png)
 
-12.	Once the deployment is complete, the below screen will appear with sign-up details.
+13.	Once the deployment is complete, the below screen will appear with sign-up details.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/13.png)
 
-13. Click on the Applications tab and click Add to create a new application. Provide a name for the application.
+14. Click on the Applications tab and click Add to create a new application.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36.png)
 
-14. Under the Web APP/Web API tab, click on Yes to provide a redirect URL for your application. Add an entry in the Redirect URLs section of the B2C application in the followingformat.
+15.	Provide a name for the application.
 
-https://<**Website Name**>.azurewebsites.net/redirect.html
+16.	Under the Web APP/Web API tab, click Yes to provide the following two redirect URLs for your application. Add an entry in the Redirect URLs section of the B2C application in the following format.
 
-http://localhost:65159/redirect.html
+•	https://<Website Name>.azurewebsites.net/redirect.html
 
-15. Click Yes under the Native client to include the native client url
+Note: **Website Name** should be different from **application name.**
+
+•	http://localhost:65159/redirect.html 
+
+17.	During the web app registration with PowerBI, you will use this reply URL.
+
+**Example: https://webappiot.azurewebsites.net/redirect.html**
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36-1.png)
+
+18. Click Yes under the Native client to include the native client url as shown below.
 
 Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
 com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
-16. During the web app registration with PowerBI, we will use this reply URL. **Example: https://webappiot.azurewebsites.net/redirect.html**
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36-2.png)
 
-17. After that, click on Create. This web app is used for authenticating the Asset management user login/ registration.
+19.	Before clicking on create, note down the application name, Reply URL’s and Custom Redirect URI.
+
+20. After that, click on Create. This web app is used for authenticating the Asset management user login/ registration.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/37.png)
 
-18.	Before clicking on save, note down the application name, Reply URL’s and Custom Redirect URI.
 
-19. When you save that application, it will generate a unique application id and be used while deploying ARM template.
-
-19. Select the application you created and note down the Application ID.
+21. Select the application you created and note down the Application ID.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/38.png)
 
