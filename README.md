@@ -6,8 +6,8 @@
   - [1.1 Data Flow Architecture Diagram](#11-data-flow-architecture-diagram)
 - [2 Prerequisites for Deploying ARM Template](#2-prerequisites-for-deploying-arm-template)
   - [2.1 Azure B2C Tenant Creation and Configuration](#21-azure-b2c-tenant-creation-and-configuration)
-	- [2.2 Power BI Configuration](#22-power-bi-configuration)
-	- [2.3 Creating an Azure Service Principal](#23-creating-an-azure-service-principal)
+  - [2.2 Power BI Configuration](#22-power-bi-configuration)
+  - [2.3 Creating an Azure Service Principal](#23-creating-an-azure-service-principal)
 - [3 Deploying the ARM Template](#3-deploying-the-arm-template)
 - [4 Prerequisites for Gateway-Middleware](#4-prerequisites-for-gateway-middleware)
 - [5 Step 1 Run the Zadig file](#5-step-1-run-the-zadig-file)
@@ -106,11 +106,11 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 16.	Under the Web APP/Web API tab, click Yes to provide the following two redirect URLs for your application. Add an entry in the Redirect URLs section of the B2C application in the following format.
 
-•	https://<Website Name>.azurewebsites.net/redirect.html
+•	https://<**Website Name**>.azurewebsites.net/redirect.html
 
 Note: **Website Name** should be different from **application name.**
 
-•	http://localhost:65159/redirect.html 
+•	http://localhost:65159/redirect.html
 
 17.	During the web app registration with PowerBI, you will use this reply URL.
 
