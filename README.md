@@ -2,7 +2,7 @@
 
 **Table of Contents** 
 
-- [1.-Architecture](#1.-architecture)
+- [1-Architecture](#1-architecture)
 - [Data Flow Architecture Diagram](#data-flow-architecture-diagram)
 - [Prerequisites for Deploying ARM Template](#prerequisites-for-deploying-arm-template)
     - [Azure B2C Tenant Creation and Configuration](#azure-b2c-tenant-creation-and-configuration)
@@ -30,7 +30,7 @@
 
 
 
-## 1. Architecture
+## 1 Architecture
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/1.jpg)
 
