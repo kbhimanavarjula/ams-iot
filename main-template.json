@@ -383,7 +383,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeIuL5CMuzU_ngM5mm1JSNWbuYVpoks5a8EGvwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeO83xqBHlowo_qRGflpxDRrI-Y66ks5a-mviwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -404,7 +404,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/oms-workspace.json','?token=AYpAeDaKEewEfT1sJV6rmBDoUWZBtGxVks5a8EG2wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/oms-workspace.json','?token=AYpAeMpsCxh1DXvwSODfhizr5nmq86L7ks5a-mvpwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -424,7 +424,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeMERQAmdwkcwB2uDz35-X968GmHWks5a8EG0wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeA8_4Pz-3fgK0rTReytNxwj2Haemks5a-mvnwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -447,7 +447,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeIahS4fairixCOauY98NZ_6zDmeFks5a8EGxwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeMPjKAIoJ3ZzgzZmsO2NE5PHEfjWks5a-mvkwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -470,7 +470,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeGz8KDD8o_TjA8x1CAy0HO2VZXQ_ks5a8EG4wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -493,7 +493,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/app-insights.json','?token=AYpAeKQmLaWp0XzI8-dRMcBCIRSQ_9sjks5a8EGcwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/app-insights.json','?token=AYpAeOd0ToUyEfyZLyjh4xnobtlmljJgks5a-mvgwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -517,7 +517,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json','?token=AT7l1b-ByYiXi1FLUawUaLPwJoLTOum6ks5a8WyDwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
