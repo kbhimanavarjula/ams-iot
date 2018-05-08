@@ -422,6 +422,10 @@ https://projectiot.blob.core.windows.net/ams-iot/CSR_4.0_Bluetooth_exe/CSR 4.0 s
 
 https://zadig.akeo.ie/
 
+8. Install PowerBI for Desktop  from the below link.
+
+https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
+
 ## 5 Step 1: Run the Zadig file
 
 1. Connect the BLE dongle to your system and enable the Bluetooth.
