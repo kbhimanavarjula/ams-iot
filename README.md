@@ -176,11 +176,11 @@ g. The Client id and secret key will be generated. Note down these keys locally,
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/42.png)
 
-2. Go to Azure Active Directory from Your Azure Account and click on the App registrations tab. Select the app you just created from the list.
+2. Go to Azure Active Directory from Your Azure Account and click on the App registrations tab. Select the app you just created in PowerBI.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/43.png)
 
-**NOTE:** To grant permissions to the app you must be a Global Administrator in the Tenant.
+**NOTE:** To grant permissions to the app you must be a **Global Administrator** in the Tenant.
 
 3. Click on the app, navigate to all settings, and give the Required permissions.
 
