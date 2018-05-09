@@ -22,7 +22,7 @@
 	- [8.6 Configuring the flow in web app](#86-configuring-the-flow-in-web-app)
 - [9 Step 5 Running the gateway middleware](#9-step-5-running-the-gateway-middleware)
 	- [9.1 Validating data in iot hub and Node server](#91-validating-data-in-iot-hub-and-node-server)
-- [10 Step 6 validating the data in web app](#10-step-6-validating-the-data-in-web-app)
+- [10 Step 6 Validating the data in web app](#10-step-6-validating-the-data-in-web-app)
 - [11 Step 7 Creating and validating the rule in Web app](#11-step-7-creating-and-validating-the-rule-in-web-app)
 - [12 Step 8 Configuring the Indoor map in web app](#12-step-8-configuring-the-indoor-map-in-web-app)
 	- [12.1 Adding Sensor](#121-adding-sensor)
