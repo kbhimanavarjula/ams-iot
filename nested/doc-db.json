@@ -25,6 +25,10 @@
                         "locationName": "[parameters('documentDB').location]",
                         "failoverPriority": 0,
                         "id": "[concat(parameters('documentDB').DocDBAccountName, '-', parameters('documentDB').location)]"
+                    },
+                    {
+                        "locationName": "[parameters('documentDB').readRegionLocation]",
+                        "failoverPriority": 1
                     }
                 ]
             },
@@ -69,14 +73,14 @@
                         ]
                     }
                 }
-            ],    
+            ],
             "tags": {
                 "defaultExperience": "DocumentDB"
             }
         }
     ],
     "outputs": {
-        "documentDBEndpoint":{
+        "documentDBEndpoint": {
             "type": "string",
             "value": "[reference(concat('Microsoft.DocumentDb/databaseAccounts/', parameters('documentDB').DocDBAccountName)).documentEndpoint]"
         }
