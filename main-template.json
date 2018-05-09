@@ -420,7 +420,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeK59kevj6xApGg_tQ1Jrab21sePEks5a_AmkwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
