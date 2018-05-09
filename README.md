@@ -1092,7 +1092,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/211.png)
 
 
-## 14	Application Insights
+## 14 Application Insights
 
 1.	Go to Azure portal, select your Resource Group and select Application Insights as shown below.
 
