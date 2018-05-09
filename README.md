@@ -832,11 +832,15 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 11. You can also see the live data in node server.
 
-12. To view you need to enable the diagnostic log settings as follows in node server.
+12.	Go to your Resource Group and click nodeserver as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/148-1.png)
+
+13. To view you need to enable the diagnostic log settings as follows in node server.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/149.png)
 
-13. Go to log stream and see the data as follows.
+14. Go to log stream and see the data as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/150.png)
 
