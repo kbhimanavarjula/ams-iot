@@ -906,13 +906,8 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/171.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/172.png)
-
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/173.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/174.png)
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/175.png)
 
 ## 12 Step 8: Configuring the Indoor map in web app
 
