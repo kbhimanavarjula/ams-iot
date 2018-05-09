@@ -368,7 +368,8 @@ To access resources in your subscription, you must assign the application to a r
 
 •	SKU Capacity			        – Enter the SKU capacity.
 
-•	Webapp Name 			        – Enter Website name which you entered in 2.1 section at 15th point (Eg: https://<Website Name>.azurewebsites.net/redirect.html)
+•	Webapp Name 			        – Enter Website name which you entered in 2.1 section at 16th point (Eg: https://<Website Name>.azurewebsites.net/redirect.html)
+
 •	Node Server 			        - Give user defined name.
 
 •	Api Server 			          - Give user defined name.
@@ -379,15 +380,15 @@ To access resources in your subscription, you must assign the application to a r
 
 •	B2C Sign Up Sign In Policy Id 	– Enter Sign Up Sign In Policy name which you created 2.1 section at 8th point.
 
-•	B2C native Redirect URL 	      -  Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 2.1 section at 16th point.
+•	B2C native Redirect URL 	      -  Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 2.1 section at 18th point.
 
 •	Ad Subscription Id 		    – Enter your Azure account subscription Id.
 
 •	Ad Tenant Id 			        – Enter your Azure account tenant Id.
 
-•	Ad Client Id 			        – Enter the Client Id that you got from the Azure Active Directory Application in 2.3 section at 2nd point.
+•	Ad Client Id 			        – Enter the Client Id that you got from the Azure Active Directory Application in 2.3 section at 2nd point(Get application ID and authentication key).
 
-•	Ad Secret key 			      - Enter the Secret key that you got from the Azure Active Directory Application in 2.3 section at 4th point.
+•	Ad Secret key 			      - Enter the Secret key that you got from the Azure Active Directory Application in 2.3 section at 4th point(Get application ID and authentication key).
 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/66.png)
