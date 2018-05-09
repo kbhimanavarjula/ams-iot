@@ -20,6 +20,7 @@
             "properties": {
                 "name": "[parameters('documentDB').DocDBAccountName]",
                 "databaseAccountOfferType": "[parameters('documentDB').offerType]",
+                "enableAutomaticFailover": true,
                 "locations": [
                     {
                         "locationName": "[parameters('documentDB').location]",
