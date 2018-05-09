@@ -27,6 +27,8 @@
 - [12 Step 8 Configuring the Indoor map in web app](#12-step-8-configuring-the-indoor-map-in-web-app)
 	- [12.1 Adding Sensor](#121-adding-sensor)
 	- [12.2 Adding Asset to Web App using Mobile Application](#122-adding-asset-to-Web-app-using-mobile-application)
+- [13 Application Insights](#13-application-insights)
+- [14 OMS Log Analytics](#14-oms-log-analytics)
 
 
 
