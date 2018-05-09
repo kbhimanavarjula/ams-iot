@@ -822,17 +822,21 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ### 9.1 Validating data in iot hub and Node server
 
-9. The data in iot can be appeared as follows.
+9. Go to Azure Portal and click IoT Hub as follows.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/147-1.png)
+
+10. The data in iot can be appeared as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/148.png)
 
-10. You can also see the live data in node server.
+11. You can also see the live data in node server.
 
-11. To view you need to enable the diagnostic log settings as follows in node server.
+12. To view you need to enable the diagnostic log settings as follows in node server.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/149.png)
 
-12. Go to log stream and see the data as follows.
+13. Go to log stream and see the data as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/150.png)
 
