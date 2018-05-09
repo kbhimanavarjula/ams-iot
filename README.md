@@ -368,7 +368,7 @@ To access resources in your subscription, you must assign the application to a r
 
 •	SKU Capacity			        – Enter the SKU capacity.
 
-•	Webapp Name 			        – Enter Website name which you entered in 2.1 section at 16th point (Eg: https://<Website Name>.azurewebsites.net/redirect.html)
+•	Webapp Name 			        – Enter Website name which you entered in 2.1 section at 16th point (Eg: https://<**Website Name**>.azurewebsites.net/redirect.html)
 
 •	Node Server 			        - Give user defined name.
 
