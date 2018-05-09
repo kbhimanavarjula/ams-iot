@@ -991,55 +991,97 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 1.	Click on OMS Workspace in Resource Group to view OMS Overview Section.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/190.png)
+
 2.	Click on Azure Resources on left side menu to view available Azure Resources.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/191.png)
 
 3.	Select your RG name from the dropdown list.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/192.png)
+
 4.	Access OMS portal from OMS workspace on left side menu. Click on OMS Workspace > OMS Portal.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/193.png)
 
 5.	Once you clicked on OMS Workspace, the page will be redirected to OMS Home Page.
 
 6.	There you can see the Logs of Azure SQL and Azure Web apps by clicking on each tab.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/194.png)
+
 7.	Click Azure SQL Analytics to view the SQL Server logs.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/195.png)
 
 8.	Click sqldb on the left side page to view the detailed information.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/196.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/197.png)
+
 9.	Click Home on the left side of the page for Web Apps Analytics.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/198.png)
 
 10.	Click Azure Web apps Analytics tab to view each web application logs.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/199.png)
+
 11.	Click nodeserver for logs.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/200.png)
 
 12.	Go back and click webapplication for logs.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/201.png)
+
 13.	Go back and click nodeserver for logs.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/202.png)
 
 14.	Click Search tab to search the IoT hub, Event hub and Document DB logs.
 
 15.	Click Show legacy language converter.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/203.png)
+
 16.	Copy IoT Hub resource name, paste it in the Covert box and click RUN as shown below.
 
 17.	Once you clicked on RUN, you will get the IoT Hub information below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/204.png)
 
 18.	Copy Event Hub resource name, paste it in the Covert box and click RUN as shown below.
 
 19.	Once you clicked on RUN, you will get the Event Hub information below.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/205.png)
+
 20.	Copy Cosmos DB resource name, paste it in the Covert box and click RUN as shown below.
 
 21.	Once you clicked on RUN, you will get the Cosmos DB information below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/206.png)
 
 22.	For Stream Analytics logs, first you need to enable the Diagnostics logs.
 
 23.	Go to Azure portal, click Stream Analytics job as shown below.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/207.png)
+
 24.	Click Diagnostics logs on the left pane and Turn on diagnostics as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/208.png)
 
 25.	Provide the details as shown below and select your workspace.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/209.png)
+
 26.	Click Save.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/210.png)
 
 27.	Go to OMS Portal and Click Search tab for Stream Analytics logs.
 
@@ -1047,36 +1089,69 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 29.	Once you clicked on RUN, you will get the Stream Analytics Job information below.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/211.png)
+
+
 ## 14	Application Insights
 
 1.	Go to Azure portal, select your Resource Group and select Application Insights as shown below.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/212.png)
+
 2.	On Overview page, Summary details are displayed as shown in the following figure.
 
-3.	Click Live Stream to view detailed information related to webapp
+3.	Click Live Stream to view detailed information related to webapp.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/213.png)
 
 4.	Here you can see the Live Requests of Web app.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/214.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/215.png)
+
 5.	Go back to Application Insights Overview page and click Analytics box in Health tab as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/216.png)
 
 6.	This will take you to Application Insights page and click Home Page tab.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/217.png)
+
 7.	You can run the following common queries to see the specific logs of application as below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/218.png)
 
 8.	For example, Run the Performance query to see the logs.
 
 9.	Click RUN on Performance tab.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/219.png)
+
 10.	You can see the below graph of application performance. If you modified the query please click on RUN from top left menu to see the updated graph.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/220.png)
+
 11.	Similarly, you can run the other common Pre-defined queries by navigating back to the Home Page.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/221.png)
 
 12.	Go back to the Application Insights overview page in Azure Portal to view metrics of the application.
 
 13.	Click Metrics Explorer on the left side of the page as shown below.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/222.png)
+
 14.	Click Edit as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/223.png)
 
 15.	You can select any of the listed Metrics to view application logs.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/224.png)
+
 16.	If you want to add new chart click on Add new chart as shown below and click on Edit to add the specific metrics.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/225.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/226.png)
