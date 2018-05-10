@@ -1176,7 +1176,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ## 16 Geo Replication
 
-### 16.1	Setting up Geo-Replication for Cosmos DB
+### 16.1 Setting up Geo-Replication for Cosmos DB
 
 Azure Cosmos DB is a globally distributed, low-latency, high throughput databases services. Azure Cosmos DB provides global distribution, which means you can scale and distribute it across different Azure regions. This enables you to have your data replicated over as many as datacenter per your need, moreover control and access your replicated data seamlessly. Setting up the Geo-Replication is very easy and can be done in a couple of clicks from the Azure Portal.
 
@@ -1231,22 +1231,22 @@ To configure active geo-replication by using the Azure portal, you need the foll
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/234.PNG)
 
-2.	Select Failover Groups under the Settings section.
+2. Select Failover Groups under the Settings section.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/235.PNG)
 
-3.	Click SQL Server as show below.
+3. Click SQL Server as show below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/236.PNG)
 
-4.	Click Failover to switch Secondary database to Primary role. 
+4. Click Failover to switch Secondary database to Primary role. 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/237.PNG)
 
-5.	Click YES.
+5. Click YES.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/238.PNG)
 
-6.	After Successful Failover You can go back and check your SQL Servers status.
+6. After Successful Failover You can go back and check your SQL Servers status.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/239.PNG)
