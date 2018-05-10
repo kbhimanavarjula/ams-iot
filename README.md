@@ -32,7 +32,7 @@
   - [13.4 Alerts checking](#134-alerts-checking)
   - [13.5 Asset Status](#135-asset-status)
 - [14 OMS Log Analytics](#14-oms-log-analytics)
-- [15 Application Insights](#13-application-insights)
+- [15 Application Insights](#15-application-insights)
 
 
 
