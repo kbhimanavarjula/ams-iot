@@ -1216,3 +1216,37 @@ Follow these steps to set up the Geo-Replication.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/233.png)
 
+
+## 16.2	Setting up Geo-Replication for SQL DB
+
+Azure SQL Database auto-failover groups (in-preview) is a SQL Database feature designed to automatically manage geo-replication relationship, connectivity, and failover at scale. With it, the customers gain the ability to automatically recover multiple related databases in the secondary region after catastrophic regional failures or other unplanned events that result in full or partial loss of the SQL Database service’s availability in the primary region.
+
+To configure active geo-replication by using the Azure portal, you need the following resource:
+
+•	An Azure SQL database: The primary database that you want to replicate to a different geographical region.
+
+•	Active geo-replication must be between databases in the same subscription.
+
+1. Go to Azure portal, select your Resource Group and select SQL Server as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/234.png)
+
+2.	Select Failover Groups under the Settings section.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/235.png)
+
+3.	Click SQL Server as show below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/236.png)
+
+4.	Click Failover to switch Secondary database to Primary role. 
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/237.png)
+
+5.	Click YES.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/238.png)
+
+6.	After Successful Failover You can go back and check your SQL Servers status.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/239.png)
