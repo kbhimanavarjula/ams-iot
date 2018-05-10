@@ -36,8 +36,8 @@
 - [14 OMS Log Analytics](#14-oms-log-analytics)
 - [15 Application Insights](#15-application-insights)
 - [16 Geo Replication](#16-geo-replication)
-  - [16.1 Setting up Geo-Replication for Cosmos DB](#161-setting-up-geo-replication-for-cosmos-db)
-  - [16.2 Setting up Geo-Replication for SQL DB](#161-setting-up-geo-replication-for-sql-db)
+  - [16.1 Setting up Geo Replication for Cosmos DB](#161-setting-up-geo-replication-for-cosmos-db)
+  - [16.2 Setting up Geo Replication for SQL DB](#161-setting-up-geo-replication-for-sql-db)
 
 
 
