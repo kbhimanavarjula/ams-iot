@@ -2,51 +2,59 @@
 
 **Table of Contents** 
 
-- [1 Architecture](#1-architecture)
-  - [1.1 Data Flow Architecture Diagram](#11-data-flow-architecture-diagram)
-- [2 Prerequisites for Deploying ARM Template](#2-prerequisites-for-deploying-arm-template)
-  - [2.1 Azure B2C Tenant Creation and Configuration](#21-azure-b2c-tenant-creation-and-configuration)
-  - [2.2 Power BI Configuration](#22-power-bi-configuration)
-  - [2.3 Creating an Azure Service Principal](#23-creating-an-azure-service-principal)
-- [3 Deploying the ARM Template](#3-deploying-the-arm-template)
-- [4 Prerequisites for Gateway-Middleware](#4-prerequisites-for-gateway-middleware)
-- [5 Step 1 Run the Zadig file](#5-step-1-run-the-zadig-file)
-- [6 Step 2 Setup GatewayMiddleware package](#6-step-2-setup-gatewaymiddleware-package)
-- [7 Step 3 Configuring WEBAPP](#7-step-3-configuring-webapp)
-- [8 Step 4 Adding the pre-requisites in the web app](#8-step-4-adding-the-pre-requisites-in-the-web-app)
-	- [8.1 Adding Gateway](#81-adding-gateway)
-	- [8.2 Adding Sensor](#82-adding-sensor)
-	- [8.3 Adding Asset to Web App using Mobile Application](#83-adding-asset-to-web-app-using-mobile-application)
-	- [8.4 Adding Assets to a Group](#84-adding-assets-to-a-group)
-	- [8.5 Cofiguring the PoweBi Desktop App and Publishing](#84-cofiguring-the-powebi-desktop-app-and-publishing)
-	- [8.6 Configuring the flow in web app](#86-configuring-the-flow-in-web-app)
-- [9 Step 5 Running the gateway middleware](#9-step-5-running-the-gateway-middleware)
-	- [9.1 Validating data in iot hub and Node server](#91-validating-data-in-iot-hub-and-node-server)
-- [10 Step 6 Validating the data in web app](#10-step-6-validating-the-data-in-web-app)
-- [11 Step 7 Creating and validating the rule in Web app](#11-step-7-creating-and-validating-the-rule-in-web-app)
-- [12 Step 8 Configuring the Indoor map in web app](#12-step-8-configuring-the-indoor-map-in-web-app)
-	- [12.1 Adding Sensor](#121-adding-sensor)
-	- [12.2 Adding Asset to Web App using Mobile Application](#122-adding-asset-to-web-app-using-mobile-application)
-- [13 OMS Log Analytics](#14-oms-log-analytics)
-- [14 Application Insights](#13-application-insights)
+- [1 About Asset Monitoring Solution](#1-about-asset-monitoring-solution)
+- [2 Architecture](#2-architecture)
+  - [2.1 Data Flow Architecture Diagram](#21-data-flow-architecture-diagram)
+- [3 Prerequisites for Deploying ARM Template](#3-prerequisites-for-deploying-arm-template)
+  - [3.1 Azure B2C Tenant Creation and Configuration](#31-azure-b2c-tenant-creation-and-configuration)
+  - [3.2 Power BI Configuration](#32-power-bi-configuration)
+  - [3.3 Creating an Azure Service Principal](#33-creating-an-azure-service-principal)
+- [4 Deploying the ARM Template](#4-deploying-the-arm-template)
+- [5 Prerequisites for Gateway-Middleware](#5-prerequisites-for-gateway-middleware)
+- [6 Step 1 Run the Zadig file](#6-step-1-run-the-zadig-file)
+- [7 Step 2 Setup GatewayMiddleware package](#7-step-2-setup-gatewaymiddleware-package)
+- [8 Step 3 Configuring WEBAPP](#8-step-3-configuring-webapp)
+- [9 Step 4 Adding the pre-requisites in the web app](#9-step-4-adding-the-pre-requisites-in-the-web-app)
+	- [9.1 Adding Gateway](#91-adding-gateway)
+	- [9.2 Adding Sensor](#92-adding-sensor)
+	- [9.3 Adding Asset to Web App using Mobile Application](#93-adding-asset-to-web-app-using-mobile-application)
+	- [9.4 Adding Assets to a Group](#94-adding-assets-to-a-group)
+	- [9.5 Cofiguring the PoweBi Desktop App and Publishing](#94-cofiguring-the-powebi-desktop-app-and-publishing)
+	- [9.6 Configuring the flow in web app](#96-configuring-the-flow-in-web-app)
+- [10 Step 5 Running the gateway middleware](#10-step-5-running-the-gateway-middleware)
+	- [10.1 Validating data in iot hub and Node server](#11-validating-data-in-iot-hub-and-node-server)
+- [11 Step 6 validating the data in web app](#11-step-6-validating-the-data-in-web-app)
+- [12 Step 7 Creating and validating the rule in Web app](#12-step-7-creating-and-validating-the-rule-in-web-app)
+- [13 Step 8 Configuring the Indoor map in web app](#13-step-8-configuring-the-indoor-map-in-web-app)
+	- [13.1 Adding gateway rule](#131-adding-sensor)
+	- [13.2 Positioning the gateway on the layout](#132-positioning-the-gateway-on-the-layout)
+  - [13.3 Indoor alert notification](#133-indoor-alert-notification)
+  - [13.4 Alerts checking](#134-alerts-checking)
+  - [13.5 Asset Status](#135-asset-status)
+- [14 OMS Log Analytics](#14-oms-log-analytics)
+- [15 Application Insights](#13-application-insights)
 
 
 
-## 1 Architecture
+## 1 About Asset Monitoring Solution
+
+Asset Monitoring and Tracking Solution is a complete smart inventory management tool. The solution provides a web dashboard & a mobile application to Monitor, Locate and Report all the remote assets so that they are completely visible 24x7.
+
+## 2 Architecture
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/1.jpg)
 
-## 1.1 Data Flow Architecture Diagram
+## 2.1 Data Flow Architecture Diagram
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/2.jpg)
 
-## 2 Prerequisites for Deploying ARM Template
+## 3 Prerequisites for Deploying ARM Template
 
   1. The Azure AD B2C Tenant should be created and register your web application. 
   2. Create an account in Power BI 
   3. Create an Azure Service Principal. 
 
-### 2.1 Azure B2C Tenant Creation and Configuration   
+### 3.1 Azure B2C Tenant Creation and Configuration   
 
 Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant already created by your admin then you should be added into that tenant as Global Administrator to register your app to get the B2C tenant id, application id and sign-in/sign-up policies.  
 
@@ -140,7 +148,7 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/38.png)
 
 
-### 2.2 Power BI Configuration
+### 3.2 Power BI Configuration
 
 Go to https://dev.powerbi.com/apps and register the web app.
 
@@ -232,7 +240,7 @@ After that click on **Save**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/48.png)
 
-### 2.3 Creating an Azure Service Principal
+### 3.3 Creating an Azure Service Principal
 
 To complete this topic, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription.
 
@@ -326,7 +334,7 @@ To access resources in your subscription, you must assign the application to a r
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/62.png)
 
-## 3 Deploying the ARM Template
+## 4 Deploying the ARM Template
 
 1. Click below Git hub repo url.
 
@@ -370,27 +378,27 @@ To access resources in your subscription, you must assign the application to a r
 
 •	SKU Capacity			        – Enter the SKU capacity.
 
-•	Webapp Name 			        – Enter Website name which you entered in 2.1 section at 16th point (Eg: https://<**Website Name**>.azurewebsites.net/redirect.html)
+•	Webapp Name 			        – Enter Website name which you entered in 3.1 section at 16th point (Eg: https://<**Website Name**>.azurewebsites.net/redirect.html)
 
 •	Node Server 			        - Give user defined name.
 
 •	Api Server 			          - Give user defined name.
 
-•	B2C Tenant 			          – Name of the B2C Tenant which you created in 2.1 section at 3rd point. (Eg: amsiot1.onmicrosoft.com)
+•	B2C Tenant 			          – Name of the B2C Tenant which you created in 3.1 section at 3rd point. (Eg: amsiot1.onmicrosoft.com)
 
-•	B2C Client id 			      – Enter B2C Client id (Application id) that you got after creating the B2C application in 2.1 section at 21st point.
+•	B2C Client id 			      – Enter B2C Client id (Application id) that you got after creating the B2C application in 3.1 section at 21st point.
 
-•	B2C Sign Up Sign In Policy Id 	– Enter Sign Up Sign In Policy name which you created 2.1 section at 8th point.
+•	B2C Sign Up Sign In Policy Id 	– Enter Sign Up Sign In Policy name which you created 3.1 section at 8th point.
 
-•	B2C native Redirect URL 	      -  Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 2.1 section at 18th point.
+•	B2C native Redirect URL 	      -  Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 3.1 section at 18th point.
 
 •	Ad Subscription Id 		    – Enter your Azure account subscription Id.
 
 •	Ad Tenant Id 			        – Enter your Azure account tenant Id.
 
-•	Ad Client Id 			        – Enter the Client Id that you got from the Azure Active Directory Application in 2.3 section at 2nd point(Get application ID and authentication key).
+•	Ad Client Id 			        – Enter the Client Id that you got from the Azure Active Directory Application in 3.3 section at 2nd point(Get application ID and authentication key).
 
-•	Ad Secret key 			      - Enter the Secret key that you got from the Azure Active Directory Application in 2.3 section at 4th point(Get application ID and authentication key).
+•	Ad Secret key 			      - Enter the Secret key that you got from the Azure Active Directory Application in 3.3 section at 4th point(Get application ID and authentication key).
 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/66.png)
@@ -403,7 +411,7 @@ To access resources in your subscription, you must assign the application to a r
 
 9. Once the deployment is completed, you can start the workflow
 
-## 4 Prerequisites for Gateway-Middleware
+## 5 Prerequisites for Gateway-Middleware
 
 1. Visual studio 2015 with c++ dependency.
 
@@ -429,7 +437,7 @@ https://zadig.akeo.ie/
 
 https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
 
-## 5 Step 1: Run the Zadig file
+## 6 Step 1: Run the Zadig file
 
 1. Connect the BLE dongle to your system and enable the Bluetooth.
 
@@ -457,13 +465,13 @@ https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/77.png)
 
-## 6 Step 2: Setup GatewayMiddleware package
+## 7 Step 2: Setup GatewayMiddleware package
 
 Configure the Gateway from the below document.
 
 https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20the%20GatewayMiddleware%20Package.pdf
 
-## 7 Step 3: Configuring WEBAPP
+## 8 Step 3: Configuring WEBAPP
 
 1. To start the work flow of AMS take the web app URL through portal.azure.com from the deployed resource group.
 
@@ -495,7 +503,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/84.png)
 
-## 8 Step 4: Adding the pre-requisites in the web app.
+## 9 Step 4: Adding the pre-requisites in the web app.
 
 1. Go to inventory option in web app.
 
@@ -505,7 +513,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/86.png)
 
-### 8.1 Adding Gateway
+### 9.1 Adding Gateway
 
 3. Now click on +Add New to add a new gateway.
 
@@ -529,7 +537,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/91.png)
 
-### 8.2 Adding Sensor
+### 9.2 Adding Sensor
 
 9. Click +Add New to add a new sensor.
 
@@ -559,7 +567,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/96.png)
 
-### 8.3 Adding Asset to Web App using Mobile Application
+### 9.3 Adding Asset to Web App using Mobile Application
 
 1. Open the mobile app named as **ASTRA** and enter the **rest server URL**.
 
@@ -627,7 +635,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/110.png)
 
-### 8.4 Adding Assets to a Group
+### 9.4 Adding Assets to a Group
 
 18. Now we need to add the asset to a group. For that you need to check the asset so that Add Group option will be enable.
 
@@ -645,7 +653,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/114.png)
 
-### 8.5 Cofiguring the PoweBi Desktop App and Publishing
+### 9.5 Cofiguring the PoweBi Desktop App and Publishing
 
 
 22. Go to Configurations and add the following information.
@@ -764,7 +772,7 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/136.png)
 
-### 8.6 Configuring the flow in web app
+### 9.6 Configuring the flow in web app
 
 52. Go to web app and click on **configuration** -> choose **powerbi credentials**
 
@@ -786,7 +794,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/139.png)
 
-## 9 Step 5: Running the gateway middleware
+## 10 Step 5: Running the gateway middleware
 
 1. Go to portal àclick on apiserverà copy the apiserver URL.
 
@@ -821,7 +829,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/147.png)
 
-### 9.1 Validating data in iot hub and Node server
+### 10.1 Validating data in iot hub and Node server
 
 9. Go to Azure Portal and click IoT Hub as follows.
 
@@ -845,7 +853,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/150.png)
 
-## 10 Step 6: validating the data in web app
+## 11 Step 6: validating the data in web app
 
 1. To see the live data in web app go to reports -> select group followed by sensor value.
 
@@ -879,7 +887,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/161.png)
 
-## 11 Step 7: Creating and validating the rule in Web app
+## 12 Step 7: Creating and validating the rule in Web app
 
 1. After viewing the reports create a rule based on some threshold conditions.
 
@@ -920,7 +928,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/173.png)
 
 
-## 12 Step 8: Configuring the Indoor map in web app
+## 13 Step 8: Configuring the Indoor map in web app
 
 1. Go to configuration,select indoor map Configuration
 
@@ -936,13 +944,13 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/179.png)
 
-### 12.1 Adding gateway rule
+### 13.1 Adding gateway rule
 
 4. Now you need to select the gateway id in the indoor map location.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/180.png)
 
-### 12.2 Positioning the gateway on the layout
+### 13.2 Positioning the gateway on the layout
 
 5. Now position the gateway at some location in the map and click **update.**
 
@@ -952,7 +960,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/182.png)
 
-### 12.3 Indoor alert notification	
+### 13.3 Indoor alert notification	
 
 7. Now Go to dashboard -> click on the flip icon as shown in the below screen shot.
 
@@ -966,7 +974,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/185.png)
 
-### 12.4 Alerts checking
+### 13.4 Alerts checking
 
 10. If any rule get bleached you found the alert as like above screen shot.
 
@@ -974,7 +982,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/186.png)
 
-### 12.5 Asset Status
+### 13.5 Asset Status
 
 12. Finally, you can see the status of the asset by using mobile application.
 
@@ -991,7 +999,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/189.png)
 
 
-## 13 OMS Log Analytics
+## 14 OMS Log Analytics
 
 1.	Click on OMS Workspace in Resource Group to view OMS Overview Section.
 
@@ -1096,7 +1104,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/211.png)
 
 
-## 14 Application Insights
+## 15 Application Insights
 
 1.	Go to Azure portal, select your Resource Group and select Application Insights as shown below.
 
