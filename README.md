@@ -1229,24 +1229,24 @@ To configure active geo-replication by using the Azure portal, you need the foll
 
 1. Go to Azure portal, select your Resource Group and select SQL Server as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/234.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/234.PNG)
 
 2.	Select Failover Groups under the Settings section.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/235.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/235.PNG)
 
 3.	Click SQL Server as show below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/236.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/236.PNG)
 
 4.	Click Failover to switch Secondary database to Primary role. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/237.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/237.PNG)
 
 5.	Click YES.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/238.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/238.PNG)
 
 6.	After Successful Failover You can go back and check your SQL Servers status.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/239.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/239.PNG)
