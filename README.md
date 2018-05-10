@@ -35,6 +35,9 @@
   - [13.5 Asset Status](#135-asset-status)
 - [14 OMS Log Analytics](#14-oms-log-analytics)
 - [15 Application Insights](#15-application-insights)
+- [16 Geo Replication](#16-geo-replication)
+  - [16.1 Setting up Geo-Replication for Cosmos DB](#161-setting-up-geo-replication-for-cosmos-db)
+  - [16.2 Setting up Geo-Replication for SQL DB](#161-setting-up-geo-replication-for-sql-db)
 
 
 
@@ -1169,3 +1172,47 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/225.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/226.png)
+
+
+## 16 Geo Replication
+
+### 16.1	Setting up Geo-Replication for Cosmos DB
+
+Azure Cosmos DB is a globally distributed, low-latency, high throughput databases services. Azure Cosmos DB provides global distribution, which means you can scale and distribute it across different Azure regions. This enables you to have your data replicated over as many as datacenter per your need, moreover control and access your replicated data seamlessly. Setting up the Geo-Replication is very easy and can be done in a couple of clicks from the Azure Portal.
+
+Follow these steps to set up the Geo-Replication.
+
+1. From the Azure Portal, go to your Resources Group and Open the Azure Cosmos DB database resource.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/227.png)
+
+2. Select Replicate data globally under the Settings option.
+
+3. In the initial state, the Global Distribution map will highlight the Write Region, which is the origin of the Cosmos DB database.
+
+4. Now you can add additional region by simply clicking on Add New Region button which is available under the Read Regions section.
+
+5. But here already one region is added, you can do Failover for it.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/228.png)
+
+6. Click Manual Failover on the top.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/229.png)
+
+7. Here, the Write Region is West US and Read Region is South Central US.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/230.png)
+
+8. Click South Central US region to become a Write Region, Check I understand and agree to trigger a failover on my current Write Region box and click OK.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/231.png)
+
+9. The overall process will take a while and it will depend on the number of regions you selected for your data to be replicated.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/232.png)
+
+10. Once the Geo-Replication is done, you can go back and check all your regions on the Map, further you can add or remove any other regions as per your need.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/233.png)
+
