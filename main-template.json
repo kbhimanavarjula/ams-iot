@@ -294,7 +294,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json?token=AT3nZkGfro6zEFOYssbETWmt1yxuBBgGks5a89QtwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeLmnlQe2VaPtUBm73EoAywi_-QnIks5a_mQuwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -312,7 +312,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json?token=AT3nZo8LfcdgDWJ446Zqok60t6jHX22Gks5a89QHwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeJ3DPmWwE7ryLD7fsfolCALIFl1Tks5a_mQywA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -330,7 +330,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json?token=AT3nZq6BVRGOC9z36m_8jR76bDKtg3_Xks5a89PFwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeIu4vvNk-HEfIk_H2s_lrCOO1Grpks5a_mQwwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -348,7 +348,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json?token=AT3nZsxkvqTdr2fLO4COM4PWITgFCEP2ks5a89OQwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeDw8ehjYvrotMKBmFkbH9pghLQ5Jks5a_mQ0wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -371,7 +371,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json?token=AT3nZqFu6eWJJvSD9Oi4Hp7TnU5DBES_ks5a89NIwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json','?token=AYpAeB-Xn_J8sPbBrsZLU2nilfNkRuDjks5a_mQ1wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
