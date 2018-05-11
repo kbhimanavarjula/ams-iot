@@ -125,7 +125,7 @@
                         "remoteDebuggingVersion": "VS2015",
                         "cors": {
                             "allowedOrigins": [
-                                "[concat('http://', parameters('trafficManagerSettings').trafficManagerName, '.trafficmanager.net')]"
+                                "[concat('https://', parameters('trafficManagerSettings').trafficManagerName, '.trafficmanager.net')]"
                             ]
                         }
                     }
