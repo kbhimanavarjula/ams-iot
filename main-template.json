@@ -293,14 +293,14 @@
         "webApp": {
             "location": "[variables('location')]",
             "webSiteName": "[parameters('webSiteName')]",
-            "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
+            "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/webapp_appins511.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
         },
         "restServer": {
             "location": "[variables('location')]",
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
-            "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins419.zip",
+            "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins511.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
