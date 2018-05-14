@@ -1,0 +1,53 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "iotHub": {
+            "type": "object"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2016-02-03",
+            "location": "[parameters('iotHub').location]",
+            "type": "Microsoft.Devices/IotHubs",
+            "name": "[parameters('iotHub').iotHubName]",
+            "properties": {
+                "eventHubEndpoints": {
+                    "events": {
+                        "retentionTimeInDays": 1,
+                        "partitionCount": 2
+                    }
+                },
+                "cloudToDevice": {
+                    "defaultTtlAsIso8601": "PT1H",
+                    "maxDeliveryCount": 10,
+                    "feedback": {
+                        "maxDeliveryCount": 10,
+                        "ttlAsIso8601": "PT1H",
+                        "lockDurationAsIso8601": "PT60S"
+                    }
+                },
+                "location": "[parameters('iotHub').location]"
+            },
+            "sku": {
+                "name": "[parameters('iotHub').skuName]",
+                "capacity": "[parameters('iotHub').capacityUnits]"
+            }
+        },
+        {
+            "apiVersion": "2016-02-03",
+            "type": "Microsoft.Devices/iotHubs/eventhubEndpoints/ConsumerGroups",
+            "dependsOn": [
+                "[concat('Microsoft.Devices/iothubs/', parameters('iotHub').iotHubName)]"
+            ],
+            "name": "[concat(parameters('iotHub').iotHubName, '/events/',parameters('iotHub').d2cConsumerGroupName,copyIndex(1))]",
+            "copy": {
+                "name": "consumergroupcopy",
+                "mode": "Serial",
+                "count": 19
+            }
+        }
+    ]
+}

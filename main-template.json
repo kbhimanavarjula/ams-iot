@@ -1,0 +1,1026 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "solutionType": {
+            "type": "string",
+            "defaultValue": "",
+            "allowedValues": [
+                "solution with monitoring",
+                "solution without monitoring"
+            ],
+            "metadata": {
+                "description": "1.solution with monitoring - this will deploy core digital signage solution & monitoring components. 2. solution without monitoring - this will deploy core digital signage solution"
+            }
+        },
+        "costingModel": {
+            "type": "string",
+            "defaultValue": "",
+            "allowedValues": [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+            ],
+            "metadata": {
+                "description": "specify the costing model"
+            }
+        },
+        "appInsightsLocation": {
+            "type": "string",
+            "defaultValue": "westus2",
+            "allowedValues": [
+                "eastus",
+                "northeurope",
+                "southcentralus",
+                "southeastasia",
+                "westeurope",
+                "westus2"
+            ],
+            "metadata": {
+                "description": "specify the region for application insights"
+            }
+        },
+        "iotHubName1": {
+            "type": "string",
+            "minLength": 3,
+            "metadata": {
+                "description": "Name of the IoT Hub instance to provision."
+            }
+        },
+        "capacityUnits": {
+            "type": "int",
+            "minValue": 1,
+            "defaultValue": 1,
+            "metadata": {
+                "description": "Number of desired IoT Hub units. Restricted to 1 unit for F1. Can be set up to maximum number allowed for subscription."
+            }
+        },
+        "sqlAdministratorLogin": {
+            "type": "string",
+            "metadata": {
+                "description": "The admin user of the SQL Server"
+            }
+        },
+        "sqlAdministratorLoginPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The password of the admin user of the SQL Server"
+            }
+        },
+        "sqldatabasename": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of SQL database"
+            }
+        },
+        "webSkuName": {
+            "type": "string",
+            "defaultValue": "S1",
+            "allowedValues": [
+                "D1",
+                "B1",
+                "B2",
+                "B3",
+                "S1",
+                "S2",
+                "S3",
+                "P1",
+                "P2",
+                "P3",
+                "P4"
+            ],
+            "metadata": {
+                "description": "Describes plan's pricing tier and instance size. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
+            }
+        },
+        "locationDr": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region"
+            }
+        },
+        "skuCapacity": {
+            "type": "int",
+            "defaultValue": 1,
+            "minValue": 1,
+            "metadata": {
+                "description": "Describes plan's instance count"
+            }
+        },
+        "webSiteName": {
+            "type": "string",
+            "metadata": {
+                "description": "Describes Web Site name which should be unique"
+            }
+        },
+        "nodeServerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes the node server name which should be unique"
+            }
+        },
+        "apiServerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes API Server name which should be unique"
+            }
+        },
+        "AdSubscriptionId":{
+            "type": "string",
+            "metadata": {
+                "description": "Subscription ID of your Azure AD tenant"
+            }
+        },
+        "AdTenantId": {
+            "type": "string",
+            "metadata": {
+              "description": "Tenant ID of Azure AD"
+            }
+          },
+        "b2cTenant": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes B2C Tenant Name Directory"
+            }
+        },
+        "b2cClientId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes the client Id registered with B2C Directory"
+            }
+        },
+        "b2cSignUpSignInPolicyId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes the B2C Sign Up-Sign In policy"
+            }
+        },
+        "b2cNativeRedirectURL": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes the B2C redirect URL for the Native Client"
+            }
+        },
+        "AdClientId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+              "description": "Client ID of Azure AD application"
+            }
+          },
+          "AdSecretKey": {
+            "type": "securestring",
+            "defaultValue": "",
+            "metadata": {
+              "description": "Secret Key of Azure AD application"
+            }
+          },
+        "webjobStorageType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_ZRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Premium_LRS"
+            ]
+        },
+        "readRegionLocation": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "read region of the cosmos database account the region should be different of the resource group region"
+            },
+            "allowedValues": [
+                "eastasia",
+                "southeastasia",
+                "centralus",
+                "eastus",
+                "eastus2",
+                "westus",
+                "northcentralus",
+                "southcentralus",
+                "northeurope",
+                "westeurope",
+                "japanwest",
+                "japaneast",
+                "brazilsouth",
+                "australiaeast",
+                "australiasoutheast",
+                "southindia",
+                "centralindia",
+                "westindia",
+                "canadacentral",
+                "canadaeast",
+                "uksouth",
+                "ukwest",
+                "westcentralus",
+                "westus2",
+                "koreacentral",
+                "koreasouth"
+            ]
+        },
+
+        "omsWorkspaceRegion": {
+            "type": "string",
+            "defaultValue": "eastus",
+            "allowedValues": [
+                "eastus",
+                "westeurope",
+                "southeastasia",
+                "australiasoutheast"
+            ],
+            "metadata": {
+                "description": "specify the region for oms workspace, if you have selected solution type as without monitoring this is optional"
+            }
+        },
+        "omsAutomationRegion": {
+            "type": "string",
+            "defaultValue": "eastus2",
+            "allowedValues": [
+                "westeurope",
+                "southeastasia",
+                "eastus2",
+                "southcentralus",
+                "japaneast",
+                "southeastasia",
+                "southcentralus",
+                "northeurope",
+                "canadacentral",
+                "australiasoutheast",
+                "centralindia",
+                "japaneast"
+            ],
+            "metadata": {
+                "description": "specify the region for oms automation account, if you have selected solution type as without monitoring this is optional"
+            }
+        },
+        "dataRetention": {
+            "type": "int",
+            "defaultValue": 7,
+            "minValue": 7,
+            "maxValue": 730,
+            "metadata": {
+                "description": "specify the oms retention period in days, if you have selected solution type as without monitoring this is optional"
+            }
+        },
+        "omsLogAnalyticsSku": {
+            "type": "string",
+            "defaultValue": "free",
+            "allowedValues": [
+                "free",
+                "standalone",
+                "pernode"
+            ],
+            "metadata": {
+                "description": "specify the oms automation account sku type"
+            }
+        }
+
+    },
+    "variables": {
+        "costingOne": {
+            "iotHubSkuName": "F1",
+            "skuName": "F1",
+            "omsLogAnalyticsSku": "standalone",
+            "edition": "Basic",
+            "requestedServiceObjectiveName": "Basic",
+            "maxSizeBytes": "2147483648",
+            "eventHubSku": "Basic"
+        },
+        "costingTwo": {
+            "iotHubSkuName": "S1",
+            "skuName": "B1",
+            "omsLogAnalyticsSku": "standalone",
+            "edition": "Basic",
+            "requestedServiceObjectiveName": "Basic",
+            "maxSizeBytes": "2147483648",
+            "eventHubSku": "Basic"
+        },
+        "costingThree": {
+            "iotHubSkuName": "S1",
+            "skuName": "B1",
+            "omsLogAnalyticsSku": "standalone",
+            "edition": "Standard",
+            "requestedServiceObjectiveName": "S0",
+            "maxSizeBytes": "32212254720",
+            "eventHubSku": "Standard"
+
+        },
+        "costingFour": {
+            "iotHubSkuName": "S1",
+            "skuName": "S1",
+            "omsLogAnalyticsSku": "standalone",
+            "edition": "Standard",
+            "requestedServiceObjectiveName": "S0",
+            "maxSizeBytes": "32212254720",
+            "eventHubSku": "Standard"
+        },
+        "webJobStorage": {
+            "location": "[variables('location')]",
+            "webjobStorageName": "[concat('myperstr', uniqueString(resourceGroup().id))]",
+            "webjobStorageType": "[parameters('webjobStorageType')]"
+        },
+        "documentDB": {
+            "location": "[variables('location')]",
+            "DocDBAccountName": "[variables('DocDBAccountName')]",
+            "offerType": "Standard",
+            "DocDBName": "AssetTrackingDB",
+            "DocDBGroupGpsCollection": "GroupGpsData",
+            "DocDBSensorCollection": "SensorData",
+            "DocDBOfferThroughput": "2500",
+            "readRegionLocation": "[parameters('readRegionLocation')]",
+            "documentDBAuthKey": "[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
+        },
+        "hostingPlan": {
+            "location": "[variables('location')]",
+            "hostingPlanName": "AppServPlan",
+            "webSkuName": "[variables(concat('costing',parameters('costingModel'))).skuName]",            
+            "skuCapacity": "[parameters('skuCapacity')]"
+        },
+        "webApp": {
+            "location": "[variables('location')]",
+            "webSiteName": "[parameters('webSiteName')]",
+            "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
+            "BlobconnectionString": "[variables('BlobconnectionString')]",
+            "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
+        },
+        "restServer": {
+            "location": "[variables('location')]",
+            "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
+            "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins419.zip",
+            "BlobconnectionString": "[variables('BlobconnectionString')]",
+            "WindowsManagementUri": "https://management.core.windows.net/",
+            "ReportJobName": "TestJob",
+            "alertJobTable": "Alerts",
+            "ADEndpoint": "https://login.windows.net/",
+            "AdSubscriptionId": "[parameters('AdSubscriptionId')]",
+            "AdTenantId": "[parameters('AdTenantId')]",
+            "AdClientId": "[parameters('AdClientId')]",
+            "AdSecretKey": "[parameters('AdSecretKey')]",
+            "JobResourceGroup": "[resourceGroup().name]"
+        },
+        "nodeServer": {
+            "location": "[variables('location')]",
+            "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
+            "NodeServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/node_appins419.zip",
+            "BlobconnectionString": "[variables('BlobconnectionString')]"
+        },
+        "appInsights": {
+            "appInsightsLocation": "[parameters('appInsightsLocation')]",
+            "appInsightsApiVersion": "2014-04-01",
+            "appInsightResourceName": "[concat('AppInsights', uniquestring(resourceGroup().id))]"
+        },
+        "sqlServer": {
+            "location": "[variables('location')]",
+            "sqlserverName": "[variables('sqlserverName')]",
+            "databaseConnString": "[concat('Server=tcp:',variables('sqlFailoverGroupName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;')]",
+            "databaseConnString1": "[concat('Server=tcp:',variables('sqlserverName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;')]",
+            "sqlServerAddress": "[concat('tcp:',variables('sqlFailoverGroupName'),'.database.windows.net')]",
+            "sqlServerAddress1": "[concat('tcp:',variables('sqlserverName'),'.database.windows.net')]",
+            "sqldatabasename": "[parameters('sqldatabasename')]",
+            "sqlAdministratorLogin": "[parameters('sqlAdministratorLogin')]",
+            "recoverySqlAuthenticationLogin": "[parameters('sqlAdministratorLogin')]", 
+            "sqlAdministratorLoginPassword": "[parameters('sqlAdministratorLoginPassword')]",
+            "recoverySqlAuthenticationPassword": "[parameters('sqlAdministratorLoginPassword')]",
+            "storageKeyType": "SharedAccessKey",
+            "storageKey": "?",
+            "sqlFailoverGroupName":  "[concat('azuresqlfailover', uniqueString(resourceGroup().id))]",
+            "recoveryServerName": "[concat('recoverysqlserver', uniqueString(resourceGroup().id))]",
+            "sqlDBApiVersion": "2014-04-01-preview",
+            "locationDr": "[parameters('locationDr')]",
+            "sqlServerApiVersion": "2015-05-01-preview",
+            "maxSizeBytes": "[variables(concat('costing',parameters('costingModel'))).maxSizeBytes]",
+            "requestedServiceObjectiveName": "[variables(concat('costing',parameters('costingModel'))).requestedServiceObjectiveName]",
+            "edition": "[variables(concat('costing',parameters('costingModel'))).edition]",
+            "collation": "SQL_Latin1_General_CP1_CI_AS",
+            "bacpacUri": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AssetMonitoring.bacpac",
+            "DeployStorageAccountKey": "[variables('DeployStorageAccountKey')]"
+        },
+        "omsSettings": {
+            "omsWorkspaceName": "[concat('omswsams', variables('suffix'))]",
+            "omsWorkspaceRegion": "[parameters('omsWorkspaceRegion')]",
+            "omsAutomationRegion": "[parameters('omsAutomationRegion')]",
+            "omsAutomationAccountName": "[concat('autoupdateams', variables('suffix'))]",
+            "dataRetention": "[parameters('dataRetention')]",
+            "omsApiVersion": "2015-03-20",
+            "omsDataApiVersion": "2015-11-01-preview",
+            "omsLogAnalyticsSku": "[parameters('omsLogAnalyticsSku')]",
+            "omsEnableApiVersion": "2015-07-01"
+        },
+        "eventHub": {
+            "location": "[variables('location')]",
+            "namespaceName": "[variables('namespaceName')]",
+            "eventHubName": "[variables('eventHubName')]",  
+            "eventHubSku": "[variables(concat('costing',parameters('costingModel'))).eventHubSku]",
+            "defaultSASKeyName": "[variables('defaultSASKeyName')]",
+            "eventhubNamepaceResourceID": "[resourceId('Microsoft.EventHub/namespaces/authorizationRules', variables('namespaceName'), variables('defaultSASKeyName'))]",
+            "primaryKey": "[variables('primaryKey')]",
+            "secondaryKey": "[variables('secondaryKey')]",
+            "eventhubConnectionString": "[concat('Endpoint=sb://', variables('namespaceName'), '.servicebus.windows.net/;SharedAccessKeyName=EventHubOwner;SharedAccessKey=', variables('primaryKey'))]"
+        },
+        "iotHub": {
+            "location": "[variables('location')]",
+            "skuCapacity": "[parameters('skuCapacity')]",
+            "skuName": "[variables(concat('costing',parameters('costingModel'))).iotHubSkuName]",
+            "capacityUnits": "[parameters('capacityUnits')]",
+            "iotHubKeyName": "[variables('iotHubKeyName')]",
+            "iotHubName": "[variables('iotHubName')]",
+            "iotHubHostName": "[concat(variables('iotHubName'),'.azure-devices.net')]",
+            "iotHubID": "[resourceId('Microsoft.Devices/IotHubs/Iothubkeys', variables('iotHubName'), variables('iotHubKeyName'))]",
+            "d2cConsumerGroupName": "congrp_"
+        },
+        "B2CVariables": {
+            "b2cAadInstance": "https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}",
+            "MobileTokenURL": "https://login.microsoftonline.com/{0}/oauth2/v2.0/token?p={1}&amp;grant_type=authorization_code&amp;client_id={2}&amp;code={3}",
+            "MobileInstanceUrl": "https://login.microsoftonline.com/{0}/oauth2/v2.0/authorize?p={1}&amp;client_id={2}&amp;response_type=code&amp;redirect_uri={3}&amp;response_mode=query&amp;scope=openid&amp;state=arbitrary_data_you_can_receive_in_the_response",
+            "b2cTenant": "[parameters('b2cTenant')]",
+            "b2cClientId": "[parameters('b2cClientId')]",
+            "b2cSignUpSignInPolicyId": "[parameters('b2cSignUpSignInPolicyId')]",
+            "b2cNativeRedirectURL": "[parameters('b2cNativeRedirectURL')]",
+            "AlertJobConsumerGroupPrefix": "congrp_"
+        },
+        "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
+        "databaseAccountNamePrefix": "docdb",
+        "sqlFailoverGroupName":  "[concat('azuresqlfailover', uniqueString(resourceGroup().id))]",
+        "eventHubName": "[concat('eventhub',variables('suffix'))]",
+        "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
+        "primaryKey": "[concat(uniqueString(variables('namespaceName'), resourceGroup().Id, 'primaryKey'),'3VZcT2e5NfVeSFvTuiYUiWtXhxnJ2s=')]",
+        "secondaryKey": "[concat(uniqueString(variables('namespaceName'), resourceGroup().Id, 'secondaryKey'),'F9NRSV78nYomDlFjsz21X9aVKPL4Eo=')]",
+        "BlobconnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('DeployStorageAccountName'),';AccountKey=',variables('DeployStorageAccountKey'))]",
+        "PowerGridEntities": "[concat('metadata=res://*/Entities.PowergridModel.csdl|res://*/Entities.PowergridModel.ssdl|res://*/Entities.PowergridModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=',variables('sqlFailoverGroupName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';multipleactiveresultsets=True;application name=EntityFramework\"')]",
+        "PowerGridEntities1": "[concat('metadata=res://*/Entities.PowergridModel.csdl|res://*/Entities.PowergridModel.ssdl|res://*/Entities.PowergridModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=',variables('sqlserverName'),'.database.windows.net;initial catalog=',parameters('sqldatabasename'),';persist security info=True;user id=',parameters('sqlAdministratorLogin'),';password=',parameters('sqlAdministratorLoginPassword'),';multipleactiveresultsets=True;application name=EntityFramework\"')]",
+        "iotHubName": "[concat(parameters('iotHubName1'),uniqueString(resourceGroup().id))]",
+        "iotHubKeyName": "iothubowner",
+        "DeployStorageAccountName": "projectiot",
+        "DeployStorageAccountKey": "68qPHnikzAitr3fjvPAyem7Tc0y2pf+BVob4F+opoX20PhV0yJGQc/guxxhCV/Uscp0gE1EHn+GCGfwOiaF9tg==",
+        "SasToken": "?",
+        "subId": "[subscription().subscriptionId]",        
+        "rgName": "[resourceGroup().name]",
+        "location": "[resourceGroup().location]",        
+        "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
+        "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
+        "defaultSASKeyName": "RootManageSharedAccessKey",
+        "deploymentApiVersion": "2016-02-01",
+        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/Monitoring_ha/"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DocumentDBOMS",
+            "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DocumentDB",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[equals(parameters('solutionType'),'solution without monitoring')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "OMSWorkSpace",
+            "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/oms-workspace.json','?token=AYpAeMpsCxh1DXvwSODfhizr5nmq86L7ks5a-mvpwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "IotHubOMS",
+            "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/iothub-oms.json','?token=AYpAeA8_4Pz-3fgK0rTReytNxwj2Haemks5a-mvnwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "IotHub",
+            "condition": "[equals(parameters('solutionType'),'solution without monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeA8_4Pz-3fgK0rTReytNxwj2Haemks5a-mvnwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "EventHubOMS",
+            "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-oms.json','?token=AYpAeMPjKAIoJ3ZzgzZmsO2NE5PHEfjWks5a-mvkwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "EventHub",
+            "condition": "[equals(parameters('solutionType'),'solution without monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],    
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeMPjKAIoJ3ZzgzZmsO2NE5PHEfjWks5a-mvkwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServeroms1",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'One'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServeroms2",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Two'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServeroms3",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Three'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServer1",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'One'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServer2",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Two'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServer3",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Three'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServerGeoOms",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Four'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-monitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+      
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServerGeo",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-outmonitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "AppInsights",
+            "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/app-insights.json','?token=AYpAeOd0ToUyEfyZLyjh4xnobtlmljJgks5a-mvgwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebApps",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DocumentDB",
+                "IotHub",
+                "EventHub",
+                "SqlServer",
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    },
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsplanf1",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DocumentDB",
+                "IotHub",
+                "EventHub",
+                "SqlServer1"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    },
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsF1planOMS",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DocumentDBOMS",
+                "IotHubOMS",
+                "EventHubOMS",
+                "SqlServeroms1",
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    },
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "sqlSvrFqdn": {
+            "type": "string",
+            "value": "[reference('SqlServer').outputs.sqlSvrFqdn.value]"
+        },
+        "WebSiteUri": {
+            "type": "string",
+            "value": "[reference('WebApps').outputs.WebSiteUri.value]"
+        },
+        "RESTSiteUri": {
+            "type": "string",
+            "value": "[reference('WebApps').outputs.RESTSiteUri.value]"
+        },
+        "appInsightsUrl": {
+            "type": "string",
+            "value": "[concat('https://analytics.applicationinsights.io/subscriptions/',variables('subId'),'/resourcegroups/',variables('rgName'),'/components/',variables('appInsights').appInsightResourceName,'#/')]"
+        }
+
+    }
+}
