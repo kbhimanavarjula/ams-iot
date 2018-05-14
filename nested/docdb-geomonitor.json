@@ -26,6 +26,10 @@
                         "locationName": "[parameters('documentDB').location]",
                         "failoverPriority": 0,
                         "id": "[concat(parameters('documentDB').DocDBAccountName, '-', parameters('documentDB').location)]"
+                    },
+                    {
+                        "locationName": "[parameters('documentDB').readRegionLocation]",
+                        "failoverPriority": 1
                     }
                 ]
             },

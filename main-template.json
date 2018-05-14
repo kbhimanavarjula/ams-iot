@@ -129,7 +129,7 @@
                 "description": "Describes API Server name which should be unique"
             }
         },
-        "AdSubscriptionId":{
+        "AdSubscriptionId": {
             "type": "string",
             "metadata": {
                 "description": "Subscription ID of your Azure AD tenant"
@@ -138,9 +138,9 @@
         "AdTenantId": {
             "type": "string",
             "metadata": {
-              "description": "Tenant ID of Azure AD"
+                "description": "Tenant ID of Azure AD"
             }
-          },
+        },
         "b2cTenant": {
             "type": "string",
             "defaultValue": "",
@@ -173,16 +173,16 @@
             "type": "string",
             "defaultValue": "",
             "metadata": {
-              "description": "Client ID of Azure AD application"
+                "description": "Client ID of Azure AD application"
             }
-          },
-          "AdSecretKey": {
+        },
+        "AdSecretKey": {
             "type": "securestring",
             "defaultValue": "",
             "metadata": {
-              "description": "Secret Key of Azure AD application"
+                "description": "Secret Key of Azure AD application"
             }
-          },
+        },
         "webjobStorageType": {
             "type": "string",
             "defaultValue": "Standard_LRS",
@@ -229,7 +229,6 @@
                 "koreasouth"
             ]
         },
-
         "omsWorkspaceRegion": {
             "type": "string",
             "defaultValue": "eastus",
@@ -285,7 +284,6 @@
                 "description": "specify the oms automation account sku type"
             }
         }
-
     },
     "variables": {
         "costingOne": {
@@ -314,7 +312,6 @@
             "requestedServiceObjectiveName": "S0",
             "maxSizeBytes": "32212254720",
             "eventHubSku": "Standard"
-
         },
         "costingFour": {
             "iotHubSkuName": "S1",
@@ -344,7 +341,7 @@
         "hostingPlan": {
             "location": "[variables('location')]",
             "hostingPlanName": "AppServPlan",
-            "webSkuName": "[variables(concat('costing',parameters('costingModel'))).skuName]",            
+            "webSkuName": "[variables(concat('costing',parameters('costingModel'))).skuName]",
             "skuCapacity": "[parameters('skuCapacity')]"
         },
         "webApp": {
@@ -389,12 +386,12 @@
             "sqlServerAddress1": "[concat('tcp:',variables('sqlserverName'),'.database.windows.net')]",
             "sqldatabasename": "[parameters('sqldatabasename')]",
             "sqlAdministratorLogin": "[parameters('sqlAdministratorLogin')]",
-            "recoverySqlAuthenticationLogin": "[parameters('sqlAdministratorLogin')]", 
+            "recoverySqlAuthenticationLogin": "[parameters('sqlAdministratorLogin')]",
             "sqlAdministratorLoginPassword": "[parameters('sqlAdministratorLoginPassword')]",
             "recoverySqlAuthenticationPassword": "[parameters('sqlAdministratorLoginPassword')]",
             "storageKeyType": "SharedAccessKey",
             "storageKey": "?",
-            "sqlFailoverGroupName":  "[concat('azuresqlfailover', uniqueString(resourceGroup().id))]",
+            "sqlFailoverGroupName": "[concat('azuresqlfailover', uniqueString(resourceGroup().id))]",
             "recoveryServerName": "[concat('recoverysqlserver', uniqueString(resourceGroup().id))]",
             "sqlDBApiVersion": "2014-04-01-preview",
             "locationDr": "[parameters('locationDr')]",
@@ -420,7 +417,7 @@
         "eventHub": {
             "location": "[variables('location')]",
             "namespaceName": "[variables('namespaceName')]",
-            "eventHubName": "[variables('eventHubName')]",  
+            "eventHubName": "[variables('eventHubName')]",
             "eventHubSku": "[variables(concat('costing',parameters('costingModel'))).eventHubSku]",
             "defaultSASKeyName": "[variables('defaultSASKeyName')]",
             "eventhubNamepaceResourceID": "[resourceId('Microsoft.EventHub/namespaces/authorizationRules', variables('namespaceName'), variables('defaultSASKeyName'))]",
@@ -451,7 +448,7 @@
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
-        "sqlFailoverGroupName":  "[concat('azuresqlfailover', uniqueString(resourceGroup().id))]",
+        "sqlFailoverGroupName": "[concat('azuresqlfailover', uniqueString(resourceGroup().id))]",
         "eventHubName": "[concat('eventhub',variables('suffix'))]",
         "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
         "primaryKey": "[concat(uniqueString(variables('namespaceName'), resourceGroup().Id, 'primaryKey'),'3VZcT2e5NfVeSFvTuiYUiWtXhxnJ2s=')]",
@@ -464,9 +461,9 @@
         "DeployStorageAccountName": "projectiot",
         "DeployStorageAccountKey": "68qPHnikzAitr3fjvPAyem7Tc0y2pf+BVob4F+opoX20PhV0yJGQc/guxxhCV/Uscp0gE1EHn+GCGfwOiaF9tg==",
         "SasToken": "?",
-        "subId": "[subscription().subscriptionId]",        
+        "subId": "[subscription().subscriptionId]",
         "rgName": "[resourceGroup().name]",
-        "location": "[resourceGroup().location]",        
+        "location": "[resourceGroup().location]",
         "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
@@ -477,7 +474,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDBOMS",
-            "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'One'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace"
@@ -502,12 +499,141 @@
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDB",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[equals(parameters('solutionType'),'solution without monitoring')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'One'))]",
             "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
                     "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DocumentDBOMScosting2",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Two'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DocumentDBcosting2",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Two'))]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DocumentDBOMScosting3",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Three'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DocumentDBcosting3",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Three'))]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DocumentDBGeoOMS",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Four'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geomonitor.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DocumentDBGeo",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -608,7 +734,7 @@
             "name": "EventHub",
             "condition": "[equals(parameters('solutionType'),'solution without monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [],    
+            "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -699,9 +825,7 @@
             "name": "SqlServer1",
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'One'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [
-                
-            ],
+            "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -720,9 +844,7 @@
             "name": "SqlServer2",
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Two'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [
-                
-            ],
+            "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -741,9 +863,7 @@
             "name": "SqlServer3",
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Three'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [
-                
-            ],
+            "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -781,15 +901,12 @@
                 }
             }
         },
-      
         {
             "type": "Microsoft.Resources/deployments",
             "name": "SqlServerGeo",
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [
-                
-            ],
+            "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -826,19 +943,250 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "name": "WebApps",
+            "name": "WebAppsMonitor",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Two'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDB",
-                "IotHub",
-                "EventHub",
-                "SqlServer",
+                "DocumentDBOMScosting2",
+                "IotHubOMS",
+                "EventHubOMS",
+                "SqlServeroms2",
                 "OMSWorkSpace"
             ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    },
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsOutMonitor",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Two'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DocumentDBcosting2",
+                "IotHub",
+                "EventHub",
+                "SqlServer2"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsMonitor",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Two'))]",
+            "dependsOn": [
+                "DocumentDBOMScosting2",
+                "IotHubOMS",
+                "EventHubOMS",
+                "SqlServeroms2",
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    },
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsOutMonitorcosting3",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Three'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DocumentDBcosting3",
+                "IotHub",
+                "EventHub",
+                "SqlServer3"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsMonitorcosting3",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Three'))]",
+            "dependsOn": [
+                "DocumentDBOMScosting3",
+                "IotHubOMS",
+                "EventHubOMS",
+                "SqlServeroms3",
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -887,6 +1235,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "WebAppsplanf1",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'One'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DocumentDB",
@@ -947,6 +1296,7 @@
             "type": "Microsoft.Resources/deployments",
             "name": "WebAppsF1planOMS",
             "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'One'))]",
             "dependsOn": [
                 "DocumentDBOMS",
                 "IotHubOMS",
@@ -958,6 +1308,121 @@
                 "mode": "Incremental",
                 "templateLink": {
                     "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    },
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsOutMonitorcosting4",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DocumentDBGeo",
+                "IotHub",
+                "EventHub",
+                "SqlServerGeo"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsMonitorcosting4",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Four'))]",
+            "dependsOn": [
+                "DocumentDBGeoOMS",
+                "IotHubOMS",
+                "EventHubOMS",
+                "SqlServerGeoOms",
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1021,6 +1486,5 @@
             "type": "string",
             "value": "[concat('https://analytics.applicationinsights.io/subscriptions/',variables('subId'),'/resourcegroups/',variables('rgName'),'/components/',variables('appInsights').appInsightResourceName,'#/')]"
         }
-
     }
 }
