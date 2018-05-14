@@ -482,7 +482,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeGTq9g3M3fpFsriZ78j8GzET3SWkks5bApuAwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -504,7 +504,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeGUIcAVJwWIIR_sOwrcBhJGF30iPks5bApt6wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -525,7 +525,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeGTq9g3M3fpFsriZ78j8GzET3SWkks5bApuAwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -547,7 +547,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeGUIcAVJwWIIR_sOwrcBhJGF30iPks5bApt6wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -568,7 +568,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeGTq9g3M3fpFsriZ78j8GzET3SWkks5bApuAwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -590,7 +590,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeGUIcAVJwWIIR_sOwrcBhJGF30iPks5bApt6wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -611,7 +611,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geomonitor.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geomonitor.json','?token=AYpAeExHZzWoIwea4z-2q8bl4yWANTpeks5bApt-wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -633,7 +633,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeMwvsEReL4OPIoU5dpzpjKN5iBFeks5a_CykwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeDu3gKwRhxBWKCtFAN-vPXjHQwD3ks5bApt8wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -652,7 +652,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/oms-workspace.json','?token=AYpAeMpsCxh1DXvwSODfhizr5nmq86L7ks5a-mvpwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/oms-workspace.json','?token=AYpAePLCNPzAZ1Soo3ahyLmYss4Bu4L_ks5bApuJwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -673,7 +673,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iothub-oms.json','?token=AYpAeA8_4Pz-3fgK0rTReytNxwj2Haemks5a-mvnwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iothub-oms.json','?token=AYpAeGuNisCMuSVWF7dRE5vN52KzMCQ8ks5bApuIwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -695,7 +695,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeA8_4Pz-3fgK0rTReytNxwj2Haemks5a-mvnwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeCBbxtd3lxua3MwRNc7UXeWZBuNnks5bApuGwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -716,7 +716,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-oms.json','?token=AYpAeMPjKAIoJ3ZzgzZmsO2NE5PHEfjWks5a-mvkwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-oms.json','?token=AYpAeFD6v4UFXYNrjZBu66lenMxOCFwVks5bApuEwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -738,7 +738,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeMPjKAIoJ3ZzgzZmsO2NE5PHEfjWks5a-mvkwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeCGmP6yqc5ezgnAcll7VOlZlVzX1ks5bApuCwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -759,7 +759,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeBG3nSA4h6QXyym26qxMo-KWhZdhks5bApuMwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -783,7 +783,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeBG3nSA4h6QXyym26qxMo-KWhZdhks5bApuMwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -807,7 +807,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeBG3nSA4h6QXyym26qxMo-KWhZdhks5bApuMwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -829,7 +829,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeJAB7KM6mON1hlQRMnByGs9G07XXks5bAqC9wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -848,7 +848,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeJAB7KM6mON1hlQRMnByGs9G07XXks5bAqC9wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -867,7 +867,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeJAB7KM6mON1hlQRMnByGs9G07XXks5bAqC9wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -888,7 +888,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-monitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-monitor.json','?token=AYpAeGvpDmHrzwHpmdlEhwrpUU7YGtanks5bAqC5wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -910,7 +910,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-outmonitor.json','?token=AYpAeHafK_boikQ4jc6GrRvlU0h6K9olks5a-mvswA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-outmonitor.json','?token=AYpAeHTnhWe6RvG5gYPmQ2AOu32gK4BCks5bAqC7wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -931,7 +931,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/app-insights.json','?token=AYpAeOd0ToUyEfyZLyjh4xnobtlmljJgks5a-mvgwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/app-insights.json','?token=AYpAeA75WyBpVvjla3L7GKl4TzroR4Mfks5bApt4wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -941,67 +941,7 @@
                 }
             }
         },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "WebAppsMonitor",
-            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Two'))]",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [
-                "DocumentDBOMScosting2",
-                "IotHubOMS",
-                "EventHubOMS",
-                "SqlServeroms2",
-                "OMSWorkSpace"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "appInsights": {
-                        "value": "[variables('appInsights')]"
-                    },
-                    "hostingPlan": {
-                        "value": "[variables('hostingPlan')]"
-                    },
-                    "restServer": {
-                        "value": "[variables('restServer')]"
-                    },
-                    "webApp": {
-                        "value": "[variables('webApp')]"
-                    },
-                    "webJobStorage": {
-                        "value": "[variables('webJobStorage')]"
-                    },
-                    "iotHub": {
-                        "value": "[variables('iotHub')]"
-                    },
-                    "sqlServer": {
-                        "value": "[variables('sqlServer')]"
-                    },
-                    "eventHub": {
-                        "value": "[variables('eventHub')]"
-                    },
-                    "B2CVariables": {
-                        "value": "[variables('B2CVariables')]"
-                    },
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
-                    },
-                    "nodeServer": {
-                        "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
-                    },
-                    "omsSettings": {
-                        "value": "[variables('omsSettings')]"
-                    }
-                }
-            }
-        },
+       
         {
             "type": "Microsoft.Resources/deployments",
             "name": "WebAppsOutMonitor",
@@ -1016,7 +956,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeJKGBunxsLXoPF93LherVUzaA8gbks5bAqDBwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1071,7 +1011,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeL8UvreJ2xDyM5hBcgimJO2uep46ks5bAqC_wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1131,7 +1071,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeJKGBunxsLXoPF93LherVUzaA8gbks5bAqDBwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1186,7 +1126,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeL8UvreJ2xDyM5hBcgimJO2uep46ks5bAqC_wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1246,7 +1186,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1.json','?token=AYpAeNlRkefNWD2RS-WaC3hx6POJkPL0ks5bAqDCwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1307,7 +1247,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1monitor.json','?token=AYpAeNVKmH85Oj1HJVGt41nTqLFrFMcmks5bAqDEwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1367,7 +1307,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAePYPPQyelBYX-HXEqfxRXa3HC1W2ks5bAqDJwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1422,7 +1362,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeNwFCOpHLVJbL6Lc8jSeLU1dgvPRks5a-mvwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeDdbacj3z1_yFF-pQHkwinqKhOMqks5bAqDGwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
