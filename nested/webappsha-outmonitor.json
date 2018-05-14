@@ -108,7 +108,7 @@
                         "remoteDebuggingVersion": "VS2015",
                         "cors": {
                             "allowedOrigins": [
-                                "[concat('https://', parameters('webApp').webSiteName, '.azurewebsites.net')]"
+                                "[concat('https://', parameters('webApp').webSiteName, '.trafficmanager.net')]"
                             ]
                         }
                     }
@@ -127,7 +127,7 @@
                         "displayName": "RESTServerMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('restServer').RESTServerPackageURI]"
+                        "packageUri": "[parameters('restServer').RESTServerPackage1]"
                     }
                 },
                 {
@@ -273,7 +273,7 @@
                         "displayName": "WebAppMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('webApp').WebAppPackageURI]"
+                        "packageUri": "[parameters('webApp').WebAppPackageURI1]"
                     }
                 },
                 {
@@ -314,7 +314,7 @@
                         "b2cApplicationId": "[parameters('B2CVariables').b2cClientId]",
                         "tenantName": "[parameters('B2CVariables').b2cTenant]",
                         "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
-                        "redirect_uri": "[concat(parameters('webApp').websiteFullAddress,'#/dashboard')]",
+                        "redirect_uri": "[concat(parameters('webApp').websiteFullAddress1,'#/dashboard')]",
                         "EventHubConnectionString": "[parameters('eventHub').eventhubConnectionString]",
                         "EventHubPath": "[parameters('eventHub').eventHubName]"
                     }
@@ -372,7 +372,7 @@
                         "displayName": "NodeServerMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('nodeServer').NodeServerPackageURI]"
+                        "packageUri": "[parameters('nodeServer').NodeServerPackageURI1]"
                     }
                 },
                 {

@@ -37,14 +37,17 @@
         },
         "documentDBEndpoint": {
             "type": "string"
+        },
+        "omsSettings": {
+            "type": "object"
         }
     },
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('webJobStorage').webjobStorageName]",
+            "name": "[parameters('webJobStorage').webjobStorageNameDr]",
             "type": "Microsoft.Storage/storageAccounts",
-            "location": "[parameters('webJobStorage').location]",
+            "location": "[parameters('webJobStorage').locationDr]",
             "apiVersion": "2016-01-01",
             "sku": {
                 "name": "[parameters('webJobStorage').webjobStorageType]"
@@ -57,9 +60,9 @@
         },
         {
             "apiVersion": "2016-03-01",
-            "name": "[parameters('hostingPlan').hostingPlanName]",
+            "name": "[parameters('hostingPlan').hostingPlanNameDr]",
             "type": "Microsoft.Web/serverfarms",
-            "location": "[parameters('hostingPlan').location]",
+            "location": "[parameters('hostingPlan').locationDr]",
             "tags": {
                 "displayName": "HostingPlan"
             },
@@ -68,24 +71,24 @@
                 "capacity": "[parameters('hostingPlan').skuCapacity]"
             },
             "properties": {
-                "name": "[parameters('hostingPlan').hostingPlanName]"
+                "name": "[parameters('hostingPlan').hostingPlanNameDr]"
             }
         },
         {
             "apiVersion": "2016-03-01",
-            "name": "[parameters('restServer').apiServerName]",
+            "name": "[parameters('restServer').apiServerNameDr]",
             "type": "Microsoft.Web/sites",
-            "location": "[parameters('restServer').location]",
+            "location": "[parameters('restServer').locationDr]",
             "dependsOn": [
-                "[parameters('hostingPlan').hostingPlanName]"
+                "[parameters('hostingPlan').hostingPlanNameDr]"
             ],
             "tags": {
-                "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanName))]": "empty",
+                "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanNameDr))]": "empty",
                 "displayName": "RESTServer"
             },
             "properties": {
-                "name": "[parameters('restServer').apiServerName]",
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanName)]"
+                "name": "[parameters('restServer').apiServerNameDr]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanNameDr)]"
             },
             "resources": [
                 {
@@ -93,7 +96,7 @@
                     "name": "web",
                     "type": "config",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]"
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr)]"
                     ],
                     "tags": {
                         "displayName": "RESTServerConfig"
@@ -108,7 +111,7 @@
                         "remoteDebuggingVersion": "VS2015",
                         "cors": {
                             "allowedOrigins": [
-                                "[concat('https://', parameters('webApp').webSiteName, '.azurewebsites.net')]"
+                                "[concat('https://', parameters('webApp').webSiteName, '.trafficmanager.net')]"
                             ]
                         }
                     }
@@ -116,18 +119,18 @@
                 {
                     "name": "MSDeploy",
                     "type": "extensions",
-                    "location": "[parameters('restServer').location]",
+                    "location": "[parameters('restServer').locationDr]",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName, '/config/web')]",
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/config/web')]",
+                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameDr)]"
                     ],
                     "tags": {
                         "displayName": "RESTServerMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('restServer').RESTServerPackageURI1]"
+                        "packageUri": "[parameters('restServer').RESTServerPackageURI]"
                     }
                 },
                 {
@@ -135,9 +138,9 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName, '/config/web')]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName, '/extensions/MSDeploy')]"
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/extensions/MSDeploy')]"
                     ],
                     "tags": {
                         "displayName": "RESTServerConnectionStrings"
@@ -148,15 +151,15 @@
                             "type": "Custom"
                         },
                         "DBConnection": {
-                            "value": "[parameters('sqlServer').databaseConnString1]",
+                            "value": "[parameters('sqlServer').databaseConnString]",
                             "type": "Custom"
                         },
                         "AzureWebJobsDashboard": {
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageNameDr,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageNameDr), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
                             "type": "Custom"
                         },
                         "AzureWebJobsStorage": {
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageNameDr,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageNameDr), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
                             "type": "Custom"
                         }
                     }
@@ -166,10 +169,10 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName, '/config/web')]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName, '/config/connectionstrings')]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerName, '/extensions/MSDeploy')]"
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/config/connectionstrings')]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/extensions/MSDeploy')]"
                     ],
                     "tags": {
                         "displayName": "restAppSettings"
@@ -179,21 +182,21 @@
                         "iotHub:HostName": "[parameters('iotHub').iotHubHostName]",
                         "iotHub:SharedAccessPolicyKey": "[listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey]",
                         "iotHub:SharedAccessPolicyName": "[ parameters('iotHub').iotHubKeyName]",
-                        "sql:Server": "[concat(parameters('sqlServer').sqlserverName,'.database.windows.net')]",
+                        "sql:Server": "[concat(parameters('sqlServer').sqlFailoverGroupName,'.database.windows.net')]",
                         "sql:Database": "[parameters('sqlServer').sqldatabasename]",
                         "sql:User": "[parameters('sqlServer').sqlAdministratorLogin]",
                         "sql:Password": "[parameters('sqlServer').sqlAdministratorLoginPassword]",
                         "sa:WindowsManagementUri": "[parameters('restServer').WindowsManagementUri]",
                         "sa:ReportJobName": "[parameters('restServer').ReportJobName]",
                         "sa:JobResourceGroup": "[parameters('restServer').JobResourceGroup]",
-                        "sa:JobLocation": "[parameters('restServer').location]",
+                        "sa:Joblocation": "[parameters('restServer').locationDr]",
                         "sa:AlertJobTable": "[parameters('restServer').alertJobTable]",
                         "ad:SubscriptionId": "[parameters('restServer').AdSubscriptionId]",
                         "ad:TenantId": "[parameters('restServer').AdTenantId]",
                         "ad:Endpoint": "[parameters('restServer').ADEndpoint]",
                         "ad:ClientId": "[parameters('restServer').AdClientId]",
                         "ad:ClientSecret": "[parameters('restServer').AdSecretKey]",
-                        "DBConnection": "[parameters('sqlServer').databaseConnString1]",
+                        "DBConnection": "[parameters('sqlServer').databaseConnString]",
                         "sa:AlertJobConsumerGroupPrefix": "[parameters('B2CVariables').AlertJobConsumerGroupPrefix]",
                         "sa:AlertJobConsumerGroupCount": "19",
                         "sa:StreamingUnits": "3",
@@ -204,39 +207,65 @@
                         "eventHub:ConnectionString": "[parameters('eventHub').eventhubConnectionString]",
                         "b2c:AadInstance": "[parameters('B2CVariables').b2cAadInstance]",
                         "b2c:Tenant": "[parameters('B2CVariables').b2cTenant]",
-                        "b2c:ClientId": "[parameters('B2CVariables').b2cClientId]",
+                        "b2c:ClientId": "[parameters('B2CVariables').b2cClientIdDr]",
                         "b2c:SignUpInPolicyId": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
                         "b2c:MobileTokenUrl": "[parameters('B2CVariables').MobileTokenURL]",
                         "b2c:MobileInstanceUrl": "[parameters('B2CVariables').MobileInstanceUrl]",
-                        "blobStorage:ConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webjobStorage').webjobStorageName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value,';EndpointSuffix=core.windows.net')]",
-                        "b2c:MobileRedirectUrl": "[parameters('B2CVariables').b2cNativeRedirectURL]",
+                        "blobStorage:ConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageNameDr,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webjobStorage').webjobStorageNameDr), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value,';EndpointSuffix=core.windows.net')]",
+                        "b2c:MobileRedirectUrl": "[parameters('B2CVariables').b2cNativeRedirectURLDr]",
                         "documentDB:Endpoint": "[parameters('documentDBEndpoint')]",
                         "documentDB:AuthKey": "[listKeys(parameters('documentDB').documentDBAuthKey, '2015-04-08').primaryMasterKey]",
                         "documentDB:OfferThroughput": "[parameters('documentDB').DocDBOfferThroughput]",
                         "documentDB:AccountId": "[parameters('documentDB').DocDBAccountName]",
-                        "simulator:DbServer": "[parameters('sqlServer').sqlServerAddress1]",
+                        "simulator:DbServer": "[parameters('sqlServer').sqlServerAddress]",
                         "simulator:DbName": "[parameters('sqlServer').sqldatabasename]",
                         "simulator:DbUserId": "[parameters('sqlServer').sqlAdministratorLogin]",
-                        "simulator:DbPassword": "[parameters('sqlServer').sqlAdministratorLoginPassword]"
+                        "simulator:DbPassword": "[parameters('sqlServer').sqlAdministratorLoginPassword]",
+                        "InstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsights').appInsightResourceName), '2014-04-01').InstrumentationKey]"
+                    }
+                },
+                {
+                    "name": "Microsoft.Insights/service",
+                    "type": "providers/diagnosticSettings",
+                    "apiVersion": "2015-07-01",
+                    "dependsOn": [
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/config/connectionstrings')]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/extensions/MSDeploy')]",
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/config/appSettings')]"
+                    ],
+                    "properties": {
+                        "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsSettings').omsWorkspaceName)]",
+                        "metrics": [
+                            {
+                                "timeGrain": "PT1M",
+                                "enabled": true,
+                                "retentionPolicy": {
+                                    "enabled": false,
+                                    "days": 0
+                                }
+                            }
+                        ]
                     }
                 }
             ]
         },
         {
             "apiVersion": "2016-03-01",
-            "name": "[parameters('webApp').webSiteName]",
+            "name": "[parameters('webApp').webSiteNameDr]",
             "type": "Microsoft.Web/sites",
-            "location": "[parameters('webApp').location]",
+            "location": "[parameters('webApp').locationDr]",
             "dependsOn": [
-                "[parameters('hostingPlan').hostingPlanName]"
+                "[parameters('hostingPlan').hostingPlanNameDr]"
             ],
             "tags": {
-                "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanName))]": "empty",
+                "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanNameDr))]": "empty",
                 "displayName": "Website"
             },
             "properties": {
-                "name": "[parameters('webApp').webSiteName]",
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanName)]"
+                "name": "[parameters('webApp').webSiteNameDr]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanNameDr)]"
             },
             "resources": [
                 {
@@ -244,7 +273,7 @@
                     "name": "web",
                     "type": "config",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]"
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr)]"
                     ],
                     "tags": {
                         "displayName": "WebAppConfig"
@@ -262,18 +291,18 @@
                 {
                     "name": "MSDeploy",
                     "type": "extensions",
-                    "location": "[parameters('webApp').location]",
+                    "location": "[parameters('webApp').locationDr]",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/config/web')]",
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/config/web')]",
+                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameDr)]"
                     ],
                     "tags": {
                         "displayName": "WebAppMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('webApp').WebAppPackageURI1]"
+                        "packageUri": "[parameters('webApp').WebAppPackageURI]"
                     }
                 },
                 {
@@ -281,9 +310,9 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/config/web')]",
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/extensions/MSDeploy')]"
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/extensions/MSDeploy')]"
                     ],
                     "tags": {
                         "displayName": "WebAppConnectionStrings"
@@ -300,42 +329,68 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Web/sites', parameters('webApp').webSiteName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/config/web')]",
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/config/connectionstrings')]",
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteName, '/extensions/MSDeploy')]"
+                        "[resourceId('Microsoft.Web/sites', parameters('webApp').webSiteNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/config/connectionstrings')]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/extensions/MSDeploy')]"
                     ],
                     "tags": {
                         "displayName": "websiteAppSettings"
                     },
                     "properties": {
-                        "restServer": "[concat('https://', parameters('restServer').apiServerName,'.azurewebsites.net/')]",
+                        "restServer": "[concat('http://', parameters('restServer').apiServerName,'.trafficmanager.net/')]",
                         "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerName,'.azurewebsites.net/')]",
-                        "b2cApplicationId": "[parameters('B2CVariables').b2cClientId]",
+                        "b2cApplicationId": "[parameters('B2CVariables').b2cClientIdDr]",
                         "tenantName": "[parameters('B2CVariables').b2cTenant]",
                         "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
-                        "redirect_uri": "[concat(parameters('webApp').websiteFullAddress,'#/dashboard')]",
+                        "redirect_uri": "[concat(parameters('webApp').websiteFullAddress1,'#/dashboard')]",
                         "EventHubConnectionString": "[parameters('eventHub').eventhubConnectionString]",
-                        "EventHubPath": "[parameters('eventHub').eventHubName]"
+                        "EventHubPath": "[parameters('eventHub').eventHubName]",
+                        "InstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsights').appInsightResourceName), '2014-04-01').InstrumentationKey]"
+                    }
+                },
+                {
+                    "name": "Microsoft.Insights/service",
+                    "type": "providers/diagnosticSettings",
+                    "apiVersion": "2015-07-01",
+                    "dependsOn": [
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/config/connectionstrings')]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/extensions/MSDeploy')]",
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/config/appSettings')]"
+                    ],
+                    "properties": {
+                        "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsSettings').omsWorkspaceName)]",
+                        "metrics": [
+                            {
+                                "timeGrain": "PT1M",
+                                "enabled": true,
+                                "retentionPolicy": {
+                                    "enabled": false,
+                                    "days": 0
+                                }
+                            }
+                        ]
                     }
                 }
             ]
         },
         {
             "apiVersion": "2016-03-01",
-            "name": "[parameters('nodeServer').nodeServerName]",
+            "name": "[parameters('nodeServer').nodeServerNameDr]",
             "type": "Microsoft.Web/sites",
-            "location": "[parameters('nodeServer').location]",
+            "location": "[parameters('nodeServer').locationDr]",
             "dependsOn": [
-                "[parameters('hostingPlan').hostingPlanName]"
+                "[parameters('hostingPlan').hostingPlanNameDr]"
             ],
             "tags": {
-                "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanName))]": "empty",
+                "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanNameDr))]": "empty",
                 "displayName": "NodeServer"
             },
             "properties": {
-                "name": "[parameters('nodeServer').nodeServerName]",
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanName)]"
+                "name": "[parameters('nodeServer').nodeServerNameDr]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').hostingPlanNameDr)]"
             },
             "resources": [
                 {
@@ -343,7 +398,7 @@
                     "name": "web",
                     "type": "config",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]"
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr)]"
                     ],
                     "tags": {
                         "displayName": "NodeServerConfig"
@@ -361,18 +416,18 @@
                 {
                     "name": "MSDeploy",
                     "type": "extensions",
-                    "location": "[parameters('nodeServer').location]",
+                    "location": "[parameters('nodeServer').locationDr]",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/config/web')]",
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageName)]"
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/config/web')]",
+                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameDr)]"
                     ],
                     "tags": {
                         "displayName": "NodeServerMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('nodeServer').NodeServerPackageURI1]"
+                        "packageUri": "[parameters('nodeServer').NodeServerPackageURI]"
                     }
                 },
                 {
@@ -380,9 +435,9 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/config/web')]",
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/extensions/MSDeploy')]"
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/extensions/MSDeploy')]"
                     ],
                     "tags": {
                         "displayName": "NodeServerConnectionStrings"
@@ -399,10 +454,10 @@
                     "type": "config",
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName)]",
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/config/web')]",
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/config/connectionstrings')]",
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerName, '/extensions/MSDeploy')]"
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/config/connectionstrings')]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/extensions/MSDeploy')]"
                     ],
                     "tags": {
                         "displayName": "nodeAppSettings"
@@ -412,7 +467,33 @@
                         "CUSTOMCONNSTRConnectionString": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey)]",
                         "CUSTOMCONNSTRConsumerGroup": "[concat(parameters('iotHub').d2cConsumerGroupName, '1')]",
                         "CUSTOMCONNSTREventHubConnectionString": "[parameters('eventHub').eventhubConnectionString]",
-                        "CUSTOMCONNSTREventHubPath": "[parameters('eventHub').eventHubName]"
+                        "CUSTOMCONNSTREventHubPath": "[parameters('eventHub').eventHubName]",
+                        "InstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsights').appInsightResourceName), '2014-04-01').InstrumentationKey]"
+                    }
+                },
+                {
+                    "name": "Microsoft.Insights/service",
+                    "type": "providers/diagnosticSettings",
+                    "apiVersion": "2015-07-01",
+                    "dependsOn": [
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr)]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/config/web')]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/config/connectionstrings')]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/extensions/MSDeploy')]",
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/config/appSettings')]"
+                    ],
+                    "properties": {
+                        "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsSettings').omsWorkspaceName)]",
+                        "metrics": [
+                            {
+                                "timeGrain": "PT1M",
+                                "enabled": true,
+                                "retentionPolicy": {
+                                    "enabled": false,
+                                    "days": 0
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -421,11 +502,11 @@
     "outputs": {
         "WebSiteUri": {
             "type": "string",
-            "value": "[reference(concat('Microsoft.Web/sites/', parameters('webApp').webSiteName)).hostnames[0]]"
+            "value": "[reference(concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr)).hostnames[0]]"
         },
         "RESTSiteUri": {
             "type": "string",
-            "value": "[reference(concat('Microsoft.Web/sites/', parameters('restServer').apiServerName)).hostnames[0]]"
+            "value": "[reference(concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr)).hostnames[0]]"
         }
     }
 }

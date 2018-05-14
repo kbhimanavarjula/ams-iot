@@ -26,6 +26,13 @@
                 "description": "specify the costing model"
             }
         },
+        "locationDr": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region"
+            }
+        },
         "appInsightsLocation": {
             "type": "string",
             "defaultValue": "westus2",
@@ -74,33 +81,6 @@
                 "description": "The name of SQL database"
             }
         },
-        "webSkuName": {
-            "type": "string",
-            "defaultValue": "S1",
-            "allowedValues": [
-                "D1",
-                "B1",
-                "B2",
-                "B3",
-                "S1",
-                "S2",
-                "S3",
-                "P1",
-                "P2",
-                "P3",
-                "P4"
-            ],
-            "metadata": {
-                "description": "Describes plan's pricing tier and instance size. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
-            }
-        },
-        "locationDr": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region"
-            }
-        },
         "skuCapacity": {
             "type": "int",
             "defaultValue": 1,
@@ -113,6 +93,12 @@
             "type": "string",
             "metadata": {
                 "description": "Describes Web Site name which should be unique"
+            }
+        },
+        "webSiteNameDr": {
+            "type": "string",
+            "metadata": {
+                "description": "Describes Web Site name which should be unique for recovery app"
             }
         },
         "nodeServerName": {
@@ -155,6 +141,12 @@
                 "description": "Describes the client Id registered with B2C Directory"
             }
         },
+        "b2cClientIdDr": {
+            "type": "string",
+            "metadata": {
+                "description": "if you select costing model 4 specify client id describes the client Id registered with B2C Directory the disaster recovery webapplication"
+            }
+        },
         "b2cSignUpSignInPolicyId": {
             "type": "string",
             "defaultValue": "",
@@ -167,6 +159,12 @@
             "defaultValue": "",
             "metadata": {
                 "description": "Describes the B2C redirect URL for the Native Client"
+            }
+        },
+        "b2cNativeRedirectURLDr": {
+            "type": "string",
+            "metadata": {
+                "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application"
             }
         },
         "AdClientId": {
@@ -198,7 +196,7 @@
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "read region of the cosmos database account the region should be different of the resource group region"
+                "description": "if you select costing model 4 specify the read region of the cosmos database account the region should be different of the resource group region"
             },
             "allowedValues": [
                 "eastasia",
@@ -272,16 +270,17 @@
                 "description": "specify the oms retention period in days, if you have selected solution type as without monitoring this is optional"
             }
         },
-        "omsLogAnalyticsSku": {
+        "trafficRoutingMethod": {
             "type": "string",
-            "defaultValue": "free",
+            "defaultValue": "Priority",
             "allowedValues": [
-                "free",
-                "standalone",
-                "pernode"
+                "Performance",
+                "Weighted",
+                "Geographic",
+                "Priority"
             ],
             "metadata": {
-                "description": "specify the oms automation account sku type"
+                "description": "specify the traffic routing method for traffic manager"
             }
         }
     },
@@ -324,6 +323,8 @@
         },
         "webJobStorage": {
             "location": "[variables('location')]",
+            "webjobStorageNameDr": "[concat('myperstrdr', uniqueString(resourceGroup().id))]",
+            "locationDr": "[parameters('locationDr')]",
             "webjobStorageName": "[concat('myperstr', uniqueString(resourceGroup().id))]",
             "webjobStorageType": "[parameters('webjobStorageType')]"
         },
@@ -341,20 +342,27 @@
         "hostingPlan": {
             "location": "[variables('location')]",
             "hostingPlanName": "AppServPlan",
+            "locationDr": "[parameters('locationDr')]",
+            "hostingPlanNameDr": "AppServPlanDr",            
             "webSkuName": "[variables(concat('costing',parameters('costingModel'))).skuName]",
             "skuCapacity": "[parameters('skuCapacity')]"
         },
         "webApp": {
             "location": "[variables('location')]",
             "webSiteName": "[parameters('webSiteName')]",
+            "locationDr": "[parameters('locationDr')]",
+            "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
             "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
-            "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]"
+            "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
+            "websiteFullAddress1": "[concat('https://',parameters('webSiteName'),'.trafficmanager.net/')]"
         },
         "restServer": {
             "location": "[variables('location')]",
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
+            "locationDr": "[parameters('locationDr')]",
             "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins419.zip",
+            "RESTServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
@@ -368,8 +376,10 @@
         },
         "nodeServer": {
             "location": "[variables('location')]",
+            "locationDr": "[parameters('locationDr')]",
             "nodeServerName": "[concat(parameters('nodeServerName'),variables('suffix'))]",
             "NodeServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/node_appins419.zip",
+            "NodeServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/nodeserver419.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
@@ -411,7 +421,7 @@
             "dataRetention": "[parameters('dataRetention')]",
             "omsApiVersion": "2015-03-20",
             "omsDataApiVersion": "2015-11-01-preview",
-            "omsLogAnalyticsSku": "[parameters('omsLogAnalyticsSku')]",
+            "omsLogAnalyticsSku": "[variables(concat('costing',parameters('costingModel'))).omsLogAnalyticsSku]",
             "omsEnableApiVersion": "2015-07-01"
         },
         "eventHub": {
@@ -435,6 +445,11 @@
             "iotHubHostName": "[concat(variables('iotHubName'),'.azure-devices.net')]",
             "iotHubID": "[resourceId('Microsoft.Devices/IotHubs/Iothubkeys', variables('iotHubName'), variables('iotHubKeyName'))]",
             "d2cConsumerGroupName": "congrp_"
+        },
+        "trafficManagerSettings": {
+            "trafficManagerApiVersion": "2017-05-01",
+            "trafficManagerName": "[parameters('webSiteName')]",
+            "trafficRoutingMethod": "[parameters('trafficRoutingMethod')]"
         },
         "B2CVariables": {
             "b2cAadInstance": "https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}",
@@ -468,7 +483,7 @@
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
         "deploymentApiVersion": "2016-02-01",
-        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/Monitoring_ha/"
+        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/CostingSolution/"
     },
     "resources": [
         {
@@ -941,7 +956,6 @@
                 }
             }
         },
-       
         {
             "type": "Microsoft.Resources/deployments",
             "name": "WebAppsOutMonitor",
@@ -1404,6 +1418,147 @@
                     },
                     "omsSettings": {
                         "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsDrOutMonitorcosting4",
+            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DocumentDBGeo",
+                "IotHub",
+                "EventHub",
+                "SqlServerGeo"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAePYPPQyelBYX-HXEqfxRXa3HC1W2ks5bAqDJwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "WebAppsDrMonitorcosting4",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Four'))]",
+            "dependsOn": [
+                "DocumentDBGeoOMS",
+                "IotHubOMS",
+                "EventHubOMS",
+                "SqlServerGeoOms",
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeDdbacj3z1_yFF-pQHkwinqKhOMqks5bAqDGwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    },
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "TrafficManagerApps",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "WebAppsDrMonitorcosting4",
+                "WebAppsMonitorcosting4",
+                "WebAppsDrOutMonitorcosting4",
+                "WebAppsOutMonitorcosting4"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/traffic-manager.json','?token=AYpAeBfblK13-kc-oRQFFeSgboeJImW7ks5a8sviwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }

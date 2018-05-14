@@ -127,7 +127,7 @@
                         "displayName": "RESTServerMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('restServer').RESTServerPackageURI]"
+                        "packageUri": "[parameters('restServer').RESTServerPackageURI1]"
                     }
                 },
                 {
@@ -273,7 +273,7 @@
                         "displayName": "WebAppMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('webApp').WebAppPackageURI]"
+                        "packageUri": "[parameters('webApp').WebAppPackageURI1]"
                     }
                 },
                 {
@@ -372,7 +372,7 @@
                         "displayName": "NodeServerMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('nodeServer').NodeServerPackageURI]"
+                        "packageUri": "[parameters('nodeServer').NodeServerPackageURI1]"
                     }
                 },
                 {
