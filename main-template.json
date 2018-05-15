@@ -330,7 +330,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeIu4vvNk-HEfIk_H2s_lrCOO1Grpks5a_mQwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeLQwuo92mb-5x5OXcjNzgqgrTOc9ks5bA_afwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
