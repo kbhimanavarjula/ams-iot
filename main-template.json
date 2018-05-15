@@ -73,6 +73,7 @@
         },
         "sqlAdministratorLoginPassword": {
             "type": "securestring",
+            "defaultValue": "",
             "metadata": {
                 "description": "The password of the admin user of the SQL Server"
             }
@@ -203,7 +204,6 @@
         },
         "readRegionLocation": {
             "type": "string",
-            "defaultValue": "",
             "metadata": {
                 "description": "if you select costing model 4 specify the read region of the cosmos database account the region should be different of the resource group region"
             },
@@ -608,15 +608,15 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "name": "EventHubOMS",
-            "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
+            "name": "EventHub",
+            "condition": "[equals(parameters('solutionType'),'solution without monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeNP0sFLYs-A2OAp7a9e3inLISjhvks5bA_0FwA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeDgk8DXBGKFRtxn92h9TC00KQI2qks5bBA1pwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"                                    
                 },
                 "parameters": {
                     "eventHub": {
@@ -627,8 +627,8 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "name": "EventHub",
-            "condition": "[equals(parameters('solutionType'),'solution without monitoring')]",
+            "name": "EventHubOMS",
+            "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace"
