@@ -301,7 +301,7 @@
             "edition": "Basic",
             "requestedServiceObjectiveName": "Basic",
             "maxSizeBytes": "2147483648",
-            "eventHubSku": "Basic"
+            "eventHubSku": "Standard"
         },
         "costingTwo": {
             "iotHubSkuName": "S1",
@@ -310,7 +310,7 @@
             "edition": "Basic",
             "requestedServiceObjectiveName": "Basic",
             "maxSizeBytes": "2147483648",
-            "eventHubSku": "Basic"
+            "eventHubSku": "Standard"
         },
         "costingThree": {
             "iotHubSkuName": "S1",
@@ -500,40 +500,16 @@
         "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/CostingSolution/"
     },
     "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDBOMS",
-            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'One'))]",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [
-                "OMSWorkSpace"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeGTq9g3M3fpFsriZ78j8GzET3SWkks5bApuAwA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
-                    },
-                    "omsSettings": {
-                        "value": "[variables('omsSettings')]"
-                    }
-                }
-            }
-        },
+        
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDB",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'One'))]",
             "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeGUIcAVJwWIIR_sOwrcBhJGF30iPks5bApt6wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeK3y04y49X-vX0beh2jfEPYTZvCKks5bA-k1wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -545,16 +521,17 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDBOMScosting2",
-            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Two'))]",
+            "name": "DocumentDBOMS",
+            "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "OMSWorkSpace"
+                "OMSWorkSpace",
+                "DocumentDB"
             ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeGTq9g3M3fpFsriZ78j8GzET3SWkks5bApuAwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeMDtwe4MN1gEuCtLhzXQJXiY3F5Zks5bA_DrwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -563,111 +540,6 @@
                     },
                     "omsSettings": {
                         "value": "[variables('omsSettings')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDBcosting2",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Two'))]",
-            "dependsOn": [],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeGUIcAVJwWIIR_sOwrcBhJGF30iPks5bApt6wA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDBOMScosting3",
-            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Three'))]",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [
-                "OMSWorkSpace"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeGTq9g3M3fpFsriZ78j8GzET3SWkks5bApuAwA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
-                    },
-                    "omsSettings": {
-                        "value": "[variables('omsSettings')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDBcosting3",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Three'))]",
-            "dependsOn": [],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeGUIcAVJwWIIR_sOwrcBhJGF30iPks5bApt6wA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDBGeoOMS",
-            "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Four'))]",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [
-                "OMSWorkSpace"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geomonitor.json','?token=AYpAeExHZzWoIwea4z-2q8bl4yWANTpeks5bApt-wA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
-                    },
-                    "omsSettings": {
-                        "value": "[variables('omsSettings')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDBGeo",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
-            "dependsOn": [],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeDu3gKwRhxBWKCtFAN-vPXjHQwD3ks5bApt8wA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
                     }
                 }
             }
@@ -743,7 +615,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeLNGOwezsADAkKZqSyuqEKJfT8Nxks5bA7-RwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeNP0sFLYs-A2OAp7a9e3inLISjhvks5bA_0FwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -764,7 +636,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-huboms.json','?token=AYpAeO4W3xKBxE4fVZTJftrotPMRVAgdks5bA7--wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-huboms.json','?token=AYpAeBGmGKnE_DfYVaSk927F7N6iUH4Lks5bBAYCwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -976,7 +848,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Two'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDBcosting2",
+                "DocumentDB",
                 "IotHub",
                 "EventHub",
                 "SqlServer2"
@@ -1019,7 +891,7 @@
                         "value": "[variables('nodeServer')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[reference('DocumentDBcosting2').outputs.documentDBEndpoint.value]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1030,7 +902,8 @@
             "apiVersion": "[variables('deploymentApiVersion')]",
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Two'))]",
             "dependsOn": [
-                "DocumentDBOMScosting2",
+                "DocumentDBOMS",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServeroms2",
@@ -1080,7 +953,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[reference('DocumentDBOMScosting2').outputs.documentDBEndpoint.value]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1091,7 +964,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Three'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDBcosting3",
+                "DocumentDB",
                 "IotHub",
                 "EventHub",
                 "SqlServer3"
@@ -1134,7 +1007,7 @@
                         "value": "[variables('nodeServer')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[reference('DocumentDBcosting3').outputs.documentDBEndpoint.value]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1145,7 +1018,8 @@
             "apiVersion": "[variables('deploymentApiVersion')]",
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Three'))]",
             "dependsOn": [
-                "DocumentDBOMScosting3",
+                "DocumentDBOMS",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServeroms3",
@@ -1195,7 +1069,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[reference('DocumentDBOMScosting3').outputs.documentDBEndpoint.value]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1267,6 +1141,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'One'))]",
             "dependsOn": [
                 "DocumentDBOMS",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServeroms1",
@@ -1316,7 +1191,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[reference('DocumentDBOMS').outputs.documentDBEndpoint.value]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1327,7 +1202,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDBGeo",
+                "DocumentDB",
                 "IotHub",
                 "EventHub",
                 "SqlServerGeo"
@@ -1370,7 +1245,7 @@
                         "value": "[variables('nodeServer')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[reference('DocumentDBGeo').outputs.documentDBEndpoint.value]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1381,7 +1256,8 @@
             "apiVersion": "[variables('deploymentApiVersion')]",
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Four'))]",
             "dependsOn": [
-                "DocumentDBGeoOMS",
+                "DocumentDBOMS",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServerGeoOms",
@@ -1431,7 +1307,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[reference('DocumentDBGeoOMS').outputs.documentDBEndpoint.value]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1442,7 +1318,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDBGeo",
+                "DocumentDB",
                 "IotHub",
                 "EventHub",
                 "SqlServerGeo"
@@ -1485,7 +1361,7 @@
                         "value": "[variables('nodeServer')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[reference('DocumentDBGeo').outputs.documentDBEndpoint.value]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1496,7 +1372,8 @@
             "apiVersion": "[variables('deploymentApiVersion')]",
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Four'))]",
             "dependsOn": [
-                "DocumentDBGeoOMS",
+                "DocumentDBOMS",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServerGeoOms",
@@ -1546,7 +1423,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[reference('DocumentDBGeoOMS').outputs.documentDBEndpoint.value]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1554,6 +1431,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "TrafficManagerApps",
+            "condition": "[equals(parameters('costingModel'),'Four')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "WebAppsDrMonitorcosting4",
