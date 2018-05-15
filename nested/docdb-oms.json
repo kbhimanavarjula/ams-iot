@@ -48,11 +48,5 @@
                 ]
             }
         }
-    ],
-    "outputs": {
-        "documentDBEndpoint": {
-            "type": "string",
-            "value": "[reference(concat('Microsoft.DocumentDb/databaseAccounts/', parameters('documentDB').DocDBAccountName)).documentEndpoint]"
-        }
-    }
+    ]
 }
