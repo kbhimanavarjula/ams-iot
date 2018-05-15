@@ -98,9 +98,8 @@
                     "properties": {
                         "phpVersion": "5.6",
                         "netFrameworkVersion": "v4.6",
-                        "use32BitWorkerProcess": false,
+                        "use32BitWorkerProcess": true,
                         "webSocketsEnabled": true,
-                        "alwaysOn": true,
                         "remoteDebuggingEnabled": true,
                         "remoteDebuggingVersion": "VS2015",
                         "cors": {
@@ -207,7 +206,7 @@
                         "b2c:MobileInstanceUrl": "[parameters('B2CVariables').MobileInstanceUrl]",
                         "blobStorage:ConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webjobStorage').webjobStorageName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value,';EndpointSuffix=core.windows.net')]",
                         "b2c:MobileRedirectUrl": "[parameters('B2CVariables').b2cNativeRedirectURL]",
-                        "documentDB:Endpoint": "[parameters('documentDBEndpoint')]", 
+                        "documentDB:Endpoint": "[parameters('documentDBEndpoint')]",
                         "documentDB:AuthKey": "[listKeys(parameters('documentDB').documentDBAuthKey, '2015-04-08').primaryMasterKey]",
                         "documentDB:OfferThroughput": "[parameters('documentDB').DocDBOfferThroughput]",
                         "documentDB:AccountId": "[parameters('documentDB').DocDBAccountName]",
@@ -249,7 +248,7 @@
                     "properties": {
                         "phpVersion": "5.6",
                         "netFrameworkVersion": "v4.6",
-                        "use32BitWorkerProcess": false,
+                        "use32BitWorkerProcess": true,
                         "webSocketsEnabled": true,
                         "alwaysOn": true,
                         "remoteDebuggingEnabled": true,
@@ -348,9 +347,8 @@
                     "properties": {
                         "phpVersion": "5.6",
                         "netFrameworkVersion": "v4.6",
-                        "use32BitWorkerProcess": false,
+                        "use32BitWorkerProcess": true,
                         "webSocketsEnabled": true,
-                        "alwaysOn": true,
                         "remoteDebuggingEnabled": true,
                         "remoteDebuggingVersion": "VS2015"
                     }
