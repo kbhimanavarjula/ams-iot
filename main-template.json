@@ -1092,9 +1092,6 @@
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
-                    "appInsights": {
-                        "value": "[variables('appInsights')]"
-                    },
                     "hostingPlan": {
                         "value": "[variables('hostingPlan')]"
                     },
@@ -1124,9 +1121,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "omsSettings": {
-                        "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
                         "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
