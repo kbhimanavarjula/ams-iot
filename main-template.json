@@ -50,6 +50,7 @@
         },
         "iotHubName1": {
             "type": "string",
+            "defaultValue": "",
             "minLength": 3,
             "metadata": {
                 "description": "Name of the IoT Hub instance to provision."
@@ -65,6 +66,7 @@
         },
         "sqlAdministratorLogin": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "The admin user of the SQL Server"
             }
@@ -77,6 +79,7 @@
         },
         "sqldatabasename": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "The name of SQL database"
             }
@@ -91,12 +94,14 @@
         },
         "webSiteName": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "Describes Web Site name which should be unique"
             }
         },
         "webSiteNameDr": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "Describes Web Site name which should be unique for recovery app"
             }
@@ -117,12 +122,14 @@
         },
         "AdSubscriptionId": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "Subscription ID of your Azure AD tenant"
             }
         },
         "AdTenantId": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "Tenant ID of Azure AD"
             }
@@ -143,6 +150,7 @@
         },
         "b2cClientIdDr": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "if you select costing model 4 specify client id describes the client Id registered with B2C Directory the disaster recovery webapplication"
             }
@@ -163,6 +171,7 @@
         },
         "b2cNativeRedirectURLDr": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application"
             }
@@ -352,7 +361,7 @@
             "webSiteName": "[parameters('webSiteName')]",
             "locationDr": "[parameters('locationDr')]",
             "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
-            "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
+            "WebAppPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
             "websiteFullAddress1": "[concat('https://',parameters('webSiteName'),'.trafficmanager.net/')]"
@@ -1200,7 +1209,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1.json','?token=AYpAeIuxSE9e8F4ny78qm4JEn243rQQFks5bAshywA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1.json','')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1236,9 +1245,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     },
                     "omsSettings": {
                         "value": "[variables('omsSettings')]"
