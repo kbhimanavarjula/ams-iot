@@ -37,6 +37,9 @@
         },
         "omsSettings": {
             "type": "object"
+        },
+        "documentDBEndpoint": {
+            "type": "string"
         }
     },
     "variables": {},
@@ -210,7 +213,7 @@
                         "b2c:MobileInstanceUrl": "[parameters('B2CVariables').MobileInstanceUrl]",
                         "blobStorage:ConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webjobStorage').webjobStorageName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value,';EndpointSuffix=core.windows.net')]",
                         "b2c:MobileRedirectUrl": "[parameters('B2CVariables').b2cNativeRedirectURL]",
-                        "documentDB:Endpoint": "[reference(resourceId('Microsoft.DocumentDb/databaseAccounts/', parameters('documentDB').DocDBAccountName)).documentEndpoint]",
+                        "documentDB:Endpoint": "[parameters('documentDBEndpoint')]", 
                         "documentDB:AuthKey": "[listKeys(parameters('documentDB').documentDBAuthKey, '2015-04-08').primaryMasterKey]",
                         "documentDB:OfferThroughput": "[parameters('documentDB').DocDBOfferThroughput]",
                         "documentDB:AccountId": "[parameters('documentDB').DocDBAccountName]",
