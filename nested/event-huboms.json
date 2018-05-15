@@ -20,8 +20,8 @@
                 "name": "[parameters('eventHub').eventHubSku]"
             },
             "properties": {
-                "isAutoInflateEnabled": "true",
-                "maximumThroughputUnits": "2"
+                "isAutoInflateEnabled": true,
+                "maximumThroughputUnits": 2
             },
             "resources": [
                 {
@@ -80,8 +80,8 @@
                         "[concat('Microsoft.EventHub/namespaces/', parameters('eventHub').namespaceName)]"
                     ],
                     "properties": {
-                        "messageRetentionInDays": "3",
-                        "partitionCount": "4"
+                        "messageRetentionInDays": 3,
+                        "partitionCount": 4
                     },
                     "resources": [
                         {
