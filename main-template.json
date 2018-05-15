@@ -734,22 +734,17 @@
             "name": "EventHubOMS",
             "condition": "[equals(parameters('solutionType'),'solution with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [
-                "OMSWorkSpace"
-            ],
+            "dependsOn": [ ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-oms.json','?token=AYpAeFD6v4UFXYNrjZBu66lenMxOCFwVks5bApuEwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeLNGOwezsADAkKZqSyuqEKJfT8Nxks5bA7-RwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
                     "eventHub": {
                         "value": "[variables('eventHub')]"
-                    },
-                    "omsSettings": {
-                        "value": "[variables('omsSettings')]"
-                    }
+                    } 
                 }
             }
         },
@@ -758,16 +753,21 @@
             "name": "EventHub",
             "condition": "[equals(parameters('solutionType'),'solution without monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [],
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeCGmP6yqc5ezgnAcll7VOlZlVzX1ks5bApuCwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-huboms.json','?token=AYpAeO4W3xKBxE4fVZTJftrotPMRVAgdks5bA7--wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
                     "eventHub": {
                         "value": "[variables('eventHub')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
                     }
                 }
             }
@@ -979,7 +979,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeP9Y8AdIEleogas7M1QwrcxmCkrWks5bAshmwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeEumJR_RLmhDcll_6S4sRefvcKJiks5bA8k3wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1012,9 +1012,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1034,7 +1031,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeL8UvreJ2xDyM5hBcgimJO2uep46ks5bAqC_wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeAzHHWU-MFgCXrbfEGqXI1mrpNv0ks5bA8k1wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1070,9 +1067,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     },
                     "omsSettings": {
                         "value": "[variables('omsSettings')]"
@@ -1086,6 +1080,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Three'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
+                "DocumentDBcosting2",
                 "DocumentDBcosting3",
                 "IotHub",
                 "EventHub",
@@ -1094,7 +1089,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeP9Y8AdIEleogas7M1QwrcxmCkrWks5bAshmwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeEumJR_RLmhDcll_6S4sRefvcKJiks5bA8k3wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1127,9 +1122,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1140,6 +1132,7 @@
             "apiVersion": "[variables('deploymentApiVersion')]",
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Three'))]",
             "dependsOn": [
+                "DocumentDBOMScosting2",
                 "DocumentDBOMScosting3",
                 "IotHubOMS",
                 "EventHubOMS",
@@ -1149,7 +1142,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeL8UvreJ2xDyM5hBcgimJO2uep46ks5bAqC_wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeAzHHWU-MFgCXrbfEGqXI1mrpNv0ks5bA8k1wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1185,9 +1178,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     },
                     "omsSettings": {
                         "value": "[variables('omsSettings')]"
@@ -1209,7 +1199,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1.json','')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1.json','?token=AYpAeNpfw7bFr1Y1mSlGZpHFQPBCx3PLks5bA8kmwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1267,7 +1257,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1monitor.json','?token=AYpAeNVKmH85Oj1HJVGt41nTqLFrFMcmks5bAqDEwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1monitor.json','?token=AYpAeM2B1-oUosFJSKFslgHOgbMr_SKqks5bA8kvwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1303,9 +1293,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     },
                     "omsSettings": {
                         "value": "[variables('omsSettings')]"
@@ -1327,7 +1314,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeFn10rP_UWntSjdRVrao6tTsqbhCks5bAshvwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeFbEFMX_CEj-A67C898I-kMp2X5Tks5bA8k0wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1360,9 +1347,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1382,7 +1366,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeOCdFdjX1u7BkkyW-sG8a_IYb0hqks5bAshtwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeK5592fFgX0_sHXGpe2xeYruPhn4ks5bA8kzwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1418,9 +1402,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     },
                     "omsSettings": {
                         "value": "[variables('omsSettings')]"
@@ -1442,7 +1423,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeL1hR4kcomtWKzPaV_-tXeQjnPxVks5bAshrwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeL81JoJi_9E_BEOf9OVKUjzPFPaMks5bA8ktwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1475,9 +1456,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1497,7 +1475,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeLm9PAW-EaPmBIBhKPm3aXlCr34Zks5bAshpwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeBowX2T4ElVdadlJIZOKLBTq1Wfkks5bA8kqwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1533,9 +1511,6 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
-                    },
-                    "documentDBEndpoint": {
-                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     },
                     "omsSettings": {
                         "value": "[variables('omsSettings')]"
@@ -1573,15 +1548,15 @@
     "outputs": {
         "sqlSvrFqdn": {
             "type": "string",
-            "value": "[reference('SqlServer').outputs.sqlSvrFqdn.value]"
+            "value": "[concat(variables('sqlServer').sqlserverName,'.database.windows.net')]"
         },
         "WebSiteUri": {
             "type": "string",
-            "value": "[reference('WebApps').outputs.WebSiteUri.value]"
+            "value": "[concat('https://',variables('nodeServer').nodeServerName,'.azurewebsites.net/')]"
         },
         "RESTSiteUri": {
             "type": "string",
-            "value": "[reference('WebApps').outputs.RESTSiteUri.value]"
+            "value": "[concat('https://',variables('restServer').apiServerName,'.azurewebsites.net/')]"
         },
         "appInsightsUrl": {
             "type": "string",
