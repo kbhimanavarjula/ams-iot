@@ -2,9 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appInsights": {
-            "type": "object"
-        },
         "hostingPlan": {
             "type": "object"
         },
@@ -34,9 +31,6 @@
         },
         "nodeServer": {
             "type": "object"
-        },
-        "documentDBEndpoint": {
-            "type": "string"
         }
     },
     "variables": {},
@@ -210,15 +204,14 @@
                         "b2c:MobileInstanceUrl": "[parameters('B2CVariables').MobileInstanceUrl]",
                         "blobStorage:ConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageNameDr,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webjobStorage').webjobStorageNameDr), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value,';EndpointSuffix=core.windows.net')]",
                         "b2c:MobileRedirectUrl": "[parameters('B2CVariables').b2cNativeRedirectURLDr]",
-                        "documentDB:Endpoint": "[parameters('documentDBEndpoint')]",
+                        "documentDB:Endpoint": "[reference(resourceId('Microsoft.DocumentDb/databaseAccounts/', parameters('documentDB').DocDBAccountName)).documentEndpoint]",
                         "documentDB:AuthKey": "[listKeys(parameters('documentDB').documentDBAuthKey, '2015-04-08').primaryMasterKey]",
                         "documentDB:OfferThroughput": "[parameters('documentDB').DocDBOfferThroughput]",
                         "documentDB:AccountId": "[parameters('documentDB').DocDBAccountName]",
                         "simulator:DbServer": "[parameters('sqlServer').sqlServerAddress]",
                         "simulator:DbName": "[parameters('sqlServer').sqldatabasename]",
                         "simulator:DbUserId": "[parameters('sqlServer').sqlAdministratorLogin]",
-                        "simulator:DbPassword": "[parameters('sqlServer').sqlAdministratorLoginPassword]",
-                        "InstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsights').appInsightResourceName), '2014-04-01').InstrumentationKey]"
+                        "simulator:DbPassword": "[parameters('sqlServer').sqlAdministratorLoginPassword]"
                     }
                 }
             ]
@@ -317,8 +310,7 @@
                         "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
                         "redirect_uri": "[concat(parameters('webApp').websiteFullAddress1,'#/dashboard')]",
                         "EventHubConnectionString": "[parameters('eventHub').eventhubConnectionString]",
-                        "EventHubPath": "[parameters('eventHub').eventHubName]",
-                        "InstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsights').appInsightResourceName), '2014-04-01').InstrumentationKey]"
+                        "EventHubPath": "[parameters('eventHub').eventHubName]"
                     }
                 }
             ]
@@ -414,8 +406,7 @@
                         "CUSTOMCONNSTRConnectionString": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey)]",
                         "CUSTOMCONNSTRConsumerGroup": "[concat(parameters('iotHub').d2cConsumerGroupName, '1')]",
                         "CUSTOMCONNSTREventHubConnectionString": "[parameters('eventHub').eventhubConnectionString]",
-                        "CUSTOMCONNSTREventHubPath": "[parameters('eventHub').eventHubName]",
-                        "InstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('appInsights').appInsightResourceName), '2014-04-01').InstrumentationKey]"
+                        "CUSTOMCONNSTREventHubPath": "[parameters('eventHub').eventHubName]"
                     }
                 }
             ]
