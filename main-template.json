@@ -1204,7 +1204,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeL59PNJngtBa1OmfkBDpHNgQQR1yks5bA-S1wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeJPZfb-qRa0oMue-Eg6EX9YCParuks5bBE-FwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1455,7 +1455,7 @@
             "type": "string",
             "value": "[concat(variables('sqlServer').sqlserverName,'.database.windows.net')]"
         },
-        "WebSiteUri": {
+        "NodeServerUri": {
             "type": "string",
             "value": "[concat('https://',variables('nodeServer').nodeServerName,'.azurewebsites.net/')]"
         },
