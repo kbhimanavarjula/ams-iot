@@ -12,7 +12,7 @@
     "variables": {},
     "resources": [
         {
-            "name": "Microsoft.Insights/service",
+            "name": "[concat(parameters('documentDB').DocDBAccountName, '/', 'Microsoft.Insights/service')]",      
             "type": "Microsoft.DocumentDB/databaseAccounts/providers/diagnosticSettings",
             "apiVersion": "[parameters('omsSettings').omsEnableApiVersion]",
             "properties": {
