@@ -306,8 +306,8 @@
                         "displayName": "websiteAppSettings"
                     },
                     "properties": {
-                        "restServer": "[concat('https://', parameters('restServer').apiServerName,'.azurewebsites.net/')]",
-                        "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerName,'.azurewebsites.net/')]",
+                        "restServer": "[concat('https://', parameters('restServer').apiServerNameDr,'.azurewebsites.net/')]",
+                        "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerNameDr,'.azurewebsites.net/')]",
                         "b2cApplicationId": "[parameters('B2CVariables').b2cClientIdDr]",
                         "tenantName": "[parameters('B2CVariables').b2cTenant]",
                         "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
