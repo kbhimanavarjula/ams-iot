@@ -361,8 +361,8 @@
             "webSiteName": "[parameters('webSiteName')]",
             "webSiteNameDr": "[parameters('webSiteNameDr')]",
             "locationDr": "[parameters('locationDr')]",
-            "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
             "WebAppPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
+            "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/webapp_appins511.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
             "websiteFullAddress1": "[concat('https://',parameters('webSiteName'),'.trafficmanager.net/')]"
@@ -372,7 +372,7 @@
             "apiServerName": "[concat(parameters('apiServerName'),variables('suffix'))]",
             "apiServerNameDr": "[concat(parameters('apiServerName'),'dr',variables('suffix'))]",
             "locationDr": "[parameters('locationDr')]",
-            "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins419.zip",
+            "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins511.zip",
             "RESTServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "WindowsManagementUri": "https://management.core.windows.net/",
@@ -1455,7 +1455,7 @@
             "type": "string",
             "value": "[concat(variables('sqlServer').sqlserverName,'.database.windows.net')]"
         },
-        "NodeServerUri": {
+        "WebSiteUri": {
             "type": "string",
             "value": "[concat('https://',variables('nodeServer').nodeServerName,'.azurewebsites.net/')]"
         },
