@@ -1320,7 +1320,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeK4kuiVd1F_Vm98sbTra6mf50MJoks5bA-SiwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeMlTcM8b1CVFX0jnxZxQdmYGMpe1ks5bBTfkwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1376,7 +1376,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeNcIMu1EViwZeQVMP5YMcMkon73vks5bA-R-wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeBuroIBN_fGLp52hEL0vrfRZbNe_ks5bBTg_wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1455,9 +1455,17 @@
             "type": "string",
             "value": "[concat(variables('sqlServer').sqlserverName,'.database.windows.net')]"
         },
-        "WebSiteUri": {
+        "NodeServerWebSiteUri": {
             "type": "string",
             "value": "[concat('https://',variables('nodeServer').nodeServerName,'.azurewebsites.net/')]"
+        },
+        "WebSiteTrafficUri": {
+            "type": "string",
+            "value": "[concat('https://',variables('webApp').webSiteName,'.trafficmanager.net/')]"
+        },
+        "WebSiteUri": {
+            "type": "string",
+            "value": "[concat('https://',variables('webApp').webSiteName,'.azurewebsites.net/')]"
         },
         "RESTSiteUri": {
             "type": "string",
