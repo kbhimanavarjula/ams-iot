@@ -364,7 +364,7 @@
             "WebAppPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
             "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/webapp_appins511.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
-            "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.trafficmanager.net/')]",
+            "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
             "websiteFullAddress1": "[concat('https://',parameters('webSiteName'),'.trafficmanager.net/')]"
         },
         "restServer": {
