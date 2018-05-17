@@ -14,6 +14,7 @@
         "webJobStorage": {
             "type": "object"
         },
+
         "iotHub": {
             "type": "object"
         },
@@ -34,24 +35,24 @@
         },
         "documentDBEndpoint": {
             "type": "string"
+        },
+        "tag": {
+            "type": "object",
+            "defaultValue": {
+                "key1": "key",
+                "value1": "value"
+            },
+            "metadata": {
+                "description": "Tag Values"
+            }
+        },
+        "storageAccountKey": {
+            "type": "string"
         }
     },
     "variables": {},
     "resources": [
-        {
-            "name": "[parameters('webJobStorage').webjobStorageNameDr]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "location": "[parameters('webJobStorage').locationDr]",
-            "apiVersion": "2016-01-01",
-            "sku": {
-                "name": "[parameters('webJobStorage').webjobStorageType]"
-            },
-            "dependsOn": [],
-            "tags": {
-                "displayName": "webjobStorage"
-            },
-            "kind": "Storage"
-        },
+       
         {
             "apiVersion": "2016-03-01",
             "name": "[parameters('hostingPlan').hostingPlanNameDr]",
@@ -117,8 +118,7 @@
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr)]",
-                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/config/web')]",
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameDr)]"
+                        "[concat('Microsoft.Web/sites/', parameters('restServer').apiServerNameDr, '/config/web')]"
                     ],
                     "tags": {
                         "displayName": "RESTServerMSDeploy"
@@ -149,11 +149,11 @@
                             "type": "Custom"
                         },
                         "AzureWebJobsDashboard": {
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageNameDr,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageNameDr), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,parameters('storageAccountKey'))]",
                             "type": "Custom"
                         },
                         "AzureWebJobsStorage": {
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageNameDr,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageNameDr), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,parameters('storageAccountKey'))]",
                             "type": "Custom"
                         }
                     }
@@ -205,7 +205,7 @@
                         "b2c:SignUpInPolicyId": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
                         "b2c:MobileTokenUrl": "[parameters('B2CVariables').MobileTokenURL]",
                         "b2c:MobileInstanceUrl": "[parameters('B2CVariables').MobileInstanceUrl]",
-                        "blobStorage:ConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageNameDr,';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webjobStorage').webjobStorageNameDr), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value,';EndpointSuffix=core.windows.net')]",
+                        "blobStorage:ConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=',parameters('storageAccountKey'),';EndpointSuffix=core.windows.net')]",
                         "b2c:MobileRedirectUrl": "[parameters('B2CVariables').b2cNativeRedirectURLDr]",
                         "documentDB:Endpoint": "[parameters('documentDBEndpoint')]", 
                         "documentDB:AuthKey": "[listKeys(parameters('documentDB').documentDBAuthKey, '2015-04-08').primaryMasterKey]",
