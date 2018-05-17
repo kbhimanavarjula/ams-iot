@@ -332,10 +332,10 @@
         },
         "webJobStorage": {
             "location": "[variables('location')]",
-            "webjobStorageNameDr": "[concat('myperstrdr', uniqueString(resourceGroup().id))]",
             "locationDr": "[parameters('locationDr')]",
             "webjobStorageName": "[concat('myperstr', uniqueString(resourceGroup().id))]",
-            "webjobStorageType": "[parameters('webjobStorageType')]"
+            "webjobStorageType": "[parameters('webjobStorageType')]",
+            "storageApiVersion": "2015-06-15"
         },
         "documentDB": {
             "location": "[variables('location')]",
@@ -500,7 +500,6 @@
         "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/CostingSolution/"
     },
     "resources": [
-        
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDB",
@@ -515,6 +514,25 @@
                 "parameters": {
                     "documentDB": {
                         "value": "[variables('documentDB')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "StorageSetup",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[equals(parameters('costingModel'),'Four')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/storage-account.json','?token=AYpAeHAPcmFXKwZpVYQ-XlwnBR3H9dNiks5bBmb5wA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
                     }
                 }
             }
@@ -616,7 +634,7 @@
                 "mode": "Incremental",
                 "templateLink": {
                     "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeDgk8DXBGKFRtxn92h9TC00KQI2qks5bBA1pwA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"                                    
+                    "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
                     "eventHub": {
@@ -1199,12 +1217,13 @@
                 "DocumentDB",
                 "IotHub",
                 "EventHub",
-                "SqlServerGeo"
+                "SqlServerGeo",
+                "StorageSetup"
             ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeJPZfb-qRa0oMue-Eg6EX9YCParuks5bBE-FwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeA0FgugeVJOiRwBjBrbk-GEQqAtGks5bBm39wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1219,6 +1238,9 @@
                     },
                     "webJobStorage": {
                         "value": "[variables('webJobStorage')]"
+                    },
+                    "storageAccountKey": {
+                        "value": "[reference('StorageSetup').outputs.primaryKey.value]"
                     },
                     "iotHub": {
                         "value": "[variables('iotHub')]"
@@ -1255,12 +1277,13 @@
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServerGeoOms",
-                "OMSWorkSpace"
+                "OMSWorkSpace",
+                "StorageSetup"
             ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeJLlKAD-HfKccxLiPYAs6O2pFMxLks5bA-SwwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeFrnu4cq5p6MKV7Ri8EdICrCQ1xpks5bBoiGwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1278,6 +1301,9 @@
                     },
                     "webJobStorage": {
                         "value": "[variables('webJobStorage')]"
+                    },
+                    "storageAccountKey": {
+                        "value": "[reference('StorageSetup').outputs.primaryKey.value]"
                     },
                     "iotHub": {
                         "value": "[variables('iotHub')]"
@@ -1315,12 +1341,13 @@
                 "DocumentDB",
                 "IotHub",
                 "EventHub",
-                "SqlServerGeo"
+                "SqlServerGeo",
+                "StorageSetup"
             ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeMlTcM8b1CVFX0jnxZxQdmYGMpe1ks5bBTfkwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeJHYvrrY5ddoyyAvmboX-GXje4YRks5bBoSJwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1335,6 +1362,9 @@
                     },
                     "webJobStorage": {
                         "value": "[variables('webJobStorage')]"
+                    },
+                    "storageAccountKey": {
+                        "value": "[reference('StorageSetup').outputs.primaryKey.value]"
                     },
                     "iotHub": {
                         "value": "[variables('iotHub')]"
@@ -1371,12 +1401,13 @@
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServerGeoOms",
-                "OMSWorkSpace"
+                "OMSWorkSpace",
+                "StorageSetup"
             ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeBuroIBN_fGLp52hEL0vrfRZbNe_ks5bBTg_wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeOkS0SVPJeaqs1UeIMUtQRZFzCyGks5bBokewA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1394,6 +1425,9 @@
                     },
                     "webJobStorage": {
                         "value": "[variables('webJobStorage')]"
+                    },
+                    "storageAccountKey": {
+                        "value": "[reference('StorageSetup').outputs.primaryKey.value]"
                     },
                     "iotHub": {
                         "value": "[variables('iotHub')]"
