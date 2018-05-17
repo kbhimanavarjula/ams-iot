@@ -7,6 +7,9 @@
         },
         "webApp": {
             "type": "object"
+        },
+        "restServer": {
+            "type": "object" 
         }
     },
     "variables": {},
@@ -71,11 +74,11 @@
                 },
                 "endpoints": [
                     {
-                        "name": "[parameters('webApp').apiServerName]",
+                        "name": "[parameters('restServer').apiServerName]",
                         "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
                         "properties": {
                             "endpointStatus": "Enabled",
-                            "targetResourceId": "[resourceId('Microsoft.Web/sites', parameters('webApp').apiServerName)]",
+                            "targetResourceId": "[resourceId('Microsoft.Web/sites', parameters('restServer').apiServerName)]",
                             "weight": 1,
                             "priority": 1,
                             "endpointLocation": "[parameters('webApp').location]"
@@ -86,10 +89,10 @@
                         "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
                         "properties": {
                             "endpointStatus": "Enabled",
-                            "targetResourceId": "[resourceId('Microsoft.Web/sites', parameters('webApp').apiServerNameDr)]",
+                            "targetResourceId": "[resourceId('Microsoft.Web/sites', parameters('restServer').apiServerNameDr)]",
                             "weight": 1,
                             "priority": 2,
-                            "endpointLocation": "[parameters('webApp').locationDr]"
+                            "endpointLocation": "[parameters('restServer').locationDr]"
                         }
                     }
                 ]
