@@ -263,8 +263,7 @@
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr)]",
-                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/config/web')]",
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameDr)]"
+                        "[concat('Microsoft.Web/sites/', parameters('webApp').webSiteNameDr, '/config/web')]"
                     ],
                     "tags": {
                         "displayName": "WebAppMSDeploy"
@@ -362,8 +361,7 @@
                     "apiVersion": "2015-08-01",
                     "dependsOn": [
                         "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr)]",
-                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/config/web')]",
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('webJobStorage').webjobStorageNameDr)]"
+                        "[concat('Microsoft.Web/sites/', parameters('nodeServer').nodeServerNameDr, '/config/web')]"
                     ],
                     "tags": {
                         "displayName": "NodeServerMSDeploy"
