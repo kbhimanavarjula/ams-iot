@@ -75,9 +75,10 @@
         },
         "webSkuName": {
             "type": "string",
-            "defaultValue": "S1",
+            "defaultValue": "F1",
             "allowedValues": [
                 "D1",
+                "F1",
                 "B1",
                 "B2",
                 "B3",
@@ -283,7 +284,7 @@
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
         "deploymentApiVersion": "2016-02-01",
-        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/core_components/"
+        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/core-test/"
     },
     "resources": [
         {
@@ -294,7 +295,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeLmnlQe2VaPtUBm73EoAywi_-QnIks5a_mQuwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeHiPTFmVkWSpaJGYA1JdYy17csaZks5bB-U0wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -312,7 +313,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeJ3DPmWwE7ryLD7fsfolCALIFl1Tks5a_mQywA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeLO2Xwpw5Ut57f4hKsRRcRkeTRffks5bB-U4wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -330,7 +331,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeLQwuo92mb-5x5OXcjNzgqgrTOc9ks5bA_afwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-hub.json','?token=AYpAeH3ySh1ESCHSa6XJQXEgogZO-9BMks5bB-U2wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -348,7 +349,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeDw8ehjYvrotMKBmFkbH9pghLQ5Jks5a_mQ0wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeGwS98_exVCF5MojzWNPAD3Vqe5Zks5bB-U6wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -371,7 +372,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json','?token=AYpAeB-Xn_J8sPbBrsZLU2nilfNkRuDjks5a_mQ1wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/web-apps.json','?token=AYpAeFtjue87-6Sk50axNmJiICs_s05Eks5bB-YawA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
