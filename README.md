@@ -105,7 +105,7 @@ Below table describes the deployment costs per month for the solution.
 
 **Deployment Costs for Type1**
 
-| Resource Name                                   | Size                                                                                                        | Resource costing model        | Azure Cost/month                                                                                                                
+| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                                
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
 | **App Service Plan(3 web apps + 1 web job)**    | F1 (Free Tier), Shared Cores, 1 GB RAM, 1GB Storage                                                         | PAYG                          | $0.00   
 | **SQL Database**                                | B1 (Standard tier), 5DTU, 2GB included storage per DB                                                       | PAYG                          | $4.90  
@@ -121,7 +121,7 @@ Below table describes the deployment costs per month for the solution.
 
 **Deployment Costs for Type2**
 
-| Resource Name                                   | Size                                                                                                        | Resource costing model        | Azure Cost/month                                                                                                                
+| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
 | **App Service Plan(3 web apps + 1 web job)**    | B1 (1 core,1.75 GB RAM, 10GB Storage)                                                                       | PAYG                          | $54.75   
 | **SQL Database**                                | B1 (Standard tier), 5DTU, 2GB included storage per DB                                                       | PAYG                          | $4.90  
@@ -135,10 +135,13 @@ Below table describes the deployment costs per month for the solution.
 | **Total Cost**                                  |                                                                                                             |                               | $474.95
 | **Total Cost Including Optional Components**    |                                                                                                             |                               | $479.55
 
+| **Monitoring Status**                           | **Delta Price (Model1-Model2)**
+| **Without Monitoring**                          | $80.75
+| **With Monitoring**                             | $79.75
 
 **Deployment Costs for Type3**
 
-| Resource Name                                   | Size                                                                                                        | Resource costing model        | Azure Cost/month                                                                                                                
+| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
 | **App Service Plan(3 web apps + 1 web job)**    | B1 (1 core,1.75 GB RAM, 10GB Storage)                                                                       | PAYG                          | $54.75   
 | **SQL Database**                                | S0 (Standard tier), 10DTU, 250GB storage                                                                    | PAYG                          | $14.72  
@@ -152,9 +155,13 @@ Below table describes the deployment costs per month for the solution.
 | **Total Cost**                                  |                                                                                                             |                               | $484.77
 | **Total Cost Including Optional Components**    |                                                                                                             |                               | $489.37
 
+| **Monitoring Status**                           | **Delta Price (Model1-Model3)**         | **Delta Price (Model2-Model2)**
+| **Without Monitoring**                          | $89.57                                  | $9.82
+| **With Monitoring**                             | $89.57                                  | $9.82
+
 **Deployment Costs for Type4**
 
-| Resource Name                                   | Size                                                                                                        | Resource costing model        | Azure Cost/month                                                                                                                
+| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
 | **App Service Plan(6 web apps + 1 web job)**    | S0 * 2 (1 core,1.75 GB RAM, 10GB Storage)                                                                   | PAYG                          | $146.00   
 | **SQL Database**                                | S0 (Standard tier), 10DTU, 250GB included storage per DB                                                    | PAYG                          | $29.44  
@@ -169,7 +176,9 @@ Below table describes the deployment costs per month for the solution.
 | **Total Cost**                                  |                                                                                                             |                               | $592.36
 | **Total Cost Including Optional Components**    |                                                                                                             |                               | $596.96
 
-
+| **Monitoring Status**                           |**Delta Price (Model1-Model4)**         |**Delta Price (Model2-Model4)**      |**Delta Price (Model2-Model4)**
+| **Without Monitoring**                          | $197.16                                | $117.41                             | $107.59
+| **With Monitoring**                             | $197.16                                | $117.41                             | $107.59
 
 ## 5 Prerequisites for Deploying ARM Template
 
