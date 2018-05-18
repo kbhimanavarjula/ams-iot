@@ -480,9 +480,9 @@ To access resources in your subscription, you must assign the application to a r
 
 | **Parameter Name**                               | **Description**                                                                                            | **Allowed Values**    | **Default Values**                                                                                                               
 | -------------                                    | -------------                                                                                              | -----------------     | ------------                                                                                                             
-| **Solution Type**                                | 1.solution with monitoring - this will deploy AMS core solution & monitoring components. 2. solution without monitoring - this will deploy core AMS solution | solution with monitoring.                         |    
-| **Costing Model**                                | Costing models have predefined resources sizes. Please refer Costing Model tables                                                                    | One, Two, Three, Four                          |   
-| **locationDr**                                     | specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region                                                      | Any String                          |  
+| **Solution Type**                                | 1.solution with monitoring - this will deploy AMS core solution & monitoring components. 2. solution without monitoring - this will deploy core AMS solution | solution with monitoring.                          |    
+| **Costing Model**                                | Costing models have predefined resources sizes. Please refer Costing Model tables                          | One, Two, Three, Four |   
+| **locationDr**                                   | specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region     | Any String          |  
 | **App Insights Location**                    | specify the region for application insights, if you have selected solution type as without monitoring this is optional                                                  | eastus,               northeurope,                southcentralus, 
 southeastasia, 
  westeurope, 
