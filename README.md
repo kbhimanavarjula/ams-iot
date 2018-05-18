@@ -483,16 +483,12 @@ To access resources in your subscription, you must assign the application to a r
 | **Solution Type**                                | 1.solution with monitoring - this will deploy AMS core solution & monitoring components. 2. solution without monitoring - this will deploy core AMS solution | solution with monitoring.                          |    
 | **Costing Model**                                | Costing models have predefined resources sizes. Please refer Costing Model tables                          | One, Two, Three, Four |   
 | **locationDr**                                   | specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region     | Any String          |  
-| **App Insights Location**                    | specify the region for application insights, if you have selected solution type as without monitoring this is optional                                                  | eastus,               northeurope,                southcentralus, 
-southeastasia, 
- westeurope, 
- westus2 
-                         |westus2 
-| **IoThub name**             | Name of the IoT Hub instance to provision                                                                           |Min Length: 3                          | 
-| **Capacity units**                             | number of desired iot hub units. restricted to 1 unit for F1. Can be set up to maximum number allowed for subscription.                                       | minValue: 1                          | 1 
-| **sqlAdministratorLogin**                                   | provide the user name for the sql server, please make a note of Username this will be used further                                    | Any string                          | Sqluser 
-| **sqlAdministratorLoginPassword**                                   | provide the password for the sql server, make a note of the Password this will be used further   | PAYG                          | $146.25
-| **Stream Analytics**                            | Standard Streaming Unit, 3 unit(s) 3 * $80.30 Region: East US                                               | Password must be 12 characters and have 3 of the following 1 lower case character, 1 number, and 1 special character                          | 
+| **App Insights Location**                    | specify the region for application insights, if you have selected solution type as without monitoring this is optional       | eastus, northeurope,       southcentralus, southeastasia,  westeurope,  westus2      |westus2 
+| **IoThub name**             | Name of the IoT Hub instance to provision    |Min Length: 3                | 
+| **Capacity units**          | number of desired iot hub units. restricted to 1 unit for F1. Can be set up to maximum number allowed for subscription.           | minValue: 1           | 1 
+| **sqlAdministratorLogin**   | provide the user name for the sql server, please make a note of Username this will be used further                                    | Any string | Sqluser 
+| **sqlAdministratorLoginPassword**   | provide the password for the sql server, make a note of the Password this will be used further   | PAYG                          | $146.25
+| **Stream Analytics**     | Standard Streaming Unit, 3 unit(s) 3 * $80.30 Region: East US    | Password must be 12 characters and have 3 of the following 1 lower case character, 1 number, and 1 special character  |
 | **Sql database name**                                  | The name of SQL database                                                                                                           |                               |
 | **Sku Capacity**    | describes plan's instance count                                                                                                             | 1                             | 1
 
