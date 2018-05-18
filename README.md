@@ -117,7 +117,7 @@ Below table describes the deployment costs per month for the solution.
 | **Cosmos DB**                                   | Standard, throuput 2500 RU/s (Request Units per second) 25 x100 Rus(Throughput)- $146 1 GB storage – $0.25  | PAYG                          | $146.25
 | **Stream Analytics**                            | Standard Streaming Unit, 3 unit(s) 3 * $80.30 Region: East US                                               | PAYG                          | $240.9
 | **Total Cost**                                  |                                                                                                             |                               | $395.2
-| **Total COst Including Optional Components**    |                                                                                                             |                               | $399.8
+| **Total Cost Including Optional Components**    |                                                                                                             |                               | $399.8
 
 **Deployment Costs for Type2**
 
@@ -133,7 +133,7 @@ Below table describes the deployment costs per month for the solution.
 | **Cosmos DB**                                   | Standard, throuput 2500 RU/s (Request Units per second) 25 x100 Rus(Throughput)- $146 1 GB storage – $0.25  | PAYG                          | $146.25
 | **Stream Analytics**                            | Standard Streaming Unit 3 unit(s) 3 * $80.30 Region: East US                                                | PAYG                          | $240.9
 | **Total Cost**                                  |                                                                                                             |                               | $474.95
-| **Total COst Including Optional Components**    |                                                                                                             |                               | $479.55
+| **Total Cost Including Optional Components**    |                                                                                                             |                               | $479.55
 
 
 **Deployment Costs for Type3**
@@ -150,7 +150,7 @@ Below table describes the deployment costs per month for the solution.
 | **Cosmos DB**                                   | Standard, throuput 2500 RU/s (Request Units per second) 25 x100 Rus(Throughput)- $146 1 GB storage – $0.25  | PAYG                          | $146.25
 | **Stream Analytics**                            | Standard Streaming Unit, 3 unit(s) 3 * $80.30 Region: East US                                               | PAYG                          | $240.9
 | **Total Cost**                                  |                                                                                                             |                               | $484.77
-| **Total COst Including Optional Components**    |                                                                                                             |                               | $489.37
+| **Total Cost Including Optional Components**    |                                                                                                             |                               | $489.37
 
 **Deployment Costs for Type4**
 
@@ -167,7 +167,7 @@ Below table describes the deployment costs per month for the solution.
 | **Stream Analytics**                            | Standard Streaming Unit 3 unit(s) 3 * $80.30 Region: East US                                                | PAYG                          | $240.9
 | **Traffic Manager**                             | 3 Endpoints 3 * $0.54                                                                                       | PAYG                          | $1.62
 | **Total Cost**                                  |                                                                                                             |                               | $592.36
-| **Total COst Including Optional Components**    |                                                                                                             |                               | $596.96
+| **Total Cost Including Optional Components**    |                                                                                                             |                               | $596.96
 
 
 
