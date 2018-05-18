@@ -105,9 +105,7 @@ Region-US West
 | Resource Name                                   | Size                                                         | Resource costing model        | Azure Cost/month                                                                                                                
 | -------------                                   | -------------                                                | --------------------          | ------------                                                                                                             
 | **App Service Plan(3 web apps + 1 web job)**    | F1 (Free Tier), Shared Cores, 1 GB RAM, 1GB Storage          | PAYG                          | $0.00   
-
 | **SQL Database**                                | B1 (Standard tier), 5DTU, 2GB included storage per DB        | PAYG                          | $4.90  
-
 | **IoT HUB**                                     | F1 (Free Tier), 500 devices, 8000 messages/day               | PAYG                          | $0.00  
 
 | **Log Analytics (Optional)**                     |First 5GB of data storage is free.                            |PAYG                           |$2.30 
