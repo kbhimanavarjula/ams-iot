@@ -349,8 +349,8 @@
             "documentDBAuthKey": "[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
         },
         "hostingPlan": {
-            "location": "[variables('location')]",
-            "hostingPlanName": "AppServPlan",
+            "location": "[concat('appSerPlan', variables('suffix'))]",
+            "hostingPlanName": "[concat('appSerPlanDr', variables('suffix'))]",
             "locationDr": "[parameters('locationDr')]",
             "hostingPlanNameDr": "AppServPlanDr",
             "webSkuName": "[variables(concat('costing',parameters('costingModel'))).skuName]",
@@ -1346,7 +1346,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeCVdVuTOmnj3vRNB2hJGsBmg3wRDks5bB3IewA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeOhBBZ7u0htUZz2vOslJjRyUmHBiks5bB3-LwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
