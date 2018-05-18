@@ -488,9 +488,21 @@ To access resources in your subscription, you must assign the application to a r
 | **Capacity units**          | number of desired iot hub units. restricted to 1 unit for F1. Can be set up to maximum number allowed for subscription.           | minValue: 1           | 1 
 | **sqlAdministratorLogin**   | provide the user name for the sql server, please make a note of Username this will be used further                                    | Any string | Sqluser 
 | **sqlAdministratorLoginPassword**   | provide the password for the sql server, make a note of the Password this will be used further   | PAYG                          | $146.25
-| **Stream Analytics**     | Standard Streaming Unit, 3 unit(s) 3 * $80.30 Region: East US    | Password must be 12 characters and have 3 of the following 1 lower case character, 1 number, and 1 special character  |
-| **Sql database name**                                  | The name of SQL database                                                                                                           |                               |
-| **Sku Capacity**    | describes plan's instance count                                                                                                             | 1                             | 1
+| **Stream Analytics**      | Password must be 12 characters and have 3 of the following 1 lower case character, 1 number, and 1 special character  |
+| **Sql database name**     | The name of SQL databa                                                         |                               |
+| **Sku Capacity**    | describes plan's instance count                                                      | 1                             | 1
+| **Website Name**  | Describes Web Site name which should be unique. Enter Website name which you entered in 5.1 section at 16th point (Eg: https://<Website Name>.azurewebsites.net/redirect.html) |           |
+| **Website Name Dr**  | Describes Web Site name which should be unique for recovery app    |                                                 |
+| **Node server Name**      | Describes the node server name which should be unique. |                       |
+| **Api server Name**       | Describes API Server name which should be unique                               |                                |
+| **AD Subscription Id**    | Enter your Azure account subscription Id.                                      |                                |
+| **AD Tenant Id**          | Enter your Azure account tenant Id.                                            |                                |
+| **B2c Tenant**            | Name of the B2C Tenant which you created in 5.1 section at 3rd point. (Eg: amsiot1.onmicrosoft.com)              |                     |
+| **B2c Client Id**         | Enter B2C Client id (Application id) that you got after creating the B2C application in 5.1 section at 21st point.                     |                           |
+| **B2c Client Id**         | Enter B2C Client id (Application id) that you got after creating the B2C application in 5.1 section at 21st point.                     |                           |
+| **B2c Client Id Dr**      |
+| **B2c SignUp SignIn policy Id**               | Enter Sign Up Sign In Policy name which you created 5.1 section at 9th point.                                      |                           | 
+ 
 
 ## 7 Getting Started
 
