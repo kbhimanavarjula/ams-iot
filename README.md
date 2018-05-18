@@ -1,3 +1,4 @@
+
 # Microsoft
 
 # Asset Monitoring Solution
@@ -6,36 +7,47 @@
 
 - [1 About Asset Monitoring Solution](#1-about-asset-monitoring-solution)
 - [2 Architecture](#2-architecture)
-  - [2.1 Data Flow Architecture Diagram](#21-data-flow-architecture-diagram)
-- [3 Prerequisites for Deploying ARM Template](#3-prerequisites-for-deploying-arm-template)
-  - [3.1 Azure B2C Tenant Creation and Configuration](#31-azure-b2c-tenant-creation-and-configuration)
-  - [3.2 Power BI Configuration](#32-power-bi-configuration)
-  - [3.3 Creating an Azure Service Principal](#33-creating-an-azure-service-principal)
-- [4 Deploying the ARM Template](#4-deploying-the-arm-template)
-- [5 Prerequisites for Gateway-Middleware](#5-prerequisites-for-gateway-middleware)
-- [6 Step 1 Run the Zadig file](#6-step-1-run-the-zadig-file)
-- [7 Step 2 Setup GatewayMiddleware package](#7-step-2-setup-gatewaymiddleware-package)
-- [8 Step 3 Configuring WEBAPP](#8-step-3-configuring-webapp)
-- [9 Step 4 Adding the pre-requisites in the web app](#9-step-4-adding-the-pre-requisites-in-the-web-app)
-	- [9.1 Adding Gateway](#91-adding-gateway)
-	- [9.2 Adding Sensor](#92-adding-sensor)
-	- [9.3 Adding Asset to Web App using Mobile Application](#93-adding-asset-to-web-app-using-mobile-application)
-	- [9.4 Adding Assets to a Group](#94-adding-assets-to-a-group)
-	- [9.5 Cofiguring the PoweBi Desktop App and Publishing](#94-cofiguring-the-powebi-desktop-app-and-publishing)
-	- [9.6 Configuring the flow in web app](#96-configuring-the-flow-in-web-app)
-- [10 Step 5 Running the gateway middleware](#10-step-5-running-the-gateway-middleware)
-	- [10.1 Validating data in iot hub and Node server](#11-validating-data-in-iot-hub-and-node-server)
-- [11 Step 6 validating the data in web app](#11-step-6-validating-the-data-in-web-app)
-- [12 Step 7 Creating and validating the rule in Web app](#12-step-7-creating-and-validating-the-rule-in-web-app)
-- [13 Step 8 Configuring the Indoor map in web app](#13-step-8-configuring-the-indoor-map-in-web-app)
-	- [13.1 Adding gateway rule](#131-adding-sensor)
-	- [13.2 Positioning the gateway on the layout](#132-positioning-the-gateway-on-the-layout)
-  - [13.3 Indoor alert notification](#133-indoor-alert-notification)
-  - [13.4 Alerts checking](#134-alerts-checking)
-  - [13.5 Asset Status](#135-asset-status)
+   - [2.1 Data Flow Architecture Diagram](#21-data-flow-architecture-diagram)
+- [3 Azure Services](#3-azure-services)
+   - [3.1 Azure Blob](#31-azure-blob)
+   - [3.2 Azure IoT HUB](#32-azure iot-hub)
+   - [3.3 Azure Web App](#33-azure-web-app)
+   - [3.4 Azure Web Job](#34-azure-web-job)
+   - [3.5 Azure SQL DB](#35-azure-sql-db)
+   - [3.6 Azure DocumentDB](#36-azure-documentdb)
+   - [3.7 Azure Event hub](#37-azure-event-hub)
+- [4 Deployment Costs](#4-deployment-costs)
+- [5 Prerequisites for Deploying ARM Template](#5-prerequisites-for-deploying-arm-template)
+   - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
+   - [5.2 Power BI Configuration](#52-power-bi-configuration)
+   - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
+- [6 ARM Template Input Parameters](#6-arm-template-input-parameters)
+- [7 Getting Started](#7-getting-started)
+    - [7.1 Deploying the ARM Template](#71-deploying-the-arm-template)
+- [8 Prerequisites for Gateway-Middleware](#8-prerequisites-for-gateway-middleware)
+- [9 Step 1 Run the Zadig file](#9-step-1-run-the-zadig-file)
+- [10 Step 2 Setup GatewayMiddleware package](#10-step-2-setup-gatewaymiddleware-package)
+- [11 Step 3 Configuring WEBAPP](#11-step-3-configuring-webapp)
+- [12 Step 4 Adding the pre-requisites in the web app](#12-step-4-adding-the-pre-requisites-in-the-web-app)
+    - [12.1 Adding Gateway](#121-adding-gateway)
+    - [12.2 Adding Sensor](#122-adding-sensor)
+    - [12.3 Adding Asset to Web App using Mobile Application](#123-adding-asset-to-web-app-using-mobile-application)
+    - [12.4 Adding Assets to a Group](#124-adding-assets-to-a-group)
+    - [12.5 Cofiguring the PoweBi Desktop App and Publishing](#125-cofiguring-the-powebi-desktop-app-and-publishing)
+    - [12.6 Configuring the flow in web app](#126-configuring-the-flow-in-web-app)
+- [13 Step 5 Running the gateway middleware](#13-step-5-running-the-gateway-middleware)
+    - [13.1 Validating data in iot hub and Node server](#131-validating-data-in-iot-hub-and-node-server)
+- [14 Step 6 validating the data in web app](#14-step-6-validating-the-data-in-web-app)
+- [15 Step 7 Creating and validating the rule in Web app](#15-step-7-creating-and-validating-the-rule-in-web-app)
+- [16 Step 8 Configuring the Indoor map in web app](#16-step-8-configuring-the-indoor-map-in-web-app)
+    - [16.1 Adding gateway rule](#161-adding-sensor)
+    - [16.2 Positioning the gateway on the layout](#162-positioning-the-gateway-on-the-layout)
+    - [16.3 Indoor alert notification](#163-indoor-alert-notification)
+    - [16.4 Alerts checking](#164-alerts-checking)
+    - [16.5 Asset Status](#165-asset-status)
 	
 
-## About Asset Monitoring Solution
+## 1 About Asset Monitoring Solution
 
 Asset Monitoring and Tracking Solution is a complete smart inventory management tool. The solution provides a web dashboard & a mobile application to Monitor, Locate and Report all the remote assets so that they are completely visible 24x7.
 
@@ -47,13 +59,56 @@ Asset Monitoring and Tracking Solution is a complete smart inventory management 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/2.jpg)
 
-## 3 Prerequisites for Deploying ARM Template
+## 3 Azure Services
+
+### 3.1 Azure Blob
+
+The word ‘Blob’ expands to Binary Large Object. Blobs include images, text files, videos and audios. There are three types of blobs in the service offered by Windows Azure namely block, append and page blobs. 
+  -Block blobs are collection of individual blocks with unique block ID. The block blobs allow the users to upload large amount of data. 
+  -Append blobs are optimized blocks that helps in making the operations efficient. 
+  -Page blobs are compilation of pages. They allow random read and write operations. While creating a blob, if the type is not specified they are set to block type by default. 
+All the blobs must be inside a container in your storage.  
+
+### 3.2 Azure IoT Hub
+
+Azure IoT HUB is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  
+	-Provides multiple device-to-cloud and cloud-to-device communication options. These options include one-way messaging, file transfer, and request-reply methods. 
+	-Provides built-in declarative message routing to other Azure services. 
+	-Provides a query able store for device metadata and synchronized state information. 
+	-Enables secure communications and access control using per-device security keys.  
+ 	-Provides extensive monitoring for device connectivity and device identity management events. 
+	-Includes device libraries for the most popular languages and platforms.
+	
+### 3.3 Azure Web App 
+
+Azure Web Apps enables you to build and host web applications in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Visual Studio Team Services. 
+
+### 3.4 Azure Web Job 
+
+Azure Web Job is back-end program you can run inside Azure, without Azure Web Job, you can deploy windows console app or windows service app to your server, then setup scheduler via windows scheduler or other third-party windows scheduler tools.  
+
+### 3.5 Azure SQL DB 
+
+Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. 
+
+### 3.6 Azure DocumentDB 
+Azure DocumentDB is a general-purpose NoSQL database that is used in a wide range of applications and use cases. It is a good choice for any application that needs low order-of-millisecond response times, and needs to scale rapidly. 
+Azure Event hub 
+
+### 3.7 Azure Event Hub
+Azure Event Hubs is a highly scalable data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. 
+
+## 4 Deployment Costs 
+Below table describes the deployment costs per month for the solution.
+Region-US West
+
+## 5 Prerequisites for Deploying ARM Template
 
   1. The Azure AD B2C Tenant should be created and register your web application. 
   2. Create an account in Power BI 
   3. Create an Azure Service Principal. 
 
-### 3.1 Azure B2C Tenant Creation and Configuration   
+### 5.1 Azure B2C Tenant Creation and Configuration   
 
 Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant already created by your admin then you should be added into that tenant as Global Administrator to register your app to get the B2C tenant id, application id and sign-in/sign-up policies.  
 
@@ -147,7 +202,7 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/38.png)
 
 
-### 3.2 Power BI Configuration
+### 5.2 Power BI Configuration
 
 Go to https://dev.powerbi.com/apps and register the web app.
 
@@ -239,7 +294,7 @@ After that click on **Save**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/48.png)
 
-### 3.3 Creating an Azure Service Principal
+### 5.3 Creating an Azure Service Principal
 
 To complete this topic, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription.
 
@@ -333,7 +388,11 @@ To access resources in your subscription, you must assign the application to a r
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/62.png)
 
-## 4 Deploying the ARM Template
+## 6 ARM Template Input Parameters
+
+## 7 Getting Started
+
+### 7.1 Deploying the ARM Template
 
 1. Click below Git hub repo url.
 
@@ -410,7 +469,7 @@ To access resources in your subscription, you must assign the application to a r
 
 9. Once the deployment is completed, you can start the workflow
 
-## 5 Prerequisites for Gateway-Middleware
+## 8 Prerequisites for Gateway-Middleware
 
 1. Visual studio 2015 with c++ dependency.
 
@@ -436,7 +495,7 @@ https://zadig.akeo.ie/
 
 https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
 
-## 6 Step 1: Run the Zadig file
+## 9 Step 1: Run the Zadig file
 
 1. Connect the BLE dongle to your system and enable the Bluetooth.
 
@@ -464,13 +523,13 @@ https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/77.png)
 
-## 7 Step 2: Setup GatewayMiddleware package
+## 10 Step 2: Setup GatewayMiddleware package
 
 Configure the Gateway from the below document.
 
 https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20the%20GatewayMiddleware%20Package.pdf
 
-## 8 Step 3: Configuring WEBAPP
+## 11 Step 3: Configuring WEBAPP
 
 1. To start the work flow of AMS take the web app URL through portal.azure.com from the deployed resource group.
 
@@ -502,7 +561,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/84.png)
 
-## 9 Step 4: Adding the pre-requisites in the web app.
+## 12 Step 4: Adding the pre-requisites in the web app.
 
 1. Go to inventory option in web app.
 
@@ -512,7 +571,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/86.png)
 
-### 9.1 Adding Gateway
+### 12.1 Adding Gateway
 
 3. Now click on +Add New to add a new gateway.
 
@@ -536,7 +595,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/91.png)
 
-### 9.2 Adding Sensor
+### 12.2 Adding Sensor
 
 9. Click +Add New to add a new sensor.
 
@@ -566,7 +625,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/96.png)
 
-### 9.3 Adding Asset to Web App using Mobile Application
+### 12.3 Adding Asset to Web App using Mobile Application
 
 1. Open the mobile app named as **ASTRA** and enter the **rest server URL**.
 
@@ -634,7 +693,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/110.png)
 
-### 9.4 Adding Assets to a Group
+### 12.4 Adding Assets to a Group
 
 18. Now we need to add the asset to a group. For that you need to check the asset so that Add Group option will be enable.
 
@@ -652,7 +711,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/114.png)
 
-### 9.5 Cofiguring the PoweBi Desktop App and Publishing
+### 12.5 Cofiguring the PoweBi Desktop App and Publishing
 
 
 22. Go to Configurations and add the following information.
@@ -771,7 +830,7 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/136.png)
 
-### 9.6 Configuring the flow in web app
+### 12.6 Configuring the flow in web app
 
 52. Go to web app and click on **configuration** -> choose **powerbi credentials**
 
@@ -793,7 +852,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/139.png)
 
-## 10 Step 5: Running the gateway middleware
+## 13 Step 5: Running the gateway middleware
 
 1. Go to portal àclick on apiserverà copy the apiserver URL.
 
@@ -828,7 +887,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/147.png)
 
-### 10.1 Validating data in iot hub and Node server
+### 13.1 Validating data in iot hub and Node server
 
 9. Go to Azure Portal and click IoT Hub as follows.
 
@@ -852,7 +911,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/150.png)
 
-## 11 Step 6: validating the data in web app
+## 14 Step 6: validating the data in web app
 
 1. To see the live data in web app go to reports -> select group followed by sensor value.
 
@@ -886,7 +945,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/161.png)
 
-## 12 Step 7: Creating and validating the rule in Web app
+## 15 Step 7: Creating and validating the rule in Web app
 
 1. After viewing the reports create a rule based on some threshold conditions.
 
@@ -927,7 +986,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/173.png)
 
 
-## 13 Step 8: Configuring the Indoor map in web app
+## 16 Step 8: Configuring the Indoor map in web app
 
 1. Go to configuration,select indoor map Configuration
 
@@ -943,13 +1002,13 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/179.png)
 
-### 13.1 Adding gateway rule
+### 16.1 Adding gateway rule
 
 4. Now you need to select the gateway id in the indoor map location.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/180.png)
 
-### 13.2 Positioning the gateway on the layout
+### 16.2 Positioning the gateway on the layout
 
 5. Now position the gateway at some location in the map and click **update.**
 
@@ -959,7 +1018,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/182.png)
 
-### 13.3 Indoor alert notification	
+### 16.3 Indoor alert notification	
 
 7. Now Go to dashboard -> click on the flip icon as shown in the below screen shot.
 
@@ -973,7 +1032,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/185.png)
 
-### 13.4 Alerts checking
+### 16.4 Alerts checking
 
 10. If any rule get bleached you found the alert as like above screen shot.
 
@@ -981,7 +1040,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/186.png)
 
-### 13.5 Asset Status
+### 16.5 Asset Status
 
 12. Finally, you can see the status of the asset by using mobile application.
 
