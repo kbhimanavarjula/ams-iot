@@ -64,9 +64,9 @@ Asset Monitoring and Tracking Solution is a complete smart inventory management 
 ### 3.1 Azure Blob
 
 The word ‘Blob’ expands to Binary Large Object. Blobs include images, text files, videos and audios. There are three types of blobs in the service offered by Windows Azure namely block, append and page blobs. 
-  -Block blobs are collection of individual blocks with unique block ID. The block blobs allow the users to upload large amount of data. 
-  -Append blobs are optimized blocks that helps in making the operations efficient. 
-  -Page blobs are compilation of pages. They allow random read and write operations. While creating a blob, if the type is not specified they are set to block type by default. 
+  **Block blobs** are collection of individual blocks with unique block ID. The block blobs allow the users to upload large amount of data. 
+  **Append blobs** are optimized blocks that helps in making the operations efficient. 
+  **Page blobs** are compilation of pages. They allow random read and write operations. While creating a blob, if the type is not specified they are set to block type by default. 
 All the blobs must be inside a container in your storage.  
 
 ### 3.2 Azure IoT Hub
@@ -101,6 +101,21 @@ Azure Event Hubs is a highly scalable data streaming platform and event ingestio
 ## 4 Deployment Costs 
 Below table describes the deployment costs per month for the solution.
 Region-US West
+| Resource Name | Size            | Resource costing model    | Azure Cost/month                                                                                                                
+| ------------- |-------------   | --------------------       | ------------                                                                                                             
+|**App Service Plan(3 web apps + 1 web job)**   |F1 (Free Tier), Shared Cores, 1 GB RAM, 1GB Storage  | PAYG    |$0.00                  
+|**SQL Database**         | B1 (Standard tier), 5DTU, 2GB included storage per DB                      | PAYG  |$4.90  
+|**IoT HUB**  |F1 (Free Tier), 500 devices, 8000 messages/day       |  PAYG     | $0.00  
+|**Log Analytics (Optional)**     |First 5GB of data storage is free. |PAYG  |$2.30 
+|**Application Insights (Optional)**         | Basic, 1GB * $2.30 Region: East US                | PAYG                    |$2.30                                                                |**Storage Account**     |Block Blob Storage, General Purpose V1, LRS,100 GB Capacity          | PAYG | $2.40
+|**Event Hub**  |Basic, throughput units 20,1MB/sec ingress events, 2MB/sec egress events.          | PAYG                                | $0.75
+|**Cosmos DB**     |Standard, throuput 2500 RU/s (Request Units per second) 25 x100 Rus(Throughput)- $146 1 GB storage – $0.25  | packer,jenkins,ELK     | PAYG                |$146.25
+|**Stream Analytics** |Standard Streaming Unit 
+3 unit(s) 
+3 * $80.30 
+Region: East US | PAYG |$240.9
+|**Total Cost**                       |$395.2
+|**Total COst Including Optional Components        |$399.8
 
 ## 5 Prerequisites for Deploying ARM Template
 
