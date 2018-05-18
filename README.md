@@ -159,9 +159,9 @@ Below table describes the deployment costs per month for the solution.
 | **Total Cost**                                  |                                                                                                             |                               | $484.77
 | **Total Cost Including Optional Components**    |                                                                                                             |                               | $489.37
 
-| **Monitoring Status**                           | **Delta Price (Model1-Model3)**         | **Delta Price (Model2-Model2)**
+| **Monitoring Status**        | **Delta Price (Model1-Model3)**         | **Delta Price (Model2-Model2)**
 
-| ------------------------                         | ---------------------------------        | --------------------------------
+| ------------------       | ---------------------------------        | --------------------------------
 
 | **Without Monitoring**                          | $89.57                                  | $9.82
 | **With Monitoring**                             | $89.57                                  | $9.82
@@ -502,6 +502,7 @@ To access resources in your subscription, you must assign the application to a r
 | **B2c Client Id**         | Enter B2C Client id (Application id) that you got after creating the B2C application in 5.1 section at 21st point.                     |                           |
 | **B2c Client Id Dr**      |
 | **B2c SignUp SignIn policy Id**               | Enter Sign Up Sign In Policy name which you created 5.1 section at 9th point.                                      |                           | 
+| **B2c Native Redirect URL**                   | 
  
 
 ## 7 Getting Started
