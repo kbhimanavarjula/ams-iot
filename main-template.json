@@ -875,7 +875,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeA3EZ1tvHx25D0vd51JHdeKXjqazks5bBusYwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeGcg7wsD7PvxRsZdMAMMuGsS6aKBks5bB3gRwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -932,7 +932,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeIyHlwoKFql6pK88cArAqZR44qebks5bBusWwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeH4BQf-ptO18HlgeAHQ7F3_WNGm4ks5bB3gPwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1050,7 +1050,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeIyHlwoKFql6pK88cArAqZR44qebks5bBusWwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeH4BQf-ptO18HlgeAHQ7F3_WNGm4ks5bB3gPwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1111,7 +1111,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1.json','?token=AYpAeIyHlwoKFql6pK88cArAqZR44qebks5bBusWwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1.json','?token=AYpAeEf-qSGR91vxJ7VLWlQUDircaG_tks5bB3fVwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1167,7 +1167,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1monitor.json','?token=AYpAeNV7Io6XLBhbaUF6eB6otKNd9c5qks5bBuuGwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-planf1monitor.json','?token=AYpAeAus2wMb2-6uG7GGLJwA1_zQDzgUks5bB3fbwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
