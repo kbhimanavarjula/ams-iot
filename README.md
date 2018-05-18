@@ -113,8 +113,8 @@ Region-US West
 |**Event Hub**                                    | Basic, throughput units 20,1MB/sec ingress events, 2MB/sec egress events.                                   | PAYG                          | $0.75
 |**Cosmos DB**                                    | Standard, throuput 2500 RU/s (Request Units per second) 25 x100 Rus(Throughput)- $146 1 GB storage – $0.25  |  PAYG                         |$146.25
 |**Stream Analytics**                             | Standard Streaming Unit, 3 unit(s) 3 * $80.30 Region: East US                                               | PAYG                          |$240.9
-|**Total Cost**                                                                                                                                                                                 |$395.2
-|**Total COst Including Optional Components**                                                                                                                                                     |$399.8
+|**Total Cost**                                   |                                                                                                             |                               |$395.2
+|**Total COst Including Optional Components**     |                                                                                                             |                               |$399.8
 
 ## 5 Prerequisites for Deploying ARM Template
 
