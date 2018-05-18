@@ -1228,7 +1228,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeA0FgugeVJOiRwBjBrbk-GEQqAtGks5bBm39wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeMexAdm2pHzZ_-frGeFmEqAp9eRGks5bB3IawA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1285,7 +1285,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeFrnu4cq5p6MKV7Ri8EdICrCQ1xpks5bBoiGwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeORwY1Zvy5SuLmqk97JHqBqxhksRks5bB3IcwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1346,7 +1346,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeJHYvrrY5ddoyyAvmboX-GXje4YRks5bBoSJwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeCVdVuTOmnj3vRNB2hJGsBmg3wRDks5bB3IewA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1403,7 +1403,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeOkS0SVPJeaqs1UeIMUtQRZFzCyGks5bBokewA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeLkLMNvDJWEvIwMh-4teEy4LEM8uks5bB3IhwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
