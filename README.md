@@ -217,6 +217,7 @@ Below table describes the deployment costs per month for the solution.
 | **With Monitoring**             | $197.16                             | $117.41                             | $107.59
 
 
+
 ## 5 Prerequisites for Deploying ARM Template
 
   1. The Azure AD B2C Tenant should be created and register your web application. 
@@ -277,27 +278,33 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/13.png)
 
-14. Click on the Applications tab and click Add to create a new application.
+-If you want to **Deployment Cost Type 1 or 2 or 3**, follow the section 5.1.1. to create the Web Application. 
+
+-If you want to **deploy Deployment Cost Type 4**, follow section 5.1.2. to create the Web Application.
+
+###5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3 
+
+1. Click on the Applications tab and click Add to create a new application.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36.png)
 
-15. Provide a name for the application.
+2. Provide a name for the application.
 
-16.	Under the Web APP/Web API tab, click Yes to provide the following two redirect URLs for your application. Add an entry in the Redirect URLs section of the B2C application in the following format.
+    1. Under the Web APP/Web API tab, click Yes to provide the following two redirect URLs for your application. Add an entry in the Redirect URLs section of the B2C application in the following format.
 
-• https://<**Website Name**>.azurewebsites.net/redirect.html
+    • https://<**Website Name**>.azurewebsites.net/redirect.html
 
-Note: **Website Name** should be different from **application name.**
+    Note: **Website Name** should be different from **application name.**
 
-• http://localhost:65159/redirect.html
+    • http://localhost:65159/redirect.html
 
-17.	During the web app registration with PowerBI, you will use this reply URL.
+   2. During the web app registration with PowerBI, you will use this reply URL.
 
-**Example: https://webappiot.azurewebsites.net/redirect.html**
+   **Example: https://webappiot.azurewebsites.net/redirect.html**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36-1.png)
 
-18. Click Yes under the Native client to include the native client url as shown below.
+3. Click Yes under the Native client to include the native client url as shown below.
 
 Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
@@ -305,21 +312,22 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36-2.png)
 
-19.	Before clicking on create, note down the application name, Reply URL’s and Custom Redirect URI.
+4. Before clicking on create, note down the application name, Reply URL’s and Custom Redirect URI.
 
-20. After that, click on Create. This web app is used for authenticating the Asset management user login/ registration.
+5. After that, click on Create. This web app is used for authenticating the Asset management user login/ registration.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/37.png)
 
-
-21. Select the application you created and note down the Application ID.
+6. Select the application you created and note down the Application ID.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/38.png)
+
+###5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
 
 
 ### 5.2 Power BI Configuration
 
-Go to https://dev.powerbi.com/apps and register the web app.
+1. Go to https://dev.powerbi.com/apps and register the web app.
 
 a. Login to your Power BI account with the Azure Login credentials that have Global admin permissions.
 
@@ -355,17 +363,19 @@ g. The Client id and secret key will be generated. Note down these keys locally,
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/42.png)
 
-2. Go to Azure Active Directory from Your Azure Account and click on the App registrations tab. Select the app you just created in PowerBI.
+2. Go back to azure portal and navigate to your Azure account from Azure B2C tenant as shown below. 
+
+3. Go to Azure Active Directory from Your Azure Account and click on the App registrations tab. Select the app you just created in PowerBI.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/43.png)
 
 **NOTE:** To grant permissions to the app you must be a **Global Administrator** in the Tenant.
 
-3. Click on the app, navigate to all settings, and give the Required permissions.
+4. Click on the app, navigate to all settings, and give the Required permissions.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/44.png)
 
-4. Enable the following access under delegated permissions in Windows Azure Active Directory.
+5. Enable the following access under delegated permissions in Windows Azure Active Directory.
 
 * Access the directory as the signed in users
 
@@ -381,7 +391,7 @@ After that click on **Save**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/45.png)
 
-5. Enable the following access under delegated permissions in Power BI access.
+6. Enable the following access under delegated permissions in Power BI access.
 
 * View all datasets
 
@@ -401,11 +411,11 @@ After that click on **Save**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/46.png)
 
-6. The user can see the number of permissions which have been added.
+7. The user can see the number of permissions which have been added.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/47.png)
 
-7. Click on **Grant Permissions**, then click **Yes**.
+8. Click on **Grant Permissions**, then click **Yes**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/48.png)
 
@@ -443,7 +453,7 @@ o Client Secret
 
 6. You have created your application.
 
-**Get application ID and authentication key**
+**5.3.1 Get application ID and authentication key**
 
 When programmatically logging in, you need the ID for your application and an authentication key. To get those values, use the following steps:
 
@@ -465,7 +475,7 @@ When programmatically logging in, you need the ID for your application and an au
 
 5. After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the    key value with the application ID to log in as the application. Store the key value where your application can retrieve it.
 
-**Get tenant ID**
+**5.3.2 Get tenant ID**
 
 When programmatically logging in, you need to pass the tenant ID with your authentication request.
 
@@ -477,7 +487,7 @@ When programmatically logging in, you need to pass the tenant ID with your authe
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/58.png)
 
-**Assign application to role**
+**5.3.3 Assign application to role**
 
 To access resources in your subscription, you must assign the application to a role. Make sure that it has the contributor role in your Azure subscription, which allows you to create and delete resources.
 
@@ -548,66 +558,33 @@ To access resources in your subscription, you must assign the application to a r
 
 **https://github.com/sysgain/ams-iot.git**
 
-2. Take the main-template.json raw file from testing1 branch. 
+2.Select main-template from core_components branch. 
 
-3. Go to Azure portal.
+3. Select Raw from the top right corner.
 
-4. Navigate to **Create a resource (+)**, search for Template deployment.
+4. Copy the raw template and paste in your azure portal for template deployment. 
 
-5. Click on **create** and click on **Build your own Template**.
+To deploy a template for Azure Resource Manager, follow the below steps. 
+
+1. Go to Azure portal.
+
+2. Navigate to **Create a resource (+)**, search for Template deployment.
+
+3. Click on **create** and click on **Build your own Template**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/63.png)
 
-6. Replace the template and click on Save
+4. The Edit template page is displayed as shown in the following figure.  
+
+5. Replace/paste the template and click on Save
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/64.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/65.png)
 
-7. Deploy the template by providing the following parameters in custom deployment settings.
+6. The Custom deployment page is displayed as shown in the following figure. 
 
-•	Location 				          - Select location from the drop down.
-
-•	IoT Hub Name			        - Give user defined name.
-
-•	SKU Name 			            - Select SKU type from the drop down.
-
-•	 Capacity Units 			    – Enter Capacity units of IoT Hub.
-
-•	Web job storage type		  – Select storage account type from the drop down.
-
-•	SQL Administrator Login	  – Enter username for SQL server.
-
-•	SQL Administrator Login Password - Enter Password for SQL server.
-
-•	SQL Database Name		      – Enter database name for SQL server.
-
-•	Web SKU Name 			        – Select SKU type from the drop down.
-
-•	SKU Capacity			        – Enter the SKU capacity.
-
-•	Webapp Name 			        – Enter Website name which you entered in 2.1 section at 16th point (Eg: https://<**Website Name**>.azurewebsites.net/redirect.html)
-
-•	Node Server 			        - Give user defined name.
-
-•	Api Server 			          - Give user defined name.
-
-•	B2C Tenant 			          – Name of the B2C Tenant which you created in 2.1 section at 3rd point. (Eg: amsiot1.onmicrosoft.com)
-
-•	B2C Client id 			      – Enter B2C Client id (Application id) that you got after creating the B2C application in 2.1 section at 21st point.
-
-•	B2C Sign Up Sign In Policy Id 	– Enter Sign Up Sign In Policy name which you created 2.1 section at 8th point.
-
-•	B2C native Redirect URL 	      -  Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 2.1 section at 18th point.
-
-•	Ad Subscription Id 		    – Enter your Azure account subscription Id.
-
-•	Ad Tenant Id 			        – Enter your Azure account tenant Id.
-
-•	Ad Client Id 			        – Enter the Client Id that you got from the Azure Active Directory Application in 2.3 section at 2nd point(Get application ID and authentication key).
-
-•	Ad Secret key 			      - Enter the Secret key that you got from the Azure Active Directory Application in 2.3 section at 4th point(Get application ID and authentication key).
-
+7. Deploy the template by providing the parameters in custom deployment settings as shown in the following figure. 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/66.png)
 
@@ -617,7 +594,23 @@ To access resources in your subscription, you must assign the application to a r
 
 8. Once all the parameters are entered, click the terms and conditions check box and click Purchase.
 
-9. Once the deployment is completed, you can start the workflow
+9. After the successful deployment of the ARM template, the following resources are created in a Resource Group.
+
+	* 2 App Service plan 
+	* 6 App Services 
+	* Storage account 
+	* IoT HUB 
+	* IoT Device provisioning service 
+	* 2 SQL server 
+	* 2 SQL database 
+	* 2 Cosmos DB 
+	* Event Hub 
+	* Stream Analytics 
+	* Application Insights 
+	* OMS Workspace 
+	* Traffic Manager 
+	
+10. Once the solution is deployed successfully navigate to the resource group, select the created resource group to view the list of resources that are created in the Resource Group as shown in the following figure. 
 
 ## 8 Prerequisites for Gateway-Middleware
 
@@ -627,21 +620,21 @@ To access resources in your subscription, you must assign the application to a r
 
 https://git-scm.com/download/win
 
-4. Install **BLE scanner** app in your mobile to view the sensor ID.
+3. Install **BLE scanner** app in your mobile to view the sensor ID.
 
-5. Install **ASTRA** app in your mobile.
+4. Install **ASTRA** app in your mobile.
 
  https://projectiot.blob.core.windows.net/ams-iot/AndroidMobileApplication/astra.apk
 
-6. Install CSR 4.0 setup file from the below link to enable **BLE** dongle so that your system will act as a Gate way. 
+5. Install CSR 4.0 setup file from the below link to enable **BLE** dongle so that your system will act as a Gate way. 
 
 https://projectiot.blob.core.windows.net/ams-iot/CSR_4.0_Bluetooth_exe/CSR 4.0 setup.zip
 
-7. Download Zadig file from the below link.
+6. Download Zadig file from the below link.
 
 https://zadig.akeo.ie/
 
-8. Install PowerBI for Desktop  from the below link.
+7. Install PowerBI for Desktop  from the below link.
 
 https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
 
