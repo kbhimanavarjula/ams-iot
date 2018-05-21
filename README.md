@@ -323,9 +323,13 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 ### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
 
-1. Go to your newly created B2C Tenant
+1. Go to your newly created B2C Tenant.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c1.png)
 
 2. Click **Applications** and click **Add** on the left side to create a new application for traffic manager.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c2.png)
 
 3. Provide a name for the **application**. 
 
@@ -341,19 +345,29 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 **Example: https://webappiot.trafficmanager.net/redirect.html** 
 
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c3.png)
+
 6. Click **Yes** under the **Native client** to include the native client URL as shown below.
 
 Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path 
 	
    com.onmicrosoft.**amsiot1. trafficmanagerapp:**//redirect/path
    
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c4.png)
+   
 7. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c5.png)
 
 8. After that, click **Create**.
 
 9. Select the application you created and note down the **Application ID**.
 
-10. Again, click the **Applications** tab and click **Add** to create another application for web application. 
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c6.png)
+
+10. Again, click the **Applications** tab and click **Add** to create another application for web application.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c7.png)
 
 11. Provide a name for the **application**.
 
@@ -365,17 +379,25 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
 **Example**: https://webapplication.trafficmanager.net/redirect.html 
 
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c8.png)
+
 15. Click **Yes** under the **Native client** to include the native client URL as shown below.
 
 Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path  
 	
    com.onmicrosoft.**amsiot1.webapplication**://redirect/path 
    
-16. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**. 
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c9.png)
+   
+16. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c10.png)
 
 17. After that, click **Create**. This web app is used for authenticating the Asset management user login/ registration.
 
-18. Select the application you created and note down the **Application ID**. 
+18. Select the application you created and note down the **Application ID**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c11.png)
 
 ### 5.2 Power BI Configuration
 
