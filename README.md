@@ -55,8 +55,8 @@
     - [17.2 Application Insights](#172-application-insights)
 - [18 Hardening Components](#18-hardening-components)
     - [18.1 Geo Replication](#181-geo-replication)
-              - [18.1.1 Setting up Geo Replication for Cosmos DB](#1811-setting-up-geo-replication-for-cosmos-db)
-              - [18.1.2 Setting up Geo Replication for SQL DB](#1812-setting-up-geo-replication-for-sql-db)
+           - [18.1.1 Setting up Geo Replication for Cosmos DB](#1811-setting-up-geo-replication-for-cosmos-db)
+           - [18.1.2 Setting up Geo Replication for SQL DB](#1812-setting-up-geo-replication-for-sql-db)
 	
 
 ## 1 About Asset Monitoring Solution
