@@ -59,13 +59,13 @@ Asset Monitoring and Tracking Solution is a complete smart inventory management 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/1.jpg)
 
-**With Hardening Architecture Diagram**
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/AMS%20hardening%20architecture%20diagram.jpg)
-
 **With Monitoring Architecture Diagram**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/AMS%20monitoring185.jpg)
+
+**With Hardening Architecture Diagram**
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/AMS%20hardening%20architecture%20diagram.jpg)
 
 ## 2.1 Data Flow Architecture Diagram
 
