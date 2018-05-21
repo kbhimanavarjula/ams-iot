@@ -587,23 +587,23 @@ To deploy a template for Azure Resource Manager, follow the below steps.
 
 5. Replace/paste the template and click on Save
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t6.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t6.png)
 
 6. The Custom deployment page is displayed as shown in the following figure.
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t7.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t7.png)
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t8.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t8.png)
 
 7. Deploy the template by providing the parameters in custom deployment settings as shown in the following figure. 
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t9.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t9.png)
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t10.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t10.png)
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t11.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t11.png)
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t12.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t12.png)
 
 8. Once all the parameters are entered, click the terms and conditions check box and click Purchase.
 
@@ -625,7 +625,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/images/t12.png
 	
 10. Once the solution is deployed successfully navigate to the resource group, select the created resource group to view the list of resources that are created in the Resource Group as shown in the following figure. 
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t13.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t13.png)
 
 ## 8 Prerequisites for Gateway-Middleware
 
