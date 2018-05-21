@@ -59,13 +59,13 @@ Asset Monitoring and Tracking Solution is a complete smart inventory management 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/1.jpg)
 
-**With Monitoring Architecture Diagram**
-
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/AMS%20monitoring185.jpg)
-
 **With Hardening Architecture Diagram**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/AMS%20hardening%20architecture%20diagram.jpg)
+
+**With Monitoring Architecture Diagram**
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/AMS%20monitoring185.jpg)
 
 ## 2.1 Data Flow Architecture Diagram
 
@@ -162,12 +162,10 @@ Below table describes the deployment costs per month for the solution.
 
 
 
-| **Monitoring Status**                                                                                         | **Delta Price (Model1-Model2)**
-
-| ----------------------------                                                                                  | -------------------------------
-                                                                             
-| **Without Monitoring**                                                                                        |          $80.75                                                                                         
-| **With Monitoring**                                                                                           |          $79.75                                                                                         
+| **Monitoring Status**              | **Delta Price (Model1-Model2)**   |
+| ----------------------------       | -------------------------------   |                                                                     
+| **Without Monitoring**             |          $80.75                   |                                                                       
+| **With Monitoring**                |          $79.75                   |                                                                      
 
 
 **Deployment Costs for Type3**
