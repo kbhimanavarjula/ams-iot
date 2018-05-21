@@ -374,6 +374,7 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c6.png)
 
+
 10. Again, click the **Applications** tab and click **Add** to create another application for web application.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/c7.png)
@@ -414,15 +415,17 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
 a. Login to your Power BI account with the Azure Login credentials that have Global admin permissions.
 
-b. Provide a name for your web app (This is different from what we created before).
+b. Provide a **name** for your web app (This is different from what we created before).
 
-c. Select App type “server-side Web App”.
+c. Select App type “**server-side Web App**”.
 
-d. Enter the Redirected URL and Home URL, same as you gave in Azure AD B2C tenant URL without “/redirect.html” for Home URL.
+d. Enter the Redirected URL and Home URL, same as you gave in Azure AD B2C tenant **Reply URL** without “/**redirect.html**” for Home URL. 
+
+e. If you want to deploy Deployment Cost Type 4, give **traffic manager Reply URL** without “**/redirect.html**” for Home URL. 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/40.png)
 
-e. Select check boxes for required API’s (select all check boxes for best practice).
+f. Select check boxes for required API’s (select all check boxes for best practice).
 
 * Read all datasets
 
@@ -438,23 +441,23 @@ e. Select check boxes for required API’s (select all check boxes for best prac
 
 * Create content
 
-f. Click on Register App.
+g. Click on **Register App**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/41.png)
 
-g. The Client id and secret key will be generated. Note down these keys locally, as you will use these later in the configuration.
+h. The **Client id and secret key** will be generated. Note down these keys locally, as you will use these later in the configuration.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/42.png)
 
-2. Go back to azure portal and navigate to your Azure account from Azure B2C tenant as shown below. 
+2. Go back to azure portal and navigate to **your Azure account** from **Azure B2C tenant** as shown below. 
 
-3. Go to Azure Active Directory from Your Azure Account and click on the App registrations tab. Select the app you just created in PowerBI.
+3. Go to **Azure Active Directory** from Your Azure Account and click on the **App registrations** tab. Select the app you just created in **PowerBI**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/43.png)
 
 **NOTE:** To grant permissions to the app you must be a **Global Administrator** in the Tenant.
 
-4. Click on the app, navigate to all settings, and give the Required permissions.
+4. Click on the app, navigate to all settings, and give the **Required permissions**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/44.png)
 
@@ -516,7 +519,7 @@ o Client ID
 
 o Client Secret 
 
-1. Go to Azure portal..
+1. Go to **Azure portal**.
 
 2. Select **Azure Active Directory**.
 
@@ -540,19 +543,19 @@ o Client Secret
 
 When programmatically logging in, you need the ID for your application and an authentication key. To get those values, use the following steps:
 
-1. From App registrations in Azure Active Directory, select your application
+1. From **App registrations** in Azure Active Directory, select your **application**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/53.png)
 
-2. Copy the Application ID and store it in a secure place. This application ID also refers as the client id.
+2. Copy the **Application ID** and store it in a secure place. This **application ID** also refers as the **client id**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/54.png)
 
-3. To generate an authentication key, goto settings select Keys.
+3. To generate an authentication key, goto **settings** select Keys.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/55.png)
 
-4. Provide a description of the key, and a duration for the key. When done, select Save.
+4. Provide a description of the key, and a duration for the key. When done, select **Save**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/56.png)
 
@@ -562,11 +565,11 @@ When programmatically logging in, you need the ID for your application and an au
 
 When programmatically logging in, you need to pass the tenant ID with your authentication request.
 
-1. To get the tenant ID, select Properties for your Azure AD tenant.
+1. To get the **tenant ID**, select **Properties** for your Azure AD tenant.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/57.png)
 
-2. Copy the Directory ID. This value is your tenant ID.
+2. Copy the **Directory ID**. This value is your **tenant ID**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/58.png)
 
@@ -582,13 +585,13 @@ To access resources in your subscription, you must assign the application to a r
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/60.png)
 
-3. Select Access Control (IAM).
+3. Select **Access Control (IAM)**.
 
-4. Select Add.
+4. Select **Add**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/61.png)
 
-5. Select Contributor role to assign to the application.
+5. Select **Contributor** role to assign to the application.
 
 6. Search for your application, and select it.
 
