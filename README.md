@@ -774,9 +774,9 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ## 11 Step 3: Configuring WEBAPP
 
-1. To start the work flow of AMS take the web app URL through portal.azure.com from the deployed resource group.
+1. To start the work flow of AMS take the **web app** or **Traffic manger URL** through portal.azure.com from the deployed resource group. 
 
-2. Go to Resource groupàsearch for your resource group name àthen click on it.
+2. Go to **Resource group** [Symbol]search for your **resource group name** [Symbol]then click on it. 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/79.png)
 
@@ -786,19 +786,19 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/80.png)
 
-5. Now click on the name of the web app that you entered while deploying the template so that you can find the web app URL and copy that URL.
+5. Now click on the name of the **web app** that you entered while deploying the template so that you can find the web app URL and **copy** that URL.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/81.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/82.png)
 
-6. Now paste the copied URL in a browser to open the web application of the AMS.
+6. Now **paste** the copied URL in a browser to open the web application of the AMS.
 
-7. Click Sign In.
+7. Click **Sign In**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/83.png)
 
-8. If you are new, use sign-up to login into the web app.(or)if your account is already existed then provide the credentials to login.
+8. If you are new, use **sign-up** to login into the web app.(or)if your account is already existed then provide the credentials to **login**.
 
 9. The web page will take few minutes to open(refresh the page).
 
@@ -806,17 +806,17 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ## 12 Step 4: Adding the pre-requisites in the web app.
 
-1. Go to inventory option in web app.
+1. Go to **inventory** option in web app.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/85.png)
 
-2. The page shows the number of gateways and sensors. Here it shows total gateway and sensor counts.
+2. The page shows the number of **gateways** and **sensors**. Here it shows total gateway and sensor counts.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/86.png)
 
 ### 12.1 Adding Gateway
 
-3. Now click on +Add New to add a new gateway.
+3. Now click on **+Add New** to add a new gateway.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/87.png)
 
@@ -824,23 +824,23 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/88.png)
 
-5. Click on update so that we can able to add the new gateway.
+5. Click on **update** so that we can able to add the new gateway.
 
-6. Once we click on update we can able to see the pop up as unit configured successfully and open the Add gateway page.
+6. Once we click on update we can able to see the pop up as unit configured successfully and open the **Add gateway page**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/89.png)
 
-7. Enter the gateway Name, Serial No (gateway key ID), Description and then click on submit.
+7. Enter the **gateway Name, Serial No (gateway key ID), Description** and then click on **submit**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/90.png)
 
-8. You can able to see the pop up of gateway added and the total gateway count.
+8. You can able to see the pop up of **gateway added** and the total gateway count.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/91.png)
 
 ### 12.2 Adding Sensor
 
-9. Click +Add New to add a new sensor.
+9. Click **+Add New** to add a new sensor.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/92.png)
 
@@ -850,9 +850,9 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 11. You need to enter the fields as follows and click on **submit.**
 
-12. Open **BLE Scanner** in your mobile and turn on the bluetooth.
+12. Open **BLE Scanner** in your mobile and **turn on** the **bluetooth**.
 
-13. Power on your **Sensor** and start searching for **CC2650 SensorTag** in BLE scanner by refreshing it.
+13. **Power on** your **Sensor** and start searching for **CC2650 SensorTag** in BLE scanner by refreshing it.
 
 14. Click **Connect** then it will get connected.
 
@@ -862,7 +862,7 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/94.png)
 
-17. Choose your Sensor tag as the Sensor type as shown below.
+17. Choose your **Sensor tag** as the **Sensor type** as shown below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/95.png)
 
@@ -872,23 +872,23 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 1. Open the mobile app named as **ASTRA** and enter the **rest server URL**.
 
-2. You can find the rest server URL from the azure portal as follows.
+2. You can find the **rest server URL** from the azure portal as follows.
 
-3. Go to deployment àfind the resource group name, there you can find the apiserveràclick on the api server and note the url of the rest server.
+3. Go to **deployment** [Symbol] find the **resource group name**, there you can find the **apiserver** [Symbol]click on the **api server** and note the URL of the **rest server**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/97.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/98.png)
 
-4. Note the rest server URL and paste it in the mobile application and click submit
+4. Note the **rest server URL** and paste it in the mobile application and click **submit**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/99.png)
 
-5. Now the mobile app page redirected to microsoft login page.
+5. Now the mobile app page redirected to **microsoft login page**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/100.png)
 
-6. Enter the credentials to login into application.
+6. Enter the credentials to **login** into application.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/101.png)
 
@@ -896,17 +896,17 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/102.png)
 
-8. Click on Dispatch option to add an asset to the web portal.
+8. Click on **Dispatch** option to add an asset to the web portal.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/103.png)
 
-9. Before adding asset to the webportal generate **qrcode** for your sensor and barcode for asset by using the following url’s.
+9. Before adding asset to the webportal **generate qrcode** for your **sensor** and **barcode** for asset by using the following url’s.
 
     **Qrcode** -> https://www.barcodesinc.com/generator/qr 
 
-	  **Barcode** -> https://www.barcodesinc.com/generator/index.php
+    **Barcode** -> https://www.barcodesinc.com/generator/index.php
 
-10. you need to add the sensor by using the **qrcode**. While generating the Qrcode, you need to enter your **Sensor ID** in text box and click **Create QR code**.
+10. you need to add the **sensor** by using the **qrcode**. While generating the **Qrcode**, you need to enter your **Sensor ID** in text box and click **Create QR code**.
 
 11. Then Scan the **QR code** in **ASTRA** app in your mobile.
 
@@ -924,9 +924,9 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/107.png)
 
-15. Click next.
+15. Click **next**.
 
-16. Now you need to link the asset with the sensor so that asset can be added to the web portal.
+16. Now you need to **link** the asset with the sensor so that asset can be added to the web portal.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/108.png)
 
@@ -938,26 +938,25 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ### 12.4 Adding Assets to a Group
 
-18. Now we need to add the asset to a group. For that you need to check the asset so that Add Group option will be enable.
+18. Now we need to **add** the asset to a **group**. For that you need to check the asset so that **Add Group** option will be enable.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/111.png)
 
-19. Click on Add group to add asset to a group.
+19. Click on **Add group** to add asset to a group.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/112.png)
 
-20. Enter name and description of the group and click submit.
+20. Enter **name** and **description** of the group and click **submit**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/113.png)
 
-21. You can able to see the group in the inventory option as follows
+21. You can able to see the **group** in the inventory option as follows
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/114.png)
 
 ### 12.5 Cofiguring the PoweBi Desktop App and Publishing
 
-
-22. Go to Configurations and add the following information.
+22. Go to **Configurations** and add the following information.
 
 23. First, we need to enable the firewall of the sqlserver as follows.
 
@@ -965,13 +964,13 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/115.png)
 
-25. Add client IP to enable the firewall.
+25. Add **client IP** to enable the firewall.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/116.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/117.png)
 
-26. click save option to save the firewall values.
+26. click **save** option to save the firewall values.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/118.png)
 
@@ -979,13 +978,13 @@ https://github.com/sysgain/ams-iot/raw/core_components/documents/Configuring%20t
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/119.png)
 
-28. To configure the powerbi urls and credentials first we need to configure the powerbi desktop as follows.
+28. To configure the **powerbi urls** and **credentials** first we need to configure the powerbi desktop as follows.
 
-29. Download the PowerBI template from the below link.
+29. **Download the PowerBI template** from the below link.
 
 https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport .pbit
 
-30. Run the downloaded powerbi template and enter all the input parameters.
+30. **Run** the downloaded powerbi template and enter all the **input parameters**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/120.png)
 
@@ -1005,19 +1004,19 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 33. Go to azure portal and choose your deployment, there you can find all the resources.
 
-34. Now click on sqldb, so that you can find the sql server name and sql db name as follows.
+34. Now click on **sqldb**, so that you can find the **sql server name** and **sql db*** name as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/121.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/122.png)
 
-35. Note down the above two values.
+35. **Note** down the above two values.
 
-36. Go to document db and note down the values of Collection name and data base name.
+36. Go to **document db** and **note** down the values of **Collection name** and **data base name**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/123.png)
 
-37. Go to keys field in the settings option of document and note down the Document DB url and primary key values.
+37. Go to **keys** field in the settings option of document and note down the **Document DB url** and **primary key values**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/124.png)
 
@@ -1025,21 +1024,21 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/125.png)
 
-39. Click on load.
+39. Click on **load**.
 
 40. After loading it will ask for some additional information like cosmos DB account key there you can enter the primary key value of document DB.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/126.png)
 
-41. Click on connect. A Pop-up occurs for sql authentication as follows. Here you need to choose the authentication type as database.
+41. Click on **connect**. A Pop-up occurs for sql authentication as follows. Here you need to choose the authentication type as **database**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/127.png)
 
-42. Enter the sql user name and password and click connect.
+42. Enter the **sql user name** and **password** and click **connect**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/128.png)
 
-43. Click on run to load the db tables into the powerbi.
+43. Click on **run** to load the db tables into the powerbi.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/129.png)
 
@@ -1049,7 +1048,7 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 45. Once entire data has been fetched the page can be appeared as follows.
 
-46. Here you can click on publish button to publish the powerbi desktop url. Click **publish.**
+46. Here you can click on **publish** button to publish the powerbi desktop url. Click **publish.**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/131.png)
 
@@ -1061,15 +1060,15 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/133.png)
 
-49. After saving the content it will ask for the destination.Here, the default is workspace and click select.
+49. After saving the content it will ask for the **destination**.Here, the default is workspace and click select.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/134.png)
 
-50. Then the following url will be appeared.click on the **url** ,there you can find the report id of the powerbi.
+50. Then the following **url** will be appeared.click on the **url** ,there you can find the report id of the powerbi.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/135.png)
 
-51. The page can be appeared as follows and here we need to note down the id in between reports and report section
+51. The page can be appeared as follows and here we need to note down the id in between **reports** and **report section**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/136.png)
 
@@ -1097,80 +1096,79 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ## 13 Step 5: Running the gateway middleware
 
-1. Go to portal àclick on apiserverà copy the apiserver URL.
+1. Go to **portal** [Symbol]click on **apiserver** [Symbol] copy the **apiserver URL**. 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/140.png)
 
-2. Paste it in the gateway window(Asset Monitoring Configuration page) and add / at the end as shown below.
+2. Paste it in the Gateway window (Asset Monitoring Configuration page) and add “/” at the end as shown below. 
 
 3. Click submit.
 
-**Note:** If the gateway window(Asset Monitoring Configuration) page is closed, run electron . command in gitbash then you will get the gateway window(Asset Monitoring Configuration page).
+**Note:** If the Gateway window (Asset Monitoring Configuration page) is closed, run electron . command in gitbash then you will get the Gateway window (Asset Monitoring Configuration page). 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/141.png)
 
-4. The page will be redirect to Microsoft login page.
+4. The page will be redirect to **Microsoft login page**.
 
-5. Ignore the message by click on ok
+5. Ignore the message by click on **ok**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/142.png)
 
-
-6. Enter the credentials to login. Use the login credentials what we are using to sign up for web app.
+6. Enter the **credentials** to login. Use the login credentials what we are using to sign up for web app.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/143.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/145.png)
 
-7. Now close the gateway window and run the electron . in gitbash, so that it will automatically direct to the gateway page with all authentications.
+7. Now close the gateway window and **run** the **electron .** in **gitbash**, so that it will automatically direct to the gateway page with all authentications.
 
-**Note:** the sensor should be in on.
+**Note:** the **sensor** should be in **on**.
 
-8. Here you can see the data coming from the gateway to iot hub via sensor.
+8. Here you can see the data coming from the gateway to **iot hub** via sensor.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/147.png)
 
 ### 13.1 Validating data in iot hub and Node server
 
-9. Go to Azure Portal and click IoT Hub as follows.
+9. Go to Azure Portal and click **IoT Hub** as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/147-1.png)
 
-10. The data in iot can be appeared as follows.
+10. The data in **iot** can be appeared as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/148.png)
 
-11. You can also see the live data in node server.
+11. You can also see the **live data** in node server.
 
-12.	Go to your Resource Group and click nodeserver as shown below.
+12.	Go to your **Resource Group** and click **nodeserver** as shown below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/148-1.png)
 
-13. To view you need to enable the diagnostic log settings as follows in node server.
+13. To view you need to enable the **diagnostic log** settings as follows in **node server**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/149.png)
 
-14. Go to log stream and see the data as follows.
+14. Go to **log stream** and see the **data** as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/150.png)
 
 ## 14 Step 6: validating the data in web app
 
-1. To see the live data in web app go to reports -> select group followed by sensor value.
+1. To see the live data in web app go to **reports** -> select group followed by sensor value.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/151.png)
 
-2. Choose group name.
+2. Choose **group name**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/152.png)
 
-3. Choose sensor name.
+3. Choose **sensor name**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/153.png)
 
-4. Here you can find the data coming from iot hub to web application via node server.
+4. Here you can find the data coming from **iot hub** to **web application** via node server.
 
-5. All the capabilities of sensor data can be viewd as follows.
+5. All the **capabilities** of sensor data can be viewd as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/154.png)
 
@@ -1190,33 +1188,37 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ## 15 Step 7: Creating and validating the rule in Web app
 
-1. After viewing the reports create a rule based on some threshold conditions.
+1. After viewing the reports create a **rule** based on some threshold conditions.
 
-2. For that go to rules click +Add New.
+2. For that go to rules click **+Add New**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/162.png)
 
-3. Select the group value of assets.
+3. Select the **group value** of assets.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/163.png)
 
-4. You can set the values to some threshold level.
+4. You can set the values to some **threshold level**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/164.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/165.png)
 
-5. Click done.
+5. While creating the rule, if you select **Vibration** or **Invert** then it will create **Stream analytics Job** for each. 
 
-6. You can see the created rule as follows.
+**Note:** Each Stream Analytics Job costs $80.30 
+
+6. Click **done**.
+
+7. You can see the created **rule** as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/166.png)
 
-7. You can see the rules that we created by refreshing the webapp page and click on rules.
+8. You can see the rules that we created by refreshing the webapp page and click on **rules**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/167.png)
 
-8. Now go to reports and see the capabilities of sensor after adding the rule.
+9. Now go to **reports** and see the **capabilities** of sensor after adding the rule.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/168.png)
 
@@ -1231,70 +1233,70 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ## 16 Step 8: Configuring the Indoor map in web app
 
-1. Go to configuration,select indoor map Configuration
+1. Go to **configuration**,select **indoor map Configuration**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/176.png)
 
-2. Upload your indoor map and click **Add.**
+2. **Upload** your indoor map and click **Add.**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/177.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/178.png)
 
-3. The map can be appeared as follows. The pop up says that indoor map added.
+3. The map can be appeared as follows. The pop up says that **indoor map added**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/179.png)
 
 ### 16.1 Adding gateway rule
 
-4. Now you need to select the gateway id in the indoor map location.
+4. Now you need to select the **gateway id** in the indoor map location.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/180.png)
 
 ### 16.2 Positioning the gateway on the layout
 
-5. Now position the gateway at some location in the map and click **update.**
+5. Now **position** the gateway at some location in the map and click **update.**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/181.png)
 
-6. Here you can see the pop up as gateway mapped successfully.
+6. Here you can see the pop up as **gateway mapped successfully**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/182.png)
 
 ### 16.3 Indoor alert notification	
 
-7. Now Go to dashboard -> click on the flip icon as shown in the below screen shot.
+7. Now Go to **dashboard** -> click on the **flip icon** as shown in the below screen shot.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/183.png)
 
-8. Once you click the flip symbol, you can able to see the gateway,sensor and the range in between them.
+8. Once you click the flip symbol, you can able to see the **gateway,sensor** and the **range** in between them.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/184.png)
 
-9. Now click on the sensor colored as yellow, you can see all the capabilities of sensor.
+9. Now click on the sensor colored as **yellow**, you can see all the capabilities of sensor.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/185.png)
 
 ### 16.4 Alerts checking
 
-10. If any rule get bleached you found the alert as like above screen shot.
+10. If any rule get **bleached** you found the alert as like above screen shot.
 
-11. Go to Alerts,select the group -> Asset -> capability and click **apply**
+11. Go to **Alerts**,select the **group -> Asset -> capability** and click **apply**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/186.png)
 
 ### 16.5 Asset Status
 
-12. Finally, you can see the status of the asset by using mobile application.
+12. Finally, you can see the **status** of the asset by using **mobile application**.
 
-13. Open mobile app and click on the receive option.
+13. Open **mobile app** and click on the **receive option**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/187.png)
 
-14. Now scan the barcode of the asset as follows.
+14. Now **scan** the **barcode** of the asset as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/106.png)
 
-15. Then the status of asset can be appeared as follows.
+15. Then the **status** of asset can be appeared as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/189.png)
