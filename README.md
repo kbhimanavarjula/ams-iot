@@ -22,7 +22,8 @@
 		- [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-cpplication-in-czure-b2C-tenant-for-deployment-cost-type-4)
    - [5.2 Power BI Configuration](#52-power-bi-configuration)
    - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
-   		- [5.3.1 Get application ID and authentication key](#531-get-application-id-and-authentication-key)
+
+- [5.3.1 Get application ID and authentication key](#531-get-application-id-and-authentication-key)
 		- [5.3.2 Get tenant ID](#532-get-tenant-id)
 		- [5.3.3 Assign application to role](#533-assign-application-to-role)
 - [6 ARM Template Input Parameters](#6-arm-template-input-parameters)
@@ -59,6 +60,14 @@ Asset Monitoring and Tracking Solution is a complete smart inventory management 
 ## 2 Architecture
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/1.jpg)
+
+**With Hardening Architecture Diagram**
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/AMS%20hardening%20architecture%20diagram.jpg)
+
+**With Monitoring Architecture Diagram**
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/AMS%20monitoring185.jpg)
 
 ## 2.1 Data Flow Architecture Diagram
 
