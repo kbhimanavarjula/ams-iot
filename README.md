@@ -66,12 +66,18 @@ Asset Monitoring and Tracking Solution is a complete smart inventory management 
 
 ## 3 Azure Services
 
+The below described azure services are used for AMS core solution.
+
 ### 3.1 Azure Blob
 
 The word ‘Blob’ expands to Binary Large Object. Blobs include images, text files, videos and audios. There are three types of blobs in the service offered by Windows Azure namely block, append and page blobs. 
+
   **Block blobs** are collection of individual blocks with unique block ID. The block blobs allow the users to upload large amount of data. 
+  
   **Append blobs** are optimized blocks that helps in making the operations efficient. 
+  
   **Page blobs** are compilation of pages. They allow random read and write operations. While creating a blob, if the type is not specified they are set to block type by default. 
+  
 All the blobs must be inside a container in your storage.  
 
 ### 3.2 Azure IoT Hub
@@ -104,6 +110,7 @@ Azure Event hub
 Azure Event Hubs is a highly scalable data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. 
 
 ## 4 Deployment Costs 
+
 Below table describes the deployment costs per month for the solution.
 
 **Region-US West**
