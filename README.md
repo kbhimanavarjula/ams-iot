@@ -19,8 +19,13 @@
 - [4 Deployment Costs](#4-deployment-costs)
 - [5 Prerequisites for Deploying ARM Template](#5-prerequisites-for-deploying-arm-template)
    - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
+   	- [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2-or-3)
+	- [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-cpplication-in-czure-b2C-tenant-for-deployment-cost-type-4)
    - [5.2 Power BI Configuration](#52-power-bi-configuration)
    - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
+   	- [5.3.1 Get application ID and authentication key](#531-get-application-id-and-authentication-key)
+	- [5.3.2 Get tenant ID](#532-get-tenant-id)
+	- [5.3.3 Assign application to role](#533-assign-application-to-role)
 - [6 ARM Template Input Parameters](#6-arm-template-input-parameters)
 - [7 Getting Started](#7-getting-started)
     - [7.1 Deploying the ARM Template](#71-deploying-the-arm-template)
@@ -232,29 +237,29 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/7.png)
 
-7.	Click on sign-up or sign-in policies. Then click on Add to add policy.
+7. Click on sign-up or sign-in policies. Then click on Add to add policy.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/8.png)
 
-8.	Provide the name and enter the details as shown below.
+8. Provide the name and enter the details as shown below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/9.png)
 
-9.	Select all the Sign-up attributes as show below.
+9. Select all the Sign-up attributes as show below.
 
-10.	Note down the policy name that you are creating now, this will be used while deploying the template.
+10. Note down the policy name that you are creating now, this will be used while deploying the template.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/10.png)
 
-11.	Select all the Application claims as shown below.
+11. Select all the Application claims as shown below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/11.png)
 
-12.	After filling all the required details, click on Create.
+12. After filling all the required details, click on Create.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/12.png)
 
-13.	Once the deployment is complete, the below screen will appear with sign-up details.
+13. Once the deployment is complete, the below screen will appear with sign-up details.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/13.png)
 
@@ -262,15 +267,15 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36.png)
 
-15.	Provide a name for the application.
+15. Provide a name for the application.
 
 16.	Under the Web APP/Web API tab, click Yes to provide the following two redirect URLs for your application. Add an entry in the Redirect URLs section of the B2C application in the following format.
 
-•	https://<**Website Name**>.azurewebsites.net/redirect.html
+• https://<**Website Name**>.azurewebsites.net/redirect.html
 
 Note: **Website Name** should be different from **application name.**
 
-•	http://localhost:65159/redirect.html
+• http://localhost:65159/redirect.html
 
 17.	During the web app registration with PowerBI, you will use this reply URL.
 
