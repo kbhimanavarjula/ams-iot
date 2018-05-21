@@ -435,6 +435,8 @@ h. The **Client id and secret key** will be generated. Note down these keys loca
 
 2. Go back to azure portal and navigate to **your Azure account** from **Azure B2C tenant** as shown below. 
 
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/pb.png)
+
 3. Go to **Azure Active Directory** from Your Azure Account and click on the **App registrations** tab. Select the app you just created in **PowerBI**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/43.png)
