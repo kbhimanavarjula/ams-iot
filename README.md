@@ -1267,3 +1267,248 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 15. Then the **status** of asset can be appeared as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/189.png)
+
+## 17 OMS Log Analytics
+
+1. Click on OMS Workspace in Resource Group to view OMS Overview Section.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/190.png)
+
+2. Click on Azure Resources on left side menu to view available Azure Resources.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/191.png)
+
+3. Select your RG name from the dropdown list.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/192.png)
+
+4. Access OMS portal from OMS workspace on left side menu. Click on OMS Workspace > OMS Portal.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/193.png)
+
+5. Once you clicked on OMS Workspace, the page will be redirected to OMS Home Page.
+
+6. There you can see the Logs of Azure SQL and Azure Web apps by clicking on each tab.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/194.png)
+
+7. Click Azure SQL Analytics to view the SQL Server logs.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/195.png)
+
+8. Click sqldb on the left side page to view the detailed information.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/196.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/197.png)
+
+9. Click Home on the left side of the page for Web Apps Analytics.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/198.png)
+
+10. Click Azure Web apps Analytics tab to view each web application logs.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/199.png)
+
+11. Click nodeserver for logs.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/200.png)
+
+12. Go back and click webapplication for logs.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/201.png)
+
+13. Go back and click nodeserver for logs.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/202.png)
+
+14. Click Search tab to search the IoT hub, Event hub and Document DB logs.
+
+15. Click Show legacy language converter.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/203.png)
+
+16. Copy IoT Hub resource name, paste it in the Covert box and click RUN as shown below.
+
+17. Once you clicked on RUN, you will get the IoT Hub information below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/204.png)
+
+18. Copy Event Hub resource name, paste it in the Covert box and click RUN as shown below.
+
+19. Once you clicked on RUN, you will get the Event Hub information below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/205.png)
+
+20. Copy Cosmos DB resource name, paste it in the Covert box and click RUN as shown below.
+
+21. Once you clicked on RUN, you will get the Cosmos DB information below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/206.png)
+
+22. For Stream Analytics logs, first you need to enable the Diagnostics logs.
+
+23. Go to Azure portal, click Stream Analytics job as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/207.png)
+
+24. Click Diagnostics logs on the left pane and Turn on diagnostics as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/208.png)
+
+25. Provide the details as shown below and select your workspace.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/209.png)
+
+26. Click Save.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/210.png)
+
+27. Go to OMS Portal and Click Search tab for Stream Analytics logs.
+
+28. Copy Stream Analytics Job resource name, paste it in the Covert box and click RUN as shown below.
+
+29. Once you clicked on RUN, you will get the Stream Analytics Job information below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/211.png)
+
+## 18 Application Insights
+
+1. Go to Azure portal, select your Resource Group and select Application Insights as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/212.png)
+
+2. On Overview page, Summary details are displayed as shown in the following figure.
+
+3. Click Live Stream to view detailed information related to webapp.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/213.png)
+
+4. Here you can see the Live Requests of Web app.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/214.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/215.png)
+
+5. Go back to Application Insights Overview page and click Analytics box in Health tab as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/216.png)
+
+6. This will take you to Application Insights page and click Home Page tab.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/217.png)
+
+7. You can run the following common queries to see the specific logs of application as below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/218.png)
+
+8. For example, Run the Performance query to see the logs.
+
+9. Click RUN on Performance tab.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/219.png)
+
+10. You can see the below graph of application performance. If you modified the query please click on RUN from top left menu to see the updated graph.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/220.png)
+
+11. Similarly, you can run the other common Pre-defined queries by navigating back to the Home Page.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/221.png)
+
+12. Go back to the Application Insights overview page in Azure Portal to view metrics of the application.
+
+13. Click Metrics Explorer on the left side of the page as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/222.png)
+
+14. Click Edit as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/223.png)
+
+15. You can select any of the listed Metrics to view application logs.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/224.png)
+
+16. If you want to add new chart click on Add new chart as shown below and click on Edit to add the specific metrics.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/225.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/226.png)
+
+
+## 19 Geo Replication
+
+### 19.1 Setting up Geo-Replication for Cosmos DB
+
+Azure Cosmos DB is a globally distributed, low-latency, high throughput databases services. Azure Cosmos DB provides global distribution, which means you can scale and distribute it across different Azure regions. This enables you to have your data replicated over as many as datacenter per your need, moreover control and access your replicated data seamlessly. Setting up the Geo-Replication is very easy and can be done in a couple of clicks from the Azure Portal.
+
+Follow these steps to set up the Geo-Replication.
+
+1. From the Azure Portal, go to your Resources Group and Open the Azure Cosmos DB database resource.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/227.png)
+
+2. Select Replicate data globally under the Settings option.
+
+3. In the initial state, the Global Distribution map will highlight the Write Region, which is the origin of the Cosmos DB database.
+
+4. Now you can add additional region by simply clicking on Add New Region button which is available under the Read Regions section.
+
+5. But here already one region is added, you can do Failover for it.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/228.png)
+
+6. Click Manual Failover on the top.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/229.png)
+
+7. Here, the Write Region is West US and Read Region is South Central US.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/230.png)
+
+8. Click South Central US region to become a Write Region, Check I understand and agree to trigger a failover on my current Write Region box and click OK.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/231.png)
+
+9. The overall process will take a while and it will depend on the number of regions you selected for your data to be replicated.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/232.png)
+
+10. Once the Geo-Replication is done, you can go back and check all your regions on the Map, further you can add or remove any other regions as per your need.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/233.png)
+
+## 19.2	Setting up Geo-Replication for SQL DB
+
+Azure SQL Database auto-failover groups (in-preview) is a SQL Database feature designed to automatically manage geo-replication relationship, connectivity, and failover at scale. With it, the customers gain the ability to automatically recover multiple related databases in the secondary region after catastrophic regional failures or other unplanned events that result in full or partial loss of the SQL Database service’s availability in the primary region.
+
+To configure active geo-replication by using the Azure portal, you need the following resource:
+
+* An Azure SQL database: The primary database that you want to replicate to a different geographical region.
+
+* Active geo-replication must be between databases in the same subscription.
+
+1. Go to Azure portal, select your Resource Group and select SQL Server as shown below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/234.png)
+
+2. Select Failover Groups under the Settings section.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/235.png)
+
+3. Click SQL Server as show below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/236.png)
+
+4. Click Failover to switch Secondary database to Primary role. 
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/237.png)
+
+5. Click YES.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/238.png)
+
+6. After Successful Failover You can go back and check your SQL Servers status.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/239.png)
