@@ -1,4 +1,5 @@
- # Microsoft
+
+# Microsoft
 
 # Asset Monitoring Solution
 
@@ -49,6 +50,13 @@
     - [16.3 Indoor alert notification](#163-indoor-alert-notification)
     - [16.4 Alerts checking](#164-alerts-checking)
     - [16.5 Asset Status](#165-asset-status)
+- [17 Monitoring Componenets](#17-monitoring-components)
+    - [17.1 OMS Log Analytics](#171-oms-log-analytics)
+    - [17.2 Application Insights](#172-application-insights)
+- [18 Hardening Components](#18-hardening-components)
+    - [18.1 Geo Replication](#181-geo-replication)
+            - [18.1.1 Setting up Geo Replication for Cosmos DB](#1811-setting-up-geo-replication-for-cosmos-db)
+            - [18.1.2 Setting up Geo Replication for SQL DB](#1812-setting-up-geo-replication-for-sql-db)
 	
 
 ## 1 About Asset Monitoring Solution
@@ -257,7 +265,7 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 * If you want to **deploy Deployment Cost Type 4**, follow section **5.1.2.** to create the **Web Application**.
 
-### 5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3 
+#### 5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3 
  
 1. Click on the **Applications** tab and click **Add** to create a new application.
 
@@ -297,7 +305,7 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/38.png)
 
-### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
+#### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
 
 1. Go to your newly created B2C Tenant.
 
@@ -506,7 +514,7 @@ o Client Secret
 
 6. You have created your application.
 
-**5.3.1 Get application ID and authentication key**
+#### 5.3.1 Get application ID and authentication key
 
 When programmatically logging in, you need the ID for your application and an authentication key. To get those values, use the following steps:
 
@@ -528,7 +536,7 @@ When programmatically logging in, you need the ID for your application and an au
 
 5. After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the    key value with the application ID to log in as the application. Store the key value where your application can retrieve it.
 
-**5.3.2 Get tenant ID**
+#### 5.3.2 Get tenant ID
 
 When programmatically logging in, you need to pass the tenant ID with your authentication request.
 
@@ -540,7 +548,7 @@ When programmatically logging in, you need to pass the tenant ID with your authe
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/58.png)
 
-**5.3.3 Assign application to role**
+#### 5.3.3 Assign application to role
 
 To access resources in your subscription, you must assign the application to a role. Make sure that it has the contributor role in your Azure subscription, which allows you to create and delete resources.
 
@@ -1268,7 +1276,9 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/189.png)
 
-## 17 OMS Log Analytics
+## 17 Monitoring Components 
+
+### 17.1 OMS Log Analytics
 
 1. Click on OMS Workspace in Resource Group to view OMS Overview Section.
 
@@ -1372,7 +1382,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/211.png)
 
-## 18 Application Insights
+### 17.2 Application Insights
 
 1. Go to Azure portal, select your Resource Group and select Application Insights as shown below.
 
@@ -1437,9 +1447,11 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/226.png)
 
 
-## 19 Geo Replication
+## 18 Hardening Components
 
-### 19.1 Setting up Geo-Replication for Cosmos DB
+### 18.1 Geo Replication
+
+#### 18.1.1 Setting up Geo-Replication for Cosmos DB
 
 Azure Cosmos DB is a globally distributed, low-latency, high throughput databases services. Azure Cosmos DB provides global distribution, which means you can scale and distribute it across different Azure regions. This enables you to have your data replicated over as many as datacenter per your need, moreover control and access your replicated data seamlessly. Setting up the Geo-Replication is very easy and can be done in a couple of clicks from the Azure Portal.
 
@@ -1479,7 +1491,7 @@ Follow these steps to set up the Geo-Replication.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/233.png)
 
-## 19.2	Setting up Geo-Replication for SQL DB
+#### 18.1.2 Setting up Geo-Replication for SQL DB
 
 Azure SQL Database auto-failover groups (in-preview) is a SQL Database feature designed to automatically manage geo-replication relationship, connectivity, and failover at scale. With it, the customers gain the ability to automatically recover multiple related databases in the secondary region after catastrophic regional failures or other unplanned events that result in full or partial loss of the SQL Database service’s availability in the primary region.
 
