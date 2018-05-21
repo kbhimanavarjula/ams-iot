@@ -323,6 +323,59 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 ### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
 
+1. Go to your newly created B2C Tenant
+
+2. Click **Applications** and click **Add** on the left side to create a new application for traffic manager.
+
+3. Provide a name for the **application**. 
+
+4. Under the **Web APP/Web API** tab, click **Yes** to provide the following two redirect URLs for your application. Add an entry in the Redirect URLs section of the B2C application in the following format. 
+
+* https://<**Website Name**>.trafficmanager.net/redirect.html 
+	
+**Note: Website Name** should be different from **application name**. 
+
+* http://localhost:65159/redirect.html  
+
+5. During the web app registration with PowerBI, you will use this reply URL. 
+
+**Example: https://webappiot.trafficmanager.net/redirect.html** 
+
+6. Click **Yes** under the **Native client** to include the native client URL as shown below.
+
+Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path 
+	
+   com.onmicrosoft.**amsiot1. trafficmanagerapp:**//redirect/path
+   
+7. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**
+
+8. After that, click **Create**.
+
+9. Select the application you created and note down the **Application ID**.
+
+10. Again, click the **Applications** tab and click **Add** to create another application for web application. 
+
+11. Provide a name for the **application**.
+
+12. Under the **Web APP/Web API** tab, click **Yes** to provide the two Reply URLs for your application. 
+
+13.Enter the same **Reply URL’s** that you have entered in previous web application. **The Reply URLs should be same for both application**. 
+
+14. During the web app registration with PowerBI, you will use this reply URL. 
+
+**Example**: https://webapplication.trafficmanager.net/redirect.html 
+
+15. Click **Yes** under the **Native client** to include the native client URL as shown below.
+
+Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path  
+	
+   com.onmicrosoft.**amsiot1.webapplication**://redirect/path 
+   
+16. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**. 
+
+17. After that, click **Create**. This web app is used for authenticating the Asset management user login/ registration.
+
+18. Select the application you created and note down the **Application ID**. 
 
 ### 5.2 Power BI Configuration
 
