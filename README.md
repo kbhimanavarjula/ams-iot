@@ -1,4 +1,3 @@
-	
 # Microsoft
 
 # Asset Monitoring Solution
