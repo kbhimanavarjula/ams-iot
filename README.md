@@ -52,6 +52,7 @@
     - [16.5 Asset Status](#165-asset-status)
 	
 
+
 ## 1 About Asset Monitoring Solution
 
 Asset Monitoring and Tracking Solution is a complete smart inventory management tool. The solution provides a web dashboard & a mobile application to Monitor, Locate and Report all the remote assets so that they are completely visible 24x7.
@@ -82,12 +83,18 @@ All the blobs must be inside a container in your storage.
 
 ### 3.2 Azure IoT Hub
 
-Azure IoT HUB is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  
+Azure IoT HUB is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. 
+
 	-Provides multiple device-to-cloud and cloud-to-device communication options. These options include one-way messaging, file transfer, and request-reply methods. 
+	
 	-Provides built-in declarative message routing to other Azure services. 
+	
 	-Provides a query able store for device metadata and synchronized state information. 
-	-Enables secure communications and access control using per-device security keys.  
+	
+	-Enables secure communications and access control using per-device security keys. 
+	
  	-Provides extensive monitoring for device connectivity and device identity management events. 
+	
 	-Includes device libraries for the most popular languages and platforms.
 	
 ### 3.3 Azure Web App 
