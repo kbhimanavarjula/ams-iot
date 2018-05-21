@@ -561,15 +561,15 @@ To access resources in your subscription, you must assign the application to a r
 
 2.Select main-template from core_components branch.
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t1.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t1.png)
 
 3. Select Raw from the top right corner.
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t2.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t2.png)
 
 4. Copy the raw template and paste in your azure portal for template deployment.
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t3.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t3.png)
 
 To deploy a template for Azure Resource Manager, follow the below steps. 
 
@@ -579,11 +579,11 @@ To deploy a template for Azure Resource Manager, follow the below steps.
 
 3. Click on **create** and click on **Build your own Template**.
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t4.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t4.png)
 
 4. The Edit template page is displayed as shown in the following figure. 
 
-https://github.com/sysgain/ams-iot/raw/core_components/images/t5.png
+![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/t5.png)
 
 5. Replace/paste the template and click on Save
 
