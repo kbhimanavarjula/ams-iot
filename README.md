@@ -277,12 +277,12 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/13.png)
 
--If you want to **Deployment Cost Type 1 or 2 or 3**, follow the section 5.1.1. to create the Web Application. 
+* If you want to **Deployment Cost Type 1 or 2 or 3**, follow the section 5.1.1. to create the Web Application. 
 
--If you want to **deploy Deployment Cost Type 4**, follow section 5.1.2. to create the Web Application.
+* If you want to **deploy Deployment Cost Type 4**, follow section 5.1.2. to create the Web Application.
 
-###5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3 
-
+### 5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3 
+ 
 1. Click on the Applications tab and click Add to create a new application.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36.png)
@@ -321,7 +321,7 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/38.png)
 
-###5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
+### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
 
 
 ### 5.2 Power BI Configuration
