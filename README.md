@@ -635,8 +635,7 @@ To access resources in your subscription, you must assign the application to a r
 | **OMS Automation Region**                     | specify the region for oms automation account, if you have selected solution type as without monitoring this is optional            | westeurope,            southeastasia, eastus2, southcentralus, japaneast, southeastasia, southcentralus, northeurope, canadacentral, australiasouthest,  centralindia, japaneast    | eastus2 
 | **Data Retention**                               | specify the oms retention period in days, if you have selected solution type as without monitoring this is optional          | Min Value: 7 Max Value: 730   | 7
 | **Traffic Rouitng methods**                     | specify the traffic routing method for traffic manager            | Performance, Weighted, Geographic Priority                      | Priority 
-                     | Priority 
-
+                    
 ## 7 Getting Started
 
 ### 7.1 Deploying the ARM Template
