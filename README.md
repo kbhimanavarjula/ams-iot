@@ -521,6 +521,7 @@ To access resources in your subscription, you must assign the application to a r
 | **Costing Model**                                | Costing models have predefined resources sizes. Please refer Costing Model tables                          | One, Two, Three, Four |   
 | **locationDr**                                   | specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region     | Any String          |  
 | **App Insights Location**                    | specify the region for application insights, if you have selected solution type as without monitoring this is optional       | eastus, northeurope,       southcentralus, southeastasia,  westeurope,  westus2      |westus2 
+
 | **IoThub name**             | Name of the IoT Hub instance to provision    |Min Length: 3                | 
 | **Capacity units**          | number of desired iot hub units. restricted to 1 unit for F1. Can be set up to maximum number allowed for subscription.           | minValue: 1           | 1 
 | **sqlAdministratorLogin**   | provide the user name for the sql server, please make a note of Username this will be used further                                    | Any string | Sqluser 
@@ -558,11 +559,17 @@ To access resources in your subscription, you must assign the application to a r
 
 **https://github.com/sysgain/ams-iot.git**
 
-2.Select main-template from core_components branch. 
+2.Select main-template from core_components branch.
+
+https://github.com/sysgain/ams-iot/raw/core_components/images/t1.png
 
 3. Select Raw from the top right corner.
 
-4. Copy the raw template and paste in your azure portal for template deployment. 
+https://github.com/sysgain/ams-iot/raw/core_components/images/t2.png
+
+4. Copy the raw template and paste in your azure portal for template deployment.
+
+https://github.com/sysgain/ams-iot/raw/core_components/images/t3.png
 
 To deploy a template for Azure Resource Manager, follow the below steps. 
 
@@ -572,25 +579,31 @@ To deploy a template for Azure Resource Manager, follow the below steps.
 
 3. Click on **create** and click on **Build your own Template**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/63.png)
+https://github.com/sysgain/ams-iot/raw/core_components/images/t4.png
 
-4. The Edit template page is displayed as shown in the following figure.  
+4. The Edit template page is displayed as shown in the following figure. 
+
+https://github.com/sysgain/ams-iot/raw/core_components/images/t5.png
 
 5. Replace/paste the template and click on Save
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/64.png)
+https://github.com/sysgain/ams-iot/raw/core_components/images/t6.png
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/65.png)
+6. The Custom deployment page is displayed as shown in the following figure.
 
-6. The Custom deployment page is displayed as shown in the following figure. 
+https://github.com/sysgain/ams-iot/raw/core_components/images/t7.png
+
+https://github.com/sysgain/ams-iot/raw/core_components/images/t8.png
 
 7. Deploy the template by providing the parameters in custom deployment settings as shown in the following figure. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/66.png)
+https://github.com/sysgain/ams-iot/raw/core_components/images/t9.png
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/67.png)
+https://github.com/sysgain/ams-iot/raw/core_components/images/t10.png
 
-![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/68.png)
+https://github.com/sysgain/ams-iot/raw/core_components/images/t11.png
+
+https://github.com/sysgain/ams-iot/raw/core_components/images/t12.png
 
 8. Once all the parameters are entered, click the terms and conditions check box and click Purchase.
 
@@ -611,6 +624,8 @@ To deploy a template for Azure Resource Manager, follow the below steps.
 	* Traffic Manager 
 	
 10. Once the solution is deployed successfully navigate to the resource group, select the created resource group to view the list of resources that are created in the Resource Group as shown in the following figure. 
+
+https://github.com/sysgain/ams-iot/raw/core_components/images/t13.png
 
 ## 8 Prerequisites for Gateway-Middleware
 
