@@ -136,12 +136,13 @@ Below table describes the deployment costs per month for the solution.
 | **Total Cost Including Optional Components**    |                                                                                                             |                               | $479.55
 
 
-| **Monitoring Status**                           | **Delta Price (Model1-Model2)**
+| **Monitoring Status**       | **Delta Price (Model1-Model2)**
 
-| -----------------                               | -------------------------
+| -----------------           | -----------------------
 
-| **Without Monitoring**                          | $80.75
-| **With Monitoring**                             | $79.75
+| **Without Monitoring**      | $80.75
+| **With Monitoring**         | $79.75
+
 
 **Deployment Costs for Type3**
 
@@ -159,12 +160,14 @@ Below table describes the deployment costs per month for the solution.
 | **Total Cost**                                  |                                                                                                             |                               | $484.77
 | **Total Cost Including Optional Components**    |                                                                                                             |                               | $489.37
 
-| **Monitoring Status**        | **Delta Price (Model1-Model3)**         | **Delta Price (Model2-Model2)**
 
-| ------------------       | ---------------------------------        | --------------------------------
+| **Monitoring Status**    | **Delta Price (Model1-Model3)**     | **Delta Price (Model2-Model2)**
 
-| **Without Monitoring**                          | $89.57                                  | $9.82
-| **With Monitoring**                             | $89.57                                  | $9.82
+| ------------------       | -----------------------             | ------------------------
+
+| **Without Monitoring**   | $89.57                              | $9.82
+| **With Monitoring**      | $89.57                              | $9.82
+
 
 **Deployment Costs for Type4**
 
@@ -183,12 +186,14 @@ Below table describes the deployment costs per month for the solution.
 | **Total Cost**                                  |                                                                                                             |                               | $592.36
 | **Total Cost Including Optional Components**    |                                                                                                             |                               | $596.96
 
-| **Monitoring Status**                           |**Delta Price (Model1-Model4)**         |**Delta Price (Model2-Model4)**      |**Delta Price (Model2-Model4)**
 
-| ----------------------                          | --------------------------------      | -------------------------------  | ---------------------------------   
+| **Monitoring Status**           |**Delta Price (Model1-Model4)**      |**Delta Price (Model2-Model4)**      |**Delta Price (Model2-Model4)**
 
-| **Without Monitoring**                          | $197.16                                | $117.41                             | $107.59
-| **With Monitoring**                             | $197.16                                | $117.41                             | $107.59
+| -----------------               | ---------------------------         | ----------------------              | -----------------------
+
+| **Without Monitoring**          | $197.16                             | $117.41                             | $107.59
+| **With Monitoring**             | $197.16                             | $117.41                             | $107.59
+
 
 ## 5 Prerequisites for Deploying ARM Template
 
