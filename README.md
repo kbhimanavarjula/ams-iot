@@ -18,7 +18,7 @@
    - [3.7 Azure Event hub](#37-azure-event-hub)
 - [4 Deployment Costs](#4-deployment-costs)
 - [5 Prerequisites for Deploying ARM Template](#5-prerequisites-for-deploying-arm-template)
-   - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
+    - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
    	    - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2-or-3)
 	    - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-cpplication-in-czure-b2C-tenant-for-deployment-cost-type-4)
    - [5.2 Power BI Configuration](#52-power-bi-configuration)
@@ -55,8 +55,8 @@
     - [17.2 Application Insights](#172-application-insights)
 - [18 Hardening Components](#18-hardening-components)
     - [18.1 Geo Replication](#181-geo-replication)
-            - [18.1.1 Setting up Geo Replication for Cosmos DB](#1811-setting-up-geo-replication-for-cosmos-db)
-            - [18.1.2 Setting up Geo Replication for SQL DB](#1812-setting-up-geo-replication-for-sql-db)
+           - [18.1.1 Setting up Geo Replication for Cosmos DB](#1811-setting-up-geo-replication-for-cosmos-db)
+           - [18.1.2 Setting up Geo Replication for SQL DB](#1812-setting-up-geo-replication-for-sql-db)
 	
 
 ## 1 About Asset Monitoring Solution
