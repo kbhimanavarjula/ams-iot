@@ -161,7 +161,7 @@ Below table describes the deployment costs per month for the solution.
 | **Total Cost Including Optional Components**    |                                                                                                             |                               | $479.55
 
 
------------------------------------------------------------------
+
 | **Monitoring Status**       | **Delta Price (Model1-Model2)**     
 
 ------------------------------------------------------------------                                                                             
