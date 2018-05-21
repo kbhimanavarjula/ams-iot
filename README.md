@@ -238,21 +238,21 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 **Follow Below steps to create Azure AD B2C Tenant:**
 
-1. Create a new B2C tenant in Azure Active Directory B2C. You'll be shown a page with the information on Azure Active Directory B2C. Click Create at the bottom to start configuring your new Azure Active Directory B2C tenant.
+1. Create a new B2C tenant in **Azure Active Directory B2C**. You'll be shown a page with the information on Azure Active Directory B2C. Click Create at the bottom to start configuring your new Azure Active Directory B2C tenant.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/3.png)
 
-2. Choose the Organization name, Initial Domain name and Country of Region for your Tenant.
+2. Choose the **Organization name, Initial Domain name** and **Country of Region** for your Tenant.
 
-3. Note down your entire Tenant name which is highlighted in the below screenshot, this will be used while deploying the ARM template.
+3. Note down your entire **Tenant name** which is highlighted in the below screenshot, this will be used while deploying the **ARM template.**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/4.png)
 
-4. Once the B2C Tenant is created, Click Directory and Subscription filter on the top right to see your newly created tenant.
+4. Once the B2C Tenant is created, Click **Directory and Subscription filter** on the top right to see your newly created tenant.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/5.png)
 
-5. Switch to your created tenant by clicking on it. Type Azure in search column and select Azure AD B2C.
+5. Switch to your created tenant by clicking on it. Type **Azure** in search column and select **Azure AD B2C**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/6.png)
 
@@ -260,25 +260,25 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/7.png)
 
-7. Click on sign-up or sign-in policies. Then click on Add to add policy.
+7. Click on **sign-up or sign-in policies**. Then click on **Add** to add policy.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/8.png)
 
-8. Provide the name and enter the details as shown below.
+8. Provide the **name** and enter the details as shown below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/9.png)
 
-9. Select all the Sign-up attributes as show below.
+9. Select all the **Sign-up attributes** as show below.
 
 10. Note down the policy name that you are creating now, this will be used while deploying the template.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/10.png)
 
-11. Select all the Application claims as shown below.
+11. Select all the **Application claims** as shown below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/11.png)
 
-12. After filling all the required details, click on Create.
+12. After filling all the required details, click on **Create**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/12.png)
 
@@ -288,23 +288,23 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 * If you want to **Deployment Cost Type 1 or 2 or 3**, follow the section 5.1.1. to create the Web Application. 
 
-* If you want to **deploy Deployment Cost Type 4**, follow section 5.1.2. to create the Web Application.
+* If you want to **deploy Deployment Cost Type 4**, follow section **5.1.2.** to create the **Web Application**.
 
 ### 5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3 
  
-1. Click on the Applications tab and click Add to create a new application.
+1. Click on the **Applications** tab and click **Add** to create a new application.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36.png)
 
 2. Provide a name for the application.
 
-    1. Under the Web APP/Web API tab, click Yes to provide the following two redirect URLs for your application. Add an entry in the Redirect URLs section of the B2C application in the following format.
+    1. Under the **Web APP/Web API** tab, click **Yes** to provide the following two **Reply URLs** for your application. Add an entry in the **Reply URLs** section of the B2C application in the following format.
 
     • https://<**Website Name**>.azurewebsites.net/redirect.html
 
-    Note: **Website Name** should be different from **application name.**
+    **Note: Website Name** should be different from **application name.**
 
-    • http://localhost:65159/redirect.html
+    • **http://localhost:65159/redirect.html**
 
    2. During the web app registration with PowerBI, you will use this reply URL.
 
@@ -312,7 +312,7 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36-1.png)
 
-3. Click Yes under the Native client to include the native client url as shown below.
+3. Click **Yes** under the **Native client** to include the native client url as shown below.
 
 Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
@@ -320,13 +320,13 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/36-2.png)
 
-4. Before clicking on create, note down the application name, Reply URL’s and Custom Redirect URI.
+4. Before clicking on create, note down the **Website name, Reply URL’s and Custom Redirect URI**.
 
 5. After that, click on Create. This web app is used for authenticating the Asset management user login/ registration.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/37.png)
 
-6. Select the application you created and note down the Application ID.
+6. Select the application you created and note down the **Application ID**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/core_components/images/38.png)
 
