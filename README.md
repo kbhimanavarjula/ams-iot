@@ -502,8 +502,16 @@ To access resources in your subscription, you must assign the application to a r
 | **B2c Client Id**         | Enter B2C Client id (Application id) that you got after creating the B2C application in 5.1 section at 21st point.                     |                           |
 | **B2c Client Id Dr**      |
 | **B2c SignUp SignIn policy Id**               | Enter Sign Up Sign In Policy name which you created 5.1 section at 9th point.                                      |                           | 
-| **B2c Native Redirect URL**                   | 
- 
+| **B2c Native Redirect URL**                   | Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 5.1 section at 18th point.            |                     |
+| **B2c Native Redirect URL Dr**                   |           |                     |
+| **AD Client Id**                              | Enter the Client Id that you got from the Azure Active Directory Application in 5.3.1 section at 2nd point (Get application ID and authentication key).           |                     |
+| **Ad Secret Key**                             | Enter the Secret key that you got from the Azure Active Directory Application in 5.3.2 section at 4th point (Get application ID and authentication key).            |                     |
+| **Webjob Storage type**                        | Select Storage Type            | Standard_LRS, Standard_ZRS, Standard_GRS, Standard_RAGRS, Premium_LRS         | Standard_LRS 
+| **Read Region Location**                       | if you select costing model 4 specify the read region of the cosmos database account the region should be different of the resource group region  |eastasia,     southeastasia, centralus, eastus, eastus2, westus, northcentralus, southcentralus, northeurope, westeurope, japanwest, japaneast, brazilsouth, australiaeast, australiasoutheast, southindia,    centralindia,westindia,  canadacentral, canadaeast, uksouth, ukwest, westcentralus, westus2, koreacentral, koreasouth              |
+| **OMS Workspace Region**                      | specify the region for oms workspace, if you have selected solution type as without monitoring this is optional            | eastus, westeurope,        southeastasia, australiasoutheast                    | Eastus 
+| **OMS Automation Region**                     | specify the region for oms automation account, if you have selected solution type as without monitoring this is optional            | westeurope,            southeastasia, eastus2, southcentralus, japaneast, southeastasia, southcentralus, northeurope, canadacentral, australiasouthest,  centralindia, japaneast    | eastus2 
+| **Data Retention**                               | specify the oms retention period in days, if you have selected solution type as without monitoring this is optional          | Min Value: 7 Max Value: 730   | 7
+| **Traffic Rouitng methods**                     | specify the traffic routing method for traffic manager            | Performance, Weighted, Geographic Priority                      | Priority 
 
 ## 7 Getting Started
 
