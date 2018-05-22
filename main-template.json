@@ -502,71 +502,13 @@
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDB1",
-            "condition": "[equals(parameters('costingModel'),'One')]",
+            "name": "DocumentDB",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeOG_mWQXweDYvE4U_bM6KpKCjFzTks5bDW5pwA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDB2",
-            "condition": "[equals(parameters('costingModel'),'Two')]",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeOG_mWQXweDYvE4U_bM6KpKCjFzTks5bDW5pwA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDB3",
-            "condition": "[equals(parameters('costingModel'),'Three')]",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeOG_mWQXweDYvE4U_bM6KpKCjFzTks5bDW5pwA%3D%3D')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "documentDB": {
-                        "value": "[variables('documentDB')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "name": "DocumentDBGeo",
-            "condition": "[equals(parameters('costingModel'),'Four')]",
-            "apiVersion": "[variables('deploymentApiVersion')]",
-            "dependsOn": [],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeD99mU_uWRCNkAecV3_vFeFB9AUNks5bDW5ywA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeIJ_FrDDmwpvWcjEORxI-LmGp86Qks5bDZQDwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -602,15 +544,12 @@
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace",
-                "DocumentDB1",
-                "DocumentDB2",
-                "DocumentDB3",
-                "DocumentDBGeo"
+                "DocumentDB"
             ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms','?token=AYpAeCHUbIzOK9Ou78bYh5JxOGVbjE2Sks5bDWCAwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeIu7JBByo3fQFwS1C7qKS_N76dKHks5bDYKYwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -927,7 +866,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Two'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDB2",
+                "DocumentDB",
                 "IotHub",
                 "EventHub",
                 "SqlServer2",
@@ -971,7 +910,7 @@
                         "value": "[variables('nodeServer')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -983,7 +922,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Two'))]",
             "dependsOn": [
                 "DocumentDBOMS",
-                "DocumentDB2",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServeroms2",
@@ -993,7 +932,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeKnrqbDl4gD-iTFoj_YXTndttGYNks5bDVWnwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeAFN2AcRmrBKcnWceb1gmhviOPcVks5bDY2QwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1034,7 +973,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1045,7 +984,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Three'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDB3",
+                "DocumentDB",
                 "IotHub",
                 "EventHub",
                 "SqlServer3",
@@ -1089,7 +1028,7 @@
                         "value": "[variables('nodeServer')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1101,7 +1040,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Three'))]",
             "dependsOn": [
                 "DocumentDBOMS",
-                "DocumentDB3",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServeroms3",
@@ -1111,7 +1050,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeKnrqbDl4gD-iTFoj_YXTndttGYNks5bDVWnwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeAFN2AcRmrBKcnWceb1gmhviOPcVks5bDY2QwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1152,7 +1091,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1163,7 +1102,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'One'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDB1",
+                "DocumentDB",
                 "IotHub",
                 "EventHub",
                 "SqlServer1",
@@ -1207,7 +1146,7 @@
                         "value": "[variables('nodeServer')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1219,7 +1158,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'One'))]",
             "dependsOn": [
                 "DocumentDBOMS",
-                "DocumentDB1",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServeroms1",
@@ -1269,7 +1208,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1280,7 +1219,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDBGeo",
+                "DocumentDB",
                 "IotHub",
                 "EventHub",
                 "SqlServerGeo",
@@ -1324,7 +1263,7 @@
                         "value": "[variables('nodeServer')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1336,7 +1275,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Four'))]",
             "dependsOn": [
                 "DocumentDBOMS",
-                "DocumentDBGeo",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServerGeoOms",
@@ -1387,7 +1326,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1398,7 +1337,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution without monitoring'), equals(parameters('costingModel'),'Four'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
-                "DocumentDBGeo",
+                "DocumentDB",
                 "IotHub",
                 "EventHub",
                 "SqlServerGeo",
@@ -1442,7 +1381,7 @@
                         "value": "[variables('nodeServer')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
@@ -1454,7 +1393,7 @@
             "condition": "[and(equals(parameters('solutionType'),'solution with monitoring'), equals(parameters('costingModel'),'Four'))]",
             "dependsOn": [
                 "DocumentDBOMS",
-                "DocumentDBGeo",
+                "DocumentDB",
                 "IotHubOMS",
                 "EventHubOMS",
                 "SqlServerGeoOms",
@@ -1505,7 +1444,7 @@
                         "value": "[variables('omsSettings')]"
                     },
                     "documentDBEndpoint": {
-                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                        "value": "[reference('DocumentDB').outputs.documentDBEndpoint.value]"
                     }
                 }
             }
