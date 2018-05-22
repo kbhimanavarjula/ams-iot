@@ -1021,8 +1021,7 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/126.png)
 
 44. Click on **connect**. A Pop-up occurs for sql authentication as follows. Here you need to choose the authentication type as **database**.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/127.png)
+5![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/127.png)
 
 45. Enter the **sql user name** and **password** and click **connect**.
 
@@ -1064,35 +1063,37 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 ### 12.6 Configuring the flow in web app
 
-52. Go to web app and click on **configuration** -> choose **powerbi credentials**
+55. Go to web app and click on **configuration** -> choose **powerbi credentials**
 
-53. Enter the values of **powerbi client id, Secret key, username and password (Azure portal credentials).**
+56. Enter the values of **powerbi client id, Secret key, username and password (Azure portal credentials).**
 
-54. Click **submit**.
+57. Click **submit**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/137.png)
 
-55. Here you can see the pop up saying configuration added/updated.
+58. Here you can see the pop up saying configuration added/updated.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/138.png)
 
-56. Now open **powerbi url** and paste the published url id in the place of report id.
+59. Now open **powerbi url** and paste the published url id in the place of report id.
 
 Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d9cf94eb6b8
 
-57. click **submit**. There you can see the successful adding of URL.
+60. click **submit**. There you can see the successful adding of URL.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/139.png)
 
 ## 13 Step 5: Running the gateway middleware
 
-1. Go to **portal** [Symbol]click on **apiserver** [Symbol] copy the **apiserver URL**. 
+1. Go to **Portal** -> find the **Resource group name** -> **Deployments** -> **Microsoft.Template** -> **Outputs**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/140.png)
+2. **Copy** the **API Server URL**.
 
-2. Paste it in the Gateway window (Asset Monitoring Configuration page) and add “/” at the end as shown below. 
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n8.PNG)
 
-3. Click submit.
+2. Paste it in the **Gateway window (Asset Monitoring Configuration page)**.
+
+3. Click **submit**.
 
 **Note:** If the Gateway window (Asset Monitoring Configuration page) is closed, run electron . command in gitbash then you will get the Gateway window (Asset Monitoring Configuration page). 
 
