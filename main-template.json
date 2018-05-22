@@ -508,7 +508,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeIJ_FrDDmwpvWcjEORxI-LmGp86Qks5bDZQDwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeMYiD--V9hoO2LN5Ze6Jrw3AnCbtks5bDZvXwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
