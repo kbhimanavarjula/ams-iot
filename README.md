@@ -862,121 +862,121 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 2. You can find the **rest server URL** from the azure portal as follows.
 
-3. Go to **deployment** [Symbol] find the **resource group name**, there you can find the **apiserver** [Symbol]click on the **api server** and note the URL of the **rest server**.
+3. Go to **deployment** -> find the **Resource group name** -> **Deployments** -> **Microsoft.Template** -> **Outputs**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/97.png)
+4. Copy the **APISERVER URL**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/98.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n5.PNG)
 
-4. Note the **rest server URL** and paste it in the mobile application and click **submit**
+5. Note the **Api Server URL** and paste it in the mobile application without / at end and click **submit**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/99.png)
 
-5. Now the mobile app page redirected to **microsoft login page**.
+6. Now the mobile app page redirected to **microsoft login page**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/100.png)
 
-6. Enter the credentials to **login** into application.
+7. Enter the credentials to **login** into application.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/101.png)
 
-7. Now you can able to view the application page as follows.
+8. Now you can able to view the application page as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/102.png)
 
-8. Click on **Dispatch** option to add an asset to the web portal.
+9. Click on **Dispatch** option to add an asset to the web portal.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/103.png)
 
-9. Before adding asset to the webportal **generate qrcode** for your **sensor** and **barcode** for asset by using the following url’s.
+10. Before adding asset to the webportal **generate qrcode** for your **sensor** and **barcode** for asset by using the following url’s.
 
     **Qrcode** -> https://www.barcodesinc.com/generator/qr 
 
     **Barcode** -> https://www.barcodesinc.com/generator/index.php
 
-10. you need to add the **sensor** by using the **qrcode**. While generating the **Qrcode**, you need to enter your **Sensor ID** in text box and click **Create QR code**.
+11. you need to add the **sensor** by using the **qrcode**. While generating the **Qrcode**, you need to enter your **Sensor ID** in text box and click **Create QR code**.
 
-11. Then Scan the **QR code** in **ASTRA** app in your mobile.
+12. Then Scan the **QR code** in **ASTRA** app in your mobile.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/104.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/105.png)
 
-12. Click on **next**.
+13. Click on **next**.
 
-13. Add asset to the web portal by scanning the barcode as follows.
+14. Add asset to the web portal by scanning the barcode as follows.
 
-14. Generate **Barcode** by entering any text in the text box and scan the **Barcode** in **ASTRA** app in your mobile
+15. Generate **Barcode** by entering any text in the text box and scan the **Barcode** in **ASTRA** app in your mobile
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/106.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/107.png)
 
-15. Click **next**.
+16. Click **next**.
 
-16. Now you need to **link** the asset with the sensor so that asset can be added to the web portal.
+17. Now you need to **link** the asset with the sensor so that asset can be added to the web portal.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/108.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/109.png)
 
-17. Go to web portal and check whether the asset has been added or not.
+18. Go to web portal and check whether the asset has been added or not.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/110.png)
 
 ### 12.4 Adding Assets to a Group
 
-18. Now we need to **add** the asset to a **group**. For that you need to check the asset so that **Add Group** option will be enable.
+19. Now we need to **add** the asset to a **group**. For that you need to check the asset so that **Add Group** option will be enable.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/111.png)
 
-19. Click on **Add group** to add asset to a group.
+20. Click on **Add group** to add asset to a group.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/112.png)
 
-20. Enter **name** and **description** of the group and click **submit**.
+21. Enter **name** and **description** of the group and click **submit**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/113.png)
 
-21. You can able to see the **group** in the inventory option as follows
+22. You can able to see the **group** in the inventory option as follows
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/114.png)
 
 ### 12.5 Cofiguring the PoweBi Desktop App and Publishing
 
-22. Go to **Configurations** and add the following information.
+23. Go to **Configurations** and add the following information.
 
-23. First, we need to enable the firewall of the sqlserver as follows.
+24. First, we need to enable the firewall of the sqlserver as follows.
 
-24. Go to the resources and choose the resource as sqlserverà Go to firewalls and virtual networks field in the settings option.
+25. Go to the resources and choose the resource as sqlserverà Go to firewalls and virtual networks field in the settings option.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/115.png)
 
-25. Add **client IP** to enable the firewall.
+26. Add **client IP** to enable the firewall.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/116.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/117.png)
 
-26. click **save** option to save the firewall values.
+27. click **save** option to save the firewall values.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/118.png)
 
-27. Here you can see the successful updation of adding firewall.
+28. Here you can see the successful updation of adding firewall.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/119.png)
 
-28. To configure the **powerbi urls** and **credentials** first we need to configure the powerbi desktop as follows.
+29. To configure the **powerbi urls** and **credentials** first we need to configure the powerbi desktop as follows.
 
-29. **Download the PowerBI template** from the below link.
+30. **Download the PowerBI template** from the below link.
 
 https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport .pbit
 
-30. **Run** the downloaded powerbi template and enter all the **input parameters**.
+31. **Run** the downloaded powerbi template and enter all the **input parameters**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/120.png)
 
-31. Here the fields require,
+32. Here the fields require,
 
     **sql server name**
 
@@ -988,75 +988,77 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
     **Document DB Collection Name**
 
-32. All these values are taken from the azure portal.
+33. All these values are taken from the azure portal.
 
-33. Go to azure portal and choose your deployment, there you can find all the resources.
+34. Go to azure portal and choose your deployment, there you can find all the resources.
 
-34. Now click on **sqldb**, so that you can find the **sql server name** and **sql db*** name as follows.
+35. Now go to **Resource Group** -> **Deployments** -> **Microsoft.Template** -> **Outputs**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/121.png)
+36. **Copy** the **sql db name** and **Sql Server name**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/122.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n6.PNG)
 
-35. **Note** down the above two values.
+37. **Note** down the above two values.
 
-36. Go to **document db** and **note** down the values of **Collection name** and **data base name**.
+38. Go to **deployment -> find the Resource group name -> Deployments -> Microsoft.Template -> Outputs**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/123.png)
+39. **Copy** and **Note down** the values of **document db, Collection** name and **data base name**.
 
-37. Go to **keys** field in the settings option of document and note down the **Document DB url** and **primary key values**.
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n7.PNG)
+
+40. Go to **keys** field in the settings option of document and note down the **Document DB url** and **primary key values**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/124.png)
 
-38. Now enter all tehse values in powerbi desktop.
+41. Now enter all tehse values in powerbi desktop.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/125.png)
 
-39. Click on **load**.
+42. Click on **load**.
 
-40. After loading it will ask for some additional information like cosmos DB account key there you can enter the primary key value of document DB.
+43. After loading it will ask for some additional information like cosmos DB account key there you can enter the primary key value of document DB.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/126.png)
 
-41. Click on **connect**. A Pop-up occurs for sql authentication as follows. Here you need to choose the authentication type as **database**.
+44. Click on **connect**. A Pop-up occurs for sql authentication as follows. Here you need to choose the authentication type as **database**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/127.png)
 
-42. Enter the **sql user name** and **password** and click **connect**.
+45. Enter the **sql user name** and **password** and click **connect**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/128.png)
 
-43. Click on **run** to load the db tables into the powerbi.
+46. Click on **run** to load the db tables into the powerbi.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/129.png)
 
-44. Here you can see the data fetching from db to powerbi.
+47. Here you can see the data fetching from db to powerbi.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/130.png)
 
-45. Once entire data has been fetched the page can be appeared as follows.
+48. Once entire data has been fetched the page can be appeared as follows.
 
-46. Here you can click on **publish** button to publish the powerbi desktop url. Click **publish.**
+49. Here you can click on **publish** button to publish the powerbi desktop url. Click **publish.**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/131.png)
 
-47. Click on **save**.
+50. Click on **save**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/132.png)
 
-48. You can save the powerbi desktop into your local machine. For that, choose the file location to save.
+51. You can save the powerbi desktop into your local machine. For that, choose the file location to save.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/133.png)
 
-49. After saving the content it will ask for the **destination**.Here, the default is workspace and click select.
+52. After saving the content it will ask for the **destination**.Here, the default is workspace and click select.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/134.png)
 
-50. Then the following **url** will be appeared.click on the **url** ,there you can find the report id of the powerbi.
+53. Then the following **url** will be appeared.click on the **url** ,there you can find the report id of the powerbi.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/135.png)
 
-51. The page can be appeared as follows and here we need to note down the id in between **reports** and **report section**
+54. The page can be appeared as follows and here we need to note down the id in between **reports** and **report section**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/136.png)
 
