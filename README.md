@@ -1091,53 +1091,56 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n8.PNG)
 
-2. Paste it in the **Gateway window (Asset Monitoring Configuration page)**.
+3. Paste it in the **Gateway window (Asset Monitoring Configuration page)**.
 
-3. Click **submit**.
+4. Click **submit**.
 
-**Note:** If the Gateway window (Asset Monitoring Configuration page) is closed, run electron . command in gitbash then you will get the Gateway window (Asset Monitoring Configuration page). 
+**Note:** If the Gateway window (Asset Monitoring Configuration page) is closed, run electron . command in gitbash then you will get the Gateway window (Asset Monitoring Configuration page).
 
-4. The page will be redirect to **Microsoft login page**.
 
-5. Ignore the message by click on **ok**
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/141.png)
+
+5. The page will be redirect to **Microsoft login page**.
+
+6. Ignore the message by click on **ok**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/142.png)
 
-6. Enter the **credentials** to login. Use the login credentials what we are using to sign up for web app.
+7. Enter the **credentials** to login. Use the login credentials what we are using to sign up for web app.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/143.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/145.png)
 
-7. Now close the gateway window and **run** the **electron .** in **gitbash**, so that it will automatically direct to the gateway page with all authentications.
+8. Now close the gateway window and **run** the **electron .** in **gitbash**, so that it will automatically direct to the gateway page with all authentications.
 
 **Note:** the **sensor** should be in **on**.
 
-8. Here you can see the data coming from the gateway to **iot hub** via sensor.
+9. Here you can see the data coming from the gateway to **iot hub** via sensor.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/147.png)
 
 ### 13.1 Validating data in iot hub and Node server
 
-9. Go to Azure Portal and click **IoT Hub** as follows.
+10. Go to Azure Portal and click **IoT Hub** as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/Monitoring_ha/images/147-1.png)
 
-10. The data in **iot** can be appeared as follows.
+11. The data in **iot** can be appeared as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/148.png)
 
-11. You can also see the **live data** in node server.
+12. You can also see the **live data** in node server.
 
-12.	Go to your **Resource Group** and click **nodeserver** as shown below.
+13.	Go to your **Resource Group** and click **nodeserver** as shown below.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/148-1.png)
 
-13. To view you need to enable the **diagnostic log** settings as follows in **node server**.
+14. To view you need to enable the **diagnostic log** settings as follows in **node server**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/149.png)
 
-14. Go to **log stream** and see the **data** as follows.
+15. Go to **log stream** and see the **data** as follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/150.png)
 
