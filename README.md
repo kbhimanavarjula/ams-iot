@@ -756,7 +756,7 @@ https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
 
 Configure the Gateway from the below document.
 
-https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring%20the%20GatewayMiddleware%20Package.pdf
+https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the-GatewayMiddleware-Package.pdf
 
 ## 11 Step 3: Configuring WEBAPP
 
