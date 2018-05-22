@@ -12,74 +12,41 @@
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2015-04-08",
-            "kind": "GlobalDocumentDB",
-            "type": "Microsoft.DocumentDB/databaseAccounts",
-            "name": "[parameters('documentDB').DocDBAccountName]",
-            "location": "[parameters('documentDB').location]",
+            "name": "[concat(parameters('documentDB').DocDBAccountName, '/', 'Microsoft.Insights/service')]",      
+            "type": "Microsoft.DocumentDB/databaseAccounts/providers/diagnosticSettings",
+            "apiVersion": "[parameters('omsSettings').omsEnableApiVersion]",
             "properties": {
-                "name": "[parameters('documentDB').DocDBAccountName]",
-                "databaseAccountOfferType": "[parameters('documentDB').offerType]",
-                "enableAutomaticFailover": true,
-                "locations": [
+                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsSettings').omsWorkspaceName)]",
+                "logs": [
                     {
-                        "locationName": "[parameters('documentDB').location]",
-                        "failoverPriority": 0,
-                        "id": "[concat(parameters('documentDB').DocDBAccountName, '-', parameters('documentDB').location)]"
+                        "category": "DataPlaneRequests",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 0,
+                            "enabled": false
+                        }
+                    },
+                    {
+                        "category": "MongoRequests",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": 0,
+                            "enabled": false
+                        }
+                    }
+                ],
+                "metrics": [
+                    {
+                        "timeGrain": "AllMetrics",
+                        "category": "AllMetrics",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
                     }
                 ]
-            },
-            "resources": [
-                {
-                    "name": "Microsoft.Insights/service",
-                    "type": "providers/diagnosticSettings",
-                    "apiVersion": "[parameters('omsSettings').omsEnableApiVersion]",
-                    "dependsOn": [
-                        "[concat('Microsoft.DocumentDb/databaseAccounts/', parameters('documentDB').DocDBAccountName)]"
-                    ],
-                    "properties": {
-                        "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsSettings').omsWorkspaceName)]",
-                        "logs": [
-                            {
-                                "category": "DataPlaneRequests",
-                                "enabled": true,
-                                "retentionPolicy": {
-                                    "days": 0,
-                                    "enabled": false
-                                }
-                            },
-                            {
-                                "category": "MongoRequests",
-                                "enabled": true,
-                                "retentionPolicy": {
-                                    "days": 0,
-                                    "enabled": false
-                                }
-                            }
-                        ],
-                        "metrics": [
-                            {
-                                "timeGrain": "AllMetrics",
-                                "category": "AllMetrics",
-                                "enabled": true,
-                                "retentionPolicy": {
-                                    "enabled": false,
-                                    "days": 0
-                                }
-                            }
-                        ]
-                    }
-                }
-            ],
-            "tags": {
-                "defaultExperience": "DocumentDB"
             }
         }
-    ],
-    "outputs": {
-        "documentDBEndpoint": {
-            "type": "string",
-            "value": "[reference(concat('Microsoft.DocumentDb/databaseAccounts/', parameters('documentDB').DocDBAccountName)).documentEndpoint]"
-        }
-    }
+    ]
 }
