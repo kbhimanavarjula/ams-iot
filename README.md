@@ -1066,7 +1066,6 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 55. Go to web app and click on **configuration** -> choose **powerbi credentials**
 
 56. Enter the values of **powerbi client id, Secret key, username and password (Azure portal credentials).**
-
 57. Click **submit**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/137.png)
@@ -1097,8 +1096,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 **Note:** If the Gateway window (Asset Monitoring Configuration page) is closed, run electron . command in gitbash then you will get the Gateway window (Asset Monitoring Configuration page).
 
-
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/141.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/142.png)
 
 5. The page will be redirect to **Microsoft login page**.
 
