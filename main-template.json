@@ -344,7 +344,7 @@
             "DocDBName": "AssetTrackingDB",
             "DocDBGroupGpsCollection": "GroupGpsData",
             "DocDBSensorCollection": "SensorData",
-            "DocDBOfferThroughput": "2500",
+            "DocDBOfferThroughput": "400",
             "readRegionLocation": "[parameters('readRegionLocation')]",
             "documentDBAuthKey": "[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
         },
@@ -1512,7 +1512,7 @@
         },
         "DocumentDBName": {
             "type": "string",
-            "value": "[variables('documentDB').DocDBAccountName]"
+            "value": "[variables('documentDB').DocDBName]"
         },
         "DocumentDBUrl": {
             "type": "string",
