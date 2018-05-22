@@ -1097,8 +1097,6 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 **Note:** If the Gateway window (Asset Monitoring Configuration page) is closed, run electron . command in gitbash then you will get the Gateway window (Asset Monitoring Configuration page). 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/141.png)
-
 4. The page will be redirect to **Microsoft login page**.
 
 5. Ignore the message by click on **ok**
