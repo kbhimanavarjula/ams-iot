@@ -764,29 +764,31 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 2. Go to **Resource group** [Symbol]search for your **resource group name** [Symbol]then click on it. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/79.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n1.PNG)
 
 3. Now you can able to see all the resources of that resource group.
 
 4. You can differentiate the resources based on their types. For that choose **Group By Type** option as shown in below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/80.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n2.PNG)
 
-5. Now click on the name of the **web app** that you entered while deploying the template so that you can find the web app URL and **copy** that URL.
+5. Now click on **Deployments** and select **Microsoft.Template**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/81.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n3.PNG)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/82.png)
+6. Now go to **Outputs** and copy the **web app URL**.
 
-6. Now **paste** the copied URL in a browser to open the web application of the AMS.
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n4.PNG)
 
-7. Click **Sign In**.
+7. Now **paste** the copied URL in a browser to open the web application of the AMS.
+
+8. Click **Sign In**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/83.png)
 
-8. If you are new, use **sign-up** to login into the web app.(or)if your account is already existed then provide the credentials to **login**.
+9. If you are new, use **sign-up** to login into the web app.(or)if your account is already existed then provide the credentials to **login**.
 
-9. The web page will take few minutes to open(refresh the page).
+10. The web page will take few minutes to open(refresh the page).
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/84.png)
 
