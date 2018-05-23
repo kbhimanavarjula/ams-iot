@@ -29,7 +29,7 @@
                         "[concat('Microsoft.EventHub/namespaces/', parameters('eventHub').namespaceName)]"
                     ],
                     "properties": {
-                        
+                        "messageRetentionInDays": 3,
                         "partitionCount": 4
                     },
                     "resources": [
