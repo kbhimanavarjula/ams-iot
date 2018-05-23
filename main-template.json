@@ -987,7 +987,7 @@
             "dependsOn": [
                 "DocumentDB2",
                 "IotHub",
-                "EventHub",
+                "EventHub2",
                 "SqlServer2",
                 "StorageSetup"
             ],
@@ -1043,6 +1043,7 @@
                 "DocumentDBOMS",
                 "DocumentDB2",
                 "IotHubOMS",
+                "EventHub2",
                 "EventHubOMS",
                 "SqlServeroms2",
                 "OMSWorkSpace",
@@ -1105,7 +1106,7 @@
             "dependsOn": [
                 "DocumentDB3",
                 "IotHub",
-                "EventHub",
+                "EventHub3",
                 "SqlServer3",
                 "StorageSetup"
             ],
@@ -1161,6 +1162,7 @@
                 "DocumentDBOMS",
                 "DocumentDB3",
                 "IotHubOMS",
+                "EventHub3",
                 "EventHubOMS",
                 "SqlServeroms3",
                 "OMSWorkSpace",
@@ -1223,7 +1225,7 @@
             "dependsOn": [
                 "DocumentDB1",
                 "IotHub",
-                "EventHub",
+                "EventHub1",
                 "SqlServer1",
                 "StorageSetup"
             ],
@@ -1279,6 +1281,7 @@
                 "DocumentDBOMS",
                 "DocumentDB1",
                 "IotHubOMS",
+                "EventHub1",
                 "EventHubOMS",
                 "SqlServeroms1",
                 "OMSWorkSpace"
@@ -1340,7 +1343,7 @@
             "dependsOn": [
                 "DocumentDBGeo",
                 "IotHub",
-                "EventHub",
+                "EventHub4",
                 "SqlServerGeo",
                 "StorageSetup"
             ],
@@ -1396,6 +1399,7 @@
                 "DocumentDBOMS",
                 "DocumentDBGeo",
                 "IotHubOMS",
+                "EventHub4",
                 "EventHubOMS",
                 "SqlServerGeoOms",
                 "OMSWorkSpace",
@@ -1458,7 +1462,7 @@
             "dependsOn": [
                 "DocumentDBGeo",
                 "IotHub",
-                "EventHub",
+                "EventHub4",
                 "SqlServerGeo",
                 "StorageSetup"
             ],
@@ -1514,6 +1518,7 @@
                 "DocumentDBOMS",
                 "DocumentDBGeo",
                 "IotHubOMS",
+                "EventHub4",
                 "EventHubOMS",
                 "SqlServerGeoOms",
                 "OMSWorkSpace",
