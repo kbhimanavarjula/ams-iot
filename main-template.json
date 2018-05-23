@@ -695,7 +695,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-basic.json','?token=AYpAeC_7199_DcRud_8LrL_UGyHC_Vmvks5bDqtgwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-basic.json','?token=AYpAeG4mFqo2RQYfiVNbXqRhzIOwuC_Tks5bDrDdwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -714,7 +714,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-basic.json','?token=AYpAeC_7199_DcRud_8LrL_UGyHC_Vmvks5bDqtgwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-basic.json','?token=AYpAeG4mFqo2RQYfiVNbXqRhzIOwuC_Tks5bDrDdwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
