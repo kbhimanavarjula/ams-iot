@@ -302,7 +302,7 @@
             "edition": "Basic",
             "requestedServiceObjectiveName": "Basic",
             "maxSizeBytes": "2147483648",
-            "eventHubSku": "Standard"
+            "eventHubSku": "Basic"
         },
         "costingTwo": {
             "iotHubSkuName": "S1",
@@ -311,7 +311,7 @@
             "edition": "Basic",
             "requestedServiceObjectiveName": "Basic",
             "maxSizeBytes": "2147483648",
-            "eventHubSku": "Standard"
+            "eventHubSku": "Basic"
         },
         "costingThree": {
             "iotHubSkuName": "S1",
