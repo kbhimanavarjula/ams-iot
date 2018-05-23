@@ -17,6 +17,7 @@
                 "name": "[parameters('eventHub').eventHubSku]"
             },
             "properties": {
+                "isAutoInflateEnabled": true,
                 "maximumThroughputUnits": 2
             },
             "resources": [
