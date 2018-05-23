@@ -180,7 +180,7 @@
                         "DBConnection": "[parameters('sqlServer').databaseConnString]",
                         "sa:AlertJobConsumerGroupPrefix": "[parameters('B2CVariables').AlertJobConsumerGroupPrefix]",
                         "sa:AlertJobConsumerGroupCount": "19",
-                        "sa:StreamingUnits": "3",
+                        "sa:StreamingUnits": "1",
                         "eventHub:Name": "[parameters('eventHub').eventHubName]",
                         "eventHub:NameSpace": "[parameters('eventHub').namespaceName]",
                         "eventHub:PolicyName": "[parameters('eventHub').defaultSASKeyName]",
