@@ -695,7 +695,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-basic.json','?token=AYpAeOO_QqtksatKG2wv-6tZ1USJitASks5bDrJ5wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-basic.json','?token=AYpAeCrCuvCjrjxOX7SOzaVKUNRO9gYSks5bDrTswA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -714,7 +714,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-basic.json','?token=AYpAeOO_QqtksatKG2wv-6tZ1USJitASks5bDrJ5wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub-basic.json','?token=AYpAeCrCuvCjrjxOX7SOzaVKUNRO9gYSks5bDrTswA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -733,7 +733,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeF6Qz6HELkaaOsaI_Ls-GCDFUMTdks5bDoI6wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeFBjEK-9TatgYtZ4RxMDllAZdfcRks5bDrSJwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -752,7 +752,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeF6Qz6HELkaaOsaI_Ls-GCDFUMTdks5bDoI6wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeFBjEK-9TatgYtZ4RxMDllAZdfcRks5bDrSJwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
