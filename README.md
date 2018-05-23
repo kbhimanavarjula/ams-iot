@@ -197,18 +197,18 @@ Below table describes the deployment costs per month for the solution.
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
-| **App Service Plan(6 web apps + 1 web job)**    | S0 * 2 (1 core,1.75 GB RAM, 10GB Storage)                                                                   | PAYG                          | $146.00   
-| **SQL Database**                                | S0 (Standard tier), 10DTU, 250GB included storage per DB                                                    | PAYG                          | $29.44  
+| **App Service Plan(4 web apps + 2 web job)**    | S1 * 2 (1 core,1.75 GB RAM, 50GB Storage)                                                                   | PAYG                          | $146.00   
+| **SQL Database**                                | S0 (Standard tier), 10DTU, 250GB storage                                                                    | PAYG                          | $29.44  
 | **IoT HUB**                                     | S1, Unlimited devices, 1 Unit-$25 400,000 messages/day                                                      | PAYG                          | $25.00  
-| **Log Analytics (Optional)**                    | First 5GB * $2.30  Region East US                                                                           | PAYG                          | $2.30 
+| **Log Analytics (Optional)**                    | Standalone. 1GB * $2.30  Region East US                                                                     | PAYG                          | $2.30 
 | **Application Insights (Optional)**             | Basic, 1GB * $2.30 Region: East US                                                                          | PAYG                          | $2.30   
-| **Storage Account**                             | Block Blob Storage, General Purpose V1, LRS,100 GB Capacity                                                 | PAYG                          | $2.40
-| **Event Hub**                                   | Basic, throughput units 20,1MB/sec ingress events, 2MB/sec egress events.                                   | PAYG                          | $0.75
-| **Cosmos DB**                                   | Standard, throuput 2500 RU/s (Request Units per second) 25 x100 Rus(Throughput)- $146 1 GB storage – $0.25  | PAYG                          | $146.25
-| **Stream Analytics**                            | Standard Streaming Unit 3 unit(s) 3 * $80.30 Region: East US                                                | PAYG                          | $240.9
-| **Traffic Manager**                             | 3 Endpoints 3 * $0.54                                                                                       | PAYG                          | $1.62
-| **Total Cost**                                  |                                                                                                             |                               | $592.36
-| **Total Cost Including Optional Components**    |                                                                                                             |                               | $596.96
+| **Storage Account**                             | Block Blob Storage, General Purpose V1, LRS Redundancy,100 GB Capacity                                      | PAYG                          | $2.44
+| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83
+| **Cosmos DB**                                   | Standard, throuput 800 RU/s (Request Units per second) 8 x100 Rus(Throughput)- $46.72 1 GB storage – $1.00  | PAYG                          | $47.72
+| **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * $80.30 Region: East US                                                | PAYG                          | $80.30
+| **Traffic Manager**                             | 3 Profile 1 * $1.26                                                                                         | PAYG                          | $1.26
+| **Total Cost**                                  |                                                                                                             |                               | $375.99
+| **Total Cost Including Optional Components**    |                                                                                                             |                               | $380.59
 
 ## 5 Prerequisites for Deploying ARM Template
 
