@@ -189,7 +189,7 @@
                         "ad:Endpoint": "[parameters('restServer').ADEndpoint]",
                         "ad:ClientId": "[parameters('restServer').AdClientId]",
                         "ad:ClientSecret": "[parameters('restServer').AdSecretKey]",
-                        "DBConnection": "[parameters('sqlServer').databaseConnString]",
+                        "DBConnection": "[parameters('sqlServer').databaseConnString1]",
                         "sa:AlertJobConsumerGroupPrefix": "[parameters('B2CVariables').AlertJobConsumerGroupPrefix]",
                         "sa:AlertJobConsumerGroupCount": "19",
                         "sa:StreamingUnits": "1",
