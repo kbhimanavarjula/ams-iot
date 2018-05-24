@@ -197,7 +197,7 @@
                         "eventHub:NameSpace": "[parameters('eventHub').namespaceName]",
                         "eventHub:PolicyName": "[parameters('eventHub').defaultSASKeyName]",
                         "eventHub:PolicyKey": "[listkeys(parameters('eventHub').eventhubNamepaceResourceID, '2017-04-01').primaryKey]",
-                        "eventHub:ConnectionString": "[parameters('eventHub').eventhubConnectionString]",
+                        "eventHub:ConnectionString": "[parameters('eventHub').eventhubConnectionString1]",
                         "b2c:AadInstance": "[parameters('B2CVariables').b2cAadInstance]",
                         "b2c:Tenant": "[parameters('B2CVariables').b2cTenant]",
                         "b2c:ClientId": "[parameters('B2CVariables').b2cClientId]",
