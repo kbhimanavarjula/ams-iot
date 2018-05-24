@@ -82,7 +82,7 @@ Asset Monitoring and Tracking Solution is a complete smart inventory management 
 
 **With Hardening Architecture Diagram**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/AMS%20Hardening100.jpg)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/AMS%20hardening%20architecture%20diagram.jpg)
 
 ## 2.1 Data Flow Architecture Diagram
 
@@ -144,6 +144,7 @@ Azure Event Hubs is a highly scalable data streaming platform and event ingestio
 Below table describes the deployment costs per month for the solution.
 
 **Region-US East**
+
 **Deployment Costs for Type1**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                                
@@ -163,7 +164,6 @@ Below table describes the deployment costs per month for the solution.
 **Deployment Costs for Type2**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
-
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
 | **App Service Plan(2 web apps + 1 web job)**    | B1 (1 core,1.75 GB RAM, 10GB Storage)                                                                       | PAYG                          | $54.75   
 | **SQL Database**                                | B1 (Standard tier), 5DTU, 2GB included storage per DB                                                       | PAYG                          | $4.90  
@@ -207,8 +207,8 @@ Below table describes the deployment costs per month for the solution.
 | **Cosmos DB**                                   | Standard, throuput 800 RU/s (Request Units per second) 8 x100 Rus(Throughput)- $46.72 1 GB storage – $1.00  | PAYG                          | $47.72      |
 | **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * $80.30 Region: East US                                                | PAYG                          | $80.30        |
 | **Traffic Manager**                             | 3 Profile 1 * $1.26                                                                                         | PAYG                          | $1.26        |
-| **Total Cost**                                  |                                     |                                                                                                | $375.99                              |
-| **Total Cost Including Optional Components**    |                                                                 |                                                                     | $380.59                 |
+| **Total Cost**                                  |                                     |                                                         | $375.99                            |
+| **Total Cost Including Optional Components**    |                                                                 |                           | $380.59                              |
 
 ## 5 Prerequisites for Deploying ARM Template
 
