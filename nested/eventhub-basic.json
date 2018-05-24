@@ -16,6 +16,10 @@
             "sku": {
                 "name": "[parameters('eventHub').eventHubSku]"
             },
+            "properties": {
+                "isAutoInflateEnabled": false,
+                "maximumThroughputUnits": 0
+            },
             "resources": [
                 {
                     "apiVersion": "2017-04-01",
@@ -24,6 +28,10 @@
                     "dependsOn": [
                         "[concat('Microsoft.EventHub/namespaces/', parameters('eventHub').namespaceName)]"
                     ],
+                    "properties": {
+                        "messageRetentionInDays": 1,
+                        "partitionCount": 4
+                    },
                     "resources": [
                         {
                             "apiVersion": "2014-09-01",
