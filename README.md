@@ -164,6 +164,7 @@ Below table describes the deployment costs per month for the solution.
 **Deployment Costs for Type2**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
+
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
 | **App Service Plan(2 web apps + 1 web job)**    | B1 (1 core,1.75 GB RAM, 10GB Storage)                                                                       | PAYG                          | $54.75   
 | **SQL Database**                                | B1 (Standard tier), 5DTU, 2GB included storage per DB                                                       | PAYG                          | $4.90  
@@ -178,6 +179,7 @@ Below table describes the deployment costs per month for the solution.
 | **Total Cost Including Optional Components**    |                                                                                                             |                               | $191.55
                                                                
 **Deployment Costs for Type3**
+
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
 | **App Service Plan(2 web apps + 1 web job)**    | B1 (1 core,1.75 GB RAM, 10GB Storage)                                                                       | PAYG                          | $54.75   
