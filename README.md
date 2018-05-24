@@ -144,7 +144,6 @@ Azure Event Hubs is a highly scalable data streaming platform and event ingestio
 Below table describes the deployment costs per month for the solution.
 
 **Region-US East**
-
 **Deployment Costs for Type1**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                                
