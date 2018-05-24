@@ -24,9 +24,6 @@
                     "dependsOn": [
                         "[concat('Microsoft.EventHub/namespaces/', parameters('eventHub').namespaceName)]"
                     ],
-                    "properties": {
-                        "partitionCount": 4
-                    },
                     "resources": [
                         {
                             "apiVersion": "2014-09-01",
