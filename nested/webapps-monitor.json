@@ -67,7 +67,7 @@
                 "displayName": "HostingPlan"
             },
             "sku": {
-                "name": "[parameters('hostingPlan').webSkuName]",
+                "name": "[parameters('hostingPlan').webSkuName1]",
                 "capacity": "[parameters('hostingPlan').skuCapacity]"
             },
             "properties": {
