@@ -64,6 +64,20 @@
                 "description": "Tenant ID of Azure AD"
             }
         },
+        "AdClientId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Client ID of Azure AD application"
+            }
+        },
+        "AdSecretKey": {
+            "type": "securestring",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Secret Key of Azure AD application"
+            }
+        },
         "b2cTenant": {
             "type": "string",
             "defaultValue": "",
@@ -104,20 +118,6 @@
             "defaultValue": "",
             "metadata": {
                 "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application"
-            }
-        },
-        "AdClientId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Client ID of Azure AD application"
-            }
-        },
-        "AdSecretKey": {
-            "type": "securestring",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Secret Key of Azure AD application"
             }
         },
         "appInsightsLocation": {
