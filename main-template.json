@@ -2,6 +2,26 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "westus2",
+            "allowedValues": [
+                "northeurope",
+                "southcentralus",
+                "southeastasia",
+                "westeurope",
+                "westus2",
+                "eastus",
+                "eastus2",
+                "australiasoutheast",
+                "centralindia",
+                "japaneast",
+                "canadacentral"
+            ],
+            "metadata": {
+                "description": "specify the region for where the complete solution will deploy"
+            }
+        },
         "solutionType": {
             "type": "string",
             "defaultValue": "",
@@ -17,9 +37,21 @@
         },
         "locationDr": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "centralus",
+            "allowedValues": [
+                "eastasia",
+                "centralus",
+                "northcentralus",
+                "brazilsouth",
+                "australiaeast",
+                "southindia",
+                "westindia",
+                "canadaeast",
+                "ukwest",
+                "koreacentral"
+            ],
             "metadata": {
-                "description": "specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region"
+                "description": "if you select core and hardening or core and hardening with monitoring specify the desaster recovery region for webapps and azure sqlserver,cosmos Db desaster recovary it should be different of resource group region"
             }
         },
         "sqlAdministratorLogin": {
@@ -132,43 +164,8 @@
                 "westus2"
             ],
             "metadata": {
-                "description": "specify the region for application insights"
+                "description": "specify the region for application insights if you select with monitoring"
             }
-        },
-        "readRegionLocation": {
-            "type": "string",
-            "defaultValue": "westus",
-            "metadata": {
-                "description": "if you select costing model 4 specify the read region of the cosmos database account the region should be different of the resource group region"
-            },
-            "allowedValues": [
-                "eastasia",
-                "southeastasia",
-                "centralus",
-                "eastus",
-                "eastus2",
-                "westus",
-                "northcentralus",
-                "southcentralus",
-                "northeurope",
-                "westeurope",
-                "japanwest",
-                "japaneast",
-                "brazilsouth",
-                "australiaeast",
-                "australiasoutheast",
-                "southindia",
-                "centralindia",
-                "westindia",
-                "canadacentral",
-                "canadaeast",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westus2",
-                "koreacentral",
-                "koreasouth"
-            ]
         },
         "omsWorkspaceRegion": {
             "type": "string",
@@ -180,7 +177,7 @@
                 "australiasoutheast"
             ],
             "metadata": {
-                "description": "specify the region for oms workspace, if you have selected solution type as without monitoring this is optional"
+                "description": "specify the region for oms workspace, if you have selected with monitoring"
             }
         },
         "omsAutomationRegion": {
@@ -201,7 +198,7 @@
                 "japaneast"
             ],
             "metadata": {
-                "description": "specify the region for oms automation account, if you have selected solution type as without monitoring this is optional"
+                "description": "specify the region for oms automation account, if you have selected solution type as with monitoring"
             }
         }
     },
@@ -221,7 +218,7 @@
             "DocDBGroupGpsCollection": "GroupGpsData",
             "DocDBSensorCollection": "SensorData",
             "DocDBOfferThroughput": "400",
-            "readRegionLocation": "[parameters('readRegionLocation')]",
+            "readRegionLocation": "[parameters('locationDr')]",
             "documentDBAuthKey": "[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('DocDBAccountName'))]"
         },
         "hostingPlan": {
@@ -369,7 +366,7 @@
         "sqldatabasename": "amssqldb",
         "subId": "[subscription().subscriptionId]",
         "rgName": "[resourceGroup().name]",
-        "location": "[resourceGroup().location]",
+        "location": "[parameters('location')]",
         "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
