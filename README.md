@@ -1,5 +1,4 @@
 
-
 # Microsoft
 
 # Asset Monitoring Solution
@@ -222,55 +221,55 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 **Follow Below steps to create Azure AD B2C Tenant:**
 
-1. To create a new B2C tenant in Azure Active Directory B2C. Login to Azure portal -> Click + to Create a resource to open the New page.
+1. To create a new B2C tenant in **Azure Active Directory B2C**. Login to **Azure portal** -> Click **+** to Create a resource to open the New page.
 
-2. In the New page search box enter Azure Active Directory B2C the result is displayed in the Everything page.
+2. In the New page **search box** enter **Azure Active Directory B2C** the result is displayed in the **Everything page**.
 
-3. Click Azure Active Directory B2C to open a create Azure Active Directory B2C page.
+3. Click **Azure Active Directory B2C** to open a create **Azure Active Directory B2C page**.
 
-4. Click Create button at the bottom to start configuring your new Azure Active Directory B2C tenant.
+4. Click **Create** button at the bottom to start configuring your new **Azure Active Directory B2C tenant**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/3.png)
 
-5.	Select Create a new Azure AD B2C Tenant.
+5.	Select **Create** a new **Azure AD B2C Tenant**.
 
-6.	Enter the Organization name, Initial Domain name in their respective fields and select the Country of Region for your Tenant from the dropdown list.
+6.	Enter the **Organization name**, **Initial Domain name** in their respective fields and select the **Country of Region** for your Tenant from the dropdown list.
 
-7.	Note down your entire Tenant name which is highlighted in the below figure, this will be used while deploying the ARM template.
+7.	Note down your entire **Tenant name** which is highlighted in the below figure, this will be used while deploying the **ARM template**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/4.png)
 
-8.	Once the B2C Tenant is created, Click Directory and Subscription filter on the top right to see your newly created tenant.
+8.	Once the B2C Tenant is created, Click **Directory and Subscription filter** on the top right to see your newly created tenant.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/5.png)
 
-9.	Switch to your created tenant by clicking on it. Type Azure in search box and select Azure AD B2C.
+9.	Switch to your created tenant by clicking on it. Type **Azure** in search box and select **Azure AD B2C**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/6.png)
 
-10.	You can see the created tenant overview as shown in the following figure.
+10.	You can see the **created tenant** overview as shown in the following figure.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/7.png)
 
-11.	Click sign-up or sign-in policies under POLICIES section. Then click +Add to add policy.
+11.	Click **sign-up or sign-in policies** under **POLICIES** section. Then click **+Add** to add policy.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/8.png)
 
-12.	Provide the name and enter the details as shown in the following figure.
+12.	Provide the **name** and enter the details as shown in the following figure.
 
-13.	Note down the policy name that you are creating, as it is used while deploying the template.
+13.	**Note** down the **policy name** that you are creating, as it is used while deploying the template.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/9.png)
 
-14.	Select all the Sign-up attributes as show in the following figure.
+14.	Select all the **Sign-up attributes** as show in the following figure.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/10.png)
 
-15.	Select all the Application claims as shown in the following figure.
+15.	Select all the **Application claims** as shown in the following figure.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/11.png)
 
-16.	After providing all the required details, click Create button.
+16.	After providing all the required details, click **Create** button.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/12.png)
 
