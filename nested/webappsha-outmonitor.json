@@ -290,7 +290,7 @@
                         "displayName": "websiteAppSettings"
                     },
                     "properties": {
-                        "restServer": "[concat('https://', parameters('restServer').apiServerName,'.azurewebsites.net/')]",
+                        "restServer": "[concat('https://', parameters('restServer').apiServerName,'.trafficmanager.net/')]",
                         "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerName,'.azurewebsites.net/')]",
                         "b2cApplicationId": "[parameters('B2CVariables').b2cClientId]",
                         "tenantName": "[parameters('B2CVariables').b2cTenant]",
