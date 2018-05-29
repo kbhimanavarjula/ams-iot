@@ -70,7 +70,7 @@
                 "monitorConfig": {
                     "protocol": "https",
                     "port": "443",
-                    "path": "/"
+                    "path": "/index.html"
                 },
                 "endpoints": [
                     {
