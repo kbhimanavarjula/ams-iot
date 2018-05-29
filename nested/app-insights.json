@@ -4,9 +4,6 @@
     "parameters": {
         "appInsights": {
             "type": "object"
-        },
-        "appInsightsLocation": {
-            "type": "string"
         }
     },
     "variables": {},
@@ -15,7 +12,7 @@
             "apiVersion": "[parameters('appInsights').appInsightsApiVersion]",
             "name": "[parameters('appInsights').appInsightResourceName]",
             "type": "Microsoft.Insights/components",
-            "location": "[parameters('appInsightsLocation')]",
+            "location": "[parameters('appInsights').'appInsightsLocation')]",
             "dependsOn": [],
             "tags": {
                 "displayName": "AppInsightsComponent"
