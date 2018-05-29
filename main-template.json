@@ -151,6 +151,21 @@
                 "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application"
             }
         },
+        "appInsightsLocation": {
+            "type": "string",
+            "defaultValue": "westus2",
+            "allowedValues": [
+                "eastus",
+                "northeurope",
+                "southcentralus",
+                "southeastasia",
+                "westeurope",
+                "westus2"
+            ],
+            "metadata": {
+                "description": "specify the region for application insights"
+            }
+        },
         "omsWorkspaceRegion": {
             "type": "string",
             "defaultValue": "eastus",
@@ -253,6 +268,7 @@
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
+            "appInsightsLocation": "[parameters('appInsightsLocation')]",
             "appInsightsApiVersion": "2014-04-01",
             "appInsightResourceName": "[concat('AppInsights', uniquestring(resourceGroup().id))]"
         },
