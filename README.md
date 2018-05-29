@@ -1,5 +1,4 @@
 
-
 # Microsoft
 
 # Asset Monitoring Solution
@@ -55,27 +54,34 @@
 
         - [8.4.6 Configuring the flow in web app](#846-configuring-the-flow-in-web-app)
 
-- [13 Step 5 Running the gateway middleware](#13-step-5-running-the-gateway-middleware)
-    - [13.1 Validating data in iot hub and Node server](#131-validating-data-in-iot-hub-and-node-server)
-- [14 Step 6 validating the data in web app](#14-step-6-validating-the-data-in-web-app)
-- [15 Step 7 Creating and validating the rule in Web app](#15-step-7-creating-and-validating-the-rule-in-web-app)
-- [16 Step 8 Configuring the Indoor map in web app](#16-step-8-configuring-the-indoor-map-in-web-app)
-    - [16.1 Adding gateway rule](#161-adding-sensor)
-    - [16.2 Positioning the gateway on the layout](#162-positioning-the-gateway-on-the-layout)
-    - [16.3 Indoor alert notification](#163-indoor-alert-notification)
-    - [16.4 Alerts checking](#164-alerts-checking)
-    - [16.5 Asset Status](#165-asset-status)
-- [17 Monitoring Componenets](#17-monitoring-components)
-    - [17.1 OMS Log Analytics](#171-oms-log-analytics)
-    - [17.2 Application Insights](#172-application-insights)
-- [18 Hardening Components](#18-hardening-components)
-    - [18.1 Geo Replication](#181-geo-replication)
-          
-	  - [18.1.1 Setting up Geo Replication for Cosmos DB](#1811-setting-up-geo-replication-for-cosmos-db)
-         
-	  - [18.1.2 Setting up Geo Replication for SQL DB](#1812-setting-up-geo-replication-for-sql-db)
-	
+   - [8.5 Step 5 Running the gateway middleware](#85-step-5-running-the-gateway-middleware)
 
+        - [8.5.1 Validating data in iot hub and Node server](#851-validating-data-in-iot-hub-and-node-server)
+
+   - [8.6 Step 6 validating the data in web app](#86-step-6-validating-the-data-in-web-app)
+   - [8.7 Step 7 Creating and validating the rule in Web app](#87-step-7-creating-and-validating-the-rule-in-web-app)
+   - [8.8 Step 8 Configuring the Indoor map in web app](#88-step-8-configuring-the-indoor-map-in-web-app)
+
+        - [8.8.1 Adding gateway rule](#881-adding-sensor)
+
+        - [8.8.2 Positioning the gateway on the layout](#882-positioning-the-gateway-on-the-layout)
+
+        - [8.8.3 Indoor alert notification](#883-indoor-alert-notification)
+
+        - [8.8.4 Alerts checking](#884-alerts-checking)
+
+        - [8.8.5 Asset Status](#885-asset-status)
+
+- [9 Monitoring Componenets](#9-monitoring-components)
+    - [9.1 OMS Log Analytics](#91-oms-log-analytics)
+    - [9.2 Application Insights](#92-application-insights)
+- [10 Hardening Components](#10-hardening-components)
+    - [10.1 Geo Replication](#101-geo-replication)
+          
+        - [10.1.1 Setting up Geo Replication for Cosmos DB](#1011-setting-up-geo-replication-for-cosmos-db)
+         
+	    - [10.1.2 Setting up Geo Replication for SQL DB](#1012-setting-up-geo-replication-for-sql-db)
+	
 ## 1 About Asset Monitoring Solution
 
 Asset Monitoring and Tracking Solution is a complete smart inventory management tool. The solution provides a web dashboard & a mobile application to Monitor, Locate and Report all the remote assets so that they are completely visible 24x7.
