@@ -1,5 +1,4 @@
 
-
 # Microsoft
 
 # Asset Monitoring Solution
@@ -734,7 +733,7 @@ https://zadig.akeo.ie/
 
 https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
 
-## 9 Step 1: Run the Zadig file
+## 8.1 Step 1: Run the Zadig file
 
 1. Connect the BLE dongle to your system and enable the Bluetooth.
 
@@ -762,13 +761,13 @@ https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/77.png)
 
-## 10 Step 2: Setup GatewayMiddleware package
+## 8.2 Step 2: Setup GatewayMiddleware package
 
 Configure the Gateway from the below document.
 
-https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the-GatewayMiddleware-Package.pdf
+**https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the-GatewayMiddleware-Package-29-05-18.pdf**
 
-## 11 Step 3: Configuring WEBAPP
+## 8.3 Step 3: Configuring WEBAPP
 
 1. To start the work flow of AMS take the **web app** or **Traffic manger URL** through portal.azure.com from the deployed resource group. 
 
@@ -802,7 +801,7 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/84.png)
 
-## 12 Step 4: Adding the pre-requisites in the web app.
+## 8.4 Step 4: Adding the pre-requisites in the web app.
 
 1. Go to **inventory** option in web app.
 
@@ -812,7 +811,7 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/86.png)
 
-### 12.1 Adding Gateway
+### 8.4.1 Adding Gateway
 
 3. Now click on **+Add New** to add a new gateway.
 
@@ -836,7 +835,7 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/91.png)
 
-### 12.2 Adding Sensor
+### 8.4.2 Adding Sensor
 
 9. Click **+Add New** to add a new sensor.
 
@@ -866,7 +865,7 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/96.png)
 
-### 12.3 Adding Asset to Web App using Mobile Application
+### 8.4.3 Adding Asset to Web App using Mobile Application
 
 1. Open the mobile app named as **ASTRA** and enter the **rest server URL**.
 
@@ -918,7 +917,7 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 15. Generate **Barcode** by entering any text in the text box and scan the **Barcode** in **ASTRA** app in your mobile
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/106.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/barcode.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/107.png)
 
@@ -934,7 +933,7 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/110.png)
 
-### 12.4 Adding Assets to a Group
+### 8.4.4 Adding Assets to a Group
 
 19. Now we need to **add** the asset to a **group**. For that you need to check the asset so that **Add Group** option will be enable.
 
@@ -952,7 +951,7 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/114.png)
 
-### 12.5 Cofiguring the PoweBi Desktop App and Publishing
+### 8.4.5 Cofiguring the PoweBi Desktop App and Publishing
 
 23. Go to **Configurations** and add the following information.
 
@@ -1071,30 +1070,31 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/136.png)
 
-### 12.6 Configuring the flow in web app
+### 8.4.6 Configuring the flow in web app
 
 55. Go to web app and click on **configuration** -> choose **powerbi credentials**
 
 56. Enter the values of **powerbi client id, Secret key, username and password (Azure portal credentials).**
+
 57. Click **submit**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/137.png)
 
-58. Here you can see the pop up saying configuration added/updated.
+58.	A message configuration added/updated is displayed on the bottom right corner as shown in the following figure.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/138.png)
 
-59. Now open **powerbi url** and paste the published url id in the place of report id.
+59. Now open **powerbi url** and paste the published url id in the place of report id which you have noted down in **step 54** above..
 
-Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d9cf94eb6b8
+**Example**: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d9cf94eb6b8
 
-60. click **submit**. There you can see the successful adding of URL.
+60. click **submit**. A message **URL Updated** is displayed on the bottom right corner as shown in the following figure..
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/139.png)
 
-## 13 Step 5: Running the gateway middleware
+## 8.5 Step 5: Running the gateway middleware
 
-1. Go to **Portal** -> find the **Resource group name** -> **Deployments** -> **Microsoft.Template** -> **Outputs**.
+1. Go to **azure Portal** -> find the **Resource group name** -> **Deployments** -> **Microsoft.Template** -> **Outputs**.
 
 2. **Copy** the **API Server URL**.
 
@@ -1128,7 +1128,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/147.png)
 
-### 13.1 Validating data in iot hub and Node server
+### 8.5.1 Validating data in iot hub and Node server
 
 10. Go to Azure Portal and click **IoT Hub** as follows.
 
@@ -1152,7 +1152,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/150.png)
 
-## 14 Step 6: validating the data in web app
+## 8.6 Step 6: validating the data in web app
 
 1. To see the live data in web app go to **reports** -> select group followed by sensor value.
 
@@ -1186,7 +1186,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/161.png)
 
-## 15 Step 7: Creating and validating the rule in Web app
+## 8.7 Step 7: Creating and validating the rule in Web app
 
 1. After viewing the reports create a **rule** based on some threshold conditions.
 
@@ -1200,7 +1200,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 4. You can set the values to some **threshold level**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/r1.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/R1.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/r2.png)
 
@@ -1231,7 +1231,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/173.png)
 
 
-## 16 Step 8: Configuring the Indoor map in web app
+## 8.8 Step 8: Configuring the Indoor map in web app
 
 1. Go to **configuration**,select **indoor map Configuration**.
 
@@ -1247,13 +1247,13 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/179.png)
 
-### 16.1 Adding gateway rule
+### 8.8.1 Adding gateway rule
 
 4. Now you need to select the **gateway id** in the indoor map location.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/180.png)
 
-### 16.2 Positioning the gateway on the layout
+### 8.8.2 Positioning the gateway on the layout
 
 5. Now **position** the gateway at some location in the map and click **update.**
 
@@ -1263,7 +1263,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/182.png)
 
-### 16.3 Indoor alert notification	
+### 8.8.3 Indoor alert notification	
 
 7. Now Go to **dashboard** -> click on the **flip icon** as shown in the below screen shot.
 
@@ -1277,7 +1277,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/185.png)
 
-### 16.4 Alerts checking
+### 8.8.4 Alerts checking
 
 10. If any rule get **bleached** you found the alert as like above screen shot.
 
@@ -1285,7 +1285,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/186.png)
 
-### 16.5 Asset Status
+### 8.8.5 Asset Status
 
 12. Finally, you can see the **status** of the asset by using **mobile application**.
 
@@ -1301,9 +1301,9 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/189.png)
 
-## 17 Monitoring Components 
+## 9 Monitoring Components 
 
-### 17.1 OMS Log Analytics
+### 9.1 OMS Log Analytics
 
 1. Click on OMS Workspace in Resource Group to view OMS Overview Section.
 
@@ -1407,7 +1407,7 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/211.png)
 
-### 17.2 Application Insights
+### 9.2 Application Insights
 
 1. Go to Azure portal, select your Resource Group and select Application Insights as shown below.
 
@@ -1472,11 +1472,11 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/226.png)
 
 
-## 18 Hardening Components
+## 10 Hardening Components
 
-### 18.1 Geo Replication
+### 10.1 Geo Replication
 
-#### 18.1.1 Setting up Geo-Replication for Cosmos DB
+#### 10.1.1 Setting up Geo-Replication for Cosmos DB
 
 Azure Cosmos DB is a globally distributed, low-latency, high throughput databases services. Azure Cosmos DB provides global distribution, which means you can scale and distribute it across different Azure regions. This enables you to have your data replicated over as many as datacenter per your need, moreover control and access your replicated data seamlessly. Setting up the Geo-Replication is very easy and can be done in a couple of clicks from the Azure Portal.
 
@@ -1516,7 +1516,7 @@ Follow these steps to set up the Geo-Replication.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/233.png)
 
-#### 18.1.2 Setting up Geo-Replication for SQL DB
+#### 10.1.2 Setting up Geo-Replication for SQL DB
 
 Azure SQL Database auto-failover groups (in-preview) is a SQL Database feature designed to automatically manage geo-replication relationship, connectivity, and failover at scale. With it, the customers gain the ability to automatically recover multiple related databases in the secondary region after catastrophic regional failures or other unplanned events that result in full or partial loss of the SQL Database service’s availability in the primary region.
 
