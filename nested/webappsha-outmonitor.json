@@ -109,7 +109,7 @@
                         "displayName": "RESTServerMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('restServer').RESTServerPackageURI1]"
+                        "packageUri": "[parameters('restServer').RESTServerPackageURI2]"
                     }
                 },
                 {
@@ -254,7 +254,7 @@
                         "displayName": "WebAppMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('webApp').WebAppPackageURI1]"
+                        "packageUri": "[parameters('webApp').WebAppPackageURI2]"
                     }
                 },
                 {
