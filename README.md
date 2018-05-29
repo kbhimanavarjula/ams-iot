@@ -20,9 +20,9 @@
 - [5 Prerequisites for Deploying ARM Template](#5-prerequisites-for-deploying-arm-template)
    - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
     	    
-        - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2-or-3)
+       - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2-or-3)
 	    
-	    - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-cpplication-in-czure-b2C-tenant-for-deployment-cost-type-4)
+	   - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-application-in-azure-b2C-tenant-for-deployment-cost-type-4)
 
     - [5.2 Power BI Configuration](#52-power-bi-configuration)
     - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
@@ -42,35 +42,35 @@
    - [8.3 Step 3 Configuring WEBAPP](#83-step-3-configuring-webapp)
    - [8.4 Step 4 Adding the pre-requisites in the web app](#84-step-4-adding-the-pre-requisites-in-the-web-app)
 
-        - [8.4.1 Adding Gateway](#841-adding-gateway)
+       - [8.4.1 Adding Gateway](#841-adding-gateway)
 
-        - [8.4.2 Adding Sensor](#842-adding-sensor)
+       - [8.4.2 Adding Sensor](#842-adding-sensor)
 
-        - [8.4.3 Adding Asset to Web App using Mobile Application](#843-adding-asset-to-web-app-using-mobile-application)
+       - [8.4.3 Adding Asset to Web App using Mobile Application](#843-adding-asset-to-web-app-using-mobile-application)
 
-        - [8.4.4 Adding Assets to a Group](#844-adding-assets-to-a-group)
+       - [8.4.4 Adding Assets to a Group](#844-adding-assets-to-a-group)
 
-        - [8.4.5 Cofiguring the PoweBi Desktop App and Publishing](#845-cofiguring-the-powebi-desktop-app-and-publishing)
+       - [8.4.5 Cofiguring the PoweBi Desktop App and Publishing](#845-cofiguring-the-powebi-desktop-app-and-publishing)
 
-        - [8.4.6 Configuring the flow in web app](#846-configuring-the-flow-in-web-app)
+       - [8.4.6 Configuring the flow in web app](#846-configuring-the-flow-in-web-app)
 
    - [8.5 Step 5 Running the gateway middleware](#85-step-5-running-the-gateway-middleware)
 
-        - [8.5.1 Validating data in iot hub and Node server](#851-validating-data-in-iot-hub-and-node-server)
+       - [8.5.1 Validating data in iot hub and Node server](#851-validating-data-in-iot-hub-and-node-server)
 
    - [8.6 Step 6 validating the data in web app](#86-step-6-validating-the-data-in-web-app)
    - [8.7 Step 7 Creating and validating the rule in Web app](#87-step-7-creating-and-validating-the-rule-in-web-app)
    - [8.8 Step 8 Configuring the Indoor map in web app](#88-step-8-configuring-the-indoor-map-in-web-app)
 
-        - [8.8.1 Adding gateway rule](#881-adding-sensor)
+       - [8.8.1 Adding gateway rule](#881-adding-sensor)
 
-        - [8.8.2 Positioning the gateway on the layout](#882-positioning-the-gateway-on-the-layout)
+       - [8.8.2 Positioning the gateway on the layout](#882-positioning-the-gateway-on-the-layout)
 
-        - [8.8.3 Indoor alert notification](#883-indoor-alert-notification)
+       - [8.8.3 Indoor alert notification](#883-indoor-alert-notification)
 
-        - [8.8.4 Alerts checking](#884-alerts-checking)
+       - [8.8.4 Alerts checking](#884-alerts-checking)
 
-        - [8.8.5 Asset Status](#885-asset-status)
+       - [8.8.5 Asset Status](#885-asset-status)
 
 - [9 Monitoring Componenets](#9-monitoring-components)
     - [9.1 OMS Log Analytics](#91-oms-log-analytics)
@@ -1310,7 +1310,7 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 14. Now **scan** the **barcode** of the asset as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/106.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/barcode.png)
 
 15. Then the **status** of asset can be appeared as follows.
 
