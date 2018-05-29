@@ -111,7 +111,7 @@
                         "displayName": "RESTServerMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('restServer').RESTServerPackageURI1]"
+                        "packageUri": "[parameters('restServer').RESTServerPackageURI2]"
                     }
                 },
                 {
@@ -188,7 +188,7 @@
                         "eventHub:ConnectionString": "[parameters('eventHub').eventhubConnectionString]",
                         "b2c:AadInstance": "[parameters('B2CVariables').b2cAadInstance]",
                         "b2c:Tenant": "[parameters('B2CVariables').b2cTenant]",
-                        "b2c:ClientId": "[parameters('B2CVariables').b2cClientIdDr]",
+                        "b2c:ClientId": "[parameters('B2CVariables').b2cClientId]",
                         "b2c:SignUpInPolicyId": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
                         "b2c:MobileTokenUrl": "[parameters('B2CVariables').MobileTokenURL]",
                         "b2c:MobileInstanceUrl": "[parameters('B2CVariables').MobileInstanceUrl]",
@@ -256,7 +256,7 @@
                         "displayName": "WebAppMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('webApp').WebAppPackageURI1]"
+                        "packageUri": "[parameters('webApp').WebAppPackageURI2]"
                     }
                 },
                 {
@@ -292,9 +292,9 @@
                         "displayName": "websiteAppSettings"
                     },
                     "properties": {
-                        "restServer": "[concat('https://', parameters('restServer').apiServerNameDr,'.azurewebsites.net/')]",
+                        "restServer": "[concat('https://', parameters('restServer').apiServerNameDr,'.trafficmanager.net/')]",
                         "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerNameDr,'.azurewebsites.net/')]",
-                        "b2cApplicationId": "[parameters('B2CVariables').b2cClientIdDr]",
+                        "b2cApplicationId": "[parameters('B2CVariables').b2cClientId]",
                         "tenantName": "[parameters('B2CVariables').b2cTenant]",
                         "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
                         "redirect_uri": "[concat(parameters('webApp').websiteFullAddress1,'#/dashboard')]",
