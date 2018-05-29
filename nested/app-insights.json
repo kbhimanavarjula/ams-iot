@@ -12,7 +12,7 @@
             "apiVersion": "[parameters('appInsights').appInsightsApiVersion]",
             "name": "[parameters('appInsights').appInsightResourceName]",
             "type": "Microsoft.Insights/components",
-            "location": "[parameters('appInsights').appInsightsLocation)]",
+            "location": "[parameters('appInsights').appInsightsLocation]",
             "dependsOn": [],
             "tags": {
                 "displayName": "AppInsightsComponent"
