@@ -204,7 +204,7 @@
             "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins511.zip",
             "RESTServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
-            "RESTServerPackageURI12": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/RestServer_TM.zip",
+            "RESTServerPackageURI2": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/RestServer_TM.zip",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
             "alertJobTable": "Alerts",
