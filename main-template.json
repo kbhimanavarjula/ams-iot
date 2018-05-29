@@ -123,13 +123,6 @@
                 "description": "Describes the client Id registered with B2C Directory"
             }
         },
-        "b2cClientIdDr": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "if you select costing model 4 specify client id describes the client Id registered with B2C Directory the disaster recovery webapplication"
-            }
-        },
         "b2cSignUpSignInPolicyId": {
             "type": "string",
             "defaultValue": "",
@@ -199,6 +192,7 @@
             "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/webapp_appins511.zip",
             "WebAppPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
+            "WebAppPackageURI2": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/WebApp_TM.zip",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
             "websiteFullAddress1": "[concat('https://',parameters('webSiteName'),'.trafficmanager.net/')]"
         },
@@ -210,6 +204,7 @@
             "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins511.zip",
             "RESTServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
+            "RESTServerPackageURI12": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/RestServer_TM.zip",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
             "alertJobTable": "Alerts",
@@ -294,7 +289,8 @@
         "trafficManagerSettings": {
             "trafficManagerApiVersion": "2017-05-01",
             "trafficManagerName": "[parameters('webSiteName')]",
-            "trafficRoutingMethod": "Priority"
+            "trafficRoutingMethod": "Priority",
+            "trafficManagerName1": "[concat('apiserverams',variables('suffix'))]"
         },
         "B2CVariables": {
             "b2cAadInstance": "https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}",
@@ -302,7 +298,6 @@
             "MobileInstanceUrl": "https://login.microsoftonline.com/{0}/oauth2/v2.0/authorize?p={1}&amp;client_id={2}&amp;response_type=code&amp;redirect_uri={3}&amp;response_mode=query&amp;scope=openid&amp;state=arbitrary_data_you_can_receive_in_the_response",
             "b2cTenant": "[parameters('b2cTenant')]",
             "b2cClientId": "[parameters('b2cClientId')]",
-            "b2cClientIdDr": "[parameters('b2cClientIdDr')]",
             "b2cSignUpSignInPolicyId": "[parameters('b2cSignUpSignInPolicyId')]",
             "b2cNativeRedirectURL": "[parameters('b2cNativeRedirectURL')]",
             "b2cNativeRedirectURLDr": "[parameters('b2cNativeRedirectURLDr')]",
@@ -760,7 +755,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeIjvPqarbdnf5U242IX8Y3aZDe6tks5bFQ3HwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeHGyrMm75g7KnozZRXiVc7cnJov0ks5bFnL7wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -878,7 +873,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeN_1jd_EABZmddDO0gbBXDaBWjKKks5bFQ3DwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeCvvg6RrfCrPPv_zPVZxfcvNz5yAks5bFnL_wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -995,7 +990,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/traffic-manager.json','?token=AYpAePqWyffGoMRDTfmnlKM1_Is1Fy9Xks5bFQ25wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/traffic-manager.json','?token=AYpAeCWAwKYkh46o4z6whS8J20sb6Cp6ks5bFnL9wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1004,6 +999,9 @@
                     },
                     "trafficManagerSettings": {
                         "value": "[variables('trafficManagerSettings')]"
+                    },
+                    "restserver": {
+                        "value": "[variables('restServer')]"
                     }
                 }
             }
