@@ -1,4 +1,5 @@
 
+
 # Microsoft
 
 # Asset Monitoring Solution
@@ -9,7 +10,7 @@
 - [2 Architecture](#2-architecture)
    - [2.1 Data Flow Architecture Diagram](#21-data-flow-architecture-diagram)
 - [3 Azure Services](#3-azure-services)
-    - [3.1 Azure Blob](#31-azure-blob)
+   - [3.1 Azure Blob](#31-azure-blob)
    - [3.2 Azure IoT HUB](#32-azure-iot-hub)
    - [3.3 Azure Web App](#33-azure-web-app)
    - [3.4 Azure Web Job](#34-azure-web-job)
@@ -18,34 +19,42 @@
    - [3.7 Azure Event hub](#37-azure-event-hub)
 - [4 Deployment Costs](#4-deployment-costs)
 - [5 Prerequisites for Deploying ARM Template](#5-prerequisites-for-deploying-arm-template)
-    - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
+   - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
     	    
-	    - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2-or-3)
+        - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2-or-3)
 	    
 	    - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-cpplication-in-czure-b2C-tenant-for-deployment-cost-type-4)
-   - [5.2 Power BI Configuration](#52-power-bi-configuration)
-   - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
+
+    - [5.2 Power BI Configuration](#52-power-bi-configuration)
+    - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
 	   
 	   - [5.3.1 Get application ID and authentication key](#531-get-application-id-and-authentication-key)
 	   
 	   - [5.3.2 Get tenant ID](#532-get-tenant-id)
 	  
-	  - [5.3.3 Assign application to role](#533-assign-application-to-role)
+	   - [5.3.3 Assign application to role](#533-assign-application-to-role)
 	  
 - [6 ARM Template Input Parameters](#6-arm-template-input-parameters)
 - [7 Getting Started](#7-getting-started)
-    - [7.1 Deploying the ARM Template](#71-deploying-the-arm-template)
+   - [7.1 Deploying the ARM Template](#71-deploying-the-arm-template)
 - [8 Prerequisites for Gateway-Middleware](#8-prerequisites-for-gateway-middleware)
-- [9 Step 1 Run the Zadig file](#9-step-1-run-the-zadig-file)
-- [10 Step 2 Setup GatewayMiddleware package](#10-step-2-setup-gatewaymiddleware-package)
-- [11 Step 3 Configuring WEBAPP](#11-step-3-configuring-webapp)
-- [12 Step 4 Adding the pre-requisites in the web app](#12-step-4-adding-the-pre-requisites-in-the-web-app)
-    - [12.1 Adding Gateway](#121-adding-gateway)
-    - [12.2 Adding Sensor](#122-adding-sensor)
-    - [12.3 Adding Asset to Web App using Mobile Application](#123-adding-asset-to-web-app-using-mobile-application)
-    - [12.4 Adding Assets to a Group](#124-adding-assets-to-a-group)
-    - [12.5 Cofiguring the PoweBi Desktop App and Publishing](#125-cofiguring-the-powebi-desktop-app-and-publishing)
-    - [12.6 Configuring the flow in web app](#126-configuring-the-flow-in-web-app)
+   - [8.1 Step 1 Run the Zadig file](#81-step-1-run-the-zadig-file)
+   - [8.2 Step 2 Setup GatewayMiddleware package](#82-step-2-setup-gatewaymiddleware-package)
+   - [8.3 Step 3 Configuring WEBAPP](#83-step-3-configuring-webapp)
+   - [8.4 Step 4 Adding the pre-requisites in the web app](#84-step-4-adding-the-pre-requisites-in-the-web-app)
+
+        - [8.4.1 Adding Gateway](#841-adding-gateway)
+
+        - [8.4.2 Adding Sensor](#842-adding-sensor)
+
+        - [8.4.3 Adding Asset to Web App using Mobile Application](#843-adding-asset-to-web-app-using-mobile-application)
+
+        - [8.4.4 Adding Assets to a Group](#844-adding-assets-to-a-group)
+
+        - [8.4.5 Cofiguring the PoweBi Desktop App and Publishing](#845-cofiguring-the-powebi-desktop-app-and-publishing)
+
+        - [8.4.6 Configuring the flow in web app](#846-configuring-the-flow-in-web-app)
+
 - [13 Step 5 Running the gateway middleware](#13-step-5-running-the-gateway-middleware)
     - [13.1 Validating data in iot hub and Node server](#131-validating-data-in-iot-hub-and-node-server)
 - [14 Step 6 validating the data in web app](#14-step-6-validating-the-data-in-web-app)
