@@ -14,7 +14,7 @@
                 "eastus",
                 "eastus2",
                 "australiasoutheast",
-                "japaneast",
+                "centralus",
                 "canadacentral"
             ],
             "metadata": {
@@ -150,56 +150,7 @@
             "metadata": {
                 "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application"
             }
-        },
-        "appInsightsLocation": {
-            "type": "string",
-            "defaultValue": "westus2",
-            "allowedValues": [
-                "eastus",
-                "northeurope",
-                "southcentralus",
-                "southeastasia",
-                "westeurope",
-                "westus2"
-            ],
-            "metadata": {
-                "description": "specify the region for application insights"
-            }
-        },
-        "omsWorkspaceRegion": {
-            "type": "string",
-            "defaultValue": "eastus",
-            "allowedValues": [
-                "eastus",
-                "westeurope",
-                "southeastasia",
-                "australiasoutheast"
-            ],
-            "metadata": {
-                "description": "specify the region for oms workspace, if you have selected with monitoring"
-            }
-        },
-        "omsAutomationRegion": {
-            "type": "string",
-            "defaultValue": "eastus2",
-            "allowedValues": [
-                "westeurope",
-                "southeastasia",
-                "eastus2",
-                "southcentralus",
-                "japaneast",
-                "southeastasia",
-                "southcentralus",
-                "northeurope",
-                "canadacentral",
-                "australiasoutheast",
-                "centralindia",
-                "japaneast"
-            ],
-            "metadata": {
-                "description": "specify the region for oms automation account, if you have selected solution type as with monitoring"
-            }
-        }
+        }  
     },
     "variables": {
         "webJobStorage": {
@@ -209,6 +160,17 @@
             "webjobStorageType": "Standard_LRS",
             "storageApiVersion": "2015-06-15"
         },
+        "selectedRegion": "[parameters('location')]",
+        "southeastasia": "southeastasia",
+        "westeurope": "westeurope",
+        "eastus": "eastus",
+        "eastus2": "eastus",
+        "westus2": "eastus",
+        "australiasoutheast": "eastus",
+        "centralus": "eastus",
+        "canadacentral": "eastus",
+        "northeurope": "westeurope",
+        "southcentralus": "eastus", 
         "documentDB": {
             "location": "[variables('location')]",
             "DocDBAccountName": "[variables('DocDBAccountName')]",
@@ -268,7 +230,7 @@
             "BlobconnectionString": "[variables('BlobconnectionString')]"
         },
         "appInsights": {
-            "appInsightsLocation": "[parameters('appInsightsLocation')]",
+            "appInsightsLocation": "[variables(variables('selectedRegion'))]",
             "appInsightsApiVersion": "2014-04-01",
             "appInsightResourceName": "[concat('AppInsights', uniquestring(resourceGroup().id))]"
         },
@@ -300,8 +262,7 @@
         },
         "omsSettings": {
             "omsWorkspaceName": "[concat('omswsams', variables('suffix'))]",
-            "omsWorkspaceRegion": "[parameters('omsWorkspaceRegion')]",
-            "omsAutomationRegion": "[parameters('omsAutomationRegion')]",
+            "omsWorkspaceRegion": "[variables(variables('selectedRegion'))]",
             "omsAutomationAccountName": "[concat('autoupdateams', variables('suffix'))]",
             "dataRetention": 7,
             "omsApiVersion": "2015-03-20",
