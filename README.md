@@ -222,53 +222,63 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 **Follow Below steps to create Azure AD B2C Tenant:**
 
-1. Create a new B2C tenant in **Azure Active Directory B2C**. You'll be shown a page with the information on Azure Active Directory B2C. Click Create at the bottom to start configuring your new Azure Active Directory B2C tenant.
+1. To create a new B2C tenant in Azure Active Directory B2C. Login to Azure portal -> Click + to Create a resource to open the New page.
+
+2. In the New page search box enter Azure Active Directory B2C the result is displayed in the Everything page.
+
+3. Click Azure Active Directory B2C to open a create Azure Active Directory B2C page.
+
+4. Click Create button at the bottom to start configuring your new Azure Active Directory B2C tenant.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/3.png)
 
-2. Choose the **Organization name, Initial Domain name** and **Country of Region** for your Tenant.
+5.	Select Create a new Azure AD B2C Tenant.
 
-3. Note down your entire **Tenant name** which is highlighted in the below screenshot, this will be used while deploying the **ARM template.**
+6.	Enter the Organization name, Initial Domain name in their respective fields and select the Country of Region for your Tenant from the dropdown list.
+
+7.	Note down your entire Tenant name which is highlighted in the below figure, this will be used while deploying the ARM template.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/4.png)
 
-4. Once the B2C Tenant is created, Click **Directory and Subscription filter** on the top right to see your newly created tenant.
+8.	Once the B2C Tenant is created, Click Directory and Subscription filter on the top right to see your newly created tenant.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/5.png)
 
-5. Switch to your created tenant by clicking on it. Type **Azure** in search column and select **Azure AD B2C**.
+9.	Switch to your created tenant by clicking on it. Type Azure in search box and select Azure AD B2C.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/6.png)
 
-6. You can see the created tenant overview like below.
+10.	You can see the created tenant overview as shown in the following figure.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/7.png)
 
-7. Click on **sign-up or sign-in policies**. Then click on **Add** to add policy.
+11.	Click sign-up or sign-in policies under POLICIES section. Then click +Add to add policy.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/8.png)
 
-8. Provide the **name** and enter the details as shown below.
+12.	Provide the name and enter the details as shown in the following figure.
+
+13.	Note down the policy name that you are creating, as it is used while deploying the template.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/9.png)
 
-9. Select all the **Sign-up attributes** as show below.
-
-10. Note down the policy name that you are creating now, this will be used while deploying the template.
+14.	Select all the Sign-up attributes as show in the following figure.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/10.png)
 
-11. Select all the **Application claims** as shown below.
+15.	Select all the Application claims as shown in the following figure.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/11.png)
 
-12. After filling all the required details, click on **Create**.
+16.	After providing all the required details, click Create button.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/12.png)
 
-13. Once the deployment is complete, the below screen will appear with sign-up details.
+17.	Once the deployment is complete, the sign-up details are displayed as shown in the following figure.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/13.png)
+
+**Note**:
 
 * If you want to **Deployment Cost Type 1 or 2 or 3**, follow the section 5.1.1. to create the Web Application. 
 
