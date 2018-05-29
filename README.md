@@ -469,11 +469,11 @@ h. The **Client id and secret key** will be generated. Note down these keys loca
 
 * Sign in and read user profile
 
-After that click on **Save**
+6. After that click on **Save**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/45.png)
 
-6. Enable the following access under delegated permissions in Power BI access.
+7. Enable the following access under delegated permissions in Power BI access.
 
 * View all datasets
 
@@ -493,11 +493,11 @@ After that click on **Save**
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/46.png)
 
-7. The user can see the number of permissions which have been added.
+8. The user can see the number of permissions which have been added.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/47.png)
 
-8. Click on **Grant Permissions**, then click **Yes**.
+9. Click on **Grant Permissions**, then click **Yes**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/48.png)
 
@@ -587,9 +587,9 @@ To access resources in your subscription, you must assign the application to a r
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/61.png)
 
-5. Select **Contributor** role to assign to the application.
+5. Select **Contributor** role from dropdown list to assign to the application.
 
-6. Search for your application, and select it.
+6. Search for your application by entering the name of the application in the Name field and select it from the searched results. 
 
 7. Select **Save** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
 
