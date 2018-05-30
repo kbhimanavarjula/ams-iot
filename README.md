@@ -199,22 +199,22 @@ per month. Region: East US)                       | PAYG                      
 | **Hardining(Geo-Replication+traffic manager)**       | TM:  3 * 2 External EndPoints US$ 0.54, Region: East US                               | PAYG                              | $3.24  
 |     |                                                        | **Estimated monthly cost**                              | **US$ 350.99** 
 
-**Deployment Costs for Type4**
+**Deployment Costs for Core Solution with Monitoring and Hardening**
 
-| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**        | **Comments**                                                                                                             
-| -------------                                   | -------------                                                                                               | --------------------          | ------------           | -------------                                                                                                  
-| **App Service Plan(4 web apps + 2 web job)**    | S1 * 2 (1 core,1.75 GB RAM, 50GB Storage)                                                                   | PAYG                          | $146.00       | One SQL Database in 1 region and another in DR Region, Active geo-replication creates up to four online(Readable) secondary active geo-replication databases are priced at 100% of primary databas prices. The  cost of geo-replication traffic between the primary and the online secondary is included in the cost of the online secondary. Active geo-replication is available for all database tiers. 
-| **SQL Database**                                | S0 (Standard tier), 10DTU, 250GB storage                                                                    | PAYG                          | $29.44     |
-| **IoT HUB**                                     | S1, Unlimited devices, 1 Unit-$25 400,000 messages/day                                                      | PAYG                          | $25.00     |
-| **Log Analytics (Optional)**                    | Standalone. 1GB * $2.30  Region East US                                                                     | PAYG                          | $2.30    |
-| **Application Insights (Optional)**             | Basic, 1GB * $2.30 Region: East US                                                                          | PAYG                          | $2.30     |
-| **Storage Account**                             | Block Blob Storage, General Purpose V1, LRS Redundancy,100 GB Capacity                                      | PAYG                          | $2.44    |
-| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83        |
-| **Cosmos DB**                                   | Standard, throuput 800 RU/s (Request Units per second) 8 x100 Rus(Throughput)- $46.72 1 GB storage – $1.00  | PAYG                          | $47.72      |
-| **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * $80.30 Region: East US                                                | PAYG                          | $80.30        |
-| **Traffic Manager**                             | 3 Profile 1 * $1.26                                                                                         | PAYG                          | $1.26        |
-| **Total Cost**                                  |                                     |                                                         | $375.99                            |
-| **Total Cost Including Optional Components**    |                                                                 |                           | $380.59                              |
+| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                                     
+| -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
+| **App Service Plan**    | S1:2 Cores(s), 3.5 GB RAM, 50GB Storage, US$ 0.200, 1 Instance                                                                    | PAYG                          | $146.00       
+| **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                                      | PAYG                          | $4.90     
+| **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.                 | PAYG                          | $25.00  
+| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83   
+| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83 
+| **Cosmos DB**                                   | Standard, storage: 4 GB * US$ 0.250 per GB/month, Rus reserved: 8x100 RU/sec * US$ 0.008 per hous   | PAYG                          | $47.72 
+| **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                 | PAYG                          | $80.30
+| **Hardining(Geo-Replication+traffic manager)**         | TM:  3 * 2 External EndPoints US$ 0.54, Region: East US                              | PAYG                          | $3.24 
+| **Application Insights (Optional)**             | Basic, 6 GB * US$ 2.30 (5GB of data is included for free per month. Region: East US.                            | PAYG                          | $2.30 
+| **OMS(Log Analytics)**                    | Logs ingested 6VMs * 1 Average logs ingested per VM (in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data
+per month. Region: East US)                 | PAYG                          | $2.30    
+|                                  |                                     | **Estimated Cost**                                                  | **US$ 355.59**                           
 
 ## 5 Prerequisites for Deploying ARM Template
 
