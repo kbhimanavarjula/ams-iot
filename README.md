@@ -169,24 +169,23 @@ Below table describes the deployment costs per month for the solution.
 | **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events.                                | PAYG                          | $43.83 
 | **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hous 4 x100 Rus(Throughput)- $23.36 1 GB storage – $0.25    | PAYG                | $23.61
 | **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * US$ 80.30                                         | PAYG                          | $80.30
-|                                |                                                                                             | **Estimated Monthly Cost**                 | $232.26 
+|                                |                                                                                             | **Estimated Monthly Cost**                 | **$232.26** 
 
-**Deployment Costs for Type2**
+**Deployment Costs for Core Solution with Monitoring**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
-| **App Service Plan(2 web apps + 1 web job)**    | B1 (1 core,1.75 GB RAM, 10GB Storage)                                                                       | PAYG                          | $54.75   
-| **SQL Database**                                | B1 (Standard tier), 5DTU, 2GB included storage per DB                                                       | PAYG                          | $4.90  
-| **IoT HUB**                                     | B1, Unlimited devices, 1 Unit-$10 400,000 messages/day                                                      | PAYG                          | $10.00  
-| **Log Analytics (Optional)**                    | First 5GB of data storage is free. Per GB(Standalone) Region East US                                        | PAYG                          | $2.30 
-| **Application Insights (Optional)**             | Basic, 1GB * $2.30 Region: East US                                                                          | PAYG                          | $2.30   
-| **Storage Account**                             | Block Blob Storage, General Purpose V1, LRS,100 GB Capacity                                                 | PAYG                          | $2.44
-| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          |  $10.95
-| **Cosmos DB**                                   | Standard, throuput 400 RU/s (Request Units per second) 4 x100 Rus(Throughput)- $23.36 1 GB storage – $0.25  | PAYG                          | $23.61
-| **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * $80.30 Region: East US                                                | PAYG                          | $80.30
-| **Total Cost**                                  |                                                                                                             |                               | $186.95
-| **Total Cost Including Optional Components**    |                                                                                                             |                               | $191.55
-                                                               
+| **App Service Plan**                            | B1 (1 Cores(s), 1.75 GB RAM, 10 GB Storage, US$0.075)                                     | PAYG                          | $54.75   
+| **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                      | PAYG                          | $4.90  
+| **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.         | PAYG                          | $25.00 
+| **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events  .                               | PAYG                          |  $43.83  
+| **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hous   | PAYG                          | $23.61
+| **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                 | PAYG                          | $80.30
+| **OMS(Log Analytics)**                    | Logs ingested 6VMs * 1 Average logs ingested per VM(in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data
+per month. Region: East US)                       | PAYG                          | $2.30 
+| **Application Insights**             | Basic, 6 GB * US$ 2.30 (5GB of data is included for free per month. Region: East US.                      | PAYG                          | $2.30   
+|                                  |                                                    | **Estimated monthly cost**                              | **US$ 236.93** 
+                                                      
 **Deployment Costs for Type3**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
