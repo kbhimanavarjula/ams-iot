@@ -140,11 +140,11 @@
                             "type": "Custom"
                         },
                         "AzureWebJobsDashboard": {
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageName), '2015-06-15').key1)]",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageName), '2015-06-15').key1)]",
                             "type": "Custom"
                         },
                         "AzureWebJobsStorage": {
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageName), '2015-06-15').key1)]",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('webJobStorage').webjobStorageName,';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('webJobStorage').webjobStorageName), '2015-06-15').key1)]",
                             "type": "Custom"
                         }
                     }
