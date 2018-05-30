@@ -169,7 +169,7 @@ Below table describes the deployment costs per month for the solution.
 | **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events.                                | PAYG                          | $43.83 
 | **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hous 4 x100 Rus(Throughput)- $23.36 1 GB storage – $0.25    | PAYG                | $23.61
 | **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * US$ 80.30                                         | PAYG                          | $80.30
-|                                |                                                                                             | **Estimated Monthly Cost**                 | **$232.26** 
+|                                |                                                                                             | **Estimated Monthly Cost**                 | **US$ 232.26** 
 
 **Deployment Costs for Core Solution with Monitoring**
 
