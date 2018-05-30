@@ -212,8 +212,7 @@ per month. Region: East US)                       | PAYG                      
 | **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                 | PAYG                          | $80.30
 | **Hardining(Geo-Replication+traffic manager)**         | TM:  3 * 2 External EndPoints US$ 0.54, Region: East US                              | PAYG                          | $3.24 
 | **Application Insights (Optional)**             | Basic, 6 GB * US$ 2.30 (5GB of data is included for free per month. Region: East US.                            | PAYG                          | $2.30 
-| **OMS(Log Analytics)**                    | Logs ingested 6VMs * 1 Average logs ingested per VM (in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data
-per month. Region: East US)                 | PAYG                          | $2.30    
+| **OMS(Log Analytics)**    | Logs ingested 6VMs * 1 Average logs ingested per VM (in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data per month. Region: East US)            | PAYG                          | $2.30    
 |                                  |                                     | **Estimated Cost**                                                  | **US$ 355.59**                           
 
 ## 5 Prerequisites for Deploying ARM Template
