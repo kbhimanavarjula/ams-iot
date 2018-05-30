@@ -288,9 +288,9 @@
         },
         "trafficManagerSettings": {
             "trafficManagerApiVersion": "2017-05-01",
-            "trafficManagerName": "[parameters('webSiteName')]",
+            "trafficManagerName": "amstrafficmanag",
             "trafficRoutingMethod": "Priority",
-            "trafficManagerName1": "[concat('apiserverams',variables('suffix'))]"
+            "trafficManagerName1": "apitraffic"
         },
         "B2CVariables": {
             "b2cAadInstance": "https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}",
