@@ -157,23 +157,19 @@ Azure Event Hubs is a highly scalable data streaming platform and event ingestio
 
 Below table describes the deployment costs per month for the solution.
 
-**Region-US East**
+**Deployment Costs for Core Solution**
 
-**Deployment Costs for Type1**
+**Region-US East**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                                
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
-| **App Service Plan(3 web apps + 1 web job)**    | F1 (Free Tier), Shared Cores, 1 GB RAM, 1GB Storage                                                         | PAYG                          | $0.00   
-| **SQL Database**                                | B1 (Standard tier), 5DTU, 2GB included storage per DB                                                       | PAYG                          | $4.90  
-| **IoT HUB**                                     | F1 (Free Tier), 500 devices, 8000 messages/day                                                              | PAYG                          | $0.00  
-| **Log Analytics (Optional)**                    | First 5GB of data storage is free. Per GB(Standalone) Region East US                                        | PAYG                          | $2.30 
-| **Application Insights (Optional)**             | Basic, 1GB * $2.30 Region: East US                                                                          | PAYG                          | $2.30   
-| **Storage Account**                             | Block Blob Storage, General Purpose V1, LRS,100 GB Capacity                                                 | PAYG                          | $2.44
-| **Event Hub**                                   | Basic, throughput units 20,1MB/sec ingress events, 2MB/sec egress events.                                   | PAYG                          | $10.95
-| **Cosmos DB**                                   | Standard, throuput 400 RU/s (Request Units per second) 4x100 Rus(Throughput)- $23.36 1 GB storage – $0.25   | PAYG                          | $23.61
-| **Stream Analytics**                            | Standard Streaming Unit, 1 unit(s) 1 * $80.30 Region: East US                                               | PAYG                          | $80.30
-| **Total Cost**                                  |                                                                                                             |                               | $122.20
-| **Total Cost Including Optional Components**    |                                                                                                             |                               | $126.80
+| **App Service Plan**    | B1 (1 Cores(s), 1.75 GB RAM, 10 GB Storage, US$0.075)                                                          | PAYG                          | $54.75  
+| **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                   | PAYG                          | $4.90  
+| **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.         | PAYG                          | $25.00   
+| **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events.                                | PAYG                          | $43.83 
+| **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hous 4 x100 Rus(Throughput)- $23.36 1 GB storage – $0.25    | PAYG                | $23.61
+| **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * US$ 80.30                                         | PAYG                          | $80.30
+|                                |                                                                                             | **Estimated Monthly Cost**                 | $232.26 
 
 **Deployment Costs for Type2**
 
