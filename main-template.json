@@ -81,6 +81,27 @@
                 "description": "Describes Web Site name which should be unique for recovery app"
             }
         },
+        "webSiteTrafficManagerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes Web Site trafficmaanger name it should be same as the customdomain name of certifacate of website if ypu select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "apiServerTrafficManagerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "nodeServerTrafficManagerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
         "AdSubscriptionId": {
             "type": "string",
             "defaultValue": "",
@@ -194,7 +215,7 @@
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "WebAppPackageURI2": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/WebApp_TM.zip",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
-            "websiteFullAddress1": "[concat('https://',parameters('webSiteName'),'.trafficmanager.net/')]"
+            "websiteFullAddress1": "[concat('https://',parameters('webSiteTrafficManagerName'),'.trafficmanager.net/')]"
         },
         "restServer": {
             "location": "[variables('location')]",
@@ -288,9 +309,10 @@
         },
         "trafficManagerSettings": {
             "trafficManagerApiVersion": "2017-05-01",
-            "trafficManagerName": "amstrafficmanag",
+            "trafficManagerName": "[parameters('webSiteTrafficManagerName')]",
             "trafficRoutingMethod": "Priority",
-            "trafficManagerName1": "apitraffic"
+            "trafficManagerName1": "[parameters('apiServerTrafficManagerName')]",
+            "trafficManagerName2": "[parameters('nodeServerTrafficManagerName')]"
         },
         "B2CVariables": {
             "b2cAadInstance": "https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}",
@@ -791,6 +813,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }
@@ -854,6 +879,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }
@@ -909,6 +937,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }
@@ -972,6 +1003,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }
@@ -1038,7 +1072,15 @@
         },
         "WebAppTrafficManagerUrl": {
             "type": "string",
-            "value": "[concat('https://',variables('webApp').webSiteName,'.trafficmanager.net/')]"
+            "value": "[concat('https://',parameters('webSiteTrafficManagerName'),'.trafficmanager.net/')]"
+        },
+        "apiServerTrafficManagerUrl": {
+            "type": "string",
+            "value": "[concat('https://',parameters('apiServerTrafficManagerName'),'.trafficmanager.net/')]"
+        },
+        "nodeServerTrafficManagerUrl": {
+            "type": "string",
+            "value": "[concat('https://',parameters('nodeServerTrafficManagerName'),'.trafficmanager.net/')]"
         },
         "DocumentDBName": {
             "type": "string",
