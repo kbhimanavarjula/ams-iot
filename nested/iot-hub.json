@@ -46,7 +46,7 @@
             "copy": {
                 "name": "consumergroupcopy",
                 "mode": "Serial",
-                "count": 19
+                "count": 20
             }
         }
     ]
