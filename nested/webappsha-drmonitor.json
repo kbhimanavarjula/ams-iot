@@ -40,6 +40,9 @@
         },
         "documentDBEndpoint": {
             "type": "string"
+        },
+        "trafficManagerSettings": {
+            "type": "object"
         }
     },
     "variables": {},
@@ -97,7 +100,7 @@
                         "remoteDebuggingVersion": "VS2015",
                         "cors": {
                             "allowedOrigins": [
-                                "[concat('https://', parameters('webApp').webSiteName, '.trafficmanager.net')]"
+                                "[concat('https://', parameters('trafficManagerSettings').trafficManagerName, '.trafficmanager.net')]"
                             ]
                         }
                     }
@@ -322,8 +325,8 @@
                         "displayName": "websiteAppSettings"
                     },
                     "properties": {
-                        "restServer": "[concat('https://', parameters('restServer').apiServerNameDr,'.azurewebsites.net/')]",
-                        "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerNameDr,'.azurewebsites.net/')]",
+                        "restServer": "[concat('https://', parameters('trafficManagerSettings').trafficManagerName1,'.trafficmanager.net/')]",
+                        "nodeserver": "[concat('https://', parameters('trafficManagerSettings').trafficManagerName2,'.trafficmanager.net/')]",
                         "b2cApplicationId": "[parameters('B2CVariables').b2cClientIdDr]",
                         "tenantName": "[parameters('B2CVariables').b2cTenant]",
                         "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
