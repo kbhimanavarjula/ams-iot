@@ -81,27 +81,6 @@
                 "description": "Describes Web Site name which should be unique for recovery app"
             }
         },
-        "webSiteTrafficManagerName": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Describes Web Site trafficmaanger name it should be same as the customdomain name of certifacate of website if ypu select core solution or core solution with monitoring in solution type this value is optional"
-            }
-        },
-        "apiServerTrafficManagerName": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
-            }
-        },
-        "nodeServerTrafficManagerName": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-                "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
-            }
-        },
         "AdSubscriptionId": {
             "type": "string",
             "defaultValue": "",
@@ -164,7 +143,77 @@
             "metadata": {
                 "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application"
             }
-        }  
+        },
+        "webSiteTrafficManagerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes Web Site trafficmaanger name it should be same as the customdomain name prefix of certifacate of website if ypu select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "apiServerTrafficManagerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "nodeServerTrafficManagerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "keyVaultName": {
+            "type": "string",
+            "defaultValue": "keyvaultams",
+            "metadata": {
+                "description": "Existing Key Vault name with an access policy to allow Microsoft.Web RP to read Key Vault secrets"
+            }
+        },
+        "keyVaultwebAppSecretName": {
+            "type": "string",
+            "defaultValue": "appcerte1c3d5a4-8ab4-4f4d-9b9b-e01cdbed56ad",
+            "metadata": {
+                "description": "Describes the keyvault secret name of webapp certificate if you select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "keyVaultApiServerSecretName": {
+            "type": "string",
+            "defaultValue": "restapicertd6cef351-b84b-47c2-9738-b691174e8430",
+            "metadata": {
+                "description": "Describes the keyvault secret name of webapp certificate if you select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "keyVaultNodeServerSecretName": {
+            "type": "string",
+            "defaultValue": "nodecert42a91461-d156-4e78-beb5-1dd1cd7ec298",
+            "metadata": {
+                "description": "Describes the keyvault secret name of webapp certificate if you select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "webAppCertificatethumbPrint": {
+            "type": "string",
+            "defaultValue": "780E6E6A2D4EC1711E8DCDA8CE25B0979D6965AA",
+            "metadata": {
+                "description": "Describes the webapp certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "apiServerCertificatethumbPrint": {
+            "type": "string",
+            "defaultValue": "0B0DC2F1490A0ECC4D574C52450EC6B9DB369C57",
+            "metadata": {
+                "description": "Describes the apiserver certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "nodeServerCertificatethumbPrint": {
+            "type": "string",
+            "defaultValue": "B1E952AC324D370E2580119FE1CBF9C15A5DAD50",
+            "metadata": {
+                "description": "Describes the nodeserver certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        }
     },
     "variables": {
         "webJobStorage": {
@@ -184,7 +233,7 @@
         "centralus": "eastus",
         "canadacentral": "eastus",
         "northeurope": "westeurope",
-        "southcentralus": "eastus", 
+        "southcentralus": "eastus",
         "documentDB": {
             "location": "[variables('location')]",
             "DocDBAccountName": "[variables('DocDBAccountName')]",
@@ -326,6 +375,29 @@
             "b2cNativeRedirectURL": "[parameters('b2cNativeRedirectURL')]",
             "b2cNativeRedirectURLDr": "[parameters('b2cNativeRedirectURLDr')]",
             "AlertJobConsumerGroupPrefix": "congrp_"
+        },
+        "certifacatesBinding": {
+            "existingAppLocation": "[variables('location')]",
+            "existingAppLocationDr": "[parameters('locationDr')]",
+            "customHostname1": "[concat(parameters('webSiteTrafficManagerName'),'.trafficmanager.net')]",
+            "customHostname2": "[concat(parameters('apiServerTrafficManagerName'),'.trafficmanager.net')]",
+            "customHostname3": "[concat(parameters('nodeServerTrafficManagerName'),'.trafficmanager.net')]",
+            "keyVaultName": "[parameters('keyVaultName')]",
+            "hostingPlanName": "[concat('appSerPlan', variables('suffix'))]",
+            "hostingPlanNameDr": "[concat('appSerPlanDr', variables('suffix'))]",
+            "keyVaultSecretName1": "[parameters('keyVaultwebAppSecretName')]",
+            "keyVaultSecretName2": "[parameters('keyVaultApiServerSecretName')]",
+            "keyVaultSecretName3": "[parameters('keyVaultNodeServerSecretName')]",
+            "webSiteName": "[parameters('webSiteName')]",
+            "webSiteNameDr": "[parameters('webSiteNameDr')]",
+            "nodeServerName": "[concat('nodeserverams',variables('suffix'))]",
+            "nodeServerNameDr": "[concat('recoverynodeServerName','R2',variables('suffix'))]",
+            "apiServerName": "[concat('apiserverams',variables('suffix'))]",
+            "apiServerNameDr": "[concat('recoveryapiServerName','R2',variables('suffix'))]",
+            "apiVersion": "2016-03-01",
+            "thumbPrint1": "[parameters('webAppCertificatethumbPrint')]",
+            "thumbPrint2": "[parameters('apiServerCertificatethumbPrint')]",
+            "thumbPrint3": "[parameters('nodeServerCertificatethumbPrint')]"
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
@@ -662,7 +734,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeDP8-mQVqg8xNv35qvsgA-O5cxHJks5bGNYdwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeE-AraiaZ79_pEePuEEBY0FgIHfYks5bGXPPwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -718,7 +790,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeK2xT3jFqGA3HnwXyafyWmivZ49Oks5bGNYbwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeCoDg2imcN9H7i5JqbVqInerl8__ks5bGXOiwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1038,6 +1110,30 @@
                     },
                     "restserver": {
                         "value": "[variables('restServer')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "certificatesBinding",
+            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "WebAppsDrMonitorha",
+                "WebAppsMonitorha",
+                "WebAppsDrOutMonitorha",
+                "WebAppsOutMonitorha"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/certificates-binding.json','?token=AYpAeMw-tCcZJC-4uF5aeqfn4ZtsCEFWks5bGXNWwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "certifacatesBinding": {
+                        "value": "[variables('certifacatesBinding')]"
                     }
                 }
             }
