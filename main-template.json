@@ -214,6 +214,7 @@
             "WebAppPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "WebAppPackageURI2": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/WebApp_TM.zip",
+            "WebAppPackageURI3": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/webapp_appinsTM.zip",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
             "websiteFullAddress1": "[concat('https://',parameters('webSiteTrafficManagerName'),'.trafficmanager.net/')]"
         },
@@ -226,6 +227,7 @@
             "RESTServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "RESTServerPackageURI2": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/RestServer_TM.zip",
+            "RESTServerPackageURI3": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/RestServer_appinsTM.zip",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
             "alertJobTable": "Alerts",
