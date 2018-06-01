@@ -1126,7 +1126,8 @@
                 "WebAppsDrMonitorha",
                 "WebAppsMonitorha",
                 "WebAppsDrOutMonitorha",
-                "WebAppsOutMonitorha"
+                "WebAppsOutMonitorha",
+                "TrafficManagerApps"
             ],
             "properties": {
                 "mode": "Incremental",
