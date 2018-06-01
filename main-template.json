@@ -270,7 +270,7 @@
         "restServer": {
             "location": "[variables('location')]",
             "apiServerName": "[concat('apiserverams',variables('suffix'))]",
-            "apiServerNameDr": "[concat('recoveryapiServerName','R2',variables('suffix'))]",
+            "apiServerNameDr": "[concat('recoveryapiserver',variables('suffix'))]",
             "locationDr": "[parameters('locationDr')]",
             "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins511.zip",
             "RESTServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip",
@@ -291,7 +291,7 @@
             "location": "[variables('location')]",
             "locationDr": "[parameters('locationDr')]",
             "nodeServerName": "[concat('nodeserverams',variables('suffix'))]",
-            "nodeServerNameDr": "[concat('recoverynodeServerName','R2',variables('suffix'))]",
+            "nodeServerNameDr": "[concat('recoverynodeserver',variables('suffix'))]",
             "NodeServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/node_appins419.zip",
             "NodeServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/nodeserver419.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]"
@@ -391,9 +391,9 @@
             "webSiteName": "[parameters('webSiteName')]",
             "webSiteNameDr": "[parameters('webSiteNameDr')]",
             "nodeServerName": "[concat('nodeserverams',variables('suffix'))]",
-            "nodeServerNameDr": "[concat('recoverynodeServerName','R2',variables('suffix'))]",
+            "nodeServerNameDr": "[concat('recoverynodeserver',variables('suffix'))]",
             "apiServerName": "[concat('apiserverams',variables('suffix'))]",
-            "apiServerNameDr": "[concat('recoveryapiServerName','R2',variables('suffix'))]",
+            "apiServerNameDr": "[concat('recoveryapiserver',variables('suffix'))]",
             "apiVersion": "2016-03-01",
             "thumbPrint1": "[parameters('webAppCertificatethumbPrint')]",
             "thumbPrint2": "[parameters('apiServerCertificatethumbPrint')]",
@@ -1110,6 +1110,9 @@
                     },
                     "restserver": {
                         "value": "[variables('restServer')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
                     }
                 }
             }
@@ -1128,7 +1131,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/certificates-binding.json','?token=AYpAeMw-tCcZJC-4uF5aeqfn4ZtsCEFWks5bGXNWwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/certificates-binding.json','?token=AYpAeLqVZXlShlpqDvbJhbnxD22xpHNfks5bGhv0wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
