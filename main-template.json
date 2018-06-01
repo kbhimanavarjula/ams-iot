@@ -146,21 +146,21 @@
         },
         "webSiteTrafficManagerName": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "amstrafficmanag",
             "metadata": {
                 "description": "Describes Web Site trafficmaanger name it should be same as the customdomain name prefix of certifacate of website if ypu select core solution or core solution with monitoring in solution type this value is optional"
             }
         },
         "apiServerTrafficManagerName": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "apitraffic",
             "metadata": {
                 "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
             }
         },
         "nodeServerTrafficManagerName": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "nodetm",
             "metadata": {
                 "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
             }
@@ -379,7 +379,7 @@
         "certifacatesBinding": {
             "existingAppLocation": "[variables('location')]",
             "existingAppLocationDr": "[parameters('locationDr')]",
-            "customHostname1": "[concat(parameters('webSiteTrafficManagerName'),'.trafficmanager.net')]",
+            "customHostname": "[concat(parameters('webSiteTrafficManagerName'),'.trafficmanager.net')]",
             "customHostname2": "[concat(parameters('apiServerTrafficManagerName'),'.trafficmanager.net')]",
             "customHostname3": "[concat(parameters('nodeServerTrafficManagerName'),'.trafficmanager.net')]",
             "keyVaultName": "[parameters('keyVaultName')]",
