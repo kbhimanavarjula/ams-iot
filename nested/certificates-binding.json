@@ -149,7 +149,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint3]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'nodeCetificateDr')]"
+                "[resourceId('Microsoft.Web/certificates', 'nodeCertificateDr')]"
             ]
         }
     ]
