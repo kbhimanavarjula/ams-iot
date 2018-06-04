@@ -815,6 +815,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }
@@ -878,6 +881,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }
@@ -933,6 +939,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }
@@ -996,6 +1005,9 @@
                     },
                     "documentDBEndpoint": {
                         "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
                     }
                 }
             }
