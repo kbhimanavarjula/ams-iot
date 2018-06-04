@@ -35,6 +35,9 @@
         },
         "documentDBEndpoint": {
             "type": "string"
+        },
+        "trafficManagerSettings": {
+            "type": "object"
         }
     },
     "variables": {},
@@ -93,7 +96,7 @@
                         "remoteDebuggingVersion": "VS2015",
                         "cors": {
                             "allowedOrigins": [
-                                "[concat('https://', parameters('webApp').webSiteName, '.trafficmanager.net')]"
+                                "[concat('https://', parameters('trafficManagerSettings').trafficManagerName, '.trafficmanager.net')]"
                             ]
                         }
                     }
@@ -292,8 +295,8 @@
                         "displayName": "websiteAppSettings"
                     },
                     "properties": {
-                        "restServer": "[concat('https://', parameters('restServer').apiServerNameDr,'.trafficmanager.net/')]",
-                        "nodeserver": "[concat('https://', parameters('nodeServer').nodeServerNameDr,'.azurewebsites.net/')]",
+                        "restServer": "[concat('https://', parameters('trafficManagerSettings').trafficManagerName1,'.trafficmanager.net/')]",
+                        "nodeserver": "[concat('https://', parameters('trafficManagerSettings').trafficManagerName2,'.trafficmanager.net/')]",
                         "b2cApplicationId": "[parameters('B2CVariables').b2cClientId]",
                         "tenantName": "[parameters('B2CVariables').b2cTenant]",
                         "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
@@ -392,7 +395,7 @@
                     "properties": {
                         "WEBSITE_NODE_DEFAULT_VERSION": "6.9.1",
                         "CUSTOMCONNSTRConnectionString": "[concat('HostName=',parameters('iotHub').iotHubName,'.azure-devices.net;SharedAccessKeyName=',parameters('iotHub').iotHubKeyName,';SharedAccessKey=',listKeys(parameters('iotHub').iotHubID, '2016-02-03').primaryKey)]",
-                        "CUSTOMCONNSTRConsumerGroup": "[concat(parameters('iotHub').d2cConsumerGroupName, '1')]",
+                        "CUSTOMCONNSTRConsumerGroup": "[concat(parameters('iotHub').d2cConsumerGroupName, '20')]",
                         "CUSTOMCONNSTREventHubConnectionString": "[parameters('eventHub').eventhubConnectionString]",
                         "CUSTOMCONNSTREventHubPath": "[parameters('eventHub').eventHubName]"
                     }
