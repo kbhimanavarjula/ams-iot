@@ -143,7 +143,28 @@
             "metadata": {
                 "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application"
             }
-        }  
+        },
+        "webSiteTrafficManagerName": {
+            "type": "string",
+            "defaultValue": "amstrafficmanag",
+            "metadata": {
+                "description": "Describes Web Site trafficmaanger name it should be same as the customdomain name prefix of certifacate of website if ypu select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "apiServerTrafficManagerName": {
+            "type": "string",
+            "defaultValue": "apitraffic",
+            "metadata": {
+                "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        },
+        "nodeServerTrafficManagerName": {
+            "type": "string",
+            "defaultValue": "nodetm",
+            "metadata": {
+                "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
+            }
+        }
     },
     "variables": {
         "webJobStorage": {
@@ -163,7 +184,7 @@
         "centralus": "eastus",
         "canadacentral": "eastus",
         "northeurope": "westeurope",
-        "southcentralus": "eastus", 
+        "southcentralus": "eastus",
         "documentDB": {
             "location": "[variables('location')]",
             "DocDBAccountName": "[variables('DocDBAccountName')]",
@@ -186,25 +207,27 @@
         },
         "webApp": {
             "location": "[variables('location')]",
-            "webSiteName": "[parameters('webSiteName')]",
+            "webSiteName": "[parameters('webSiteTrafficManagerName')]",
             "webSiteNameDr": "[parameters('webSiteNameDr')]",
             "locationDr": "[parameters('locationDr')]",
             "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/webapp_appins511.zip",
             "WebAppPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/webapp.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "WebAppPackageURI2": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/WebApp_TM.zip",
+            "WebAppPackageURI3": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/webapp_appinsTM.zip",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
-            "websiteFullAddress1": "[concat('https://',parameters('webSiteName'),'.trafficmanager.net/')]"
+            "websiteFullAddress1": "[concat('https://',parameters('webSiteTrafficManagerName'),'.trafficmanager.net/')]"
         },
         "restServer": {
             "location": "[variables('location')]",
-            "apiServerName": "[concat('apiserverams',variables('suffix'))]",
+            "apiServerName": "[parameters('apiServerTrafficManagerName')]",
             "apiServerNameDr": "[concat('recoveryapiServerName','R2',variables('suffix'))]",
             "locationDr": "[parameters('locationDr')]",
             "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins511.zip",
             "RESTServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/AMSRestServerV2.zip",
             "BlobconnectionString": "[variables('BlobconnectionString')]",
             "RESTServerPackageURI2": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/RestServer_TM.zip",
+            "RESTServerPackageURI3": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/RestServer_appinsTM.zip",
             "WindowsManagementUri": "https://management.core.windows.net/",
             "ReportJobName": "TestJob",
             "alertJobTable": "Alerts",
@@ -218,7 +241,7 @@
         "nodeServer": {
             "location": "[variables('location')]",
             "locationDr": "[parameters('locationDr')]",
-            "nodeServerName": "[concat('nodeserverams',variables('suffix'))]",
+            "nodeServerName": "[parameters('nodeServerTrafficManagerName')]",
             "nodeServerNameDr": "[concat('recoverynodeServerName','R2',variables('suffix'))]",
             "NodeServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/node_appins419.zip",
             "NodeServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/nodeserver419.zip",
@@ -288,9 +311,10 @@
         },
         "trafficManagerSettings": {
             "trafficManagerApiVersion": "2017-05-01",
-            "trafficManagerName": "amstrafficmanag",
+            "trafficManagerName": "[parameters('webSiteTrafficManagerName')]",
             "trafficRoutingMethod": "Priority",
-            "trafficManagerName1": "apitraffic"
+            "trafficManagerName1": "[parameters('apiServerTrafficManagerName')]",
+            "trafficManagerName2": "[parameters('nodeServerTrafficManagerName')]"
         },
         "B2CVariables": {
             "b2cAadInstance": "https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}",
@@ -464,7 +488,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeLacqdhJaHR46NUkzo1oZvitNQ_oks5bFQwDwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeIFDtskz9qKQNwRjNf6lLnlTZVhMks5bHhA2wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -638,7 +662,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeIMAOuoklIyzEBiXGxVrN777WUgaks5bFQ2_wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeGlMgp7Y4A3WnB87VicMKb2uPSkOks5bHhBmwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -694,7 +718,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeOD0a9h6qTOgnXm3AUjWdehHDjnsks5bFQ28wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeI0eWkfoWJ8kxQAlhXSTXE_9TkbJks5bHhBvwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -755,7 +779,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeOgQEKSL4tjRxgwUciw8vDwGzB0Dks5bF6rSwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeBCNJkTij73_YWA1P5mBmICExCnBks5bHhBuwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -812,7 +836,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeF2BDpkRh6Ye0W2PWTjn-hRqiY_wks5bF6rQwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeJH6E9dLmg9kAQ4cHlNwpPDVU1Spks5bHhBswA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -873,7 +897,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeJsfu_rVdPWlAf3DHjNBWHICZDY3ks5bF6rVwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeJN9ENpS2vKkyGX01Ise2mrNyE8_ks5bHhBqwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -930,7 +954,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeKxR59di1vWw_PyXnlD-IVSK4irWks5bF6t8wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeCdMLaY1BDgBFPp2ymL54WXJLExKks5bHhBowA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -990,7 +1014,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/traffic-manager.json','?token=AYpAeCWAwKYkh46o4z6whS8J20sb6Cp6ks5bFnL9wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/traffic-manager.json','?token=AYpAeGQ-X359ixysA0FnRlRahYJZJDzTks5bHhAHwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1002,6 +1026,9 @@
                     },
                     "restserver": {
                         "value": "[variables('restServer')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
                     }
                 }
             }
