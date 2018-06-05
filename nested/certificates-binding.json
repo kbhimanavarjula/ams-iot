@@ -86,7 +86,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint1]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'webCertificate')]"
+                "[resourceId('Microsoft.Web/certificates', concat('webCertificate',variables('suffix')))]"
             ]
         },
         {
@@ -99,7 +99,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint2]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'apiCertificate')]"
+                "[resourceId('Microsoft.Web/certificates', concat('apiCertificate',variables('suffix')))]"
             ]
         },
         {
@@ -112,7 +112,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint3]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'nodeCetificate')]"
+                "[resourceId('Microsoft.Web/certificates', concat('nodeCetificate',variables('suffix')))]"
             ]
         },
         {
@@ -125,7 +125,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint1]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'webCertificate')]"
+                "[resourceId('Microsoft.Web/certificates', concat('webCertificateDr',variables('suffix')))]"
             ]
         },
         {
@@ -138,7 +138,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint2]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'apiCertificateDr')]"
+                "[resourceId('Microsoft.Web/certificates', concat('apiCertificateDr',variables('suffix')))]"
             ]
         },
         {
@@ -151,7 +151,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint3]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'nodeCertificateDr')]"
+                "[resourceId('Microsoft.Web/certificates', concat('nodeCertificateDr',variables('suffix')))]"
             ]
         }
     ]
