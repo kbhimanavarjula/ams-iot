@@ -730,10 +730,10 @@ To access resources in your subscription, you must assign the application to a r
 
 | **Parameter Name**                               | **Description**                                                                                            | **Allowed Values**    | **Default Values**                                                                                                               
 | -------------                                    | -------------                                                                                              | -----------------     | ------------ 
-| **Location**           | specify the region for where the complete solution will deploy      | northeurope, southcentralus, southeastasia, westeurope,w estus2, eastus, eastus2, australiasouthet,
-centralus, canadacentral                | westus2
-| **Solution Type**                                | 1.core solution will launch the ams core components. 2. core solution with monitoring will launch the core components with monitoring. 3.core and hardening will launch the high availability solution. 4.core and hardening with monitoring will launch the high availabity solution with monitoring. | core solution, core solution with monitoring, core and hardening, core and hardening with monitoring   |    
-| **locationDr**                                   | if you select core and hardening or core and hardening with monitoring specify the desaster recovery region for webapps and azure sqlserver,cosmos Db desaster recovary it should be different of resource group region     | eastasia, centralus, northcentralus, brazilsouth, australiaeast, southindia, westindia, canadaeast, ukwest, koreacentral    | centralus
+| **Location**           | specify the region for where the complete solution will deploy      | northeurope,southcentralus,southeastasia,westeurope,westus2,eastus,eastus2,australiasouthet,
+centralus,canadacentral                | westus2
+| **Solution Type**                                | 1.core solution will launch the ams core components. 2. core solution with monitoring will launch the core components with monitoring.3.core and hardening will launch the high availability solution 4.core and hardening with monitoring will launch the high availabity solution with monitoring. | core solution,core solution with monitoring,core and hardening,core and hardening with monitoring   |    
+| **locationDr**                                   | if you select core and hardening or core and hardening with monitoring specify the desaster recovery region for webapps and azure sqlserver,cosmos Db desaster recovary it should be different of resource group region     | eastasia,centralus,northcentralus,brazilsouth,australiaeast,southindia,westindia,canadaeast,ukwest,koreacentral    | centralus
 | **sqlAdministratorLogin**   | The admin user of the SQL Server                              | Any string          | Sqluser
 | **sqlAdministratorLoginPassword**   | The password of the admin user of the SQL Server   |                         | 
 | **Website Name**  | Describes Web Site name which should be unique. Enter Website name which you entered in 5.1 section at 16th point (Eg:https://<WebsiteName>.azurewebsites.net/redirect.html) |           |
@@ -747,6 +747,17 @@ centralus, canadacentral                | westus2
 | **B2c SignUp SignIn policy Id**               | Describes the B2C Sign Up-Sign In policy.                                      |                           | 
 | **B2c Native Redirect URL**                   | Describes the B2C redirect URL for the Native Client.            |                     |
 | **B2c Native Redirect URL Dr**                   | If you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application       |    |
+| **webSiteTrafficManagerName**             | Describes Web Site trafficmaanger name it should be same as the customdomain name prefix of certifacate of website if ypu select core solution or core solution with monitoring in solution type this value is optional  |                      |
+| **apiServerTrafficManagerName**       | Describes apiserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional            |                              |
+| **nodeServerTrafficManagerName**            | Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution
+with monitoring in solution type this value is optional             |                |
+| **keyVaultName**        | Existing Key Vault name with an access policy to allow Microsoft.Web RP to read Key Vault secrets          |                     | 
+| **keyVaultwebAppSecretName**    | Describes the keyvault secret name of webapp certificate if you select core solution or core solution with monitoring in solution type this value is optional     |            |
+| **keyVaultApiServerSecretName**    | Describes the keyvault secret name of webapp certificate if you select core solution or core solution with monitoring in solution type this value is optional  |             |
+| **keyVaultNodeServerSecretName**   | Describes the keyvault secret name of webapp certificate if you select core solution or core solution with monitoring in solution type this value is optional   |   |
+| **webAppCertificatethumbPrint**    | Describes the webapp certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional   |         |
+| **apiServerCertificatethumbPrint** | Describes the apiserver certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional          |       |
+| **nodeServerCertificatethumbPrint**     | Describes the nodeserver certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional    |            |
                     
 ## 7 Getting Started
 
