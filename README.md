@@ -141,8 +141,7 @@ Azure Web Apps enables you to build and host web applications in the programming
 
 ### 3.4 Azure Web Job 
 
-Azure Web Job is back-end program you can run inside Azure, without Azure Web Job, you can deploy windows console app or windows service app to your server, then setup scheduler via windows scheduler or other third-party windows scheduler tools.  
-
+Azure Web Job is back-end program you can run inside Azure, without Azure Web Job, you can deploy windows console app or windows service app to your server, then setup scheduler via windows scheduler or other third-party windows scheduler tools. 41
 ### 3.5 Azure SQL DB 
 
 Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. 
@@ -171,7 +170,7 @@ Below table describes the deployment costs per month for the solution.
 | **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hour    | PAYG                | $23.61
 | **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * US$ 80.30                                         | PAYG                          | $80.30
 | **Storage Account**                        | Capacity 1GB=US$ 0.02, Redundancy=LRS               | PAYG                             | $0.o2
-|                                |                                                                                             | **Estimated Monthly Cost**                 | **US$ 232.26** 
+|                                |                                                                                             | **Estimated Monthly Cost**                 | **US$ 232.41** 
 
 **Deployment Costs for Type2 (Core Solution with Monitoring)**
 
