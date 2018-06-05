@@ -158,7 +158,7 @@ Azure Event Hubs is a highly scalable data streaming platform and event ingestio
 
 Below table describes the deployment costs per month for the solution.
 
-**Deployment Costs for Core Solution**
+**Deployment Costs for Type1 (Core Solution)**
 
 **Region-US East**
 
@@ -168,11 +168,12 @@ Below table describes the deployment costs per month for the solution.
 | **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                   | PAYG                          | $4.90  
 | **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.         | PAYG                          | $25.00   
 | **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events.                                | PAYG                          | $43.83 
-| **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hous 4 x100 Rus(Throughput)- $23.36 1 GB storage – $0.25    | PAYG                | $23.61
+| **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hour    | PAYG                | $23.61
 | **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * US$ 80.30                                         | PAYG                          | $80.30
+| **Storage Account**                        | Capacity 1GB=US$ 0.02, Redundancy=LRS               | PAYG                             | $0.o2
 |                                |                                                                                             | **Estimated Monthly Cost**                 | **US$ 232.26** 
 
-**Deployment Costs for Core Solution with Monitoring**
+**Deployment Costs for Type2 (Core Solution with Monitoring)**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
@@ -180,12 +181,13 @@ Below table describes the deployment costs per month for the solution.
 | **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                      | PAYG                          | $4.90  
 | **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.         | PAYG                          | $25.00 
 | **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events  .                               | PAYG                          |  $43.83  
-| **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hous   | PAYG                          | $23.61
+| **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hour   | PAYG                          | $23.61
 | **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                 | PAYG                          | $80.30
+| **Storage Account**                       | Capacity 1GB=US$ 0.02, Redundancy=LRS                | PAYG                    | $0.02
 | **OMS(Log Analytics)**                    | Logs ingested 6VMs * 1 Average logs ingested per VM(in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data
 per month. Region: East US)                       | PAYG                          | $2.30 
 | **Application Insights**             | Basic, 6 GB * US$ 2.30 (5GB of data is included for free per month. Region: East US.                      | PAYG                          | $2.30   
-|                                  |                                                    | **Estimated monthly cost**                              | **US$ 236.93** 
+|                                  |                                                    | **Estimated monthly cost**                              | **US$ 237.01** 
                                                       
 **Deployment Costs for Core Solution with Hardening**
 
