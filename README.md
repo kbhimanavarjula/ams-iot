@@ -681,13 +681,13 @@ centralus, canadacentral                | westus2
 
 3. Select Raw from the top right corner.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t2.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t1.png)
 
 4. Copy the raw template and paste in your azure portal for template deployment.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t3.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t2.png)
 
-To deploy a template for Azure Resource Manager, follow the below steps. 
+**To deploy a template for Azure Resource Manager, follow the below steps**. 
 
 1. Go to Azure portal.
 
@@ -695,17 +695,19 @@ To deploy a template for Azure Resource Manager, follow the below steps.
 
 3. Click on **create** and click on **Build your own Template**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t4.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t3.png)
 
 4. The Edit template page is displayed as shown in the following figure. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t5.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t4.png)
 
 5. Replace/paste the template and click on Save
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t6.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t5.png)
 
 6. The Custom deployment page is displayed as shown in the following figure.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t6.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t7.png)
 
@@ -718,8 +720,6 @@ To deploy a template for Azure Resource Manager, follow the below steps.
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t10.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t11.png)
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t12.png)
 
 8. Once all the parameters are entered, click the terms and conditions check box and click Purchase.
 
@@ -740,6 +740,10 @@ To deploy a template for Azure Resource Manager, follow the below steps.
 	* Traffic Manager 
 	
 10. Once the solution is deployed successfully navigate to the resource group, select the created resource group to view the list of resources that are created in the Resource Group as shown in the following figure. 
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t12.png)
+
+Once the deployment was completed make sure that **SSL Configuration** should be **ON**. If it was **off** turn it to **ON**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t13.png)
 
