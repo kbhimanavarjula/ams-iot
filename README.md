@@ -331,6 +331,46 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 #### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
 
+#### 5.1.2.1 Certificate creation for traffic manager
+
+1. The Web App can be accessed with Traffic Manager URL but since the Traffic Manager has **http** protocol we have to redirect it to **https**. In order to redirect the http of Traffic Manager URL to https Configure an SSL Certificate for your Azure App Service.
+
+2. **Click** on **+Add** (icon) in the Resource Group.
+
+3. **Search** for **App Service Certificate** and **select** it to create a certificate.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z1.png)
+
+4. **Enter** a friendly **Name** for your **SSL certificate** and enter the **Traffic manager name** in the **Domain Host Name**. Use the existing Resource Group, Accept the Legal Terms and **click** on Create.
+
+**Note:** Make sure to enter **correct** host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with **WWW**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z2.png)
+
+5. Once the SSL Certificate purchase is complete.The certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificate. **Click** **Certificate Configuration** inside the Certificate Properties page.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z3.png)
+
+6. **Click** on **Step 1** Store to store this certificate in Azure Key Vault.From the Key Vault Status page, **click Key Vault Repository** to choose an existing Key Vault to store this certificate **OR** **Create New Key Vault** to create new Key Vault inside same subscription and resource group.
+
+7. Once you have selected the Key Vault Repository to store this certificate in, the Store option should show success.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z4.png)
+
+8. From the same **Certificate Configuration** page you used in **Step 5**, click Step 2: Verify. There are **four** types of domain verification supported by App Service Certificates: **App Service, Domain, Mail, and Manual Verification**. Choose **App Service**. **Click** on **Verify** button to complete this step.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z5.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z6.png)
+
+9. After clicking Verify, use the **Refresh** button until the Verify option should show success.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z7.png)
+
+10. Created certificates for **restserver** and **nodeserver** you will follow the above steps mentioned **webapp** for creating complete certification process.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z8.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z9.png)
+
 1. Go to your newly created B2C Tenant.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c1.png)
