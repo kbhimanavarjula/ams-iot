@@ -405,6 +405,59 @@ If you want to deploy **core and hardening** and **core and hardening with monit
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z7.png)
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z8.png)
 
+ 
+**Retrieving the web apps certificate secret name and thumbprint from keyvault**
+
+If you want to deploy the core and hardening and core and hardening with monitoring you should have the created three webapps certificate key vault secret names and certificate thumbprints.
+
+1. go to the created keyvault resource group click on created keyvault resource  click on secrets if you see like below you are unauthorizes to view these contents add the user in the access polices by following the below steps.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s1.png)
+
+**Add new user to key vault**
+
+1. click **access policies** -> click **+add new**
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s2.png)
+
+2. select **user id** like below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s3.png)
+
+3. select the **prinicipal, key permissions, secret permissions and certificate permissions** like below click **ok**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s4.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s5.png)
+
+4. After **click** **save** you can see user is added like below.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s6.png)
+
+5. **Click secrets** then you can able to see the secrets.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s7.png)
+
+6. **Click** on each **secret name** then you can get the key vault secret name of each certificate.
+
+7. **Note down** the **secret keys**, you have to use In deployment.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s8.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s9.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s10.png)
+
+8.	Go to the created certificate name there you can see the thumbprints.
+
+9. **Note down** the **certificates**, you have to use in deployment.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s11.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s12.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s13.png)
+
 1. Go to your newly created B2C Tenant.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z9.png)
