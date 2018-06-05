@@ -650,39 +650,24 @@ To access resources in your subscription, you must assign the application to a r
 ## 6 ARM Template Input Parameters
 
 | **Parameter Name**                               | **Description**                                                                                            | **Allowed Values**    | **Default Values**                                                                                                               
-| -------------                                    | -------------                                                                                              | -----------------     | ------------                                                                                                             
-| **Solution Type**                                | 1.solution with monitoring - this will deploy AMS core solution & monitoring components. 2. solution without monitoring - this will deploy core AMS solution | solution with monitoring.                          |    
-| **Costing Model**                                | Costing models have predefined resources sizes. Please refer Costing Model tables                          | One, Two, Three, Four |   
-| **locationDr**                                   | specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region     | Any String          |  
-| **App Insights Location**                    | specify the region for application insights, if you have selected solution type as without monitoring this is optional       | eastus, northeurope,       southcentralus, southeastasia,  westeurope,  westus2      |westus2 
-| **IoThub name**             | Name of the IoT Hub instance to provision    |Min Length: 3                | 
-| **Capacity units**          | number of desired iot hub units. restricted to 1 unit for F1. Can be set up to maximum number allowed for subscription.           | minValue: 1           | 1 
-| **sqlAdministratorLogin**   | provide the user name for the sql server, please make a note of Username this will be used further                                    | Any string | Sqluser 
-| **sqlAdministratorLoginPassword**   | provide the password for the sql server, make a note of the Password this will be used further   | PAYG                          | $146.25
-| **Stream Analytics**      | Password must be 12 characters and have 3 of the following 1 lower case character, 1 number, and 1 special character  |
-| **Sql database name**     | The name of SQL databa                                                         |                               |
-| **Sku Capacity**    | describes plan's instance count                                                      | 1                             | 1
-| **Website Name**  | Describes Web Site name which should be unique. Enter Website name which you entered in 5.1 section at 16th point (Eg: https://<Website Name>.azurewebsites.net/redirect.html) |           |
+| -------------                                    | -------------                                                                                              | -----------------     | ------------ 
+| **Location**           | specify the region for where the complete solution will deploy      | northeurope,southcentralus,southeastasia,westeurope,westus2,eastus,eastus2,australiasouthet,
+centralus,canadacentral                | westus2
+| **Solution Type**                                | 1.core solution will launch the ams core components. 2. core solution with monitoring will launch the core components with monitoring.3.core and hardening will launch the high availability solution 4.core and hardening with monitoring will launch the high availabity solution with monitoring. | core solution,core solution with monitoring,core and hardening,core and hardening with monitoring   |    
+| **locationDr**                                   | if you select core and hardening or core and hardening with monitoring specify the desaster recovery region for webapps and azure sqlserver,cosmos Db desaster recovary it should be different of resource group region     | eastasia,centralus,northcentralus,brazilsouth,australiaeast,southindia,westindia,canadaeast,ukwest,koreacentral    | centralus
+| **sqlAdministratorLogin**   | The admin user of the SQL Server                              | Any string          | Sqluser
+| **sqlAdministratorLoginPassword**   | The password of the admin user of the SQL Server   |                         | 
+| **Website Name**  | Describes Web Site name which should be unique. Enter Website name which you entered in 5.1 section at 16th point (Eg:https://<WebsiteName>.azurewebsites.net/redirect.html) |           |
 | **Website Name Dr**  | Describes Web Site name which should be unique for recovery app    |                                                 |
-| **Node server Name**      | Describes the node server name which should be unique. |                       |
-| **Api server Name**       | Describes API Server name which should be unique                               |                                |
-| **AD Subscription Id**    | Enter your Azure account subscription Id.                                      |                                |
-| **AD Tenant Id**          | Enter your Azure account tenant Id.                                            |                                |
-| **B2c Tenant**            | Name of the B2C Tenant which you created in 5.1 section at 3rd point. (Eg: amsiot1.onmicrosoft.com)              |                     |
-| **B2c Client Id**         | Enter B2C Client id (Application id) that you got after creating the B2C application in 5.1 section at 21st point.                     |                           |
-| **B2c Client Id**         | Enter B2C Client id (Application id) that you got after creating the B2C application in 5.1 section at 21st point.                     |                           |
-| **B2c Client Id Dr**      |
-| **B2c SignUp SignIn policy Id**               | Enter Sign Up Sign In Policy name which you created 5.1 section at 9th point.                                      |                           | 
-| **B2c Native Redirect URL**                   | Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 5.1 section at 18th point.            |                     |
-| **B2c Native Redirect URL Dr**                   |           |                     |
-| **AD Client Id**                              | Enter the Client Id that you got from the Azure Active Directory Application in 5.3.1 section at 2nd point (Get application ID and authentication key).           |                     |
-| **Ad Secret Key**                             | Enter the Secret key that you got from the Azure Active Directory Application in 5.3.2 section at 4th point (Get application ID and authentication key).            |                     |
-| **Webjob Storage type**                        | Select Storage Type            | Standard_LRS, Standard_ZRS, Standard_GRS, Standard_RAGRS, Premium_LRS         | Standard_LRS 
-| **Read Region Location**                       | if you select costing model 4 specify the read region of the cosmos database account the region should be different of the resource group region  |eastasia,     southeastasia, centralus, eastus, eastus2, westus, northcentralus, southcentralus, northeurope, westeurope, japanwest, japaneast, brazilsouth, australiaeast, australiasoutheast, southindia,    centralindia,westindia,  canadacentral, canadaeast, uksouth, ukwest, westcentralus, westus2, koreacentral, koreasouth              |
-| **OMS Workspace Region**                      | specify the region for oms workspace, if you have selected solution type as without monitoring this is optional            | eastus, westeurope,        southeastasia, australiasoutheast                    | Eastus 
-| **OMS Automation Region**                     | specify the region for oms automation account, if you have selected solution type as without monitoring this is optional            | westeurope,            southeastasia, eastus2, southcentralus, japaneast, southeastasia, southcentralus, northeurope, canadacentral, australiasouthest,  centralindia, japaneast    | eastus2 
-| **Data Retention**                               | specify the oms retention period in days, if you have selected solution type as without monitoring this is optional          | Min Value: 7 Max Value: 730   | 7
-| **Traffic Rouitng methods**                     | specify the traffic routing method for traffic manager            | Performance, Weighted, Geographic Priority                      | Priority 
+| **AD Subscription Id**    | Subscription ID of your Azure AD tenant.                                      |                                |
+| **AD Tenant Id**          | Tenant ID of Azure AD.                                            |                                |
+| **AD Client Id**                              | Client ID of Azure AD application.           |                     |
+| **Ad Secret Key**                             | Secret Key of Azure AD application            |                     |
+| **B2c Tenant**            | Describes B2C Tenant Name Directory              |                     |
+| **B2c Client Id**         | Describes the client Id registered with B2C Directory.                     |                           |
+| **B2c SignUp SignIn policy Id**               | Describes the B2C Sign Up-Sign In policy.                                      |                           | 
+| **B2c Native Redirect URL**                   | Describes the B2C redirect URL for the Native Client.            |                     |
+| **B2c Native Redirect URL Dr**                   | If you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application       |    |
                     
 ## 7 Getting Started
 
