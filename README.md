@@ -184,8 +184,7 @@ Below table describes the deployment costs per month for the solution.
 | **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hour   | PAYG                          | $23.61
 | **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                 | PAYG                          | $80.30
 | **Storage Account**                       | Capacity 1GB=US$ 0.02, Redundancy=LRS                | PAYG                    | $0.02
-| **OMS(Log Analytics)**                    | Logs ingested 6VMs * 1 Average logs ingested per VM(in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data
-per month. Region: East US)                       | PAYG                          | $2.30 
+| **OMS(Log Analytics)**       | Logs ingested 6VMs * 1 Average logs ingested per VM(in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data per month. Region: East US)          | PAYG                   | $2.30 
 | **Application Insights**             | Basic, 6 GB * US$ 2.30 (5GB of data is included for free per month. Region: East US.                      | PAYG                          | $2.30   
 |                                  |                                                    | **Estimated monthly cost**                              | **US$ 237.01** 
                                                       
