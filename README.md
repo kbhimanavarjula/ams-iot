@@ -383,7 +383,7 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 2. Click **Applications** and click **Add** on the left side to create a new application for traffic manager.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z10.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z10.png)
 
 3. Provide a name for the **application**. 
 
@@ -399,7 +399,7 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 **Example: https://webappiot.trafficmanager.net/redirect.html** 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z11.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z11.png)
 
 6. Click **Yes** under the **Native client** to include the native client URL as shown below.
 
