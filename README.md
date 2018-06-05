@@ -88,19 +88,19 @@ Asset Monitoring and Tracking Solution is a complete smart inventory management 
 
 ## 2 Architecture
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/1.jpg)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/1.jpg)
 
 **With Monitoring Architecture Diagram**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/AMS%20monitoring185.jpg)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/AMS%20monitoring185.jpg)
 
 **With Hardening Architecture Diagram**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/AMS%20Hardening24-05-18.jpg)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/AMS%20Hardening24-05-18.jpg)
 
 ## 2.1 Data Flow Architecture Diagram
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/2.jpg)
+![alt text](https://github.com/sysgain/ams-iot/AmsWithExistingCertificates/images/2.jpg)
 
 ## 3 Azure Services
 
