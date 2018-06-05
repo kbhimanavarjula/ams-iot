@@ -1739,15 +1739,19 @@ Traffic-routing methods determine how to route network traffic to the various se
 
 * **Monitoring Timeout**: This property specifies the amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If the Probing Interval is set to 30 seconds, then you can set the Timeout value between 5 and 10 seconds. If no value is specified, it uses a default value of 10 seconds. If the Probing Interval is set to 10 seconds, then you can set the Timeout value between 5 and 9 seconds. If no Timeout value is specified, it uses a default value of 9 seconds.
 
-When both node server webapps in ON the result as follows.
+Initially when both the node servers i.e primary and secondary are on you will be able to view the logs (data) for both the node servers.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m1.png)
 
+You will also be able to see the live data in the webapp coming from the node server
+
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m2.png)
+
+We can failover to the secondary node server by stopping the primary node sever Expected output is we should see the logs for the secondary node server, and the live data.In the webapp should come from the secondary node server.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m3.png)
 
-If one web app of node server is on and other is in off the result should be as follows.
+In the following screenshots, The primary node server is turned off and we are able to see the data in the secondary node server logs
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m4.png)
 
@@ -1761,7 +1765,13 @@ If one web app of node server is on and other is in off the result should be as 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m9.png)
 
+We can view the live data in the webapp
+
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m10.png)
+
+Similarly for the rest api ,we can failover to the secondary but still we can login to the webapp.
+
+In the following screenshots, The primary node server is turned off and we are able to see the data in the secondary node server logs
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m11.png)
 
