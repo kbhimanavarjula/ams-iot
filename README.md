@@ -1,5 +1,4 @@
 
-
 # Microsoft
 
 # Asset Monitoring Solution
@@ -10,7 +9,7 @@
 - [2 Architecture](#2-architecture)
    - [2.1 Data Flow Architecture Diagram](#21-data-flow-architecture-diagram)
 - [3 Azure Services](#3-azure-services)
-    - [3.1 Azure Blob](#31-azure-blob)
+   - [3.1 Azure Blob](#31-azure-blob)
    - [3.2 Azure IoT HUB](#32-azure-iot-hub)
    - [3.3 Azure Web App](#33-azure-web-app)
    - [3.4 Azure Web Job](#34-azure-web-job)
@@ -19,74 +18,90 @@
    - [3.7 Azure Event hub](#37-azure-event-hub)
 - [4 Deployment Costs](#4-deployment-costs)
 - [5 Prerequisites for Deploying ARM Template](#5-prerequisites-for-deploying-arm-template)
-    - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
+   - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
     	    
-	    - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2-or-3)
+       - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2)
 	    
-	    - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-cpplication-in-czure-b2C-tenant-for-deployment-cost-type-4)
-   - [5.2 Power BI Configuration](#52-power-bi-configuration)
-   - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
+	   - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-application-in-azure-b2C-tenant-for-deployment-cost-type-3-or-4)
+
+    - [5.2 Power BI Configuration](#52-power-bi-configuration)
+    - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
 	   
 	   - [5.3.1 Get application ID and authentication key](#531-get-application-id-and-authentication-key)
 	   
 	   - [5.3.2 Get tenant ID](#532-get-tenant-id)
 	  
-	  - [5.3.3 Assign application to role](#533-assign-application-to-role)
+	   - [5.3.3 Assign application to role](#533-assign-application-to-role)
 	  
 - [6 ARM Template Input Parameters](#6-arm-template-input-parameters)
 - [7 Getting Started](#7-getting-started)
-    - [7.1 Deploying the ARM Template](#71-deploying-the-arm-template)
+   - [7.1 Deploying the ARM Template](#71-deploying-the-arm-template)
 - [8 Prerequisites for Gateway-Middleware](#8-prerequisites-for-gateway-middleware)
-- [9 Step 1 Run the Zadig file](#9-step-1-run-the-zadig-file)
-- [10 Step 2 Setup GatewayMiddleware package](#10-step-2-setup-gatewaymiddleware-package)
-- [11 Step 3 Configuring WEBAPP](#11-step-3-configuring-webapp)
-- [12 Step 4 Adding the pre-requisites in the web app](#12-step-4-adding-the-pre-requisites-in-the-web-app)
-    - [12.1 Adding Gateway](#121-adding-gateway)
-    - [12.2 Adding Sensor](#122-adding-sensor)
-    - [12.3 Adding Asset to Web App using Mobile Application](#123-adding-asset-to-web-app-using-mobile-application)
-    - [12.4 Adding Assets to a Group](#124-adding-assets-to-a-group)
-    - [12.5 Cofiguring the PoweBi Desktop App and Publishing](#125-cofiguring-the-powebi-desktop-app-and-publishing)
-    - [12.6 Configuring the flow in web app](#126-configuring-the-flow-in-web-app)
-- [13 Step 5 Running the gateway middleware](#13-step-5-running-the-gateway-middleware)
-    - [13.1 Validating data in iot hub and Node server](#131-validating-data-in-iot-hub-and-node-server)
-- [14 Step 6 validating the data in web app](#14-step-6-validating-the-data-in-web-app)
-- [15 Step 7 Creating and validating the rule in Web app](#15-step-7-creating-and-validating-the-rule-in-web-app)
-- [16 Step 8 Configuring the Indoor map in web app](#16-step-8-configuring-the-indoor-map-in-web-app)
-    - [16.1 Adding gateway rule](#161-adding-sensor)
-    - [16.2 Positioning the gateway on the layout](#162-positioning-the-gateway-on-the-layout)
-    - [16.3 Indoor alert notification](#163-indoor-alert-notification)
-    - [16.4 Alerts checking](#164-alerts-checking)
-    - [16.5 Asset Status](#165-asset-status)
-- [17 Monitoring Componenets](#17-monitoring-components)
-    - [17.1 OMS Log Analytics](#171-oms-log-analytics)
-    - [17.2 Application Insights](#172-application-insights)
-- [18 Hardening Components](#18-hardening-components)
-    - [18.1 Geo Replication](#181-geo-replication)
-          
-	  - [18.1.1 Setting up Geo Replication for Cosmos DB](#1811-setting-up-geo-replication-for-cosmos-db)
-         
-	  - [18.1.2 Setting up Geo Replication for SQL DB](#1812-setting-up-geo-replication-for-sql-db)
-	
+   - [8.1 Step 1 Run the Zadig file](#81-step-1-run-the-zadig-file)
+   - [8.2 Step 2 Setup GatewayMiddleware package](#82-step-2-setup-gatewaymiddleware-package)
+   - [8.3 Step 3 Configuring WEBAPP](#83-step-3-configuring-webapp)
+   - [8.4 Step 4 Adding the pre-requisites in the web app](#84-step-4-adding-the-pre-requisites-in-the-web-app)
 
+       - [8.4.1 Adding Gateway](#841-adding-gateway)
+
+       - [8.4.2 Adding Sensor](#842-adding-sensor)
+
+       - [8.4.3 Adding Asset to Web App using Mobile Application](#843-adding-asset-to-web-app-using-mobile-application)
+
+       - [8.4.4 Adding Assets to a Group](#844-adding-assets-to-a-group)
+
+       - [8.4.5 Cofiguring the PoweBi Desktop App and Publishing](#845-cofiguring-the-powebi-desktop-app-and-publishing)
+
+       - [8.4.6 Configuring the flow in web app](#846-configuring-the-flow-in-web-app)
+
+   - [8.5 Step 5 Running the gateway middleware](#85-step-5-running-the-gateway-middleware)
+
+       - [8.5.1 Validating data in iot hub and Node server](#851-validating-data-in-iot-hub-and-node-server)
+
+   - [8.6 Step 6 validating the data in web app](#86-step-6-validating-the-data-in-web-app)
+   - [8.7 Step 7 Creating and validating the rule in Web app](#87-step-7-creating-and-validating-the-rule-in-web-app)
+   - [8.8 Step 8 Configuring the Indoor map in web app](#88-step-8-configuring-the-indoor-map-in-web-app)
+
+       - [8.8.1 Adding gateway rule](#881-adding-sensor)
+
+       - [8.8.2 Positioning the gateway on the layout](#882-positioning-the-gateway-on-the-layout)
+
+       - [8.8.3 Indoor alert notification](#883-indoor-alert-notification)
+
+       - [8.8.4 Alerts checking](#884-alerts-checking)
+
+       - [8.8.5 Asset Status](#885-asset-status)
+
+- [9 Monitoring Componenets](#9-monitoring-components)
+    - [9.1 OMS Log Analytics](#91-oms-log-analytics)
+    - [9.2 Application Insights](#92-application-insights)
+- [10 Hardening Components](#10-hardening-components)
+    - [10.1 Geo Replication](#101-geo-replication)
+          
+        - [10.1.1 Setting up Geo Replication for Cosmos DB](#1011-setting-up-geo-replication-for-cosmos-db)
+         
+	    - [10.1.2 Setting up Geo Replication for SQL DB](#1012-setting-up-geo-replication-for-sql-db)
+    - [10.2 Traffic Manager](#102-traffic-manager)
+	
 ## 1 About Asset Monitoring Solution
 
 Asset Monitoring and Tracking Solution is a complete smart inventory management tool. The solution provides a web dashboard & a mobile application to Monitor, Locate and Report all the remote assets so that they are completely visible 24x7.
 
 ## 2 Architecture
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/1.jpg)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/1.jpg)
 
 **With Monitoring Architecture Diagram**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/AMS%20monitoring185.jpg)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/AMS%20monitoring185.jpg)
 
 **With Hardening Architecture Diagram**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/AMS%20Hardening24-05-18.jpg)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/AMS%20Hardening24-05-18.jpg)
 
 ## 2.1 Data Flow Architecture Diagram
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/2.jpg)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/2.jpg)
 
 ## 3 Azure Services
 
@@ -126,8 +141,7 @@ Azure Web Apps enables you to build and host web applications in the programming
 
 ### 3.4 Azure Web Job 
 
-Azure Web Job is back-end program you can run inside Azure, without Azure Web Job, you can deploy windows console app or windows service app to your server, then setup scheduler via windows scheduler or other third-party windows scheduler tools.  
-
+Azure Web Job is back-end program you can run inside Azure, without Azure Web Job, you can deploy windows console app or windows service app to your server, then setup scheduler via windows scheduler or other third-party windows scheduler tools. 41
 ### 3.5 Azure SQL DB 
 
 Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. 
@@ -143,72 +157,68 @@ Azure Event Hubs is a highly scalable data streaming platform and event ingestio
 
 Below table describes the deployment costs per month for the solution.
 
-**Region-US East**
+**Deployment Costs for Type1 (Core Solution)**
 
-**Deployment Costs for Type1**
+**Region-US East**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                                
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
-| **App Service Plan(3 web apps + 1 web job)**    | F1 (Free Tier), Shared Cores, 1 GB RAM, 1GB Storage                                                         | PAYG                          | $0.00   
-| **SQL Database**                                | B1 (Standard tier), 5DTU, 2GB included storage per DB                                                       | PAYG                          | $4.90  
-| **IoT HUB**                                     | F1 (Free Tier), 500 devices, 8000 messages/day                                                              | PAYG                          | $0.00  
-| **Log Analytics (Optional)**                    | First 5GB of data storage is free. Per GB(Standalone) Region East US                                        | PAYG                          | $2.30 
-| **Application Insights (Optional)**             | Basic, 1GB * $2.30 Region: East US                                                                          | PAYG                          | $2.30   
-| **Storage Account**                             | Block Blob Storage, General Purpose V1, LRS,100 GB Capacity                                                 | PAYG                          | $2.44
-| **Event Hub**                                   | Basic, throughput units 20,1MB/sec ingress events, 2MB/sec egress events.                                   | PAYG                          | $10.95
-| **Cosmos DB**                                   | Standard, throuput 400 RU/s (Request Units per second) 4x100 Rus(Throughput)- $23.36 1 GB storage – $0.25   | PAYG                          | $23.61
-| **Stream Analytics**                            | Standard Streaming Unit, 1 unit(s) 1 * $80.30 Region: East US                                               | PAYG                          | $80.30
-| **Total Cost**                                  |                                                                                                             |                               | $122.20
-| **Total Cost Including Optional Components**    |                                                                                                             |                               | $126.80
+| **App Service Plan**    | B1 (1 Cores(s), 1.75 GB RAM, 10 GB Storage, US$0.075)                                                          | PAYG                          | $54.75  
+| **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                   | PAYG                          | $4.90  
+| **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.         | PAYG                          | $25.00   
+| **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events.                                | PAYG                          | $43.83 
+| **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hour    | PAYG                | $23.61
+| **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * US$ 80.30                                         | PAYG                          | $80.30
+| **Storage Account**                        | Capacity 1GB=US$ 0.02, Redundancy=LRS               | PAYG                             | $0.o2
+|                                |                                                                                             | **Estimated Monthly Cost**                 | **US$ 232.41** 
 
-**Deployment Costs for Type2**
+**Deployment Costs for Type2 (Core Solution with Monitoring)**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
-| **App Service Plan(2 web apps + 1 web job)**    | B1 (1 core,1.75 GB RAM, 10GB Storage)                                                                       | PAYG                          | $54.75   
-| **SQL Database**                                | B1 (Standard tier), 5DTU, 2GB included storage per DB                                                       | PAYG                          | $4.90  
-| **IoT HUB**                                     | B1, Unlimited devices, 1 Unit-$10 400,000 messages/day                                                      | PAYG                          | $10.00  
-| **Log Analytics (Optional)**                    | First 5GB of data storage is free. Per GB(Standalone) Region East US                                        | PAYG                          | $2.30 
-| **Application Insights (Optional)**             | Basic, 1GB * $2.30 Region: East US                                                                          | PAYG                          | $2.30   
-| **Storage Account**                             | Block Blob Storage, General Purpose V1, LRS,100 GB Capacity                                                 | PAYG                          | $2.44
-| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          |  $10.95
-| **Cosmos DB**                                   | Standard, throuput 400 RU/s (Request Units per second) 4 x100 Rus(Throughput)- $23.36 1 GB storage – $0.25  | PAYG                          | $23.61
-| **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * $80.30 Region: East US                                                | PAYG                          | $80.30
-| **Total Cost**                                  |                                                                                                             |                               | $186.95
-| **Total Cost Including Optional Components**    |                                                                                                             |                               | $191.55
-                                                               
-**Deployment Costs for Type3**
+| **App Service Plan**                            | B1 (1 Cores(s), 1.75 GB RAM, 10 GB Storage, US$0.075)                                     | PAYG                          | $54.75   
+| **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                      | PAYG                          | $4.90  
+| **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.         | PAYG                          | $25.00 
+| **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events  .                               | PAYG                          |  $43.83  
+| **Cosmos DB**                                   | Standard, storage: 1 GB * US$ 0.250 per GB/month, Rus reserved: 4x100 RU/sec * US$ 0.008 per hour   | PAYG                          | $23.61
+| **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                 | PAYG                          | $80.30
+| **Storage Account**                       | Capacity 1GB=US$ 0.02, Redundancy=LRS                | PAYG                    | $0.02
+| **OMS(Log Analytics)**       | Logs ingested 6VMs * 1 Average logs ingested per VM(in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data per month. Region: East US)          | PAYG                   | $2.30 
+| **Application Insights**             | Basic, 6 GB * US$ 2.30 (5GB of data is included for free per month. Region: East US.                      | PAYG                          | $2.30   
+|                                  |                                                    | **Estimated monthly cost**                              | **US$ 237.01** 
+                                                      
+**Deployment Costs for Type3 (Core Solution with Hardening)**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
-| **App Service Plan(2 web apps + 1 web job)**    | B1 (1 core,1.75 GB RAM, 10GB Storage)                                                                       | PAYG                          | $54.75   
-| **SQL Database**                                | S0 (Standard tier), 10DTU, 250GB storage                                                                    | PAYG                          | $14.72  
-| **IoT HUB**                                     | S1, Unlimited devices, 1 Unit-$25 400,000 messages/day                                                      | PAYG                          | $25.00  
-| **Log Analytics (Optional)**                    | First 5GB of data storage is free.Per GB(Standalone) Region East US                                         | PAYG                          | $2.30 
-| **Application Insights (Optional)**             | Basic, 1GB * $2.30 Region: East US                                                                          | PAYG                          | $2.30   
-| **Storage Account**                             | Block Blob Storage, General Purpose V1, LRS Redundancy,100 GB Capacity                                      | PAYG                          | $2.40
-| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83
-| **Cosmos DB**                                   | Standard, throuput 400 RU/s (Request Units per second) 4 x100 Rus(Throughput)- $23.36 1 GB storage – $0.25  | PAYG                          | $23.61
-| **Stream Analytics**                            | Standard Streaming Unit, 1 unit(s) 1 * $80.30 Region: East US                                               | PAYG                          | $80.30
-| **Total Cost**                                  |                                                                                                             |                               | $244.61
-| **Total Cost Including Optional Components**    |                                                                                                             |                               | $249.21
+| **App Service Plan**    | S1:2 Cores(s), 3.5 GB RAM, 50GB Storage, US$ 0.200, 1 Instance                                                                      | PAYG                          | $146.00    
+| **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                                        | PAYG                          | $4.90   
+| **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.    | PAYG                          | $25.00   
+| **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events.                                 | PAYG                          | $43.83
+| **Cosmos DB**                                   | Standard, storage: 4 GB * US$ 0.250 per GB/month, Rus reserved: 8x100 RU/sec * US$ 0.008 per hous   | PAYG                    | $47.72 
+| **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                | PAYG                          | $80.30
+| **Storage Account**                 | Capacity 1GB=US$ 0.02, Redundancy=LRS                       | PAYG                      | $0.02
+| **Azure App Service Certificate**             | S1 Standard, 69.99 * 3 USD/YEAR                   | BYOL                      | $209.97
+| **Hardining(Geo-Replication+traffic manager)**       | TM:  3 * 2 External EndPoints US$ 0.54, Region: East US                               | PAYG                              | $3.24  
+|     |                                                        | **Estimated monthly cost**                              | **US$ 560.98** 
 
-**Deployment Costs for Type4**
+**Deployment Costs for Type4 (Core Solution with Monitoring and Hardening)**
 
-| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**        | **Comments**                                                                                                             
-| -------------                                   | -------------                                                                                               | --------------------          | ------------           | -------------                                                                                                  
-| **App Service Plan(4 web apps + 2 web job)**    | S1 * 2 (1 core,1.75 GB RAM, 50GB Storage)                                                                   | PAYG                          | $146.00       | One SQL Database in 1 region and another in DR Region, Active geo-replication creates up to four online(Readable) secondary active geo-replication databases are priced at 100% of primary databas prices. The  cost of geo-replication traffic between the primary and the online secondary is included in the cost of the online secondary. Active geo-replication is available for all database tiers. 
-| **SQL Database**                                | S0 (Standard tier), 10DTU, 250GB storage                                                                    | PAYG                          | $29.44     |
-| **IoT HUB**                                     | S1, Unlimited devices, 1 Unit-$25 400,000 messages/day                                                      | PAYG                          | $25.00     |
-| **Log Analytics (Optional)**                    | Standalone. 1GB * $2.30  Region East US                                                                     | PAYG                          | $2.30    |
-| **Application Insights (Optional)**             | Basic, 1GB * $2.30 Region: East US                                                                          | PAYG                          | $2.30     |
-| **Storage Account**                             | Block Blob Storage, General Purpose V1, LRS Redundancy,100 GB Capacity                                      | PAYG                          | $2.44    |
-| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83        |
-| **Cosmos DB**                                   | Standard, throuput 800 RU/s (Request Units per second) 8 x100 Rus(Throughput)- $46.72 1 GB storage – $1.00  | PAYG                          | $47.72      |
-| **Stream Analytics**                            | Standard Streaming Unit 1 unit(s) 1 * $80.30 Region: East US                                                | PAYG                          | $80.30        |
-| **Traffic Manager**                             | 3 Profile 1 * $1.26                                                                                         | PAYG                          | $1.26        |
-| **Total Cost**                                  |                                     |                                                         | $375.99                            |
-| **Total Cost Including Optional Components**    |                                                                 |                           | $380.59                              |
+| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                                     
+| -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
+| **App Service Plan**    | S1:2 Cores(s), 3.5 GB RAM, 50GB Storage, US$ 0.200, 1 Instance                                                                    | PAYG                          | $146.00       
+| **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                                      | PAYG                          | $4.90     
+| **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.                 | PAYG                          | $25.00  
+| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83    
+| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83 
+| **Cosmos DB**                                   | Standard, storage: 4 GB * US$ 0.250 per GB/month, Rus reserved: 8x100 RU/sec * US$ 0.008 per hour   | PAYG                          | $47.72 
+| **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                 | PAYG                          | $80.30
+| **Hardining(Geo-Replication+traffic manager)**         | TM:  3 * 2 External EndPoints US$ 0.54, Region: East US                              | PAYG                          | $3.24 
+| **Storage Account**                      | Capacity 1GB=US$ 0.02, Redundancy=LRS            | PAYG                               | $0.02
+| **Azure App Service Certificate**        | S1 Standard, 69.99 * 3 USD/YEAR          | PAYG                         | $209.97
+| **Application Insights (Optional)**             | Basic, 6 GB * US$ 2.30 (5GB of data is included for free per month. Region: East US.                            | PAYG                          | $2.30 
+| **OMS(Log Analytics)**    | Logs ingested 6VMs * 1 Average logs ingested per VM (in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data per month. Region: East US)            | PAYG                          | $2.30    
+|                                  |                                     | **Estimated Cost**                                                  | **US$ 565.58**                           
 
 ## 5 Prerequisites for Deploying ARM Template
 
@@ -222,53 +232,63 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 **Follow Below steps to create Azure AD B2C Tenant:**
 
-1. Create a new B2C tenant in **Azure Active Directory B2C**. You'll be shown a page with the information on Azure Active Directory B2C. Click Create at the bottom to start configuring your new Azure Active Directory B2C tenant.
+1. To create a new B2C tenant in **Azure Active Directory B2C**. Login to **Azure portal** -> Click **+** to Create a resource to open the New page.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/3.png)
+2. In the New page **search box** enter **Azure Active Directory B2C** the result is displayed in the **Everything page**.
 
-2. Choose the **Organization name, Initial Domain name** and **Country of Region** for your Tenant.
+3. Click **Azure Active Directory B2C** to open a create **Azure Active Directory B2C page**.
 
-3. Note down your entire **Tenant name** which is highlighted in the below screenshot, this will be used while deploying the **ARM template.**
+4. Click **Create** button at the bottom to start configuring your new **Azure Active Directory B2C tenant**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/4.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/3.png)
 
-4. Once the B2C Tenant is created, Click **Directory and Subscription filter** on the top right to see your newly created tenant.
+5.	Select **Create** a new **Azure AD B2C Tenant**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/5.png)
+6.	Enter the **Organization name**, **Initial Domain name** in their respective fields and select the **Country of Region** for your Tenant from the dropdown list.
 
-5. Switch to your created tenant by clicking on it. Type **Azure** in search column and select **Azure AD B2C**.
+7.	Note down your entire **Tenant name** which is highlighted in the below figure, this will be used while deploying the **ARM template**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/6.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/4.png)
 
-6. You can see the created tenant overview like below.
+8.	Once the B2C Tenant is created, Click **Directory and Subscription filter** on the top right to see your newly created tenant.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/7.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/5.png)
 
-7. Click on **sign-up or sign-in policies**. Then click on **Add** to add policy.
+9.	Switch to your created tenant by clicking on it. Type **Azure** in search box and select **Azure AD B2C**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/8.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/6.png)
 
-8. Provide the **name** and enter the details as shown below.
+10.	You can see the **created tenant** overview as shown in the following figure.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/9.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/7.png)
 
-9. Select all the **Sign-up attributes** as show below.
+11.	Click **sign-up or sign-in policies** under **POLICIES** section. Then click **+Add** to add policy.
 
-10. Note down the policy name that you are creating now, this will be used while deploying the template.
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/8.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/10.png)
+12.	Provide the **name** and enter the details as shown in the following figure.
 
-11. Select all the **Application claims** as shown below.
+13.	**Note** down the **policy name** that you are creating, as it is used while deploying the template.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/11.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/9.png)
 
-12. After filling all the required details, click on **Create**.
+14.	Select all the **Sign-up attributes** as show in the following figure.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/12.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/10.png)
 
-13. Once the deployment is complete, the below screen will appear with sign-up details.
+15.	Select all the **Application claims** as shown in the following figure.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/13.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/11.png)
+
+16.	After providing all the required details, click **Create** button.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/12.png)
+
+17.	Once the deployment is complete, the sign-up details are displayed as shown in the following figure.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/13.png)
+
+**Note**:
 
 * If you want to **Deployment Cost Type 1 or 2 or 3**, follow the section 5.1.1. to create the Web Application. 
 
@@ -276,53 +296,94 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 #### 5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3 
  
-1. Click on the **Applications** tab and click **Add** to create a new application.
+1. Open **azure portal** -> **switch to created azure AD** -> Click the **Applications tab** and click **+Add** to create a new application. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/36.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/36.png)
 
-2. Provide a name for the application.
+2. Provide a name for the application in the **name** field.
 
-    1. Under the **Web APP/Web API** tab, click **Yes** to provide the following two **Reply URLs** for your application. Add an entry in the **Reply URLs** section of the B2C application in the following format.
+3. Under the **Web APP/Web API** tab, click **Yes** to provide the following two **Reply URLs** for your application. Add an entry in the **Reply URLs** section of the B2C application in the following format.
 
-    • https://<**Website Name**>.azurewebsites.net/redirect.html
+    * https://<**Website Name**>.azurewebsites.net/redirect.html
 
     **Note: Website Name** should be different from **application name.**
 
-    • **http://localhost:65159/redirect.html**
+    * **http://localhost:65159/redirect.html**
 
-   2. During the web app registration with PowerBI, you will use this reply URL.
+4. During the web app registration with PowerBI, you will use this reply URL.
 
    **Example: https://webappiot.azurewebsites.net/redirect.html**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/36-1.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/36-1.png)
 
-3. Click **Yes** under the **Native client** to include the native client url as shown below.
+5. Click **Yes** under the **Native client** to include the native client url as shown below.
 
-Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
+**Example**: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
 com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/36-2.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/36-2.png)
 
-4. Before clicking on create, note down the **Website name, Reply URL’s and Custom Redirect URI**.
+6. Before clicking on create, note down the **Website name, Reply URL’s and Custom Redirect URI**.
 
-5. After that, click on Create. This web app is used for authenticating the Asset management user login/ registration.
+7. After that, click on **Create**. This web app is used for authenticating the Asset management user l**ogin/ registration**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/37.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/37.png)
 
-6. Select the application you created and note down the **Application ID**.
+8. Select the application you created and note down the **Application ID**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/38.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/38.png)
 
 #### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
 
+**5.1.2.1 Certificate creation for traffic manager**
+
+1. The Web App can be accessed with Traffic Manager URL but since the Traffic Manager has **http** protocol we have to redirect it to **https**. In order to redirect the http of Traffic Manager URL to https Configure an SSL Certificate for your Azure App Service.
+
+2. **Click** on **+Add** (icon) in the Resource Group.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/image%20(1).png)
+
+3. **Search** for **App Service Certificate** and **select** it to create a certificate.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z1.png)
+
+4. **Enter** a friendly **Name** for your **SSL certificate** and enter the **Traffic manager name** in the **Domain Host Name**. Use the existing Resource Group, Accept the Legal Terms and **click** on Create.
+
+**Note:** Make sure to enter **correct** host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with **WWW**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z2.png)
+
+5. Once the SSL Certificate purchase is complete.The certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificate. **Click** **Certificate Configuration** inside the Certificate Properties page.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z3.png)
+
+6. **Click** on **Step 1** Store to store this certificate in Azure Key Vault.From the Key Vault Status page, **click Key Vault Repository** to choose an existing Key Vault to store this certificate **OR** **Create New Key Vault** to create new Key Vault inside same subscription and resource group.
+
+7. Once you have selected the Key Vault Repository to store this certificate in, the Store option should show success.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z4.png)
+
+8. From the same **Certificate Configuration** page you used in **Step 5**, click Step 2: Verify. There are **four** types of domain verification supported by App Service Certificates: **App Service, Domain, Mail, and Manual Verification**. Choose **App Service**. **Click** on **Verify** button to complete this step.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z5.png)
+
+9. After clicking Verify, use the **Refresh** button until the Verify option should show success.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z6.png)
+
+10. Created certificates for **restserver** and **nodeserver** you will follow the above steps mentioned **webapp** for creating complete certification process.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z7.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z8.png)
+
 1. Go to your newly created B2C Tenant.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c1.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z9.png)
 
 2. Click **Applications** and click **Add** on the left side to create a new application for traffic manager.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c2.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z10.png)
 
 3. Provide a name for the **application**. 
 
@@ -338,7 +399,7 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 **Example: https://webappiot.trafficmanager.net/redirect.html** 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c3.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z11.png)
 
 6. Click **Yes** under the **Native client** to include the native client URL as shown below.
 
@@ -346,22 +407,21 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 	
    com.onmicrosoft.**amsiot1. trafficmanagerapp:**//redirect/path
    
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c4.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z12.png)
    
 7. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c5.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z13.png)
 
 8. After that, click **Create**.
 
 9. Select the application you created and note down the **Application ID**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c6.png)
-
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z14.png)
 
 10. Again, click the **Applications** tab and click **Add** to create another application for web application.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c7.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z15.png)
 
 11. Provide a name for the **application**.
 
@@ -373,7 +433,7 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
 **Example**: https://webapplication.trafficmanager.net/redirect.html 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c8.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z16.png)
 
 15. Click **Yes** under the **Native client** to include the native client URL as shown below.
 
@@ -381,17 +441,17 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 	
    com.onmicrosoft.**amsiot1.webapplication**://redirect/path 
    
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c9.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z17.png)
    
 16. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c10.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z18.png)
 
 17. After that, click **Create**. This web app is used for authenticating the Asset management user login/ registration.
 
 18. Select the application you created and note down the **Application ID**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c11.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z19.png)
 
 ### 5.2 Power BI Configuration
 
@@ -407,7 +467,7 @@ d. Enter the Redirected URL and Home URL, same as you gave in Azure AD B2C tenan
 
 e. If you want to deploy Deployment Cost Type 4, give **traffic manager Reply URL** without “**/redirect.html**” for Home URL. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/40.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/40.png)
 
 f. Select check boxes for required API’s (select all check boxes for best practice).
 
@@ -427,25 +487,25 @@ f. Select check boxes for required API’s (select all check boxes for best prac
 
 g. Click on **Register App**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/41.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/41.png)
 
 h. The **Client id and secret key** will be generated. Note down these keys locally, as you will use these later in the configuration.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/42.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/42.png)
 
 2. Go back to azure portal and navigate to **your Azure account** from **Azure B2C tenant** as shown below. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/pb.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/pb.png)
 
 3. Go to **Azure Active Directory** from Your Azure Account and click on the **App registrations** tab. Select the app you just created in **PowerBI**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/43.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/43.png)
 
 **NOTE:** To grant permissions to the app you must be a **Global Administrator** in the Tenant.
 
 4. Click on the app, navigate to all settings, and give the **Required permissions**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/44.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/44.png)
 
 5. Enable the following access under delegated permissions in Windows Azure Active Directory.
 
@@ -459,11 +519,11 @@ h. The **Client id and secret key** will be generated. Note down these keys loca
 
 * Sign in and read user profile
 
-After that click on **Save**
+6. After that click on **Save**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/45.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/45.png)
 
-6. Enable the following access under delegated permissions in Power BI access.
+7. Enable the following access under delegated permissions in Power BI access.
 
 * View all datasets
 
@@ -481,15 +541,15 @@ After that click on **Save**
 
 * Read and write all reports
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/46.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/46.png)
 
-7. The user can see the number of permissions which have been added.
+8. The user can see the number of permissions which have been added.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/47.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/47.png)
 
-8. Click on **Grant Permissions**, then click **Yes**.
+9. Click on **Grant Permissions**, then click **Yes**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/48.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/48.png)
 
 ### 5.3 Creating an Azure Service Principal
 
@@ -509,19 +569,19 @@ o Client Secret
 
 2. Select **Azure Active Directory**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/49.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/49.png)
 
 3. Select **App registrations**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/50.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/50.png)
 
 4. Select **New application registration**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/51.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/51.png)
 
 5. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/52.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/52.png)
 
 6. You have created your application.
 
@@ -531,19 +591,19 @@ When programmatically logging in, you need the ID for your application and an au
 
 1. From **App registrations** in Azure Active Directory, select your **application**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/53.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/53.png)
 
 2. Copy the **Application ID** and store it in a secure place. This **application ID** also refers as the **client id**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/54.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/54.png)
 
 3. To generate an authentication key, goto **settings** select Keys.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/55.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/55.png)
 
 4. Provide a description of the key, and a duration for the key. When done, select **Save**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/56.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/56.png)
 
 5. After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the    key value with the application ID to log in as the application. Store the key value where your application can retrieve it.
 
@@ -553,11 +613,11 @@ When programmatically logging in, you need to pass the tenant ID with your authe
 
 1. To get the **tenant ID**, select **Properties** for your Azure AD tenant.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/57.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/57.png)
 
 2. Copy the **Directory ID**. This value is your **tenant ID**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/58.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/58.png)
 
 #### 5.3.3 Assign application to role
 
@@ -565,62 +625,47 @@ To access resources in your subscription, you must assign the application to a r
 
 1. Navigate to the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, select **Subscriptions**. You could instead select a resource group or resource.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/59.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/59.png)
 
 2. Select the particular subscription (resource group or resource) to assign the application to.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/60.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/60.png)
 
 3. Select **Access Control (IAM)**.
 
 4. Select **Add**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/61.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/61.png)
 
-5. Select **Contributor** role to assign to the application.
+5. Select **Contributor** role from dropdown list to assign to the application.
 
-6. Search for your application, and select it.
+6. Search for your application by entering the name of the application in the Name field and select it from the searched results. 
 
 7. Select **Save** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/62.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/62.png)
 
 ## 6 ARM Template Input Parameters
 
 | **Parameter Name**                               | **Description**                                                                                            | **Allowed Values**    | **Default Values**                                                                                                               
-| -------------                                    | -------------                                                                                              | -----------------     | ------------                                                                                                             
-| **Solution Type**                                | 1.solution with monitoring - this will deploy AMS core solution & monitoring components. 2. solution without monitoring - this will deploy core AMS solution | solution with monitoring.                          |    
-| **Costing Model**                                | Costing models have predefined resources sizes. Please refer Costing Model tables                          | One, Two, Three, Four |   
-| **locationDr**                                   | specify the region for webapps and azure sqlserver desaster recovary it should be different of resource group region     | Any String          |  
-| **App Insights Location**                    | specify the region for application insights, if you have selected solution type as without monitoring this is optional       | eastus, northeurope,       southcentralus, southeastasia,  westeurope,  westus2      |westus2 
-| **IoThub name**             | Name of the IoT Hub instance to provision    |Min Length: 3                | 
-| **Capacity units**          | number of desired iot hub units. restricted to 1 unit for F1. Can be set up to maximum number allowed for subscription.           | minValue: 1           | 1 
-| **sqlAdministratorLogin**   | provide the user name for the sql server, please make a note of Username this will be used further                                    | Any string | Sqluser 
-| **sqlAdministratorLoginPassword**   | provide the password for the sql server, make a note of the Password this will be used further   | PAYG                          | $146.25
-| **Stream Analytics**      | Password must be 12 characters and have 3 of the following 1 lower case character, 1 number, and 1 special character  |
-| **Sql database name**     | The name of SQL databa                                                         |                               |
-| **Sku Capacity**    | describes plan's instance count                                                      | 1                             | 1
-| **Website Name**  | Describes Web Site name which should be unique. Enter Website name which you entered in 5.1 section at 16th point (Eg: https://<Website Name>.azurewebsites.net/redirect.html) |           |
+| -------------                                    | -------------                                                                                              | -----------------     | ------------ 
+| **Location**           | specify the region for where the complete solution will deploy      | northeurope, southcentralus, southeastasia, westeurope,w estus2, eastus, eastus2, australiasouthet,
+centralus, canadacentral                | westus2
+| **Solution Type**                                | 1.core solution will launch the ams core components. 2. core solution with monitoring will launch the core components with monitoring. 3.core and hardening will launch the high availability solution. 4.core and hardening with monitoring will launch the high availabity solution with monitoring. | core solution, core solution with monitoring, core and hardening, core and hardening with monitoring   |    
+| **locationDr**                                   | if you select core and hardening or core and hardening with monitoring specify the desaster recovery region for webapps and azure sqlserver,cosmos Db desaster recovary it should be different of resource group region     | eastasia, centralus, northcentralus, brazilsouth, australiaeast, southindia, westindia, canadaeast, ukwest, koreacentral    | centralus
+| **sqlAdministratorLogin**   | The admin user of the SQL Server                              | Any string          | Sqluser
+| **sqlAdministratorLoginPassword**   | The password of the admin user of the SQL Server   |                         | 
+| **Website Name**  | Describes Web Site name which should be unique. Enter Website name which you entered in 5.1 section at 16th point (Eg:https://<WebsiteName>.azurewebsites.net/redirect.html) |           |
 | **Website Name Dr**  | Describes Web Site name which should be unique for recovery app    |                                                 |
-| **Node server Name**      | Describes the node server name which should be unique. |                       |
-| **Api server Name**       | Describes API Server name which should be unique                               |                                |
-| **AD Subscription Id**    | Enter your Azure account subscription Id.                                      |                                |
-| **AD Tenant Id**          | Enter your Azure account tenant Id.                                            |                                |
-| **B2c Tenant**            | Name of the B2C Tenant which you created in 5.1 section at 3rd point. (Eg: amsiot1.onmicrosoft.com)              |                     |
-| **B2c Client Id**         | Enter B2C Client id (Application id) that you got after creating the B2C application in 5.1 section at 21st point.                     |                           |
-| **B2c Client Id**         | Enter B2C Client id (Application id) that you got after creating the B2C application in 5.1 section at 21st point.                     |                           |
-| **B2c Client Id Dr**      |
-| **B2c SignUp SignIn policy Id**               | Enter Sign Up Sign In Policy name which you created 5.1 section at 9th point.                                      |                           | 
-| **B2c Native Redirect URL**                   | Enter B2C native Redirect URL which you entered while creating the web application in B2C tenant in 5.1 section at 18th point.            |                     |
-| **B2c Native Redirect URL Dr**                   |           |                     |
-| **AD Client Id**                              | Enter the Client Id that you got from the Azure Active Directory Application in 5.3.1 section at 2nd point (Get application ID and authentication key).           |                     |
-| **Ad Secret Key**                             | Enter the Secret key that you got from the Azure Active Directory Application in 5.3.2 section at 4th point (Get application ID and authentication key).            |                     |
-| **Webjob Storage type**                        | Select Storage Type            | Standard_LRS, Standard_ZRS, Standard_GRS, Standard_RAGRS, Premium_LRS         | Standard_LRS 
-| **Read Region Location**                       | if you select costing model 4 specify the read region of the cosmos database account the region should be different of the resource group region  |eastasia,     southeastasia, centralus, eastus, eastus2, westus, northcentralus, southcentralus, northeurope, westeurope, japanwest, japaneast, brazilsouth, australiaeast, australiasoutheast, southindia,    centralindia,westindia,  canadacentral, canadaeast, uksouth, ukwest, westcentralus, westus2, koreacentral, koreasouth              |
-| **OMS Workspace Region**                      | specify the region for oms workspace, if you have selected solution type as without monitoring this is optional            | eastus, westeurope,        southeastasia, australiasoutheast                    | Eastus 
-| **OMS Automation Region**                     | specify the region for oms automation account, if you have selected solution type as without monitoring this is optional            | westeurope,            southeastasia, eastus2, southcentralus, japaneast, southeastasia, southcentralus, northeurope, canadacentral, australiasouthest,  centralindia, japaneast    | eastus2 
-| **Data Retention**                               | specify the oms retention period in days, if you have selected solution type as without monitoring this is optional          | Min Value: 7 Max Value: 730   | 7
-| **Traffic Rouitng methods**                     | specify the traffic routing method for traffic manager            | Performance, Weighted, Geographic Priority                      | Priority 
+| **AD Subscription Id**    | Subscription ID of your Azure AD tenant.                                      |                                |
+| **AD Tenant Id**          | Tenant ID of Azure AD.                                            |                                |
+| **AD Client Id**                              | Client ID of Azure AD application.           |                     |
+| **Ad Secret Key**                             | Secret Key of Azure AD application            |                     |
+| **B2c Tenant**            | Describes B2C Tenant Name Directory              |                     |
+| **B2c Client Id**         | Describes the client Id registered with B2C Directory.                     |                           |
+| **B2c SignUp SignIn policy Id**               | Describes the B2C Sign Up-Sign In policy.                                      |                           | 
+| **B2c Native Redirect URL**                   | Describes the B2C redirect URL for the Native Client.            |                     |
+| **B2c Native Redirect URL Dr**                   | If you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application       |    |
                     
 ## 7 Getting Started
 
@@ -630,19 +675,19 @@ To access resources in your subscription, you must assign the application to a r
 
 **https://github.com/sysgain/ams-iot.git**
 
-2.Select main-template from CostingSolution branch.
+2. Select main-template from AmsWithExistingCertificates branch.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t1.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/tt.PNG)
 
 3. Select Raw from the top right corner.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t2.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t1.png)
 
 4. Copy the raw template and paste in your azure portal for template deployment.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t3.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t2.png)
 
-To deploy a template for Azure Resource Manager, follow the below steps. 
+**To deploy a template for Azure Resource Manager, follow the below steps**. 
 
 1. Go to Azure portal.
 
@@ -650,31 +695,31 @@ To deploy a template for Azure Resource Manager, follow the below steps.
 
 3. Click on **create** and click on **Build your own Template**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t4.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t3.png)
 
 4. The Edit template page is displayed as shown in the following figure. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t5.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t4.png)
 
 5. Replace/paste the template and click on Save
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t6.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t5.png)
 
 6. The Custom deployment page is displayed as shown in the following figure.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t7.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t6.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t8.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t7.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t8.png)
 
 7. Deploy the template by providing the parameters in custom deployment settings as shown in the following figure. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t9.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t9.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t10.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t10.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t11.png)
-
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t12.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t11.png)
 
 8. Once all the parameters are entered, click the terms and conditions check box and click Purchase.
 
@@ -696,7 +741,11 @@ To deploy a template for Azure Resource Manager, follow the below steps.
 	
 10. Once the solution is deployed successfully navigate to the resource group, select the created resource group to view the list of resources that are created in the Resource Group as shown in the following figure. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/t13.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t12.png)
+
+Once the deployment was completed make sure that **SSL Configuration** should be **ON**. If it was **off** turn it to **ON**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t13.png)
 
 ## 8 Prerequisites for Gateway-Middleware
 
@@ -724,117 +773,117 @@ https://zadig.akeo.ie/
 
 https://www.microsoft.com/en-in/store/p/power-bi-desktop/9ntxr16hnw1t?rtc=1
 
-## 9 Step 1: Run the Zadig file
+## 8.1 Step 1: Run the Zadig file
 
 1. Connect the BLE dongle to your system and enable the Bluetooth.
 
 2. Open the zadig file as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/72.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/72.png)
 
 3. Go to options and check list all devices.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/73.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/73.png)
 
 4. Select the CSR device from the drop down as shown below and click Replace Driver then it will start installing the driver.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/74.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/74.png)
 
 5. After the successful installation of driver you will get the following page.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/75.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/75.png)
 
 6. Again, select the CSR device from the drop down as shown below and click Reinstall Driver then it will start installing the driver.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/76.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/76.png)
 
 7. After successful installation you will get the following page.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/77.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/77.png)
 
-## 10 Step 2: Setup GatewayMiddleware package
+## 8.2 Step 2: Setup GatewayMiddleware package
 
 Configure the Gateway from the below document.
 
-https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the-GatewayMiddleware-Package.pdf
+**https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/documents/Configuring-the-GatewayMiddleware-Package-29-05-18.pdf**
 
-## 11 Step 3: Configuring WEBAPP
+## 8.3 Step 3: Configuring WEBAPP
 
 1. To start the work flow of AMS take the **web app** or **Traffic manger URL** through portal.azure.com from the deployed resource group. 
 
 2. Go to **Resource group** [Symbol]search for your **resource group name** [Symbol]then click on it. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n1.PNG)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/n1.PNG)
 
 3. Now you can able to see all the resources of that resource group.
 
 4. You can differentiate the resources based on their types. For that choose **Group By Type** option as shown in below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n2.PNG)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/n2.PNG)
 
 5. Now click on **Deployments** and select **Microsoft.Template**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n3.PNG)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/n3.PNG)
 
 6. Now go to **Outputs** and copy the **web app URL**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n4.PNG)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/n4.PNG)
 
 7. Now **paste** the copied URL in a browser to open the web application of the AMS.
 
 8. Click **Sign In**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/83.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/83.png)
 
 9. If you are new, use **sign-up** to login into the web app.(or)if your account is already existed then provide the credentials to **login**.
 
 10. The web page will take few minutes to open(refresh the page).
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/84.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/84.png)
 
-## 12 Step 4: Adding the pre-requisites in the web app.
+## 8.4 Step 4: Adding the pre-requisites in the web app.
 
 1. Go to **inventory** option in web app.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/85.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/85.png)
 
 2. The page shows the number of **gateways** and **sensors**. Here it shows total gateway and sensor counts.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/86.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/86.png)
 
-### 12.1 Adding Gateway
+### 8.4.1 Adding Gateway
 
 3. Now click on **+Add New** to add a new gateway.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/87.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/87.png)
 
 4. We need to configure all these fields to add a gateway.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/88.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/88.png)
 
 5. Click on **update** so that we can able to add the new gateway.
 
 6. Once we click on update we can able to see the pop up as unit configured successfully and open the **Add gateway page**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/89.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/89.png)
 
 7. Enter the **gateway Name, Serial No (gateway key ID), Description** and then click on **submit**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/90.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/90.png)
 
 8. You can able to see the pop up of **gateway added** and the total gateway count.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/91.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/91.png)
 
-### 12.2 Adding Sensor
+### 8.4.2 Adding Sensor
 
 9. Click **+Add New** to add a new sensor.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/92.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/92.png)
 
 10. Now you need to enter all the fields of sensor
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/93.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/93.png)
 
 11. You need to enter the fields as follows and click on **submit.**
 
@@ -848,15 +897,15 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 16. Give **Serial No** that shows in the BLE Scanner under **CC2650 SensorTag** without colons and alphabet should be in lower case as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/94.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/94.png)
 
 17. Choose your **Sensor tag** as the **Sensor type** as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/95.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/95.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/96.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/96.png)
 
-### 12.3 Adding Asset to Web App using Mobile Application
+### 8.4.3 Adding Asset to Web App using Mobile Application
 
 1. Open the mobile app named as **ASTRA** and enter the **rest server URL**.
 
@@ -866,27 +915,27 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 4. Copy the **APISERVER URL**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n5.PNG)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/n5.PNG)
 
 5. Note the **Api Server URL** and paste it in the mobile application without / at end and click **submit**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/99.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/99.png)
 
 6. Now the mobile app page redirected to **microsoft login page**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/100.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/100.png)
 
 7. Enter the credentials to **login** into application.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/101.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/101.png)
 
 8. Now you can able to view the application page as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/102.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/102.png)
 
 9. Click on **Dispatch** option to add an asset to the web portal.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/103.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/103.png)
 
 10. Before adding asset to the webportal **generate qrcode** for your **sensor** and **barcode** for asset by using the following url’s.
 
@@ -898,9 +947,9 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 12. Then Scan the **QR code** in **ASTRA** app in your mobile.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/104.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/104.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/105.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/105.png)
 
 13. Click on **next**.
 
@@ -908,41 +957,41 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 15. Generate **Barcode** by entering any text in the text box and scan the **Barcode** in **ASTRA** app in your mobile
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/106.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/barcode.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/107.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/107.png)
 
 16. Click **next**.
 
 17. Now you need to **link** the asset with the sensor so that asset can be added to the web portal.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/108.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/108.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/109.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/109.png)
 
 18. Go to web portal and check whether the asset has been added or not.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/110.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/110.png)
 
-### 12.4 Adding Assets to a Group
+### 8.4.4 Adding Assets to a Group
 
 19. Now we need to **add** the asset to a **group**. For that you need to check the asset so that **Add Group** option will be enable.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/111.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/111.png)
 
 20. Click on **Add group** to add asset to a group.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/112.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/112.png)
 
 21. Enter **name** and **description** of the group and click **submit**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/113.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/113.png)
 
 22. You can able to see the **group** in the inventory option as follows
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/114.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/114.png)
 
-### 12.5 Cofiguring the PoweBi Desktop App and Publishing
+### 8.4.5 Cofiguring the PoweBi Desktop App and Publishing
 
 23. Go to **Configurations** and add the following information.
 
@@ -950,21 +999,21 @@ https://github.com/sysgain/ams-iot/raw/CostingSolution/documents/Configuring-the
 
 25. Go to the resources and choose the resource as sqlserverà Go to firewalls and virtual networks field in the settings option.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/115.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/115.png)
 
 26. Add **client IP** to enable the firewall.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/116.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/116.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/117.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/117.png)
 
 27. click **save** option to save the firewall values.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/118.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/118.png)
 
 28. Here you can see the successful updation of adding firewall.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/119.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/119.png)
 
 29. To configure the **powerbi urls** and **credentials** first we need to configure the powerbi desktop as follows.
 
@@ -974,7 +1023,7 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 31. **Run** the downloaded powerbi template and enter all the **input parameters**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/120.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/120.png)
 
 32. Here the fields require,
 
@@ -996,7 +1045,7 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 36. **Copy** the **sql db name** and **Sql Server name**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n6.PNG)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/n6.PNG)
 
 37. **Note** down the above two values.
 
@@ -1004,91 +1053,92 @@ https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/HistoricalReport 
 
 39. **Copy** and **Note down** the values of **document db, Collection** name and **data base name**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n7.PNG)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/n7.PNG)
 
 40. Go to **keys** field in the settings option of document and note down the **Document DB url** and **primary key values**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/124.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/124.png)
 
 41. Now enter all tehse values in powerbi desktop.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/125.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/125.png)
 
 42. Click on **load**.
 
 43. After loading it will ask for some additional information like cosmos DB account key there you can enter the primary key value of document DB.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/126.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/126.png)
 
 44. Click on **connect**. A Pop-up occurs for sql authentication as follows. Here you need to choose the authentication type as **database**.
-5![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/127.png)
+5![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/127.png)
 
 45. Enter the **sql user name** and **password** and click **connect**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/128.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/128.png)
 
 46. Click on **run** to load the db tables into the powerbi.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/129.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/129.png)
 
 47. Here you can see the data fetching from db to powerbi.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/130.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/130.png)
 
 48. Once entire data has been fetched the page can be appeared as follows.
 
 49. Here you can click on **publish** button to publish the powerbi desktop url. Click **publish.**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/131.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/131.png)
 
 50. Click on **save**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/132.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/132.png)
 
 51. You can save the powerbi desktop into your local machine. For that, choose the file location to save.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/133.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/133.png)
 
 52. After saving the content it will ask for the **destination**.Here, the default is workspace and click select.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/134.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/134.png)
 
 53. Then the following **url** will be appeared.click on the **url** ,there you can find the report id of the powerbi.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/135.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/135.png)
 
 54. The page can be appeared as follows and here we need to note down the id in between **reports** and **report section**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/136.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/136.png)
 
-### 12.6 Configuring the flow in web app
+### 8.4.6 Configuring the flow in web app
 
 55. Go to web app and click on **configuration** -> choose **powerbi credentials**
 
 56. Enter the values of **powerbi client id, Secret key, username and password (Azure portal credentials).**
+
 57. Click **submit**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/137.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/137.png)
 
-58. Here you can see the pop up saying configuration added/updated.
+58.	A message configuration added/updated is displayed on the bottom right corner as shown in the following figure.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/138.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/138.png)
 
-59. Now open **powerbi url** and paste the published url id in the place of report id.
+59. Now open **powerbi url** and paste the published url id in the place of report id which you have noted down in **step 54** above..
 
-Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d9cf94eb6b8
+**Example**: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d9cf94eb6b8
 
-60. click **submit**. There you can see the successful adding of URL.
+60. click **submit**. A message **URL Updated** is displayed on the bottom right corner as shown in the following figure..
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/139.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/139.png)
 
-## 13 Step 5: Running the gateway middleware
+## 8.5 Step 5: Running the gateway middleware
 
-1. Go to **Portal** -> find the **Resource group name** -> **Deployments** -> **Microsoft.Template** -> **Outputs**.
+1. Go to **azure Portal** -> find the **Resource group name** -> **Deployments** -> **Microsoft.Template** -> **Outputs**.
 
 2. **Copy** the **API Server URL**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/n8.PNG)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/n8.PNG)
 
 3. Paste it in the **Gateway window (Asset Monitoring Configuration page)**.
 
@@ -1096,19 +1146,19 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 **Note:** If the Gateway window (Asset Monitoring Configuration page) is closed, run electron . command in gitbash then you will get the Gateway window (Asset Monitoring Configuration page).
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/142.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/142.png)
 
 5. The page will be redirect to **Microsoft login page**.
 
 6. Ignore the message by click on **ok**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/142.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/142.png)
 
 7. Enter the **credentials** to login. Use the login credentials what we are using to sign up for web app.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/143.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/143.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/145.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/145.png)
 
 8. Now close the gateway window and **run** the **electron .** in **gitbash**, so that it will automatically direct to the gateway page with all authentications.
 
@@ -1116,9 +1166,9 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 9. Here you can see the data coming from the gateway to **iot hub** via sensor.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/147.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/147.png)
 
-### 13.1 Validating data in iot hub and Node server
+### 8.5.1 Validating data in iot hub and Node server
 
 10. Go to Azure Portal and click **IoT Hub** as follows.
 
@@ -1126,73 +1176,73 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 11. The data in **iot** can be appeared as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/148.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/148.png)
 
 12. You can also see the **live data** in node server.
 
 13.	Go to your **Resource Group** and click **nodeserver** as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/148-1.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/148-1.png)
 
 14. To view you need to enable the **diagnostic log** settings as follows in **node server**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/149.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/149.png)
 
 15. Go to **log stream** and see the **data** as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/150.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/150.png)
 
-## 14 Step 6: validating the data in web app
+## 8.6 Step 6: validating the data in web app
 
 1. To see the live data in web app go to **reports** -> select group followed by sensor value.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/151.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/151.png)
 
 2. Choose **group name**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/152.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/152.png)
 
 3. Choose **sensor name**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/153.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/153.png)
 
 4. Here you can find the data coming from **iot hub** to **web application** via node server.
 
 5. All the **capabilities** of sensor data can be viewd as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/154.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/154.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/155.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/155.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/156.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/156.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/157.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/157.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/158.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/158.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/159.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/159.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/160.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/160.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/161.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/161.png)
 
-## 15 Step 7: Creating and validating the rule in Web app
+## 8.7 Step 7: Creating and validating the rule in Web app
 
 1. After viewing the reports create a **rule** based on some threshold conditions.
 
 2. For that go to rules click **+Add New**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/162.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/162.png)
 
 3. Select the **group value** of assets.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/163.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/163.png)
 
 4. You can set the values to some **threshold level**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/r1.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/R1.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/r2.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/r2.png)
 
 5. While creating the rule, if you select **Vibration** or **Invert** then it will create **Stream analytics Job** for each. 
 
@@ -1202,192 +1252,192 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 7. You can see the created **rule** as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/166.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/166.png)
 
 8. You can see the rules that we created by refreshing the webapp page and click on **rules**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/167.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/167.png)
 
 9. Now go to **reports** and see the **capabilities** of sensor after adding the rule.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/168.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/168.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/169.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/169.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/170.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/170.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/171.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/171.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/173.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/173.png)
 
 
-## 16 Step 8: Configuring the Indoor map in web app
+## 8.8 Step 8: Configuring the Indoor map in web app
 
 1. Go to **configuration**,select **indoor map Configuration**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/176.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/176.png)
 
 2. **Upload** your indoor map and click **Add.**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/177.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/177.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/178.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/178.png)
 
 3. The map can be appeared as follows. The pop up says that **indoor map added**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/179.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/179.png)
 
-### 16.1 Adding gateway rule
+### 8.8.1 Adding gateway rule
 
 4. Now you need to select the **gateway id** in the indoor map location.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/180.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/180.png)
 
-### 16.2 Positioning the gateway on the layout
+### 8.8.2 Positioning the gateway on the layout
 
 5. Now **position** the gateway at some location in the map and click **update.**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/181.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/181.png)
 
 6. Here you can see the pop up as **gateway mapped successfully**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/182.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/182.png)
 
-### 16.3 Indoor alert notification	
+### 8.8.3 Indoor alert notification	
 
 7. Now Go to **dashboard** -> click on the **flip icon** as shown in the below screen shot.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/183.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/183.png)
 
 8. Once you click the flip symbol, you can able to see the **gateway,sensor** and the **range** in between them.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/184.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/184.png)
 
 9. Now click on the sensor colored as **yellow**, you can see all the capabilities of sensor.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/185.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/185.png)
 
-### 16.4 Alerts checking
+### 8.8.4 Alerts checking
 
 10. If any rule get **bleached** you found the alert as like above screen shot.
 
 11. Go to **Alerts**,select the **group -> Asset -> capability** and click **apply**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/186.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/186.png)
 
-### 16.5 Asset Status
+### 8.8.5 Asset Status
 
 12. Finally, you can see the **status** of the asset by using **mobile application**.
 
 13. Open **mobile app** and click on the **receive option**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/187.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/187.png)
 
 14. Now **scan** the **barcode** of the asset as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/106.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/barcode.png)
 
 15. Then the **status** of asset can be appeared as follows.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/189.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/189.png)
 
-## 17 Monitoring Components 
+## 9 Monitoring Components 
 
-### 17.1 OMS Log Analytics
+### 9.1 OMS Log Analytics
 
 1. Click on OMS Workspace in Resource Group to view OMS Overview Section.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/190.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/190.png)
 
 2. Click on Azure Resources on left side menu to view available Azure Resources.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/191.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/191.png)
 
 3. Select your RG name from the dropdown list.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/192.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/192.png)
 
 4. Access OMS portal from OMS workspace on left side menu. Click on OMS Workspace > OMS Portal.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/193.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/193.png)
 
 5. Once you clicked on OMS Workspace, the page will be redirected to OMS Home Page.
 
 6. There you can see the Logs of Azure SQL and Azure Web apps by clicking on each tab.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/194.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/194.png)
 
 7. Click Azure SQL Analytics to view the SQL Server logs.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/195.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/195.png)
 
 8. Click sqldb on the left side page to view the detailed information.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/196.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/196.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/197.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/197.png)
 
 9. Click Home on the left side of the page for Web Apps Analytics.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/198.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/198.png)
 
 10. Click Azure Web apps Analytics tab to view each web application logs.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/199.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/199.png)
 
 11. Click nodeserver for logs.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/200.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/200.png)
 
 12. Go back and click webapplication for logs.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/201.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/201.png)
 
 13. Go back and click nodeserver for logs.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/202.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/202.png)
 
 14. Click Search tab to search the IoT hub, Event hub and Document DB logs.
 
 15. Click Show legacy language converter.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/203.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/203.png)
 
 16. Copy IoT Hub resource name, paste it in the Covert box and click RUN as shown below.
 
 17. Once you clicked on RUN, you will get the IoT Hub information below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/204.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/204.png)
 
 18. Copy Event Hub resource name, paste it in the Covert box and click RUN as shown below.
 
 19. Once you clicked on RUN, you will get the Event Hub information below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/205.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/205.png)
 
 20. Copy Cosmos DB resource name, paste it in the Covert box and click RUN as shown below.
 
 21. Once you clicked on RUN, you will get the Cosmos DB information below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/206.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/206.png)
 
 22. For Stream Analytics logs, first you need to enable the Diagnostics logs.
 
 23. Go to Azure portal, click Stream Analytics job as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/207.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/207.png)
 
 24. Click Diagnostics logs on the left pane and Turn on diagnostics as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/208.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/208.png)
 
 25. Provide the details as shown below and select your workspace.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/209.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/209.png)
 
 26. Click Save.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/210.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/210.png)
 
 27. Go to OMS Portal and Click Search tab for Stream Analytics logs.
 
@@ -1395,78 +1445,78 @@ Example: https://app.powerbi.com/reportEmbed?reportId=5a69ed50-c11f-4097-b608-3d
 
 29. Once you clicked on RUN, you will get the Stream Analytics Job information below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/211.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/211.png)
 
-### 17.2 Application Insights
+### 9.2 Application Insights
 
 1. Go to Azure portal, select your Resource Group and select Application Insights as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/212.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/212.png)
 
 2. On Overview page, Summary details are displayed as shown in the following figure.
 
 3. Click Live Stream to view detailed information related to webapp.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/213.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/213.png)
 
 4. Here you can see the Live Requests of Web app.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/214.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/214.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/215.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/215.png)
 
 5. Go back to Application Insights Overview page and click Analytics box in Health tab as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/216.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/216.png)
 
 6. This will take you to Application Insights page and click Home Page tab.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/217.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/217.png)
 
 7. You can run the following common queries to see the specific logs of application as below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/218.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/218.png)
 
 8. For example, Run the Performance query to see the logs.
 
 9. Click RUN on Performance tab.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/219.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/219.png)
 
 10. You can see the below graph of application performance. If you modified the query please click on RUN from top left menu to see the updated graph.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/220.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/220.png)
 
 11. Similarly, you can run the other common Pre-defined queries by navigating back to the Home Page.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/221.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/221.png)
 
 12. Go back to the Application Insights overview page in Azure Portal to view metrics of the application.
 
 13. Click Metrics Explorer on the left side of the page as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/222.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/222.png)
 
 14. Click Edit as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/223.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/223.png)
 
 15. You can select any of the listed Metrics to view application logs.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/224.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/224.png)
 
 16. If you want to add new chart click on Add new chart as shown below and click on Edit to add the specific metrics.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/225.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/225.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/226.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/226.png)
 
 
-## 18 Hardening Components
+## 10 Hardening Components
 
-### 18.1 Geo Replication
+### 10.1 Geo Replication
 
-#### 18.1.1 Setting up Geo-Replication for Cosmos DB
+#### 10.1.1 Setting up Geo-Replication for Cosmos DB
 
 Azure Cosmos DB is a globally distributed, low-latency, high throughput databases services. Azure Cosmos DB provides global distribution, which means you can scale and distribute it across different Azure regions. This enables you to have your data replicated over as many as datacenter per your need, moreover control and access your replicated data seamlessly. Setting up the Geo-Replication is very easy and can be done in a couple of clicks from the Azure Portal.
 
@@ -1474,7 +1524,7 @@ Follow these steps to set up the Geo-Replication.
 
 1. From the Azure Portal, go to your Resources Group and Open the Azure Cosmos DB database resource.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/227.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/227.png)
 
 2. Select Replicate data globally under the Settings option.
 
@@ -1484,29 +1534,29 @@ Follow these steps to set up the Geo-Replication.
 
 5. But here already one region is added, you can do Failover for it.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/228.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/228.png)
 
 6. Click Manual Failover on the top.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/229.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/229.png)
 
 7. Here, the Write Region is West US and Read Region is South Central US.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/230.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/230.png)
 
 8. Click South Central US region to become a Write Region, Check I understand and agree to trigger a failover on my current Write Region box and click OK.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/231.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/231.png)
 
 9. The overall process will take a while and it will depend on the number of regions you selected for your data to be replicated.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/232.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/232.png)
 
 10. Once the Geo-Replication is done, you can go back and check all your regions on the Map, further you can add or remove any other regions as per your need.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/233.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/233.png)
 
-#### 18.1.2 Setting up Geo-Replication for SQL DB
+#### 10.1.2 Setting up Geo-Replication for SQL DB
 
 Azure SQL Database auto-failover groups (in-preview) is a SQL Database feature designed to automatically manage geo-replication relationship, connectivity, and failover at scale. With it, the customers gain the ability to automatically recover multiple related databases in the secondary region after catastrophic regional failures or other unplanned events that result in full or partial loss of the SQL Database service’s availability in the primary region.
 
@@ -1518,24 +1568,121 @@ To configure active geo-replication by using the Azure portal, you need the foll
 
 1. Go to Azure portal, select your Resource Group and select SQL Server as shown below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/234.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/234.png)
 
 2. Select Failover Groups under the Settings section.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/235.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/235.png)
 
 3. Click SQL Server as show below.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/236.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/236.png)
 
 4. Click Failover to switch Secondary database to Primary role. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/237.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/237.png)
 
 5. Click YES.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/238.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/238.png)
 
 6. After Successful Failover You can go back and check your SQL Servers status.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/239.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/239.png)
+
+### 10.2 Traffic Manager
+
+**Traffic Manager**
+
+Traffic Manager is an Internet facing solution to load balance traffic between multiple service endpoints. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and cloud services. Traffic Manager utilizes DNS queries and a policy engine to direct traffic to Internet resources. The Internet resource can be located in a single datacenter or across the globe.
+
+**Traffic Manager routing methods**
+
+Traffic-routing methods determine how to route network traffic to the various service endpoints. Traffic Manager applies the traffic-routing method to each DNS query it receives. The traffic-routing method determines which endpoint returned in the DNS response.
+
+**There are four traffic routing methods available in Traffic Manager:**
+
+* **Priority**: Select Priority when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable. 
+
+  By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint.
+
+* **Weighted**: Select Weighted when you want to distribute traffic across a set of endpoints, either evenly or according to weights, which you define.
+
+  For each DNS query received, Traffic Manager randomly chooses an available endpoint. The probability of choosing an endpoint is based on the weights assigned to all available endpoints. Using the same weight across all endpoints results in an even traffic distribution.
+
+* **Performance**: Select Performance when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint in terms of the lowest network latency.
+
+* **Geographic**: Select Geographic so that users are directed to specific endpoints (Azure, External, or Nested) based on which geographic location their DNS query originates from. 
+  This empowers Traffic Manager customers to enable scenarios where knowing a user’s geographic region and routing them based on that is important.
+
+**Traffic Manager End Point Monitoring**
+
+* **Protocol**: Choose HTTP, HTTPS, or TCP as the protocol that Traffic Manager uses when probing your endpoint to check its health. HTTPS monitoring does not verify whether your SSL certificate is valid--it only checks that the certificate is present.
+
+* **Port**: Choose the port used for the request.
+
+* **Path**: This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. Providing this setting for the TCP monitoring protocol results in an error. For TCP protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash (/) is a valid entry for the relative path. This value implies that the file is in the root directory (default).
+
+* **Probing Interval**: This value specifies how often an endpoint is checked for its health from a Traffic Manager probing agent. You can specify two values here: 30 seconds (normal probing) and 10 seconds (fast probing). If no values are provided, the profile sets to a default value of 30 seconds. Visit the Traffic Manager Pricing page to learn more about fast probing pricing.
+
+* **Tolerated Number of Failures**: This value specifies how many failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Its value can range between 0 and 9. A value of 0 means a single monitoring failure can cause that endpoint to be marked as unhealthy. If no value is specified, it uses the default value of 3.
+
+* **Monitoring Timeout**: This property specifies the amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If the Probing Interval is set to 30 seconds, then you can set the Timeout value between 5 and 10 seconds. If no value is specified, it uses a default value of 10 seconds. If the Probing Interval is set to 10 seconds, then you can set the Timeout value between 5 and 9 seconds. If no Timeout value is specified, it uses a default value of 9 seconds.
+
+When both node server webapps in ON the result as follows.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m1.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m2.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m3.png)
+
+If one web app of node server is on and other is in off the result should be as follows.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m4.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m5.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m6.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m7.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m8.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m9.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m10.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m11.png)
+
+If one app of Api server is in ON and other should be off the result should be follows.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m12.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m13.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m14.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m15.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m16.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m17.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m18.png)
+
+When one web app is in on Other should be off result of webapp as follows.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m19.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m20.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m21.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m22.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m23.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m24.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m25.png)
