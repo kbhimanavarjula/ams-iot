@@ -675,9 +675,9 @@ centralus, canadacentral                | westus2
 
 **https://github.com/sysgain/ams-iot.git**
 
-2.Select main-template from AmsWithExistingCertificates branch.
+2. Select main-template from AmsWithExistingCertificates branch.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t1.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/tt.PNG)
 
 3. Select Raw from the top right corner.
 
