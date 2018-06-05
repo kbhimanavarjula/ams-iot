@@ -407,22 +407,22 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 	
    com.onmicrosoft.**amsiot1. trafficmanagerapp:**//redirect/path
    
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z12.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z12.png)
    
 7. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z13.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z13.png)
 
 8. After that, click **Create**.
 
 9. Select the application you created and note down the **Application ID**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z14.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z14.png)
 
 
 10. Again, click the **Applications** tab and click **Add** to create another application for web application.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z15.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z15.png)
 
 11. Provide a name for the **application**.
 
@@ -434,7 +434,7 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
 **Example**: https://webapplication.trafficmanager.net/redirect.html 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z16.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z16.png)
 
 15. Click **Yes** under the **Native client** to include the native client URL as shown below.
 
@@ -442,17 +442,17 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 	
    com.onmicrosoft.**amsiot1.webapplication**://redirect/path 
    
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z17.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z17.png)
    
 16. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z18.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z18.png)
 
 17. After that, click **Create**. This web app is used for authenticating the Asset management user login/ registration.
 
 18. Select the application you created and note down the **Application ID**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z19.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z19.png)
 
 ### 5.2 Power BI Configuration
 
