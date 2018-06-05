@@ -538,7 +538,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iothub-oms.json','?token=AYpAeECdgFXzdHSkr4WhIYOFguGtPUvmks5bH5CDwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iothub-oms.json','?token=AYpAeL-eMuC8InHHw4LsKuW63lwSJnMPks5bH54ywA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
