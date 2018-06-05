@@ -101,7 +101,7 @@ Asset Monitoring and Tracking Solution is a complete smart inventory management 
 
 ## 2.1 Data Flow Architecture Diagram
 
-![alt text](https://github.com/sysgain/ams-iot/AmsWithExistingCertificates/images/2.jpg)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/2.jpg)
 
 ## 3 Azure Services
 
