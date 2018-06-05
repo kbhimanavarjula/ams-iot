@@ -817,9 +817,11 @@ with monitoring in solution type this value is optional             |           
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q8.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q9.png)
-
 **Parameters for core Hardening and core hardening with monitoring**
+
+**Note**: Deploy the template in the same Resource group in which you have created Key vault and Certificate
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q9.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q10.png)
 
@@ -829,7 +831,6 @@ with monitoring in solution type this value is optional             |           
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q13.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q14.png)
 
 8. Once all the parameters are entered, click the terms and conditions check box and click Purchase.
 
