@@ -407,18 +407,17 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 	
    com.onmicrosoft.**amsiot1. trafficmanagerapp:**//redirect/path
    
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z12.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z12.png)
    
 7. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z13.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z13.png)
 
 8. After that, click **Create**.
 
 9. Select the application you created and note down the **Application ID**.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z14.png)
-
 
 10. Again, click the **Applications** tab and click **Add** to create another application for web application.
 
@@ -442,7 +441,7 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 	
    com.onmicrosoft.**amsiot1.webapplication**://redirect/path 
    
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z17.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z17.png)
    
 16. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**.
 
@@ -452,7 +451,7 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
 18. Select the application you created and note down the **Application ID**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z19.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z19.png)
 
 ### 5.2 Power BI Configuration
 
