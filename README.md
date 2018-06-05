@@ -337,6 +337,8 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 2. **Click** on **+Add** (icon) in the Resource Group.
 
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/image%20(1).png)
+
 3. **Search** for **App Service Certificate** and **select** it to create a certificate.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z1.png)
