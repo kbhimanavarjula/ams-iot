@@ -827,7 +827,7 @@ If you want to deploy the core Hardening and core hardening with monitoring you 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q10.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q11.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q12.png)
 
