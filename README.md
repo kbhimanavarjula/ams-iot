@@ -339,44 +339,44 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 3. **Search** for **App Service Certificate** and **select** it to create a certificate.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z1.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z1.png)
 
 4. **Enter** a friendly **Name** for your **SSL certificate** and enter the **Traffic manager name** in the **Domain Host Name**. Use the existing Resource Group, Accept the Legal Terms and **click** on Create.
 
 **Note:** Make sure to enter **correct** host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with **WWW**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z2.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z2.png)
 
 5. Once the SSL Certificate purchase is complete.The certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificate. **Click** **Certificate Configuration** inside the Certificate Properties page.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z3.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z3.png)
 
 6. **Click** on **Step 1** Store to store this certificate in Azure Key Vault.From the Key Vault Status page, **click Key Vault Repository** to choose an existing Key Vault to store this certificate **OR** **Create New Key Vault** to create new Key Vault inside same subscription and resource group.
 
 7. Once you have selected the Key Vault Repository to store this certificate in, the Store option should show success.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z4.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z4.png)
 
 8. From the same **Certificate Configuration** page you used in **Step 5**, click Step 2: Verify. There are **four** types of domain verification supported by App Service Certificates: **App Service, Domain, Mail, and Manual Verification**. Choose **App Service**. **Click** on **Verify** button to complete this step.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z5.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z5.png)
 
 9. After clicking Verify, use the **Refresh** button until the Verify option should show success.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z6.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z6.png)
 
 10. Created certificates for **restserver** and **nodeserver** you will follow the above steps mentioned **webapp** for creating complete certification process.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z7.png)
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/Z8.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z7.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z8.png)
 
 1. Go to your newly created B2C Tenant.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c1.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z9.png)
 
 2. Click **Applications** and click **Add** on the left side to create a new application for traffic manager.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c2.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z10.png)
 
 3. Provide a name for the **application**. 
 
@@ -392,7 +392,7 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 **Example: https://webappiot.trafficmanager.net/redirect.html** 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c3.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z11.png)
 
 6. Click **Yes** under the **Native client** to include the native client URL as shown below.
 
@@ -400,22 +400,22 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 	
    com.onmicrosoft.**amsiot1. trafficmanagerapp:**//redirect/path
    
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c4.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z12.png)
    
 7. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c5.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z13.png)
 
 8. After that, click **Create**.
 
 9. Select the application you created and note down the **Application ID**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c6.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z14.png)
 
 
 10. Again, click the **Applications** tab and click **Add** to create another application for web application.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c7.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z15.png)
 
 11. Provide a name for the **application**.
 
@@ -427,7 +427,7 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 
 **Example**: https://webapplication.trafficmanager.net/redirect.html 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c8.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z16.png)
 
 15. Click **Yes** under the **Native client** to include the native client URL as shown below.
 
@@ -435,17 +435,17 @@ Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path
 	
    com.onmicrosoft.**amsiot1.webapplication**://redirect/path 
    
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c9.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z17.png)
    
 16. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c10.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z18.png)
 
 17. After that, click **Create**. This web app is used for authenticating the Asset management user login/ registration.
 
 18. Select the application you created and note down the **Application ID**.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/CostingSolution/images/c11.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsStandardTraffic/images/Z19.png)
 
 ### 5.2 Power BI Configuration
 
