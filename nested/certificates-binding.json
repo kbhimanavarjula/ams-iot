@@ -6,11 +6,13 @@
             "type": "object"
         }
     },
-    "variables": {},
+    "variables": {
+        "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]"
+    },
     "resources": [
         {
             "type": "Microsoft.Web/certificates",
-            "name": "webCertificate",
+            "name": "[concat('webCertificate',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocation]",
             "properties": {
@@ -21,7 +23,7 @@
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "apiCertificate",
+            "name": "[concat('apiCertificate',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocation]",
             "properties": {
@@ -32,7 +34,7 @@
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "nodeCetificate",
+            "name": "[concat('nodeCetificate',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocation]",
             "properties": {
@@ -43,7 +45,7 @@
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "webCertificateDr",
+            "name": "[concat('webCertificateDr',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
             "properties": {
@@ -54,7 +56,7 @@
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "apiCertificateDr",
+            "name": "[concat('apiCertificateDr',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
             "properties": {
@@ -65,7 +67,7 @@
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "nodeCertificateDr",
+            "name": "[concat('nodeCertificateDr',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
             "properties": {
