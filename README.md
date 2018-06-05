@@ -336,7 +336,35 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 #### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
 
-**5.1.2.1 Certificate creation for traffic manager**
+**5.1.2.1 Key vault and webapp certificate creation**
+
+If you want to deploy **core and hardening** and **core and hardening with monitoring** follow below steps:
+
+**5.1.2.1. Keyvault creation**
+
+1. Go to **Azure portal**.
+
+2. Navigate to **(+)** to Create a resource, search for **keyvault**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k1.png)
+
+3. Click **create**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k2.png)
+
+4. When you click on create you can see the below fields.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k3.png)
+
+5. Enter the all required fields and click on **create**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k4.png)
+
+6. Now you can see the created keyvault in your resource group.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k5.png)
+
+**5.1.2.2 Certificate creation for traffic manager**
 
 1. The Web App can be accessed with Traffic Manager URL but since the Traffic Manager has **http** protocol we have to redirect it to **https**. In order to redirect the http of Traffic Manager URL to https Configure an SSL Certificate for your Azure App Service.
 
