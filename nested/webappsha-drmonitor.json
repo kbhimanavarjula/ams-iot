@@ -195,7 +195,7 @@
                         "eventHub:ConnectionString": "[parameters('eventHub').eventhubConnectionString]",
                         "b2c:AadInstance": "[parameters('B2CVariables').b2cAadInstance]",
                         "b2c:Tenant": "[parameters('B2CVariables').b2cTenant]",
-                        "b2c:ClientId": "[parameters('B2CVariables').b2cClientIdDr]",
+                        "b2c:ClientId": "[parameters('B2CVariables').b2cClientId]",
                         "b2c:SignUpInPolicyId": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
                         "b2c:MobileTokenUrl": "[parameters('B2CVariables').MobileTokenURL]",
                         "b2c:MobileInstanceUrl": "[parameters('B2CVariables').MobileInstanceUrl]",
@@ -327,7 +327,7 @@
                     "properties": {
                         "restServer": "[concat('https://', parameters('trafficManagerSettings').trafficManagerName1,'.trafficmanager.net/')]",
                         "nodeserver": "[concat('https://', parameters('trafficManagerSettings').trafficManagerName2,'.trafficmanager.net/')]",
-                        "b2cApplicationId": "[parameters('B2CVariables').b2cClientIdDr]",
+                        "b2cApplicationId": "[parameters('B2CVariables').b2cClientId]",
                         "tenantName": "[parameters('B2CVariables').b2cTenant]",
                         "signInPolicyName": "[parameters('B2CVariables').b2cSignUpSignInPolicyId]",
                         "redirect_uri": "[concat(parameters('webApp').websiteFullAddress1,'#/dashboard')]",
