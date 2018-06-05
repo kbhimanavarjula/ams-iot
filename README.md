@@ -20,9 +20,9 @@
 - [5 Prerequisites for Deploying ARM Template](#5-prerequisites-for-deploying-arm-template)
    - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
     	    
-       - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2-or-3)
+       - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2)
 	    
-	   - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-application-in-azure-b2C-tenant-for-deployment-cost-type-4)
+	   - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-application-in-azure-b2C-tenant-for-deployment-cost-type-3-or-4)
 
     - [5.2 Power BI Configuration](#52-power-bi-configuration)
     - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
@@ -81,6 +81,7 @@
         - [10.1.1 Setting up Geo Replication for Cosmos DB](#1011-setting-up-geo-replication-for-cosmos-db)
          
 	    - [10.1.2 Setting up Geo Replication for SQL DB](#1012-setting-up-geo-replication-for-sql-db)
+    - [10.2 Traffic Manager](#102-traffic-manager)
 	
 ## 1 About Asset Monitoring Solution
 
@@ -331,7 +332,7 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 #### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
 
-#### 5.1.2.1 Certificate creation for traffic manager
+**5.1.2.1 Certificate creation for traffic manager**
 
 1. The Web App can be accessed with Traffic Manager URL but since the Traffic Manager has **http** protocol we have to redirect it to **https**. In order to redirect the http of Traffic Manager URL to https Configure an SSL Certificate for your Azure App Service.
 
@@ -1596,3 +1597,100 @@ To configure active geo-replication by using the Azure portal, you need the foll
 6. After Successful Failover You can go back and check your SQL Servers status.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/239.png)
+
+### 10.2 Traffic Manager
+
+**Traffic Manager**
+
+Traffic Manager is an Internet facing solution to load balance traffic between multiple service endpoints. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and cloud services. Traffic Manager utilizes DNS queries and a policy engine to direct traffic to Internet resources. The Internet resource can be located in a single datacenter or across the globe.
+
+**Traffic Manager routing methods**
+
+Traffic-routing methods determine how to route network traffic to the various service endpoints. Traffic Manager applies the traffic-routing method to each DNS query it receives. The traffic-routing method determines which endpoint returned in the DNS response.
+
+**There are four traffic routing methods available in Traffic Manager:**
+
+* **Priority**: Select Priority when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable. 
+
+  By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint.
+
+* **Weighted**: Select Weighted when you want to distribute traffic across a set of endpoints, either evenly or according to weights, which you define.
+
+  For each DNS query received, Traffic Manager randomly chooses an available endpoint. The probability of choosing an endpoint is based on the weights assigned to all available endpoints. Using the same weight across all endpoints results in an even traffic distribution.
+
+* **Performance**: Select Performance when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint in terms of the lowest network latency.
+
+* **Geographic**: Select Geographic so that users are directed to specific endpoints (Azure, External, or Nested) based on which geographic location their DNS query originates from. 
+  This empowers Traffic Manager customers to enable scenarios where knowing a user’s geographic region and routing them based on that is important.
+
+**Traffic Manager End Point Monitoring**
+
+* **Protocol**: Choose HTTP, HTTPS, or TCP as the protocol that Traffic Manager uses when probing your endpoint to check its health. HTTPS monitoring does not verify whether your SSL certificate is valid--it only checks that the certificate is present.
+
+* **Port**: Choose the port used for the request.
+
+* **Path**: This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. Providing this setting for the TCP monitoring protocol results in an error. For TCP protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash (/) is a valid entry for the relative path. This value implies that the file is in the root directory (default).
+
+* **Probing Interval**: This value specifies how often an endpoint is checked for its health from a Traffic Manager probing agent. You can specify two values here: 30 seconds (normal probing) and 10 seconds (fast probing). If no values are provided, the profile sets to a default value of 30 seconds. Visit the Traffic Manager Pricing page to learn more about fast probing pricing.
+
+* **Tolerated Number of Failures**: This value specifies how many failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Its value can range between 0 and 9. A value of 0 means a single monitoring failure can cause that endpoint to be marked as unhealthy. If no value is specified, it uses the default value of 3.
+
+* **Monitoring Timeout**: This property specifies the amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If the Probing Interval is set to 30 seconds, then you can set the Timeout value between 5 and 10 seconds. If no value is specified, it uses a default value of 10 seconds. If the Probing Interval is set to 10 seconds, then you can set the Timeout value between 5 and 9 seconds. If no Timeout value is specified, it uses a default value of 9 seconds.
+
+When both node server webapps in ON the result as follows.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m1.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m2.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m3.png)
+
+If one web app of node server is on and other is in off the result should be as follows.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m4.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m5.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m6.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m7.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m8.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m9.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m10.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m11.png)
+
+If one app of Api server is in ON and other should be off the result should be follows.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m12.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m13.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m14.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m15.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m16.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m17.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m18.png)
+
+When one web app is in on Other should be off result of webapp as follows.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m19.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m20.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m21.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m22.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m23.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m24.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m25.png)
