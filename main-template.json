@@ -192,27 +192,6 @@
             "metadata": {
                 "description": "Describes the keyvault secret name of webapp certificate if you select core solution or core solution with monitoring in solution type this value is optional"
             }
-        },
-        "webAppCertificatethumbPrint": {
-            "type": "string",
-            "defaultValue": "780E6E6A2D4EC1711E8DCDA8CE25B0979D6965AA",
-            "metadata": {
-                "description": "Describes the webapp certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional"
-            }
-        },
-        "apiServerCertificatethumbPrint": {
-            "type": "string",
-            "defaultValue": "0B0DC2F1490A0ECC4D574C52450EC6B9DB369C57",
-            "metadata": {
-                "description": "Describes the apiserver certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional"
-            }
-        },
-        "nodeServerCertificatethumbPrint": {
-            "type": "string",
-            "defaultValue": "B1E952AC324D370E2580119FE1CBF9C15A5DAD50",
-            "metadata": {
-                "description": "Describes the nodeserver certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional"
-            }
         }
     },
     "variables": {
@@ -394,10 +373,7 @@
             "nodeServerNameDr": "[concat('recoverynodeserver',variables('suffix'))]",
             "apiServerName": "[concat('apiserverams',variables('suffix'))]",
             "apiServerNameDr": "[concat('recoveryapiserver',variables('suffix'))]",
-            "apiVersion": "2016-03-01",
-            "thumbPrint1": "[parameters('webAppCertificatethumbPrint')]",
-            "thumbPrint2": "[parameters('apiServerCertificatethumbPrint')]",
-            "thumbPrint3": "[parameters('nodeServerCertificatethumbPrint')]"
+            "apiVersion": "2016-03-01"
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
