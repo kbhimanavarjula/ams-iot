@@ -799,19 +799,37 @@ with monitoring in solution type this value is optional             |           
 
 6. The Custom deployment page is displayed as shown in the following figure.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t6.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q1.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t7.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q2.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t8.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q3.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q5.png)
+
+**Parameters for core Solution with monitoring**
 
 7. Deploy the template by providing the parameters in custom deployment settings as shown in the following figure. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t9.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q6.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t10.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q7.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/t11.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q8.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q9.png)
+
+**Parameters for core Hardening and core hardening with monitoring**
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q10.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q11.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q12.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q13.png)
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q14.png)
 
 8. Once all the parameters are entered, click the terms and conditions check box and click Purchase.
 
