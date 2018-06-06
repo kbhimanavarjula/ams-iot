@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "certificatesSettings": {
+            "type": "object"
+        }
+    },
+    "variables": {
+        "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.CertificateRegistration/certificateOrders",
+            "name": "[parameters('certificatesSettings').webAppCertificateName]",
+            "apiVersion": "2015-08-01",
+            "location": "global",
+            "properties": {
+                "DistinguishedName": "[parameters('certificatesSettings').webAppDistinguishedName]",
+                "ValidityInYears": 1,
+                "ProductType": "[parameters('certificatesSettings').productType]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/domainOwnershipIdentifiers",
+            "name": "[concat(parameters('certificatesSettings').existingWebAppName, concat('/', parameters('certificatesSettings').webAppCertificateName))]",
+            "apiVersion": "2016-08-01",
+            "location": "[parameters('certificatesSettings').existingAppLocation]",
+            "dependsOn": [
+                "[resourceId('Microsoft.CertificateRegistration/certificateOrders', parameters('certificatesSettings').webAppCertificateName)]"
+            ],
+            "properties": {
+                "id": "[reference(resourceId('Microsoft.CertificateRegistration/certificateOrders', parameters('certificatesSettings').webAppCertificateName)).DomainVerificationToken]"
+            }
+        },
+        {
+            "type": "Microsoft.CertificateRegistration/certificateOrders/certificates",
+            "name": "[concat(parameters('certificatesSettings').webAppCertificateName, concat('/', parameters('certificatesSettings').webAppCertificateName))]",
+            "apiVersion": "2015-08-01",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.CertificateRegistration/certificateOrders', parameters('certificatesSettings').webAppCertificateName)]",
+                "[resourceId('Microsoft.Web/sites/domainOwnershipIdentifiers', parameters('certificatesSettings').existingWebAppName, parameters('certificatesSettings').webAppCertificateName)]"
+            ],
+            "properties": {
+                "keyVaultId": "[parameters('certificatesSettings').existingKeyVaultId]",
+                "keyVaultSecretName": "[parameters('certificatesSettings').webAppCertificateName]"
+            }
+        }
+    ]
+}
