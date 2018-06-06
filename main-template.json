@@ -168,7 +168,6 @@
         "keyVaultResourceGroup": {
             "type": "string",
             "defaultValue": "",
-            "minLength": 1,
             "metadata": {
                 "description": "Resource Group that contains the Key Vault"
             }
