@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "certificatesSettings": {
+            "type": "object"
+        }
+    },
+    "variables": {
+       
+    },
+    "resources": [
+        {
+            "type": "Microsoft.CertificateRegistration/certificateOrders",
+            "name": "[parameters('certificatesSettings').nodeServerCertificateName]",
+            "apiVersion": "2015-08-01",
+            "location": "global",
+            "properties": {
+                "DistinguishedName": "[parameters('certificatesSettings').nodeServerDistinguishedName]",
+                "ValidityInYears": 1,
+                "ProductType": "[parameters('certificatesSettings').productType]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/domainOwnershipIdentifiers",
+            "name": "[concat(parameters('certificatesSettings').existingNodeServerName, concat('/', parameters('certificatesSettings').nodeServerCertificateName))]",
+            "apiVersion": "2016-08-01",
+            "location": "[parameters('certificatesSettings').existingAppLocation]",
+            "dependsOn": [
+                "[resourceId('Microsoft.CertificateRegistration/certificateOrders', parameters('certificatesSettings').nodeServerCertificateName)]"
+            ],
+            "properties": {
+                "id": "[reference(resourceId('Microsoft.CertificateRegistration/certificateOrders', parameters('certificatesSettings').nodeServerCertificateName)).DomainVerificationToken]"
+            }
+        },
+        {
+            "type": "Microsoft.CertificateRegistration/certificateOrders/certificates",
+            "name": "[concat(parameters('certificatesSettings').nodeServerCertificateName, concat('/', parameters('certificatesSettings').nodeServerCertificateName))]",
+            "apiVersion": "2015-08-01",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.CertificateRegistration/certificateOrders', parameters('certificatesSettings').nodeServerCertificateName)]",
+                "[resourceId('Microsoft.Web/sites/domainOwnershipIdentifiers', parameters('certificatesSettings').existingNodeServerName, parameters('certificatesSettings').nodeServerCertificateName)]"
+            ],
+            "properties": {
+                "keyVaultId": "[parameters('certificatesSettings').existingKeyVaultId]",
+                "keyVaultSecretName": "[parameters('certificatesSettings').nodeServerCertificateName]"
+            }
+        }
+    ]
+}
