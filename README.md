@@ -1774,11 +1774,7 @@ We can view the live data in the webapp
 
 Similarly for the rest api ,we can failover to the secondary but still we can login to the webapp.
 
-In the following screenshots, The primary node server is turned off and we are able to see the data in the secondary node server logs
-
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m11.png)
-
-If one app of Api server is in ON and other should be off the result should be follows.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m12.png)
 
@@ -1794,7 +1790,7 @@ If one app of Api server is in ON and other should be off the result should be f
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m18.png)
 
-When one web app is in on Other should be off result of webapp as follows.
+Similarly,we can perform failover for the WebApplication by stopping the primary webapp as shown in the following screenshots.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/m19.png)
 
