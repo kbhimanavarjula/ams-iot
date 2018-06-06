@@ -167,7 +167,7 @@
         },
         "keyVaultResourceGroup": {
             "type": "string",
-            "defaultValue": "bbtestos6",
+            "defaultValue": "",
             "minLength": 1,
             "metadata": {
                 "description": "Resource Group that contains the Key Vault"
