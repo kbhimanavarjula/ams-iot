@@ -351,12 +351,22 @@
             "objectId": "[parameters('AdClientId')]"
         },
         "certificatesSettings": {
+            "apiVersion": "2016-03-01",
+            "existingAppLocation": "[variables('location')]",
+            "existingAppLocationDr": "[parameters('locationDr')]",
+            "hostingPlanName": "[variables('hostingPlan').hostingPlanName]",
+            "hostingPlanNameDr": "[variables('hostingPlan').hostingPlanNameDr]",
             "webAppCertificateName": "[parameters('webAppCertificateName')]",
             "apiServerCertificateName": "[parameters('apiServerCertificateName')]",
             "nodeServerCertificateName": "[parameters('nodeServerCertificateName')]",
             "productType": "StandardDomainValidatedSsl",
-            "existingKeyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
-            "existingAppLocation": "[variables('location')]",
+            "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
+            "webSiteName": "[parameters('webSiteName')]",
+            "webSiteNameDr": "[parameters('webSiteNameDr')]",
+            "nodeServerName": "[variables('nodeServer').nodeServerName]",
+            "nodeServerNameDr": "[variables('nodeServer').nodeServerNameDr]",
+            "apiServerName": "[variables('restServer').apiServerName]",
+            "apiServerNameDr": "[variables('restServer').apiServerNameDr]",
             "webAppRootHostname": "[concat(variables('trafficManagerSettings').trafficManagerName,'.trafficmanager.net')]",
             "apiServerRootHostname": "[concat(variables('trafficManagerSettings').trafficManagerName1,'.trafficmanager.net')]",
             "nodeServerRootHostname": "[concat(variables('trafficManagerSettings').trafficManagerName2,'.trafficmanager.net')]",
@@ -1169,6 +1179,29 @@
                     },
                     "nodeServer": {
                         "value": "[variables('nodeServer')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "certificateBinding",
+            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "certificatewebapp",
+                "certificateapiserver",
+                "certificatenodeserver"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/certificates-binding.json','?token=AYpAeC8lgJmolhn8Oi23vI0ZMRvGnDXpks5bIT-7wA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "certificatesSettings": {
+                        "value": "[variables('certificatesSettings')]"
                     }
                 }
             }
