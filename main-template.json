@@ -1132,7 +1132,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/certificates-binding.json','?token=AYpAeK_iVSVLq4eW3eFobdTml-Uf-v_Eks5bH9QnwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/certificates-binding.json','?token=AYpAeOY-PSB-vUT7uRKCeAA6ftQbsnLqks5bIK6ewA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
