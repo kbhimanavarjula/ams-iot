@@ -16,7 +16,7 @@
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocation]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName1]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanName)]"
             }
@@ -27,7 +27,7 @@
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocation]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName2]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanName)]"
             }
@@ -38,7 +38,7 @@
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocation]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName3]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanName)]"
             }
@@ -49,7 +49,7 @@
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName1]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanNameDr)]"
             }
@@ -60,7 +60,7 @@
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName2]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanNameDr)]"
             }
@@ -71,7 +71,7 @@
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName3]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanNameDr)]"
             }
