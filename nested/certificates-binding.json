@@ -6,70 +6,72 @@
             "type": "object"
         }
     },
-    "variables": {},
+    "variables": {
+        "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]"
+    },
     "resources": [
         {
             "type": "Microsoft.Web/certificates",
-            "name": "webCertificate",
+            "name": "[concat('webCertificate',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocation]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName1]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanName)]"
             }
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "apiCertificate",
+            "name": "[concat('apiCertificate',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocation]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName2]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanName)]"
             }
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "nodeCetificate",
+            "name": "[concat('nodeCetificate',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocation]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName3]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanName)]"
             }
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "webCertificateDr",
+            "name": "[concat('webCertificateDr',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName1]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanNameDr)]"
             }
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "apiCertificateDr",
+            "name": "[concat('apiCertificateDr',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName2]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanNameDr)]"
             }
         },
         {
             "type": "Microsoft.Web/certificates",
-            "name": "nodeCertificateDr",
+            "name": "[concat('nodeCertificateDr',variables('suffix'))]",
             "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
             "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
             "properties": {
-                "keyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('certifacatesBinding').keyVaultName)]",
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
                 "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName3]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanNameDr)]"
             }
@@ -84,7 +86,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint1]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'webCertificate')]"
+                "[resourceId('Microsoft.Web/certificates', concat('webCertificate',variables('suffix')))]"
             ]
         },
         {
@@ -97,7 +99,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint2]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'apiCertificate')]"
+                "[resourceId('Microsoft.Web/certificates', concat('apiCertificate',variables('suffix')))]"
             ]
         },
         {
@@ -110,7 +112,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint3]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'nodeCetificate')]"
+                "[resourceId('Microsoft.Web/certificates', concat('nodeCetificate',variables('suffix')))]"
             ]
         },
         {
@@ -123,7 +125,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint1]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'webCertificate')]"
+                "[resourceId('Microsoft.Web/certificates', concat('webCertificateDr',variables('suffix')))]"
             ]
         },
         {
@@ -136,7 +138,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint2]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'apiCertificateDr')]"
+                "[resourceId('Microsoft.Web/certificates', concat('apiCertificateDr',variables('suffix')))]"
             ]
         },
         {
@@ -149,7 +151,7 @@
                 "thumbprint": "[parameters('certifacatesBinding').thumbPrint3]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/certificates', 'nodeCertificateDr')]"
+                "[resourceId('Microsoft.Web/certificates', concat('nodeCertificateDr',variables('suffix')))]"
             ]
         }
     ]
