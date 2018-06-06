@@ -171,13 +171,6 @@
             "metadata": {
                 "description": "Existing Key Vault name with an access policy to allow Microsoft.Web RP to read Key Vault secrets"
             }
-        },
-        "objectId": {
-            "type": "string",
-            "defaultValue": "",
-            "metadata": {
-              "description": "for keyvault deployment specify the Object Id of the AD user. Get using Get-AzureRmADUser or Get-AzureRmADServicePrincipal cmdlets"
-            }
         }
     },
     "variables": {
@@ -343,7 +336,7 @@
         },
         "keyVaultSettings": {
             "keyVaultName": "[parameters('keyVaultName')]",
-            "tenantId": "[subscription().tenantId]",
+            "tenantId": "[parameters('AdTenantId')]",
             "skuName": "Standard",
             "enableVaultForDeployment": false,
             "enableVaultForDiskEncryption": false,
@@ -351,7 +344,7 @@
             "location": "[variables('location')]",
             "keysPermissions": ["list"],
             "secretsPermissions": ["list"],
-            "objectId": "[parameters('objectId')]"
+            "objectId": "[parameters('AdClientId')]"
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
