@@ -144,32 +144,32 @@
                 "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application"
             }
         },
-        "webSiteTrafficManagerName": {
-            "type": "string",
-            "defaultValue": "amstrafficmanag",
-            "metadata": {
-                "description": "Describes Web Site trafficmaanger name it should be same as the customdomain name prefix of certifacate of website if ypu select core solution or core solution with monitoring in solution type this value is optional"
-            }
-        },
-        "apiServerTrafficManagerName": {
-            "type": "string",
-            "defaultValue": "apitraffic",
-            "metadata": {
-                "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
-            }
-        },
-        "nodeServerTrafficManagerName": {
-            "type": "string",
-            "defaultValue": "nodetm",
-            "metadata": {
-                "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
-            }
-        },
         "keyVaultName": {
             "type": "string",
             "defaultValue": "keyvaultams",
             "metadata": {
                 "description": "Existing Key Vault name with an access policy to allow Microsoft.Web RP to read Key Vault secrets"
+            }
+        },
+        "webAppCertificateName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Name of the app service certificate for frontend webApp"
+            }
+        },
+        "apiServerCertificateName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Name of the app service certificate for apiserver"
+            }
+        },
+        "nodeServerCertificateName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Name of the app service certificate for nodeserver"
             }
         }
     },
@@ -214,7 +214,7 @@
         },
         "webApp": {
             "location": "[variables('location')]",
-            "webSiteName": "[parameters('webSiteTrafficManagerName')]",
+            "webSiteName": "[parameters('webSiteName')]",
             "webSiteNameDr": "[parameters('webSiteNameDr')]",
             "locationDr": "[parameters('locationDr')]",
             "WebAppPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/webapp_appins511.zip",
@@ -223,11 +223,11 @@
             "WebAppPackageURI2": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/WebApp_TM.zip",
             "WebAppPackageURI3": "https://projectiot.blob.core.windows.net/ams-iot/TrafficManagerCode/webapp_appinsTM.zip",
             "websiteFullAddress": "[concat('https://',parameters('webSiteName'),'.azurewebsites.net/')]",
-            "websiteFullAddress1": "[concat('https://',parameters('webSiteTrafficManagerName'),'.trafficmanager.net/')]"
+            "websiteFullAddress1": "[concat('https://','webapptraffic','.trafficmanager.net/')]"
         },
         "restServer": {
             "location": "[variables('location')]",
-            "apiServerName": "[parameters('apiServerTrafficManagerName')]",
+            "apiServerName": "[concat('apiserverams',variables('suffix'))]",
             "apiServerNameDr": "[concat('recoveryapiserverName',variables('suffix'))]",
             "locationDr": "[parameters('locationDr')]",
             "RESTServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/RestServer_appins511.zip",
@@ -248,7 +248,7 @@
         "nodeServer": {
             "location": "[variables('location')]",
             "locationDr": "[parameters('locationDr')]",
-            "nodeServerName": "[parameters('nodeServerTrafficManagerName')]",
+            "nodeServerName": "[concat('nodeserverams',variables('suffix'))]",
             "nodeServerNameDr": "[concat('recoverynodeserverName',variables('suffix'))]",
             "NodeServerPackageURI": "https://projectiot.blob.core.windows.net/ams-iot/webappsAppinsightsCode/node_appins419.zip",
             "NodeServerPackageURI1": "https://projectiot.blob.core.windows.net/ams-iot/AMSLatestcode/nodeserver419.zip",
@@ -318,10 +318,10 @@
         },
         "trafficManagerSettings": {
             "trafficManagerApiVersion": "2017-05-01",
-            "trafficManagerName": "[parameters('webSiteTrafficManagerName')]",
+            "trafficManagerName": "webapptraffic",
             "trafficRoutingMethod": "Priority",
-            "trafficManagerName1": "[parameters('apiServerTrafficManagerName')]",
-            "trafficManagerName2": "[parameters('nodeServerTrafficManagerName')]"
+            "trafficManagerName1": "apiservertraffic",
+            "trafficManagerName2": "nodeservertraffic"
         },
         "B2CVariables": {
             "b2cAadInstance": "https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}",
@@ -342,9 +342,30 @@
             "enableVaultForDiskEncryption": false,
             "enabledForTemplateDeployment": true,
             "location": "[variables('location')]",
-            "keysPermissions": ["list"],
-            "secretsPermissions": ["list"],
+            "keysPermissions": [
+                "list"
+            ],
+            "secretsPermissions": [
+                "list"
+            ],
             "objectId": "[parameters('AdClientId')]"
+        },
+        "certificatesSettings": {
+            "webAppCertificateName": "[parameters('webAppCertificateName')]",
+            "apiServerCertificateName": "[parameters('apiServerCertificateName')]",
+            "nodeServerCertificateName": "[parameters('nodeServerCertificateName')]",
+            "productType": "StandardDomainValidatedSsl",
+            "existingKeyVaultId": "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
+            "existingAppLocation": "[variables('location')]",
+            "webAppRootHostname": "[concat(variables('trafficManagerSettings').trafficManagerName,'.trafficmanager.net')]",
+            "apiServerRootHostname": "[concat(variables('trafficManagerSettings').trafficManagerName1,'.trafficmanager.net')]",
+            "nodeServerRootHostname": "[concat(variables('trafficManagerSettings').trafficManagerName2,'.trafficmanager.net')]",
+            "existingWebAppName": "[parameters('webSiteName')]",
+            "existingapiServerName": "[variables('restServer').apiServerName]",
+            "existingNodeServerName": "[variables('nodeServer').nodeServerName]",
+            "webAppDistinguishedName": "[concat('CN=', variables('trafficManagerSettings').trafficManagerName,'.trafficmanager.net')]",
+            "apiServerDistinguishedName": "[concat('CN=', variables('trafficManagerSettings').trafficManagerName1,'.trafficmanager.net')]",
+            "nodeServerDistinguishedName": "[concat('CN=', variables('trafficManagerSettings').trafficManagerName2,'.trafficmanager.net')]"
         },
         "DocDBAccountName": "[concat(toLower(variables('databaseAccountNamePrefix')),variables('suffix'))]",
         "databaseAccountNamePrefix": "docdb",
@@ -682,6 +703,75 @@
                 "parameters": {
                     "keyVaultSettings": {
                         "value": "[variables('keyVaultSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "certificatewebapp",
+            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "keyVaultCreate",
+                "TrafficManagerApps"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapp-certificate.json','?token=AYpAeH5cVDppJICWLYepOMb5XAMIXYnuks5bIOcuwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "certificatesSettings": {
+                        "value": "[variables('certificatesSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "certificateapiserver",
+            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "keyVaultCreate",
+                "TrafficManagerApps",
+                "certificatewebapp"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/apiserver-certificate.json','?token=AYpAeNiO5UbUEXnjAOFl5M6q3foKSOiRks5bIOcowA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "certificatesSettings": {
+                        "value": "[variables('certificatesSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "certificatenodeserver",
+            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "keyVaultCreate",
+                "TrafficManagerApps",
+                "certificatewebapp",
+                "certificateapiserver"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/nodeserver-certificate.json','?token=AYpAeB__udf9u9xuuff54H_jZSciqwzmks5bIOcvwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "certificatesSettings": {
+                        "value": "[variables('certificatesSettings')]"
                     }
                 }
             }
