@@ -165,6 +165,14 @@
                 "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
             }
         },
+        "keyVaultResourceGroup": {
+            "type": "string",
+            "defaultValue": "",
+            "minLength": 1,
+            "metadata": {
+                "description": "Resource Group that contains the Key Vault"
+            }
+        },
         "keyVaultName": {
             "type": "string",
             "defaultValue": "",
@@ -383,6 +391,7 @@
             "customHostname2": "[concat(parameters('apiServerTrafficManagerName'),'.trafficmanager.net')]",
             "customHostname3": "[concat(parameters('nodeServerTrafficManagerName'),'.trafficmanager.net')]",
             "keyVaultName": "[parameters('keyVaultName')]",
+            "keyVaultResourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('keyVaultResourceGroup'), '/providers/Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]",
             "hostingPlanName": "[concat('appSerPlan', variables('suffix'))]",
             "hostingPlanNameDr": "[concat('appSerPlanDr', variables('suffix'))]",
             "keyVaultSecretName1": "[parameters('keyVaultwebAppSecretName')]",
