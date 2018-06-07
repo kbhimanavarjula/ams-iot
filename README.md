@@ -20,9 +20,9 @@
 - [5 Prerequisites for Deploying ARM Template](#5-prerequisites-for-deploying-arm-template)
    - [5.1 Azure B2C Tenant Creation and Configuration](#51-azure-b2c-tenant-creation-and-configuration)
     	    
-       - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3](#511-create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-1-or-2)
+       - [5.1.1 Create an Application in Azure B2C Tenant for Deployment Solution Type 1. Core solution or 2. Core solution with monitoring](#511-create-an-application-in-azure-b2c-tenant-for-deployment-Solution-type-1-Core-solution-or-2-Core-solution-with-monitoring)
 	    
-	   - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4](#512-create-an-application-in-azure-b2C-tenant-for-deployment-cost-type-3-or-4)
+	   - [5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 3. core and hardening and 4. core and hardening with monitoring](#512-Create-an-application-in-azure-b2c-tenant-for-deployment-cost-type-3-core-and-hardening-and-4-core-and-hardening-with-monitoring)
 
     - [5.2 Power BI Configuration](#52-power-bi-configuration)
     - [5.3 Creating an Azure Service Principal](#53-creating-an-azure-service-principal)
@@ -294,7 +294,7 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 * If you want to **deploy Deployment Cost Type 4**, follow section **5.1.2.** to create the **Web Application**.
 
-#### 5.1.1 Create an Application in Azure B2C Tenant for Deployment Cost Type 1 or 2 or 3 
+#### 5.1.1 Create an Application in Azure B2C Tenant for Deployment Solution Type 1. Core solution or 2. Core solution with monitoring 
  
 1. Open **azure portal** -> **switch to created azure AD** -> Click the **Applications tab** and click **+Add** to create a new application. 
 
@@ -334,33 +334,117 @@ com.onmicrosoft.**amsiot1**.**webapp**://redirect/path
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/38.png)
 
-#### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 4 
+#### 5.1.2 Create an Application in Azure B2C Tenant for Deployment Cost Type 3. core and hardening and 4. core and hardening with monitoring 
+
+1. Go to **Azure portal** -> switch to newly **created B2C Tenant**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z9.png)
+
+2. Click **Applications** and click **Add** on the left side to create a new application for traffic manager.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z10.png)
+
+3. Provide a name for the **application** in the name field 
+
+4. Under the **Web APP / Web API** section, select **Yes** to provide the following two **Reply URLs** for your application. Add an entry in the Reply URLs section of the **B2C application** in the following format.
+
+*	https://<**Domain Host Name**>
+
+*	**http://localhost:65159/redirect.html** 
+
+5. During the web app registration with PowerBI, you will use this reply URL. 
+
+**Example: https://amstrafficmanag.trafficmanager.net/redirect.html** 
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z11.png)
+
+6. select **Yes** under the **Native client** to include the native client URL as shown below.
+
+Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path 
+	
+   **com.onmicrosoft.amsiot2.amstraffic://redirect/path**
+   
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z12.png)
+   
+7. Before clicking Create, note down the **website name, Reply URL’s and Custom Redirect URL**
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z13.png)
+
+8. Click **Create** button.
+
+9. Select the application you created and note down the **Application ID** as shown in the following figure.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z14.png)
+
+10. Again, click the **Applications** tab and click **Add** to create another application for web application.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z15.png)
+
+11. Provide a name for the **application** in the name field.
+
+12. Under the **Web APP/Web API** tab, click **Yes** to provide the two Reply URLs for your application. 
+
+13.Enter the same **Reply URL’s** that you have entered in previous web application. **The Reply URLs should be same for both application**. 
+
+14. During the web app registration with PowerBI, you will use this reply URL. 
+
+**Example**: https://webapplication.trafficmanager.net/redirect.html 
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z16.png)
+
+15. Select **Yes** under the **Native client** to include the native client URL as shown below.
+
+Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path  
+	
+   **com.onmicrosoft.amsiot2.amstrafficone://redirect/path** 
+   
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z17.png)
+   
+16. Before clicking Create button, note down the **website name, Reply URL’s and Custom Redirect URL**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z18.png)
+
+17. Click **Create** button. This web app is used for authenticating the Asset management user login/ registration.
+
+18. Select the application you created and note down the **Application ID**.
+
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z19.png)
 
 **5.1.2.1 Key vault and webapp certificate creation**
 
 If you want to deploy **core and hardening** and **core and hardening with monitoring** follow below steps:
 
-**5.1.2.1. Keyvault creation**
+**Keyvault creation**
 
 1. Go to **Azure portal**.
 
-2. Navigate to **(+)** to Create a resource, search for **keyvault**.
+2. Click **(+) Create a resource**, search for **keyvault** in search box.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k1.png)
 
-3. Click **create**.
+3. Click **Key Vault** from the displayed search results to open the **Key Vault page**.
+
+4. Click **create** button.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k2.png)
 
-4. When you click on create you can see the below fields.
+5. The **Create Key Vault page** is displayed as shown in the following figure.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k3.png)
 
-5. Enter the all required fields and click on **create**.
+6. Enter the **name** of the Key Vault in the **Name field**.
+
+7. Select the source subscription as EA subscription form the **Subscription** dropdown list.
+
+8. Select the appropriate option **(Create New or Use Existing)** for **Resource group**.
+
+9.	Select the location form the **Location** dropdown list and choose the applicable Pricing tier.
+
+10.	click **Create** button.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k4.png)
 
-6. Now you can see the created keyvault in your resource group.
+11.	After successful deployment the **Key Vault** is created.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/k5.png)
 
@@ -394,18 +478,21 @@ If you want to deploy **core and hardening** and **core and hardening with monit
 
 8. From the same **Certificate Configuration** page you used in **Step 5**, click Step 2: Verify. There are **four** types of domain verification supported by App Service Certificates: **App Service, Domain, Mail, and Manual Verification**. Choose **App Service**. **Click** on **Verify** button to complete this step.
 
+9.	Choose **App Service** Verification from the from the dropdown.
+
+10.	Click **Verify** button to complete this step.
+
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z5.png)
 
-9. After clicking Verify, use the **Refresh** button until the Verify option should show success.
+11. After clicking Verify, use the **Refresh** button until the Verify option should show success.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z6.png)
 
-10. Created certificates for **restserver** and **nodeserver** you will follow the above steps mentioned **webapp** for creating complete certification process.
+12. Created certificates for **restserver** and **nodeserver** you will follow the above steps mentioned **webapp** for creating complete certification process.
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z7.png)
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z8.png)
 
- 
 **Retrieving the web apps certificate secret name and thumbprint from keyvault**
 
 If you want to deploy the core and hardening and core and hardening with monitoring you should have the created three webapps certificate key vault secret names and certificate thumbprints.
@@ -458,81 +545,6 @@ If you want to deploy the core and hardening and core and hardening with monitor
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s13.png)
 
-1. Go to your newly created B2C Tenant.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z9.png)
-
-2. Click **Applications** and click **Add** on the left side to create a new application for traffic manager.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z10.png)
-
-3. Provide a name for the **application**. 
-
-4. Under the **Web APP/Web API** tab, click **Yes** to provide the following two redirect URLs for your application. Add an entry in the Redirect URLs section of the B2C application in the following format. 
-
-* https://<**Website Name**>.trafficmanager.net/redirect.html 
-	
-**Note: Website Name** should be different from **application name**. 
-
-* http://localhost:65159/redirect.html  
-
-5. During the web app registration with PowerBI, you will use this reply URL. 
-
-**Example: https://webappiot.trafficmanager.net/redirect.html** 
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z11.png)
-
-6. Click **Yes** under the **Native client** to include the native client URL as shown below.
-
-Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path 
-	
-   com.onmicrosoft.**amsiot1. trafficmanagerapp:**//redirect/path
-   
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z12.png)
-   
-7. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z13.png)
-
-8. After that, click **Create**.
-
-9. Select the application you created and note down the **Application ID**.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z14.png)
-
-10. Again, click the **Applications** tab and click **Add** to create another application for web application.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z15.png)
-
-11. Provide a name for the **application**.
-
-12. Under the **Web APP/Web API** tab, click **Yes** to provide the two Reply URLs for your application. 
-
-13.Enter the same **Reply URL’s** that you have entered in previous web application. **The Reply URLs should be same for both application**. 
-
-14. During the web app registration with PowerBI, you will use this reply URL. 
-
-**Example**: https://webapplication.trafficmanager.net/redirect.html 
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z16.png)
-
-15. Click **Yes** under the **Native client** to include the native client URL as shown below.
-
-Eg: com.onmicrosoft.<**tenant name**>.<**application name**>://redirect/path  
-	
-   com.onmicrosoft.**amsiot1.webapplication**://redirect/path 
-   
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z17.png)
-   
-16. Before clicking on Create, note down the **website name, Reply URL’s and Custom Redirect URL**.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/z18.png)
-
-17. After that, click **Create**. This web app is used for authenticating the Asset management user login/ registration.
-
-18. Select the application you created and note down the **Application ID**.
-
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/Z19.png)
 
 ### 5.2 Power BI Configuration
 
