@@ -318,7 +318,7 @@
         },
         "trafficManagerSettings": {
             "trafficManagerApiVersion": "2017-05-01",
-            "trafficManagerName": "webapptraffic",
+            "trafficManagerName": "[parameters('webSiteName')]",
             "trafficRoutingMethod": "Priority",
             "trafficManagerName1": "apiservertraffic",
             "trafficManagerName2": "nodeservertraffic"
