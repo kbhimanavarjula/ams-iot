@@ -513,54 +513,57 @@ If you want to deploy the **core & hardening** and **core & hardening with monit
 
 2. Click **Access policies** and then **click + Add new** as shown in the following figure.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s2.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w1.png)
 
-3. Search for the user in the **Select** box and click on the displayed user name
+3. Search for the user in the **Select** box and click on the displayed user name.
+
 4. Click the **Select** button.  
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s3.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w2.png)
 
 5. Select the appropriate **key permissions** from the dropdown list.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s4.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w3.png)
 
 6. Select **Secret permissions** and **Certificate permissions** form their respective dropdown lists.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s5.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w4.png)
 
 7. Click **OK** and then click **Save** the user is added as shown in the following figure.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s6.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w5.png)
 
 8. You can now go to the **Secrets** to view the secrets as shown in the following figure
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s7.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w6.png)
 
 9. Click on any of the secret name to view the key vault secret name of each certificate.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s8.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w7.png)
 
 10.	Note down the below Rest server certificate secret name to use later in ARM Template deployment.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s9.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w8.png)
 
 11.	Note down the below Node server certificate secret name to use later in ARM Template deployment.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s10.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w9.png)
 
 12.	Go to the **Resource Group** where you have deployed the Key Vault and Web App certificates to get the thumbprints of the certificates for template deployment.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s11.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w10.png)
 
 13.	Click **restapi certificate** there you can see the **thumbprint of certificate** as highlighted in the following figure. Note down the thumbprint.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s12.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w11.png)
 
 14.	Click **Node certificate** as highlighted in the following certificates page. 
 
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w12.png)
+
 15.	The thumbprint of **Node certificate** is displayed as highlighted in the following figure. Note down the thumbprint.
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/s13.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/w13.png)
 
 ### 5.2 Power BI Configuration
 
