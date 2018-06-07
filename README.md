@@ -252,6 +252,8 @@ Creating Azure AD B2C tenant is a one-time activity, if you have a B2C Tenant al
 
 8.	Once the B2C Tenant is created, Click **Directory and Subscription filter** on the top right to see your newly created tenant.
 
+**Note**: After Successful Creation of **B2C Tenant**, you have to **Refresh** the Azure portal once.
+
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/5.png)
 
 9.	Switch to your created tenant by clicking on it. Type **Azure** in search box and select **Azure AD B2C**.
@@ -607,7 +609,7 @@ h. The **Client id and secret key** will be generated. Note down these keys loca
 
 2. Go back to azure portal and navigate to **your Azure account** from **Azure B2C tenant** as shown below. 
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/pb.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/sysinc.png)
 
 3. Go to **Azure Active Directory** from Your Azure Account and click on the **App registrations** tab. Select the app you just created in **PowerBI**.
 
