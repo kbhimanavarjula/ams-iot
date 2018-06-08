@@ -844,7 +844,7 @@ with monitoring in solution type this value is optional             |           
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q5.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q6.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/at1.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q7.png)
 
@@ -858,7 +858,7 @@ If you want to deploy the core Hardening and core hardening with monitoring you 
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q9.png)
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q10.png)
+![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/at2.png)
 
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q.png)
 
