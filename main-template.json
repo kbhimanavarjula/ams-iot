@@ -157,28 +157,28 @@
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
+                "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "nodeServerTrafficManagerName": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if ypu select core solution or core solution with monitoring in solution type this value is optional"
+                "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of nodeserver if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "keyVaultResourceGroup": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Resource Group that contains the Key Vault"
+                "description": "Resource Group that contains the Key Vault if you select core solution or core solution with monitoring in solution type this value is optional"
             }
         },
         "keyVaultName": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Existing Key Vault name with an access policy to allow Microsoft.Web RP to read Key Vault secrets"
+                "description": "Existing Key Vault name with an access policy to allow Microsoft.Web RP to read Key Vault secrets if you select core solution or core solution with monitoring in solution type this value is optional"
             }
         },
         "keyVaultwebAppSecretName": {
@@ -192,14 +192,14 @@
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes the keyvault secret name of webapp certificate if you select core solution or core solution with monitoring in solution type this value is optional"
+                "description": "Describes the keyvault secret name of apiserver certificate if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "keyVaultNodeServerSecretName": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes the keyvault secret name of webapp certificate if you select core solution or core solution with monitoring in solution type this value is optional"
+                "description": "Describes the keyvault secret name of nodeserver certificate if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "webAppCertificatethumbPrint": {
@@ -213,14 +213,14 @@
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes the apiserver certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional"
+                "description": "Describes the apiserver certificate thumbprint if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "nodeServerCertificatethumbPrint": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes the nodeserver certificate thumbprint if you select core solution or core solution with monitoring in solution type this value is optional"
+                "description": "Describes the nodeserver certificate thumbprint if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         }
     },
@@ -1399,7 +1399,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/drha-outmonitorwebapps.json ','?token=AYpAePbY1Z1vH1l8pDu5ZCL5_7IWu1Iuks5bKipiwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/drha-outmonitorwebapps.json','?token=AYpAePbY1Z1vH1l8pDu5ZCL5_7IWu1Iuks5bKipiwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1734,7 +1734,7 @@
             "type": "string",
             "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
         },
-        "DocumentDBCollectionName": 
+        "DocumentDBCollectionName": {
             "type": "string",
             "value": "[variables('documentDB').DocDBSensorCollection]"
         },
