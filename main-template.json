@@ -28,7 +28,9 @@
                 "core solution",
                 "core solution with monitoring",
                 "core and hardening",
-                "core and hardening with monitoring"
+                "core and hardening with monitoring",
+                "Desaster Recovery",
+                "Desaster Recovery with monitoring"
             ],
             "metadata": {
                 "description": "1.core solution will launch the ams core components 2.core solution with monitoring will launch the core components with monitoring 3.core and hardening will launch the high availability solution 4.core and hardening with monitoring will launch the high avialabity solution with monitoring"
@@ -430,19 +432,19 @@
         "namespaceName": "[concat('namespace',uniqueString(resourceGroup().id))]",
         "defaultSASKeyName": "RootManageSharedAccessKey",
         "deploymentApiVersion": "2016-02-01",
-        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/AmsWithExistingCertificates/"
+        "baseUrl": "https://raw.githubusercontent.com/sysgain/ams-iot/AmshardeningNewSol/"
     },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDB",
-            "condition": "[or(equals(parameters('solutionType'),'core solution'), equals(parameters('solutionType'),'core solution with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'  ),'core solution'), equals(parameters('solutionType'),'core solution with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAeFwficW8n1UTXjMlAHxj8hO7qaFLks5bKN9KwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/doc-db.json','?token=AYpAePFJ6OWP3iD4Vnrvg6uGGVYTnp5cks5bKikCwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -461,7 +463,26 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeKqD-n1C8igPJKXZBIpxphTuFdHQks5bKOAywA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeJxswFKnEx7rIg2UOQF4jlTgICE6ks5bKikFwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments", 
+            "name": "DocumentDBGeoDr",
+            "condition": "[or(equals(parameters('solutionType'),'Desaster Recovery'), equals(parameters('solutionType'),'Desaster Recovery with monitoring'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-geo.json','?token=AYpAeJxswFKnEx7rIg2UOQF4jlTgICE6ks5bKikFwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -480,12 +501,56 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/storage-account.json','?token=AYpAeHPnsgA5yHaN_97HtlHhJaZWn3z2ks5bKOFcwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/storage-account.json','?token=AYpAePmEhck-mIPQXHYYRC695ZNG1tOhks5bKixbwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
                     "webJobStorage": {
                         "value": "[variables('webJobStorage')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "StorageSetupDr",
+            "condition": "[or(equals(parameters('solutionType'),'Desaster Recovery'), equals(parameters('solutionType'),'Desaster Recovery with monitoring'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/storage-account.json','?token=AYpAePmEhck-mIPQXHYYRC695ZNG1tOhks5bKixbwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DocumentDBOMSDr",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpaceDr",
+                "DocumentDBGeoDr"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeDp9OwezXjoYNIBneSs_nSSB-EnBks5bKikKwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
                     }
                 }
             }
@@ -503,7 +568,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeIGz4J8lLUeSyF4PPsH3wJi4ow6xks5bKOA1wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/docdb-oms.json','?token=AYpAeDp9OwezXjoYNIBneSs_nSSB-EnBks5bKikKwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -525,7 +590,26 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/oms-workspace.json','?token=AYpAeNk3qe4JA68ka0OUYeAo1S7y4M2aks5bKOBFwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/oms-workspace.json','?token=AYpAeAhubFWoXQ4pZbBb1PK-16V23vNgks5bKixJwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "OMSWorkSpaceDr",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/oms-workspace.json','?token=AYpAeAhubFWoXQ4pZbBb1PK-16V23vNgks5bKixJwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -546,7 +630,31 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iothub-oms.json','?token=AYpAeNmpXq8BKY36emypDOnG8KS_B7dzks5bKOBCwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iothub-oms.json','?token=AYpAeDnkZpfjrtcREz6PP3wifLE1m7HJks5bKipwwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "IotHubOMSDr",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpaceDr"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/iothub-oms.json','?token=AYpAeDnkZpfjrtcREz6PP3wifLE1m7HJks5bKipwwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -568,7 +676,26 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeF0Ne_B2AApzx7HGr7cwh06q-KFWks5bKOA-wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeMUepZschyWYxlUc8mJKnwvr0D0cks5bKipvwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "IotHubDr",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/iot-hub.json','?token=AYpAeMUepZschyWYxlUc8mJKnwvr0D0cks5bKipvwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -587,7 +714,26 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeGtChU6hq7SRJfoP4QgmdbIlDHk3ks5bKOA8wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeKgDaZoTo_WhWqzNOx8C9RkE1UAcks5bKipnwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "EventHubDr",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/eventhub.json','?token=AYpAeKgDaZoTo_WhWqzNOx8C9RkE1UAcks5bKipnwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -608,7 +754,31 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/event-huboms.json','?token=AYpAeAoM2IJOkPuhBPhnCVK1alX9OaW9ks5bKOA4wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-huboms.json','?token=AYpAeBgLOl5UsxmBDKaOdjs_47uex68Mks5bKiplwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "EventHubOMSDr",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpaceDr"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/event-huboms.json','?token=AYpAeBgLOl5UsxmBDKaOdjs_47uex68Mks5bKiplwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -632,7 +802,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeI1cKZMWWX1cXqPBOzeSxbGsERAxks5bKOBIwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sql-server.json','?token=AYpAeHcGWXFjt9lngI60vUwdGcEEbFXjks5bKipzwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -654,7 +824,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeLKVlFErTK6HvKxpHuAy88GybDQRks5bKOFawA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlserver-outmonitor.json','?token=AYpAeIBN8i_bfcx8HHArHkYrJsJaVwofks5bKixewA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -675,7 +845,31 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-monitor.json','?token=AYpAeAUnBi2BaVFlR4cr4RS2SqTNfdmyks5bKOBLwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-monitor.json','?token=AYpAePSSWQt1hstSX-OKv5xppS-LZIooks5bKip2wA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServerGeoOmsDr",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpaceDr"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-monitor.json','?token=AYpAePSSWQt1hstSX-OKv5xppS-LZIooks5bKip2wA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -697,7 +891,26 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-outmonitor.json','?token=AYpAeF9KcFKnX0aUxbP9f9gctSMAL2rUks5bKOFXwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-outmonitor.json','?token=AYpAeMDTYUufZ69GvBltPnNohEcSQ-9yks5bKixhwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "SqlServerGeoDr",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/sqlgeo-outmonitor.json','?token=AYpAeMDTYUufZ69GvBltPnNohEcSQ-9yks5bKixhwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -718,7 +931,28 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/app-insights.json','?token=AYpAeDM6q_L5L3vxAmUCJ8H5LnpIBsdLks5bKN9EwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/app-insights.json','?token=AYpAeDkYkzi4KP_hqGG-HOFpSIQdQunLks5bKijvwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "AppInsightsDr",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "OMSWorkSpace"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/app-insights.json','?token=AYpAeDkYkzi4KP_hqGG-HOFpSIQdQunLks5bKijvwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -742,7 +976,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeNOfDQ_7GQioBAsP8-9yMHxz-bCkks5bKOKDwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-outmonitor.json','?token=AYpAeMMczKkHmJmHYGslo8BeiSReeDkHks5bKixSwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -798,7 +1032,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeDUFQ3iVcMNnBTndZVsE5ZjxTXqiks5bKOIVwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webapps-monitor.json','?token=AYpAeCwqwhP8eiuZCM8WqTfzLqx2PQNXks5bKixUwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -859,7 +1093,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeKn1uAjfn-8BUPxyrcUseI774-0oks5bKOM8wA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-outmonitor.json','?token=AYpAeKaeXKS8skiNCuuXmHBt7L5hLHTiks5bKixLwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -919,7 +1153,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeF6eAsv1nTQxe1NDHXUyDxneeRKyks5bKOLSwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-monitor.json','?token=AYpAeAMldKZuxOb29j4QZRJ-vD8xlzMBks5bKixMwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -983,7 +1217,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeCJHeI7v9h4x7NgDmeF0MWZupH7aks5bKOLQwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-droutmonitor.json','?token=AYpAeB_3WXgeHDG6H6_q6MtRh2yWLY8qks5bKixOwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1043,7 +1277,255 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeBtTgdmUJ_5L3YskazycVTjh2s36ks5bKOLOwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/webappsha-drmonitor.json','?token=AYpAeIcCvFVBK2wDVdOhyjhjtu0k_W-Pks5bKixQwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    },
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DrWebappsoutmonitor",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DocumentDBGeoDr",
+                "IotHubDr",
+                "EventHubDr",
+                "SqlServerGeoDr",
+                "StorageSetupDr"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/ha-outmonitorwebapps.json','?token=AYpAeLsfYtIOhAnRYjWBEtxuQF-wA1ipks5bKiprwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DrWebappsoutmonitorha",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DocumentDBGeoDr",
+                "IotHubDr",
+                "EventHubDr",
+                "SqlServerGeoDr",
+                "StorageSetupDr"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/drha-outmonitorwebapps.json ','?token=AYpAePbY1Z1vH1l8pDu5ZCL5_7IWu1Iuks5bKipiwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DrWebappsmonitor",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "dependsOn": [
+                "DocumentDBOMSDr",
+                "DocumentDBGeoDr",
+                "IotHubOMSDr",
+                "EventHubOMSDr",
+                "SqlServerGeoOmsDr",
+                "OMSWorkSpaceDr",
+                "StorageSetupDr"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/ha-monitorwebapps.json ','?token=AYpAeL6uSxQ9CW5AGTA3WYNoNS9Dnlw3ks5bKipqwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appInsights": {
+                        "value": "[variables('appInsights')]"
+                    },
+                    "hostingPlan": {
+                        "value": "[variables('hostingPlan')]"
+                    },
+                    "restServer": {
+                        "value": "[variables('restServer')]"
+                    },
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "webJobStorage": {
+                        "value": "[variables('webJobStorage')]"
+                    },
+                    "iotHub": {
+                        "value": "[variables('iotHub')]"
+                    },
+                    "sqlServer": {
+                        "value": "[variables('sqlServer')]"
+                    },
+                    "eventHub": {
+                        "value": "[variables('eventHub')]"
+                    },
+                    "B2CVariables": {
+                        "value": "[variables('B2CVariables')]"
+                    },
+                    "documentDB": {
+                        "value": "[variables('documentDB')]"
+                    },
+                    "nodeServer": {
+                        "value": "[variables('nodeServer')]"
+                    },
+                    "omsSettings": {
+                        "value": "[variables('omsSettings')]"
+                    },
+                    "documentDBEndpoint": {
+                        "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "DrWebappsmonitorha",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "dependsOn": [
+                "DocumentDBOMSDr",
+                "DocumentDBGeoDr",
+                "IotHubOMSDr",
+                "EventHubOMSDr",
+                "SqlServerGeoOmsDr",
+                "OMSWorkSpaceDr",
+                "StorageSetupDr"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/drha-monitorwebapps.json ','?token=AYpAeLzsa42CglxMoXmpZremTJPGo4mPks5bKikMwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1106,7 +1588,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/traffic-manager.json','?token=AYpAeD8SgmExUkaMj-JQIiC8fV1Bv8IQks5bKOFewA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/traffic-manager.json','?token=AYpAeAHOqJq5asTA_fMvpwpZyxNg2eAXks5bKixYwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1127,6 +1609,33 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
+            "name": "TrafficManagerAppsDr",
+            "condition": "[or(equals(parameters('solutionType'),'Desaster Recovery'), equals(parameters('solutionType'),'Desaster Recovery with monitoring'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DrWebappsmonitorha",
+                "DrWebappsmonitor",
+                "DrWebappsoutmonitorha",
+                "DrWebappsoutmonitor"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/traffic-managerdr.json','?token=AYpAeCtX8oMI6OJhhCDm19Ooo2up12WEks5bKixWwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "webApp": {
+                        "value": "[variables('webApp')]"
+                    },
+                    "trafficManagerSettings": {
+                        "value": "[variables('trafficManagerSettings')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
             "name": "certificatesBinding",
             "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
@@ -1140,7 +1649,32 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/certificates-binding.json','?token=AYpAeHWAXtL5xQNf_xXIDQu4Ck47HO00ks5bKN9HwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/certificates-binding.json','?token=AYpAeKjic7hf8fjVbBx5NgXs-k5nRHYCks5bKikHwA%3D%3D')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "certifacatesBinding": {
+                        "value": "[variables('certifacatesBinding')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "name": "certificatesBindingDr",
+            "condition": "[or(equals(parameters('solutionType'),'Desaster Recovery'), equals(parameters('solutionType'),'Desaster Recovery with monitoring'))]",
+            "apiVersion": "[variables('deploymentApiVersion')]",
+            "dependsOn": [
+                "DrWebappsmonitorha",
+                "DrWebappsmonitor",
+                "DrWebappsoutmonitorha",
+                "DrWebappsoutmonitor",
+                "TrafficManagerAppsDr"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat(variables('baseUrl'), 'nested/drcertificate-binding.json','?token=AYpAePwA35Q6fNSGS5X65TGTBddO_kQ7ks5bKikLwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1200,7 +1734,7 @@
             "type": "string",
             "value": "[concat('https://',variables('documentDB').DocDBAccountName,'.documents.azure.com:443/')]"
         },
-        "DocumentDBCollectionName": {
+        "DocumentDBCollectionName": 
             "type": "string",
             "value": "[variables('documentDB').DocDBSensorCollection]"
         },
