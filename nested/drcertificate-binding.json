@@ -1,0 +1,62 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "certifacatesBinding": {
+            "type": "object"
+        }
+    },
+    "variables": {
+        "suffix": "[substring(uniqueString(resourceGroup().id), 0, 5)]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/certificates",
+            "name": "[concat('webCertificate',variables('suffix'))]",
+            "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
+            "location": "[parameters('certifacatesBinding').existingAppLocation]",
+            "properties": {
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
+                "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName1]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanName)]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/certificates",
+            "name": "[concat('webCertificateDr',variables('suffix'))]",
+            "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
+            "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
+            "properties": {
+                "keyVaultId": "[parameters('certifacatesBinding').keyVaultResourceid]",
+                "keyVaultSecretName": "[parameters('certifacatesBinding').keyVaultSecretName1]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('certifacatesBinding').hostingPlanNameDr)]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/hostnameBindings",
+            "name": "[concat(parameters('certifacatesBinding').webSiteName, '/', parameters('certifacatesBinding').customHostname)]",
+            "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
+            "location": "[parameters('certifacatesBinding').existingAppLocation]",
+            "properties": {
+                "sslState": "SniEnabled",
+                "thumbprint": "[parameters('certifacatesBinding').thumbPrint1]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/certificates', concat('webCertificate',variables('suffix')))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Web/sites/hostnameBindings",
+            "name": "[concat(parameters('certifacatesBinding').websiteNameDr, '/', parameters('certifacatesBinding').customHostname)]",
+            "apiVersion": "[parameters('certifacatesBinding').apiVersion]",
+            "location": "[parameters('certifacatesBinding').existingAppLocationDr]",
+            "properties": {
+                "sslState": "SniEnabled",
+                "thumbprint": "[parameters('certifacatesBinding').thumbPrint1]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/certificates', concat('webCertificateDr',variables('suffix')))]"
+            ]
+        }
+    ]
+}
