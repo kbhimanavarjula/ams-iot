@@ -114,7 +114,7 @@
                         "displayName": "RESTServerMSDeploy"
                     },
                     "properties": {
-                        "packageUri": "[parameters('restServer').RESTServerPackageURI2]"
+                        "packageUri": "[parameters('restServer').RESTServerPackageURI1]"
                     }
                 },
                 {
