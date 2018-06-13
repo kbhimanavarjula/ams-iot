@@ -1341,7 +1341,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/ha-outmonitorwebapps.json','?token=AYpAeLsfYtIOhAnRYjWBEtxuQF-wA1ipks5bKiprwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/ha-outmonitorwebapps.json','?token=AYpAeHvcGhgbUFuqVYqVKfTPsArfPwQzks5bKlPcwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1399,7 +1399,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/drha-outmonitorwebapps.json','?token=AYpAePbY1Z1vH1l8pDu5ZCL5_7IWu1Iuks5bKipiwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/drha-outmonitorwebapps.json','?token=AYpAeHfnvH3K5t7JB_qiEgoQzgoZ_6REks5bKlPgwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1459,7 +1459,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/ha-monitorwebapps.json ','?token=AYpAeL6uSxQ9CW5AGTA3WYNoNS9Dnlw3ks5bKipqwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/ha-monitorwebapps.json ','?token=AYpAeJ1e9Yvz9E83oXZc-L6zIdPPy7ijks5bKlPewA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -1525,7 +1525,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(variables('baseUrl'), 'nested/drha-monitorwebapps.json ','?token=AYpAeLzsa42CglxMoXmpZremTJPGo4mPks5bKikMwA%3D%3D')]",
+                    "uri": "[concat(variables('baseUrl'), 'nested/drha-monitorwebapps.json ','?token=AYpAeAgnSaLYMMMAt9IJFh02mEDAcOwDks5bKlQAwA%3D%3D')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
