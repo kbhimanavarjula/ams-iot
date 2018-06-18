@@ -1,0 +1,87 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westus2"
+        },
+        "solutionType": {
+            "value": "GEN-UNIQUE"
+        },
+        "locationDr": {
+            "value": "centralus"
+        },
+        "sqlAdministratorLogin": {
+            "value": "GEN-UNIQUE"
+        },
+        "sqlAdministratorLoginPassword": {
+            "value": "GEN-UNIQUE"
+        },
+        "webSiteName": {
+            "value": "GEN-UNIQUE"
+        },
+        "webSiteNameDr": {
+            "value": "GEN-UNIQUE"
+        },
+        "AdSubscriptionId": {
+            "value": "GEN-UNIQUE"
+        },
+        "AdTenantId": {
+            "value": "GEN-UNIQUE"
+        },
+        "AdClientId": {
+            "value": "GEN-UNIQUE"
+        },
+        "AdSecretKey": {
+            "value": "GEN-UNIQUE"
+        },
+        "b2cTenant": {
+            "value": "GEN-UNIQUE"
+        },
+        "b2cClientId": {
+            "value": "GEN-UNIQUE"
+        },
+        "b2cSignUpSignInPolicyId": {
+            "value": "GEN-UNIQUE"
+        },
+        "b2cNativeRedirectURL": {
+            "value": "GEN-UNIQUE"
+        },
+        "b2cNativeRedirectURLDr": {
+            "value": "GEN-UNIQUE"
+        },
+        "webSiteTrafficManagerName": {
+            "value": "GEN-UNIQUE"
+        },
+        "apiServerTrafficManagerName": {
+            "value": "GEN-UNIQUE"
+        },
+        "nodeServerTrafficManagerName": {
+            "value": "GEN-UNIQUE"
+        },
+        "keyVaultResourceGroup": {
+            "value": "GEN-UNIQUE"
+        },
+        "keyVaultName": {
+            "value": "GEN-UNIQUE"
+        },
+        "keyVaultwebAppSecretName": {
+            "value": "GEN-UNIQUE"
+        },
+        "keyVaultApiServerSecretName": {
+            "value": "GEN-UNIQUE"
+        },
+        "keyVaultNodeServerSecretName": {
+            "value": "GEN-UNIQUE"
+        },
+        "webAppCertificatethumbPrint": {
+            "value": "GEN-UNIQUE"
+        },
+        "apiServerCertificatethumbPrint": {
+            "value": "GEN-UNIQUE"
+        },
+        "nodeServerCertificatethumbPrint": {
+            "value": "GEN-UNIQUE"
+        }
+    }
+}
