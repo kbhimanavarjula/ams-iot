@@ -29,8 +29,8 @@
                 "core solution with monitoring",
                 "core and hardening",
                 "core and hardening with monitoring",
-                "Desaster Recovery",
-                "Desaster Recovery with monitoring"
+                "disaster Recovery",
+                "disaster Recovery with monitoring"
             ],
             "metadata": {
                 "description": "1.core solution will launch the ams core components 2.core solution with monitoring will launch the core components with monitoring 3.core and hardening will launch the high availability solution 4.core and hardening with monitoring will launch the high avialabity solution with monitoring"
@@ -52,7 +52,7 @@
                 "koreacentral"
             ],
             "metadata": {
-                "description": "if you select core and hardening or core and hardening with monitoring specify the desaster recovery region for webapps and azure sqlserver,cosmos Db desaster recovary it should be different of resource group region"
+                "description": "if you select core and hardening or core and hardening with monitoring specify the disaster recovery region for webapps and azure sqlserver,cosmos Db disaster recovary it should be different of resource group region"
             }
         },
         "sqlAdministratorLogin": {
@@ -476,7 +476,7 @@
         {
             "type": "Microsoft.Resources/deployments", 
             "name": "DocumentDBGeoDr",
-            "condition": "[or(equals(parameters('solutionType'),'Desaster Recovery'), equals(parameters('solutionType'),'Desaster Recovery with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'disaster Recovery'), equals(parameters('solutionType'),'disaster Recovery with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -514,7 +514,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "StorageSetupDr",
-            "condition": "[or(equals(parameters('solutionType'),'Desaster Recovery'), equals(parameters('solutionType'),'Desaster Recovery with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'disaster Recovery'), equals(parameters('solutionType'),'disaster Recovery with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -533,7 +533,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDBOMSDr",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpaceDr",
@@ -603,7 +603,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "OMSWorkSpaceDr",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -646,7 +646,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "IotHubOMSDr",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpaceDr"
@@ -689,7 +689,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "IotHubDr",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -727,7 +727,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "EventHubDr",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -770,7 +770,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "EventHubOMSDr",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpaceDr"
@@ -861,7 +861,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "SqlServerGeoOmsDr",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpaceDr"
@@ -904,7 +904,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "SqlServerGeoDr",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -944,7 +944,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "AppInsightsDr",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace"
@@ -1329,7 +1329,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DrWebappsoutmonitor",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DocumentDBGeoDr",
@@ -1387,7 +1387,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DrWebappsoutmonitorha",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DocumentDBGeoDr",
@@ -1446,7 +1446,7 @@
             "type": "Microsoft.Resources/deployments",
             "name": "DrWebappsmonitor",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
             "dependsOn": [
                 "DocumentDBOMSDr",
                 "DocumentDBGeoDr",
@@ -1512,7 +1512,7 @@
             "type": "Microsoft.Resources/deployments",
             "name": "DrWebappsmonitorha",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[equals(parameters('solutionType'),'Desaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
             "dependsOn": [
                 "DocumentDBOMSDr",
                 "DocumentDBGeoDr",
@@ -1610,7 +1610,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "TrafficManagerAppsDr",
-            "condition": "[or(equals(parameters('solutionType'),'Desaster Recovery'), equals(parameters('solutionType'),'Desaster Recovery with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'disaster Recovery'), equals(parameters('solutionType'),'disaster Recovery with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DrWebappsmonitorha",
@@ -1662,7 +1662,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "certificatesBindingDr",
-            "condition": "[or(equals(parameters('solutionType'),'Desaster Recovery'), equals(parameters('solutionType'),'Desaster Recovery with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'disaster Recovery'), equals(parameters('solutionType'),'disaster Recovery with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DrWebappsmonitorha",
