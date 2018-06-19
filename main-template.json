@@ -27,13 +27,13 @@
             "allowedValues": [
                 "core solution",
                 "core solution with monitoring",
+                "advanced hardening",
+                "advanced hardening with monitoring",
                 "core and hardening",
-                "core and hardening with monitoring",
-                "disaster Recovery",
-                "disaster Recovery with monitoring"
+                "core and hardening with monitoring"
             ],
             "metadata": {
-                "description": "1.core solution will launch the ams core components 2.core solution with monitoring will launch the core components with monitoring 3.core and hardening will launch the high availability solution 4.core and hardening with monitoring will launch the high avialabity solution with monitoring"
+                "description": "1.core solution will launch the ams core components 2.core solution with monitoring will launch the core components with monitoring 3.advanced hardening will launch the high availability solution 4.advanced hardening with monitoring will launch the high avialabity solution with monitoring"
             }
         },
         "locationDr": {
@@ -52,7 +52,7 @@
                 "koreacentral"
             ],
             "metadata": {
-                "description": "if you select core and hardening or core and hardening with monitoring specify the disaster recovery region for webapps and azure sqlserver,cosmos Db disaster recovary it should be different of resource group region"
+                "description": "if you select advanced hardening or advanced hardening with monitoring specify the core and hardening region for webapps and azure sqlserver,cosmos Db disaster recovary it should be different of resource group region"
             }
         },
         "sqlAdministratorLogin": {
@@ -143,7 +143,7 @@
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of disaster recovery web application"
+                "description": "if you select costing model 4 specify b2cNativeRedirectURL describes the B2C redirect URL for the Native Client of core and hardening web application"
             }
         },
         "webSiteTrafficManagerName": {
@@ -157,14 +157,14 @@
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
+                "description": "Describes apiserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of apiserver if you select advanced hardening or advanced hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "nodeServerTrafficManagerName": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of nodeserver if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
+                "description": "Describes nodeserver trafficmaanger name it should be same as the customdomain name prefix of certifacate of nodeserver if you select advanced hardening or advanced hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "keyVaultResourceGroup": {
@@ -192,14 +192,14 @@
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes the keyvault secret name of apiserver certificate if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
+                "description": "Describes the keyvault secret name of apiserver certificate if you select advanced hardening or advanced hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "keyVaultNodeServerSecretName": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes the keyvault secret name of nodeserver certificate if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
+                "description": "Describes the keyvault secret name of nodeserver certificate if you select advanced hardening or advanced hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "webAppCertificatethumbPrint": {
@@ -213,14 +213,14 @@
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes the apiserver certificate thumbprint if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
+                "description": "Describes the apiserver certificate thumbprint if you select advanced hardening or advanced hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         },
         "nodeServerCertificatethumbPrint": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Describes the nodeserver certificate thumbprint if you select core and hardening or core and hardening with monitoring in solution type you should enter this value otherwise this value is optional"
+                "description": "Describes the nodeserver certificate thumbprint if you select advanced hardening or advanced hardening with monitoring in solution type you should enter this value otherwise this value is optional"
             }
         }
     },
@@ -457,7 +457,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDBGeo",
-            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'advanced hardening'), equals(parameters('solutionType'),'advanced hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -476,7 +476,7 @@
         {
             "type": "Microsoft.Resources/deployments", 
             "name": "DocumentDBGeoDr",
-            "condition": "[or(equals(parameters('solutionType'),'disaster Recovery'), equals(parameters('solutionType'),'disaster Recovery with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -495,7 +495,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "StorageSetup",
-            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'advanced hardening'), equals(parameters('solutionType'),'advanced hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -514,7 +514,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "StorageSetupDr",
-            "condition": "[or(equals(parameters('solutionType'),'disaster Recovery'), equals(parameters('solutionType'),'disaster Recovery with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -533,7 +533,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDBOMSDr",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpaceDr",
@@ -558,7 +558,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DocumentDBOMS",
-            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'advanced hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace",
@@ -584,7 +584,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "OMSWorkSpace",
-            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'advanced hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -603,7 +603,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "OMSWorkSpaceDr",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -622,7 +622,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "IotHubOMS",
-            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'advanced hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace"
@@ -646,7 +646,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "IotHubOMSDr",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpaceDr"
@@ -670,7 +670,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "IotHub",
-            "condition": "[or(equals(parameters('solutionType'),'core solution'), equals(parameters('solutionType'),'core and hardening'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core solution'), equals(parameters('solutionType'),'advanced hardening'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -689,7 +689,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "IotHubDr",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -708,7 +708,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "EventHub",
-            "condition": "[or(equals(parameters('solutionType'),'core solution'), equals(parameters('solutionType'),'core and hardening'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core solution'), equals(parameters('solutionType'),'advanced hardening'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -727,7 +727,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "EventHubDr",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -746,7 +746,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "EventHubOMS",
-            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'advanced hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace"
@@ -770,7 +770,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "EventHubOMSDr",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpaceDr"
@@ -837,7 +837,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "SqlServerGeoOms",
-            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'advanced hardening with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace"
@@ -861,7 +861,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "SqlServerGeoOmsDr",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpaceDr"
@@ -885,7 +885,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "SqlServerGeo",
-            "condition": "[equals(parameters('solutionType'),'core and hardening')]",
+            "condition": "[equals(parameters('solutionType'),'advanced hardening')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -904,7 +904,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "SqlServerGeoDr",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [],
             "properties": {
@@ -923,7 +923,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "AppInsights",
-            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core solution with monitoring'), equals(parameters('solutionType'),'advanced hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace"
@@ -944,7 +944,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "AppInsightsDr",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "OMSWorkSpace"
@@ -1081,7 +1081,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "WebAppsOutMonitorha",
-            "condition": "[equals(parameters('solutionType'),'core and hardening')]",
+            "condition": "[equals(parameters('solutionType'),'advanced hardening')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DocumentDBGeo",
@@ -1140,7 +1140,7 @@
             "type": "Microsoft.Resources/deployments",
             "name": "WebAppsMonitorha",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'advanced hardening with monitoring')]",
             "dependsOn": [
                 "DocumentDBOMS",
                 "DocumentDBGeo",
@@ -1205,7 +1205,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "WebAppsDrOutMonitorha",
-            "condition": "[equals(parameters('solutionType'),'core and hardening')]",
+            "condition": "[equals(parameters('solutionType'),'advanced hardening')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DocumentDBGeo",
@@ -1264,7 +1264,7 @@
             "type": "Microsoft.Resources/deployments",
             "name": "WebAppsDrMonitorha",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'advanced hardening with monitoring')]",
             "dependsOn": [
                 "DocumentDBOMS",
                 "DocumentDBGeo",
@@ -1329,7 +1329,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DrWebappsoutmonitor",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DocumentDBGeoDr",
@@ -1387,7 +1387,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "DrWebappsoutmonitorha",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening')]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DocumentDBGeoDr",
@@ -1446,7 +1446,7 @@
             "type": "Microsoft.Resources/deployments",
             "name": "DrWebappsmonitor",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
             "dependsOn": [
                 "DocumentDBOMSDr",
                 "DocumentDBGeoDr",
@@ -1512,7 +1512,7 @@
             "type": "Microsoft.Resources/deployments",
             "name": "DrWebappsmonitorha",
             "apiVersion": "[variables('deploymentApiVersion')]",
-            "condition": "[equals(parameters('solutionType'),'disaster Recovery with monitoring')]",
+            "condition": "[equals(parameters('solutionType'),'core and hardening with monitoring')]",
             "dependsOn": [
                 "DocumentDBOMSDr",
                 "DocumentDBGeoDr",
@@ -1577,7 +1577,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "TrafficManagerApps",
-            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'advanced hardening'), equals(parameters('solutionType'),'advanced hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "WebAppsDrMonitorha",
@@ -1610,7 +1610,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "TrafficManagerAppsDr",
-            "condition": "[or(equals(parameters('solutionType'),'disaster Recovery'), equals(parameters('solutionType'),'disaster Recovery with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DrWebappsmonitorha",
@@ -1637,7 +1637,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "certificatesBinding",
-            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'advanced hardening'), equals(parameters('solutionType'),'advanced hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "WebAppsDrMonitorha",
@@ -1662,7 +1662,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "certificatesBindingDr",
-            "condition": "[or(equals(parameters('solutionType'),'disaster Recovery'), equals(parameters('solutionType'),'disaster Recovery with monitoring'))]",
+            "condition": "[or(equals(parameters('solutionType'),'core and hardening'), equals(parameters('solutionType'),'core and hardening with monitoring'))]",
             "apiVersion": "[variables('deploymentApiVersion')]",
             "dependsOn": [
                 "DrWebappsmonitorha",
