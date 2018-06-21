@@ -829,15 +829,15 @@ with monitoring in solution type this value is optional             |           
                     
 ## 7 Getting Started
 
-### 7.1 Deploying the ARM Template
+### 7.1 ARM Template Deployment
 
 1. Click below Git hub repo url.
 
 **https://github.com/sysgain/ams-iot.git**
 
-2. Select main-template from AmsWithExistingCertificates branch.
+2. Select **main-template.json** from **Amshardeningnewsol** branch as shown in the following figure..
 
-![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/tt.PNG)
+![alt text](https://github.com/sysgain/ams-iot/blob/AmshardeningNewSol/images/y6.png)
 
 3. Select Raw from the top right corner.
 
