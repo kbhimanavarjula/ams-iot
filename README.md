@@ -191,6 +191,41 @@ Below table describes the deployment costs per month for the solution.
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
+| **App Service Plan**    | S1:2 Cores(s), 3.5 GB RAM, 50GB Storage, US$ 0.200, 1 Instance                                                                                                                                                                                                                                                                                                                | PAYG                          | $146.00    
+| **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                                        | PAYG                          | $4.90   
+| **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.    | PAYG                          | $25.00   
+| **Event Hub**                                   | Standard, throughput units 2. Ingress 1 million events.                                 | PAYG                          | $43.83
+| **Cosmos DB**                                   | Standard, storage: 4 GB * US$ 0.250 per GB/month, Rus reserved: 8x100 RU/sec * US$ 0.008 per hous   | PAYG                    | $47.72 
+| **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                | PAYG                          | $80.30
+| **Storage Account**                 | Capacity 1GB=US$ 0.02, Redundancy=LRS                       | PAYG                      | $0.02
+| **Azure App Service Certificate**             | S1 Standard, 69.99 * 3 USD/YEAR                   | BYOL                      | $69.99
+| **Hardining(Geo-Replication+traffic manager)**       | TM:  3 * 2 External EndPoints US$ 0.54, Region: East US                               | PAYG                              | $1.08  
+|     |                                                        | **Estimated monthly cost**                              | **US$ 418.84** 
+
+**Deployment Costs for Type4 (Core Solution with Hardening and monitoring)**
+
+| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                                     
+| -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
+| **App Service Plan**    | S1:2 Cores(s), 3.5 GB RAM, 50GB Storage, US$ 0.200, 1 Instance                                                                    | PAYG                          | $146.00       
+| **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                                      | PAYG                          | $4.90     
+| **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.                 | PAYG                          | $25.00  
+| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83    
+| **Event Hub**                                   | Standard, throughput units 2,1MB/sec ingress events, 2MB/sec egress events.                                 | PAYG                          | $43.83 
+| **Cosmos DB**                                   | Standard, storage: 4 GB * US$ 0.250 per GB/month, Rus reserved: 8x100 RU/sec * US$ 0.008 per hour   | PAYG                          | $47.72 
+| **Stream Analytics**                            | Standard Streaming Unit, 1 Units * US$ 80.30                                                 | PAYG                          | $80.30
+| **Hardining(Geo-Replication+traffic manager)**         | TM:  3 * 2 External EndPoints US$ 0.54, Region: East US                              | PAYG                          | $3.24 
+| **Storage Account**                      | Capacity 1GB=US$ 0.02, Redundancy=LRS            | PAYG                               | $0.02
+| **Azure App Service Certificate**        | S1 Standard, 69.99 * 3 USD/YEAR          | BYOL             | $69.99
+| **Application Insights**             | Basic, 6 GB * US$ 2.30 (5GB of data is included for free per month. Region: East US.                            | PAYG                          | $2.30 
+| **OMS(Log Analytics)**    | Logs ingested 6VMs * 1 Average logs ingested per VM (in GB) , 5 GB of data is included for free. An average Azure VM ingests 1 GB to 3 GB of data per month. Region: East US)            | PAYG                          | $2.30    
+|                                  |                                     | **Estimated Cost**                                                  | **US$ 423.58**                           
+
+
+
+**Deployment Costs for Type5 (Core Solution with advanced Hardening)**
+
+| **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                               
+| -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
 | **App Service Plan**    | S1:2 Cores(s), 3.5 GB RAM, 50GB Storage, US$ 0.200, 1 Instance                                                                      | PAYG                          | $146.00    
 | **SQL Database**                                | B1 (Basic tier), 5DTUs, 2GB included storage per DB, US$ 0.0067/hour                                        | PAYG                          | $4.90   
 | **IoT HUB**                                     | S1(Standard), Unlimited devices, 400,000 msgs/day, US$ 25.00/month. 400,000 messages/day.    | PAYG                          | $25.00   
@@ -202,7 +237,7 @@ Below table describes the deployment costs per month for the solution.
 | **Hardining(Geo-Replication+traffic manager)**       | TM:  3 * 2 External EndPoints US$ 0.54, Region: East US                               | PAYG                              | $3.24  
 |     |                                                        | **Estimated monthly cost**                              | **US$ 560.98** 
 
-**Deployment Costs for Type4 (Core Solution with Monitoring and Hardening)**
+**Deployment Costs for Type4 (Core Solution with  advanced Hardening and monitoring)**
 
 | **Resource Name**                               | **Size**                                                                                                    | **Resource costing model**    | **Azure Cost/month**                                                                                                                     
 | -------------                                   | -------------                                                                                               | --------------------          | ------------                                                                                                             
@@ -851,8 +886,16 @@ with monitoring in solution type this value is optional             |           
 ![alt text](https://github.com/sysgain/ams-iot/raw/AmsWithExistingCertificates/images/q8.png)
 
 **Parameters for core Hardening and core hardening with monitoring**
+If you want to deploy the **core Hardening** and **core hardening with monitoring** you can enter the below parameters
+![alt text](https://github.com/sysgain/ams-iot/blob/AmshardeningNewSol/images/y1.png)
+![alt text](https://github.com/sysgain/ams-iot/blob/AmshardeningNewSol/images/y2.png)
+![alt text](https://github.com/sysgain/ams-iot/blob/AmshardeningNewSol/images/y3.png)
+![alt text](https://github.com/sysgain/ams-iot/blob/AmshardeningNewSol/images/y4.png)
+![alt text](https://github.com/sysgain/ams-iot/blob/AmshardeningNewSol/images/y5.png)
 
-If you want to deploy the core Hardening and core hardening with monitoring you can enter the below parameters
+**Parameters for core advanced Hardening and core advanced hardening with monitoring**
+
+If you want to deploy the core advanced Hardening and core advanced hardening with monitoring you can enter the below parameters
 
 **Note**: Deploy the template in the same Resource group in which you have created Key vault and Certificate.
 
